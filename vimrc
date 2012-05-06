@@ -103,18 +103,11 @@ set virtualedit=block
 " support for numbered/bullet lists
 set formatoptions+=n
 
-
 " Enable syntax highlighting
 syntax on
 
 " Color scheme
 colorscheme desert
-
-" Hide the toolbar in gvim
-set guioptions-=T
-
-" Set font in gvim
-set guifont=Menlo:h14
 
 " Trip trailing whitespace on save
 function! s:StripWhiteSpaces()
