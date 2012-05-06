@@ -1,5 +1,8 @@
-.DS_Store*
-ehthumbs.db
-Icon?
+.DS_Store
+Desktop.ini
+._*
 Thumbs.db
+.Spotlight-V100
+.Trashes
+$RECYCLE.BIN/
 
