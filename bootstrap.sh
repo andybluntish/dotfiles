@@ -29,7 +29,7 @@ rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --v
 for file in `ls ~/.init`; do
 
   # Skip files that begin with an underscore
-  if [[ $file =~ ^_.* ]]; then
+  if [[ $file =~ ^_.* ]] || [[ $file =~ \.old$ ]]; then
     continue
   fi
 
