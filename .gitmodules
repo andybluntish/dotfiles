@@ -1,0 +1,3 @@
+[submodule "janus/delimitmate"]
+	path = janus/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
