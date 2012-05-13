@@ -7,3 +7,6 @@
 [submodule "janus/better_css_syntax"]
 	path = janus/better_css_syntax
 	url = https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git
+[submodule "janus/searchcomplete"]
+	path = janus/searchcomplete
+	url = https://github.com/vim-scripts/SearchComplete.git
