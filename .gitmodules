@@ -13,3 +13,6 @@
 [submodule "janus/deletetrailingwhitespace"]
 	path = janus/deletetrailingwhitespace
 	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
+[submodule "janus/html5syntax"]
+	path = janus/html5syntax
+	url = https://github.com/othree/html5-syntax.vim.git
