@@ -23,7 +23,7 @@ if [ ! -d "~/.init" ]; then
 fi
 
 # Rsync files to ~/.init, excluding: git files, Readme, and this script.
-rsync --exclude `basename $0` --exclude ".DS_Store" --exclude ".git/" --exclude ".gitignore" --exclude "README.md" --archive --verbose --delete . ~/.init
+rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --verbose --delete . ~/.init
 
 # Loop through each file in ~/.init
 for file in `ls ~/.init`; do
