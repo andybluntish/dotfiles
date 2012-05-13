@@ -3,4 +3,3 @@ set guioptions-=T
 
 " Set font in gvim
 set guifont=Menlo:h14
-

@@ -22,7 +22,7 @@ if [ ! -d "~/.init" ]; then
   mkdir "~/.init"
 fi
 
-# Rsync files to ~/.init, excluding: git files, Readme, and this script.
+# Rsync files to ~/.init, excluding: hidden files, Readme, and this script.
 rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --verbose --delete . ~/.init
 
 # Loop through each file in ~/.init
