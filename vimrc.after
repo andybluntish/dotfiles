@@ -1,2 +1,6 @@
 " Color scheme
 colorscheme desert
+
+" Delete trailing whitespace automatically on save
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
