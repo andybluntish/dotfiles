@@ -1,3 +1,3 @@
 # Dotfiles
 
-Various personal dotfiles.
+Various personal dotfiles. Vim setup relies on [Janus](https://github.com/carlhuda/janus).
