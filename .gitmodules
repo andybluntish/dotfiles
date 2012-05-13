@@ -4,3 +4,6 @@
 [submodule "janus/closetag"]
 	path = janus/closetag
 	url = https://github.com/docunext/closetag.vim.git
+[submodule "janus/better_css_syntax"]
+	path = janus/better_css_syntax
+	url = https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git
