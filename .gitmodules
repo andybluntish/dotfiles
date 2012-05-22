@@ -1,6 +1,3 @@
-[submodule "janus/delimitmate"]
-  path = janus/delimitmate
-  url = https://github.com/Raimondi/delimitMate.git
 [submodule "janus/closetag"]
   path = janus/closetag
   url = https://github.com/docunext/closetag.vim.git
