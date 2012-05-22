@@ -1,18 +1,15 @@
 [submodule "janus/delimitmate"]
-	path = janus/delimitmate
-	url = https://github.com/Raimondi/delimitMate.git
+  path = janus/delimitmate
+  url = https://github.com/Raimondi/delimitMate.git
 [submodule "janus/closetag"]
-	path = janus/closetag
-	url = https://github.com/docunext/closetag.vim.git
-[submodule "janus/better_css_syntax"]
-	path = janus/better_css_syntax
-	url = https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git
+  path = janus/closetag
+  url = https://github.com/docunext/closetag.vim.git
 [submodule "janus/searchcomplete"]
-	path = janus/searchcomplete
-	url = https://github.com/vim-scripts/SearchComplete.git
+  path = janus/searchcomplete
+  url = https://github.com/vim-scripts/SearchComplete.git
 [submodule "janus/deletetrailingwhitespace"]
-	path = janus/deletetrailingwhitespace
-	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
+  path = janus/deletetrailingwhitespace
+  url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
 [submodule "janus/html5syntax"]
-	path = janus/html5syntax
-	url = https://github.com/othree/html5-syntax.vim.git
+  path = janus/html5syntax
+  url = https://github.com/othree/html5-syntax.vim.git
