@@ -1,9 +1,6 @@
 [submodule "janus/closetag"]
   path = janus/closetag
   url = https://github.com/docunext/closetag.vim.git
-[submodule "janus/searchcomplete"]
-  path = janus/searchcomplete
-  url = https://github.com/vim-scripts/SearchComplete.git
 [submodule "janus/deletetrailingwhitespace"]
   path = janus/deletetrailingwhitespace
   url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
