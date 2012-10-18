@@ -3,7 +3,7 @@
 
 
 # Paths
-export PATH="/usr/local/bin:/usr/local/share/python:$HOME/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/share/python:/usr/local/share/npm/bin:$HOME/bin:$PATH"
 export NODE_PATH="/usr/local/lib/node_modules"
 
 
