@@ -5,4 +5,4 @@ set guioptions-=T
 set guifont=Menlo:h14
 
 " Color scheme
-colorscheme molokai
+colorscheme jellybeans+
