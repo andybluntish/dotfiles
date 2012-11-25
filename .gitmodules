@@ -16,3 +16,6 @@
 [submodule "janus/vim-repeat"]
 	path = janus/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "janus/delimitMate"]
+	path = janus/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
