@@ -10,3 +10,6 @@
 [submodule "janus/html_annoyance"]
 	path = janus/html_annoyance
 	url = https://github.com/vim-scripts/html_annoyance.git
+[submodule "janus/css3-mod"]
+	path = janus/css3-mod
+	url = https://github.com/vim-scripts/css3-mod.git
