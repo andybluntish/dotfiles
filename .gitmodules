@@ -13,3 +13,6 @@
 [submodule "janus/css3-mod"]
 	path = janus/css3-mod
 	url = https://github.com/vim-scripts/css3-mod.git
+[submodule "janus/vim-repeat"]
+	path = janus/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
