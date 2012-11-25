@@ -7,3 +7,6 @@
 [submodule "janus/html5syntax"]
   path = janus/html5syntax
   url = https://github.com/othree/html5-syntax.vim.git
+[submodule "janus/html_annoyance"]
+	path = janus/html_annoyance
+	url = https://github.com/vim-scripts/html_annoyance.git
