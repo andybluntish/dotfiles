@@ -10,21 +10,24 @@ endif
 
 let g:colors_name = "Bespin"
 
+" UI
+hi LineNr  guifg=#71685d guibg=#211B18 gui=NONE
+hi VertSplit  guifg=#443c35 guibg=#191512 gui=NONE
+hi StatusLine  guifg=#baae9e guibg=#191512 gui=bold
+hi StatusLineNC  guifg=#baae9e guibg=#191512 gui=NONE
+
 hi Cursor  guifg=NONE guibg=#a7a7a7 gui=NONE
 hi Visual  guifg=NONE guibg=#4c4a49 gui=NONE
 hi CursorLine  guifg=NONE guibg=#2e2823 gui=NONE
 hi CursorColumn  guifg=NONE guibg=#2e2823 gui=NONE
-hi LineNr  guifg=#71685d guibg=#28211c gui=NONE
-hi VertSplit  guifg=#443c35 guibg=#443c35 gui=NONE
-hi MatchParen  guifg=#5ea6ea guibg=NONE gui=NONE
-hi StatusLine  guifg=#baae9e guibg=#443c35 gui=bold
-hi StatusLineNC  guifg=#baae9e guibg=#443c35 gui=NONE
+
 hi Pmenu  guifg=#937121 guibg=NONE gui=NONE
 hi PmenuSel  guifg=NONE guibg=#4c4a49 gui=NONE
 hi IncSearch  guifg=NONE guibg=#41434a gui=NONE
 hi Search  guifg=NONE guibg=#41434a gui=NONE
 hi Directory  guifg=#cf6a4c guibg=NONE gui=NONE
 hi Folded  guifg=#666666 guibg=#28211c gui=NONE
+hi MatchParen  guifg=#5ea6ea guibg=NONE gui=NONE
 
 hi Normal  guifg=#baae9e guibg=#28211c gui=NONE
 hi Boolean  guifg=#cf6a4c guibg=NONE gui=NONE
