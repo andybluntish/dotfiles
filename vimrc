@@ -1,6 +1,12 @@
 " Use Vim, not VI
 set nocompatible
 
+" Use tpope/pathogen to manage plugins
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
+
+
 " Use the OS clipboard (only if compiled with `+clipboard`)
 set clipboard=unnamed
 
