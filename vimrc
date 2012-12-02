@@ -109,7 +109,8 @@ set incsearch
 
 " Display extra whitespace
 set list
-set listchars=tab:»·,trail:·
+set listchars=tab:»·,trail:·,extends:>,precedes:<
+
 
 " Enable syntax highlighting
 syntax on
@@ -117,6 +118,7 @@ colorscheme desert
 
 " Start scrolling before the edges
 set scrolloff=3
+
 
 " Trip trailing whitespace on save
 function! s:StripWhiteSpaces()
@@ -129,3 +131,79 @@ endfunction
 
 autocmd BufWritePre * StripWhiteSpace
 command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
+
+
+" File Types
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
+au BufNewFile,BufRead *.json set ft=javascript
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
+au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
+
+
+" Map the arrow keys to be based on display lines, not physical lines
+map <Down> gj
+map <Up> gk
+
+if exists("g:enable_mvim_shift_arrow")
+  let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
+endif
+
+if has("gui_macvim") && has("gui_running")
+
+  " Map command-[ and command-] to indenting or outdenting
+  " while keeping the original selection in visual mode
+  vmap <D-]> >gv
+  vmap <D-[> <gv
+
+  nmap <D-]> >>
+  nmap <D-[> <<
+
+  omap <D-]> >>
+  omap <D-[> <<
+
+  imap <D-]> <Esc>>>i
+  imap <D-[> <Esc><<i
+
+  " Bubble single lines
+  nmap <D-Up> [e
+  nmap <D-Down> ]e
+  nmap <D-k> [e
+  nmap <D-j> ]e
+
+  " Bubble multiple lines
+  vmap <D-Up> [egv
+  vmap <D-Down> ]egv
+  vmap <D-k> [egv
+  vmap <D-j> ]egv
+
+else
+
+  " Map command-[ and command-] to indenting or outdenting
+  " while keeping the original selection in visual mode
+  vmap <A-]> >gv
+  vmap <A-[> <gv
+
+  nmap <A-]> >>
+  nmap <A-[> <<
+
+  omap <A-]> >>
+  omap <A-[> <<
+
+  imap <A-]> <Esc>>>i
+  imap <A-[> <Esc><<i
+
+  " Bubble single lines
+  nmap <C-Up> [e
+  nmap <C-Down> ]e
+  nmap <C-k> [e
+  nmap <C-j> ]e
+
+  " Bubble multiple lines
+  vmap <C-Up> [egv
+  vmap <C-Down> ]egv
+  vmap <C-k> [egv
+  vmap <C-j> ]egv
+
+endif
+
+
