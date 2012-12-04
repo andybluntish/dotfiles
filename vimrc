@@ -201,8 +201,24 @@ endif
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
+
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+
+
+" delimitMate
+
+" This option turns on/off the expansion of <CR>.
+let delimitMate_expand_cr = 1
+au FileType * let b:delimitMate_expand_cr = 1
+
+" This option turns on/off the expansion of <Space>.
+let delimitMate_expand_space = 1
+au FileType * let b:delimitMate_expand_space = 1
+
+" This option turns on/off the balancing of matching pairs.
+let delimitMate_balance_matchpairs = 1
+au FileType * let b:delimitMate_balance_matchpairs = 1
 
 
 
