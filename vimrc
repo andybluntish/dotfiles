@@ -1,3 +1,7 @@
+"""
+" Initial Setup
+"""
+
 " Use Vim, not VI
 set nocompatible
 
@@ -6,20 +10,18 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-
-" Use the OS clipboard (only if compiled with `+clipboard`)
-set clipboard=unnamed
-
-" Remember more commands and search patterns
-set history=1000
-set undolevels=1000
-
 " Optimize for fast terminal connections
 set ttyfast
+
+" turn off lazy redraw
+set nolazyredraw
 
 " Shhhhh...
 set noerrorbells
 set visualbell
+
+" Use the OS clipboard (if compiled with `+clipboard`)
+set clipboard=unnamed
 
 " Enable mouse in all modes
 set mouse=a
@@ -27,7 +29,7 @@ set mouse=a
 " Buffers can exist in the background
 set hidden
 
-" Tell us about changes
+" Tell us about file changes
 set report=0
 
 " Use UTF-8 without BOM
@@ -37,10 +39,35 @@ set encoding=utf-8 nobomb
 set binary
 set noeol
 
-" Completion
-set wildmenu
-set wildmode=list:longest,full
-set complete=.,w,t
+filetype plugin on
+filetype indent on
+
+
+
+"""
+" Backup Files
+"""
+
+" Don't use swap files
+set noswapfile
+set nobackup
+set nowritebackup
+
+
+
+"""
+" History
+"""
+
+" Remember more commands and search patterns
+set history=1000
+set undolevels=1000
+
+
+
+"""
+" Movement
+"""
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -49,14 +76,34 @@ set whichwrap+=<,>,h,l,[,]
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
 
-" Don't use swap files
-set noswapfile
-set nobackup
-set nowritebackup
+" Start scrolling before the edges
+set scrolloff=3
+
+" Allow Virtual Edit in visual block mode
+set virtualedit=block
+
+" support for numbered/bullet lists
+set formatoptions+=n
+
+
+
+"""
+" Display and Formatting
+"""
+
+" Show the filename in the window titlebar
+set title
 
 " Line Numbers
 set number
 set numberwidth=5
+
+" Highlight the current line
+set cursorline
+
+" Show matching brackets/braces
+set showmatch
+set mat=5
 
 " Status Line
 set laststatus=2
@@ -65,18 +112,25 @@ set ruler
 set showcmd
 set showmode
 
-" Show the filename in the window titlebar
-set title
+" Wrapping
+set nowrap
+set linebreak
 
-" Highlight the current line
-set cursorline
+" Display extra whitespace
+set list
+set listchars=tab:»·,trail:·,extends:>,precedes:<
 
-" turn off lazy redraw
-set nolazyredraw
+" Enable syntax highlighting
+syntax on
 
-" Indention
-set autoindent
-set smartindent
+" Set colorscheme
+colorscheme desert
+
+
+
+"""
+" Tabs and Indents
+"""
 
 " Tabs
 set tabstop=2
@@ -85,73 +139,98 @@ set softtabstop=2
 set expandtab
 set nosmarttab
 
-filetype plugin on
-filetype indent on
+" Indention
+set autoindent
+set smartindent
 
-" Show matching brackets/braces
-set showmatch
-set mat=5
 
-" Allow Virtual Edit in visual block mode
-set virtualedit=block
 
-" Wrapping
-set nowrap
-set linebreak
+"""
+" Completion
+"""
 
-" support for numbered/bullet lists
-set formatoptions+=n
+set wildmenu
+set wildmode=list:longest,full
+set complete=.,w,t
 
-" Search
+
+
+"""
+" Search and Highlighting
+"""
+
 set hlsearch
 set ignorecase
 set incsearch
 
-" Display extra whitespace
-set list
-set listchars=tab:»·,trail:·,extends:>,precedes:<
 
 
-" Enable syntax highlighting
-syntax on
-colorscheme desert
-
-" Start scrolling before the edges
-set scrolloff=3
-
+"""
+" Trim trailing whitespace
+"""
 
 " Trip trailing whitespace on save
 function! s:StripWhiteSpaces()
-    let save_cursor = getpos(".")
-    let old_query = getreg('/')
-    :%s/\s\+$//e
-    call setpos('.', save_cursor)
-    call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  :%s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfunction
 
 autocmd BufWritePre * StripWhiteSpace
 command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
 
 
-" File Types
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
-au BufNewFile,BufRead *.json set ft=javascript
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
-au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
+"""
+" File Types
+"""
+
+if has("autocmd")
+
+  " In Makefiles, use real tabs, not tabs expanded to spaces
+  au FileType make setlocal noexpandtab
+
+  " Set the Ruby filetype for a number of common Ruby files without .rb
+  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,config.ru,*.rake} set ft=ruby
+
+  " Make sure all mardown files have the correct filetype set and setup wrapping
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
+
+  " Treat JSON files like JavaScript
+  au BufNewFile,BufRead *.json set ft=javascript
+
+  " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
+  au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
+
+endif
+
+
+
+"""
+" Custom mappings
+"""
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
 
-if exists("g:enable_mvim_shift_arrow")
-  let macvim_hig_shift_movement = 1 " mvim shift-arrow-keys
+" Automatically resize splits when resizing MacVim window
+if has("gui_running") && has("autocmd")
+  autocmd VimResized * wincmd =
 endif
 
+" MacVim shift-arrow-keys
+if has("gui_macvim") && has("gui_running")
+  let macvim_hig_shift_movement = 1
+endif
+
+" Map command-[ and command-] to indenting or outdenting
+" while keeping the original selection in visual mode
+" in both MacVim and Terminal Vim
 if has("gui_macvim") && has("gui_running")
 
-  " Map command-[ and command-] to indenting or outdenting
-  " while keeping the original selection in visual mode
   vmap <D-]> >gv
   vmap <D-[> <gv
 
@@ -178,8 +257,6 @@ if has("gui_macvim") && has("gui_running")
 
 else
 
-  " Map command-[ and command-] to indenting or outdenting
-  " while keeping the original selection in visual mode
   vmap <A-]> >gv
   vmap <A-[> <gv
 
@@ -205,5 +282,3 @@ else
   vmap <C-j> ]egv
 
 endif
-
-
