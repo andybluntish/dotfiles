@@ -21,7 +21,7 @@ set noerrorbells
 set visualbell
 
 " Use the OS clipboard (if compiled with `+clipboard`)
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Enable mouse in all modes
 set mouse=a
