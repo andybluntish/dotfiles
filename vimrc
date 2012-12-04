@@ -221,6 +221,12 @@ let delimitMate_balance_matchpairs = 1
 au FileType * let b:delimitMate_balance_matchpairs = 1
 
 
+" CTRL-P
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
+  \ }
+
 
 """
 " Custom mappings
