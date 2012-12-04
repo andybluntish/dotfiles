@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-node.js"]
 	path = vim/bundle/vim-node.js
 	url = https://github.com/mmalecki/vim-node.js.git
+[submodule "vim/bundle/vim-ruby-minitest"]
+	path = vim/bundle/vim-ruby-minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
