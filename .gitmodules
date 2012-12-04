@@ -43,3 +43,6 @@
 [submodule "vim/bundle/html_annoyance"]
 	path = vim/bundle/html_annoyance
 	url = https://github.com/vim-scripts/html_annoyance.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
