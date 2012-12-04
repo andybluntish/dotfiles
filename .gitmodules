@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-cucumber"]
 	path = vim/bundle/vim-cucumber
 	url = https://github.com/tpope/vim-cucumber.git
+[submodule "vim/bundle/csv.vim"]
+	path = vim/bundle/csv.vim
+	url = https://github.com/vim-scripts/csv.vim.git
