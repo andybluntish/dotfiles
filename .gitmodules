@@ -37,3 +37,6 @@
 [submodule "vim/bundle/closetag.vim"]
 	path = vim/bundle/closetag.vim
 	url = https://github.com/docunext/closetag.vim.git
+[submodule "vim/bundle/html5-syntax.vim"]
+	path = vim/bundle/html5-syntax.vim
+	url = https://github.com/othree/html5-syntax.vim.git
