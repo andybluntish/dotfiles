@@ -34,3 +34,6 @@
 [submodule "vim/bundle/css3-mod"]
 	path = vim/bundle/css3-mod
 	url = https://github.com/vim-scripts/css3-mod.git
+[submodule "vim/bundle/closetag.vim"]
+	path = vim/bundle/closetag.vim
+	url = https://github.com/docunext/closetag.vim.git
