@@ -153,6 +153,9 @@ set wildmenu
 set wildmode=list:longest,full
 set complete=.,w,t
 
+" Turn on omni-complete
+set omnifunc=syntaxcomplete#Complete
+
 
 
 """
