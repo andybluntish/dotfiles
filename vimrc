@@ -201,6 +201,9 @@ endif
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+
 
 
 """
