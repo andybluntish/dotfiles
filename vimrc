@@ -166,24 +166,6 @@ set incsearch
 
 
 """
-" Trim trailing whitespace
-"""
-
-" Trip trailing whitespace on save
-function! s:StripWhiteSpaces()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  :%s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
-endfunction
-
-autocmd BufWritePre * StripWhiteSpace
-command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
-
-
-
-"""
 " File Types
 """
 
@@ -205,6 +187,16 @@ if has("autocmd")
   au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
 endif
+
+
+
+"""
+" Plugins
+"""
+
+" DeleteTrailingWhitespace (automatically on save)
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
 
 
 

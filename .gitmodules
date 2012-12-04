@@ -28,3 +28,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/DeleteTrailingWhitespace"]
+	path = vim/bundle/DeleteTrailingWhitespace
+	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
