@@ -40,3 +40,6 @@
 [submodule "vim/bundle/html5-syntax.vim"]
 	path = vim/bundle/html5-syntax.vim
 	url = https://github.com/othree/html5-syntax.vim.git
+[submodule "vim/bundle/html_annoyance"]
+	path = vim/bundle/html_annoyance
+	url = https://github.com/vim-scripts/html_annoyance.git
