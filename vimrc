@@ -232,6 +232,12 @@ let g:ctrlp_custom_ignore = {
 map <leader>tb :TagbarToggle<CR>
 
 
+" Syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=0
+let g:syntastic_auto_loc_list=2
+
+
 " NERDCommenter
 if has("gui_macvim") && has("gui_running")
   map <D-/> <plug>NERDCommenterToggle<CR>
