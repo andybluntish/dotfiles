@@ -120,6 +120,9 @@ set linebreak
 set list
 set listchars=tab:»·,trail:·,extends:>,precedes:<
 
+" Enable soft-wrapping for text files
+autocmd filetype text,markdown setlocal wrap
+
 " Enable syntax highlighting
 syntax on
 
