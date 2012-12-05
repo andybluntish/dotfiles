@@ -228,6 +228,11 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 
+" Tagbar
+map <leader>tb :TagbarToggle<CR>
+
+
+
 """
 " Custom mappings
 """
