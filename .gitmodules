@@ -100,3 +100,6 @@
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/nredtree"]
+	path = vim/bundle/nredtree
+	url = https://github.com/scrooloose/nerdtree.git
