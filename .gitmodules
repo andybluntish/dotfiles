@@ -118,3 +118,15 @@
 [submodule "vim/bundle/snipmate-snippets"]
 	path = vim/bundle/snipmate-snippets
 	url = https://github.com/honza/snipmate-snippets.git
+[submodule "vim/bundle/jellybeans.vim"]
+	path = vim/bundle/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "vim/bundle/vim-irblack"]
+	path = vim/bundle/vim-irblack
+	url = https://github.com/wgibbs/vim-irblack.git
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = https://github.com/vim-scripts/molokai.git
+[submodule "vim/bundle/vim-color-github"]
+	path = vim/bundle/vim-color-github
+	url = https://github.com/telamon/vim-color-github.git
