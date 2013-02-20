@@ -49,3 +49,9 @@ function parse_git_branch() {
 
 # Prompt
 PS1="\[${COLOR_RED}\]\u\[$COLOR_WHITE\]@\[$COLOR_CYAN\]\h\[$COLOR_WHITE\]: \[$COLOR_GREEN\]\w\[$COLOR_WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" → \")\[$COLOR_MAGENTA\]\$(parse_git_branch)\[$COLOR_WHITE\] \$ \[$COLOR_RESET\]"
+
+
+
+# Quick way to rebuild the Launch Services database and get rid
+# of duplicates in the Open With submenu.
+alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
