@@ -1,1 +1,32 @@
+" Colour scheme
 color desert
+
+
+" Highlight the current line
+set cursorline
+
+
+" Delete trailing whitespace automatically on save
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
+
+
+" Turn on omni-complete and setup SuperTab to envoke it
+set omnifunc=syntaxcomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
+
+" delimitMate
+
+" This option turns on/off the expansion of <CR>.
+let delimitMate_expand_cr = 1
+au FileType * let b:delimitMate_expand_cr = 1
+
+" This option turns on/off the expansion of <Space>.
+let delimitMate_expand_space = 1
+au FileType * let b:delimitMate_expand_space = 1
+
+" This option turns on/off the balancing of matching pairs.
+let delimitMate_balance_matchpairs = 1
+au FileType * let b:delimitMate_balance_matchpairs = 1
