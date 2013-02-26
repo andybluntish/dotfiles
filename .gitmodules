@@ -1,0 +1,18 @@
+[submodule "janus/html_annoyance"]
+	path = janus/html_annoyance
+	url = https://github.com/vim-scripts/html_annoyance.git
+[submodule "janus/html5-syntax.vim"]
+	path = janus/html5-syntax.vim
+	url = https://github.com/othree/html5-syntax.vim.git
+[submodule "janus/delimitMate"]
+	path = janus/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule "janus/DeleteTrailingWhitespace"]
+	path = janus/DeleteTrailingWhitespace
+	url = https://github.com/vim-scripts/DeleteTrailingWhitespace.git
+[submodule "janus/css3-mod"]
+	path = janus/css3-mod
+	url = https://github.com/vim-scripts/css3-mod.git
+[submodule "janus/closetag.vim"]
+	path = janus/closetag.vim
+	url = https://github.com/docunext/closetag.vim.git
