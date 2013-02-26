@@ -5,4 +5,4 @@ set guioptions-=T
 set guifont=Menlo:h14
 
 " Color scheme
-color molokai
+color Tomorrow-Night
