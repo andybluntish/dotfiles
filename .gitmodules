@@ -16,3 +16,6 @@
 [submodule "janus/closetag.vim"]
 	path = janus/closetag.vim
 	url = https://github.com/docunext/closetag.vim.git
+[submodule "janus/vim-gitgutter"]
+	path = janus/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
