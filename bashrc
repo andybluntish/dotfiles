@@ -55,3 +55,10 @@ PS1="\[${COLOR_RED}\]\u\[$COLOR_WHITE\]@\[$COLOR_CYAN\]\h\[$COLOR_WHITE\]: \[$CO
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+
+
+# Base64 encode a file for use in CSS
+function cssBase64() {
+  echo "url(data:$(file -b --mime-type $1);base64,$(openssl base64 < $1 | tr -d '\n'))" | pbcopy
+}
