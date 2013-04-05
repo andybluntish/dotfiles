@@ -48,7 +48,7 @@ function parse_git_branch() {
 }
 
 # Prompt
-PS1="\[${COLOR_RED}\]\u\[$COLOR_WHITE\]@\[$COLOR_CYAN\]\h\[$COLOR_WHITE\]: \[$COLOR_GREEN\]\w\[$COLOR_WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" → \")\[$COLOR_MAGENTA\]\$(parse_git_branch)\[$COLOR_WHITE\] \$ \[$COLOR_RESET\]"
+PS1="\[${COLOR_RED}\]\u\[$COLOR_WHITE\]@\[$COLOR_CYAN\]\h\[$COLOR_WHITE\]: \[$COLOR_GREEN\]\w\[$COLOR_WHITE\]\$( [[ \$(parse_git_branch) ]] && echo \" → \")\[$COLOR_MAGENTA\]\$(parse_git_branch)\[$COLOR_WHITE\] \$ \[$COLOR_RESET\]"
 
 
 
