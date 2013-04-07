@@ -1,23 +1,14 @@
 # Load RVM
 "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-
 # Paths
 export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/python:$(brew --prefix)/share/npm/bin:$PATH"
-
 
 # Default Editor
 export EDITOR="mvim -fv"
 
-
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
-
-
-# Show/hide hidden files in Finder
-alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
-
 
 # Homebrew bash-completion
 # https://github.com/mxcl/homebrew
@@ -26,18 +17,24 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-
 # Prompt
-export COLOR_RESET="\033[m"
-export COLOR_BOLD="\033[1m"
-export COLOR_BLACK="\033[30m"
-export COLOR_RED="\033[31m"
-export COLOR_GREEN="\033[32m"
-export COLOR_YELLOW="\033[33m"
-export COLOR_BLUE="\033[34m"
-export COLOR_MAGENTA="\033[35m"
-export COLOR_CYAN="\033[36m"
-export COLOR_WHITE="\033[37m"
+COLOR_RESET="\[\033[0m\]"
+LIGHT_WHITE="\[\033[1;37m\]"
+WHITE="\[\033[0;37m\]"
+GRAY="\[\033[1;30m\]"
+BLACK="\[\033[0;30m\]"
+RED="\[\033[0;31m\]"
+LIGHT_RED="\[\033[1;31m\]"
+GREEN="\[\033[0;32m\]"
+LIGHT_GREEN="\[\033[1;32m\]"
+YELLOW="\[\033[0;33m\]"
+LIGHT_YELLOW="\[\033[1;33m\]"
+BLUE="\[\033[0;34m\]"
+LIGHT_BLUE="\[\033[1;34m\]"
+MAGENTA="\[\033[0;35m\]"
+LIGHT_MAGENTA="\[\033[1;35m\]"
+CYAN="\[\033[0;36m\]"
+LIGHT_CYAN="\[\033[1;36m\]"
 
 # Parse Git branch
 function parse_git_dirty() {
@@ -48,15 +45,15 @@ function parse_git_branch() {
 }
 
 # Prompt
-#PS1="\[${COLOR_RED}\]\u\[$COLOR_WHITE\]@\[$COLOR_CYAN\]\h\[$COLOR_WHITE\]: \[$COLOR_GREEN\]\w\[$COLOR_WHITE\]\$( [[ \$(parse_git_branch) ]] && echo \" → \")\[$COLOR_MAGENTA\]\$(parse_git_branch)\[$COLOR_WHITE\] \$ \[$COLOR_RESET\]"
-PS1="\[$COLOR_GREEN\]\w\[$COLOR_WHITE\]\$( [[ \$(parse_git_branch) ]] && echo \" → \")\[$COLOR_MAGENTA\]\$(parse_git_branch)\[$COLOR_RESET\] 🍔  "
+PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} 🍔  "
 
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
-
-
 
 # Base64 encode a file for use in CSS
 function cssBase64() {
