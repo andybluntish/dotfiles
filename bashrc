@@ -1,3 +1,6 @@
+# rbenv
+eval "$(rbenv init -)"
+
 # Paths
 export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/python:$(brew --prefix)/share/npm/bin:$PATH"
 
