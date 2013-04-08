@@ -1,6 +1,3 @@
-# Load RVM
-"$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Paths
 export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/python:$(brew --prefix)/share/npm/bin:$PATH"
 
