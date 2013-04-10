@@ -59,3 +59,35 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 function cssBase64() {
   echo "url(data:$(file -b --mime-type $1);base64,$(openssl base64 < $1 | tr -d '\n'))" | pbcopy
 }
+
+# Notes for updating libraries
+function update_notes() {
+  echo "
+===============================================================================
+Update Notes
+===============================================================================
+
+# Homebrew
+
+brew update         # update the list of packages
+brew brew outdated  # list installed packages that have updates
+brew upgrade        # upgrade outdated packages to the current version
+brew cleanup        # remove old versions of updated packages
+
+
+# Node Package Manager
+
+npm -g outdated  # list outdated packages (globally installed)
+npm -g update    # updated outdated packages (globally installed)
+
+
+# Ruby and RubyGems
+
+gem outdated         # list outdated gems
+gem update           # update installed gems to the latest version
+gem update --system  # update RubyGems itself
+gem cleanup          # remove old versions of updated gems
+
+===============================================================================
+"
+}
