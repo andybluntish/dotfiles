@@ -93,6 +93,11 @@ gem cleanup          # remove old versions of updated gems
 
 cd ~/.vim && rake
 
+
+# Dotfiles
+
+git submodule foreach git pull  # update git submodules
+
 ===============================================================================
 "
 }
