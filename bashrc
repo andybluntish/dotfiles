@@ -88,6 +88,11 @@ gem update           # update installed gems to the latest version
 gem update --system  # update RubyGems itself
 gem cleanup          # remove old versions of updated gems
 
+
+# Janus
+
+cd ~/.vim && rake
+
 ===============================================================================
 "
 }
