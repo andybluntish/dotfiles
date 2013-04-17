@@ -69,10 +69,10 @@ Update Notes
 
 # Homebrew
 
-brew update         # update the list of packages
-brew brew outdated  # list installed packages that have updates
-brew upgrade        # upgrade outdated packages to the current version
-brew cleanup        # remove old versions of updated packages
+brew update    # update the list of packages
+brew outdated  # list installed packages that have updates
+brew upgrade   # upgrade outdated packages to the current version
+brew cleanup   # remove old versions of updated packages
 
 
 # Node Package Manager
