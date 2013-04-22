@@ -26,6 +26,9 @@
   # the usual default is to push all branches
   default = tracking
 
+[url "https://"]
+  insteadOf = git://
+
 [alias]
 
   # Add
