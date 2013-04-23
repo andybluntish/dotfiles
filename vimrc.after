@@ -11,12 +11,6 @@ let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
 
-" Turn on omni-complete and setup SuperTab to envoke it
-set omnifunc=syntaxcomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
-
 " delimitMate
 
 " This option turns on/off the expansion of <CR>.
