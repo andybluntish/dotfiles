@@ -2,7 +2,7 @@
 eval "$(rbenv init -)"
 
 # Paths
-export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/python:$(brew --prefix)/share/npm/bin:$PATH"
+export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/npm/bin:$PATH"
 
 # Default Editor
 export EDITOR="mvim -fv"
@@ -38,7 +38,7 @@ LIGHT_CYAN="\[\033[1;36m\]"
 
 # Parse Git branch
 function parse_git_dirty() {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
 }
 function parse_git_branch() {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
