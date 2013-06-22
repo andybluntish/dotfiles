@@ -48,8 +48,8 @@ function parse_git_branch() {
 PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} 🍔  "
 
 # Show/hide hidden files in Finder
-alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall -HUP Finder"
+alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall -HUP Finder"
 
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
