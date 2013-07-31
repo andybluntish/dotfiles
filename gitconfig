@@ -10,7 +10,7 @@
   attributesfile = ~/.gitattributes
 
 [color]
-  ui = true
+  ui = auto
 
 [apply]
   # Detect whitespace errors when applying a patch
@@ -24,10 +24,19 @@
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
-  default = tracking
+  default = upstream
+
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
 
 # [url "https://"]
 #   insteadOf = git://
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
 
 [alias]
 
@@ -35,13 +44,19 @@
   a = add
 
   # Status
-  s = status
+  s = status -s
+
+  # View abbreviated SHA, description, and history graph of the latest 20 commits
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
   # Commit
   c = commit -m
-  ca = commit -am
+  ca = !git add -A && git commit -av
   ci = commit
   amend = commit --amend
+
+  # Pull in remote changes for the current repository and all its submodules
+	p = !"git pull; git submodule foreach git pull origin master"
 
   # Branch
   co = checkout
