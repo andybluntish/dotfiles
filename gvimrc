@@ -5,4 +5,4 @@ set guioptions-=T
 set guifont=Menlo:h14
 
 " Color scheme
-color base16-monokai
+colorscheme base16-monokai
