@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
 #
@@ -22,7 +22,7 @@ if [ ! -d "~/.dotfiles" ]; then
 fi
 
 # Rsync files to ~/.dotfiles, excluding: hidden files, Readme, and this script.
-rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --verbose --delete . ~/.dotfiles
+rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --verbose --delete --no-perms . ~/.dotfiles
 
 # Loop through each file in ~/.dotfiles
 for file in `ls ~/.dotfiles`; do
