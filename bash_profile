@@ -7,6 +7,12 @@ export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/npm/bin:$PATH
 # Default Editor
 export EDITOR="mvim -fv"
 
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend
+
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
 
