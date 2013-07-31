@@ -1,26 +1,139 @@
-$RECYCLE.BIN/
-*.db
-*.log
-*.sql
-*.sqlite
-*.sqlite3
-*.un~
-*~
-.*.sw[a-z]
+# OS X
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
 .Spotlight-V100
 .Trashes
-._*
+
+
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+
+# SVN
+.svn/
+
+
+# Vim
+*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+
+# CSV
+/CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore
+
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+
+# SublimeText project files
+*.sublime-workspace
+
+
+# Ignore tags created by etags and ctags
+TAGS
+!TAGS/
+tags
+!tags/
+
+
+# Windows
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Node
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+
+
+# Ruby
+*.gem
+*.rbc
 .bundle
 .config
-.sass-cache
-.svn
-.tmp
-Desktop.ini
-Session.vim
-Thumbs.db
-app/components
-coverage/
-dist
-node_modules
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+
+# Rails
+*.sassc
+capybara-*.html
+.rspec
+.rvmrc
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
+
+
+# Compiled Python files
+*.pyc
+
+
+# tmp, log, cache
 tmp/
+temp
+.tmp
+
+
+# build
+build/
+dist/
+_site/
+app/bower_components
