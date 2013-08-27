@@ -27,16 +27,16 @@
   default = upstream
 
 [merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
 
-# [url "https://"]
-#   insteadOf = git://
+[url "https://"]
+  insteadOf = git://
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
+  remote = origin
+  merge = refs/heads/master
 
 [alias]
 
@@ -56,7 +56,7 @@
   amend = commit --amend
 
   # Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+  p = !"git pull; git submodule foreach git pull origin master"
 
   # Branch
   co = checkout
@@ -71,3 +71,7 @@
   # Reset
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
+
+[credential]
+  helper = osxkeychain
+
