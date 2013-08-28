@@ -100,7 +100,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; gem update --system; gem update; gem cleanup'
+alias update='brew update; brew upgrade; brew cleanup; npm update -g; npm prune -g; gem update --system; gem update; gem cleanup'
 
 
 # Base64 encode a file for use in CSS
