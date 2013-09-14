@@ -134,6 +134,5 @@ temp
 
 # build
 build/
-dist/
 _site/
 app/bower_components
