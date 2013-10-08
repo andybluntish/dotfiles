@@ -26,6 +26,12 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+# NPM bash-completion
+eval "$(npm completion)"
+
+# Grunt bash-completion
+eval "$(grunt --completion=bash)"
+
 
 # Prompt
 COLOR_RESET="\[\033[0m\]"
