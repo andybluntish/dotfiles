@@ -1,6 +1,8 @@
 # rbenv
 eval "$(rbenv init -)"
 
+# nvm
+source ~/.nvm/nvm.sh
 
 # Paths
 export PATH="$HOME/bin:$(brew --prefix)/bin:$(brew --prefix)/share/npm/bin:$PATH"
@@ -25,6 +27,9 @@ shopt -s cdspell
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
+
+# NVM bash-completion
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # NPM bash-completion
 eval "$(npm completion)"
@@ -66,9 +71,9 @@ PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${MAGENTA
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
-	colorflag="--color"
+  colorflag="--color"
 else # OS X `ls`
-	colorflag="-G"
+  colorflag="-G"
 fi
 
 # List all files colorized in long format
