@@ -1,0 +1,3 @@
+[submodule "janus/vim-ragtag"]
+	path = janus/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag.git
