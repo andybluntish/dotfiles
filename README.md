@@ -10,3 +10,5 @@ Various personal dotfiles, inspired by the following:
   * [https://github.com/ryanb/dotfiles](https://github.com/ryanb/dotfiles)
   * [https://github.com/rtomayko/dotfiles](https://github.com/rtomayko/dotfiles)
   * [https://github.com/github/gitignore](https://github.com/github/gitignore)
+
+Vim configuration depends on [Janus](https://github.com/carlhuda/janus).
