@@ -1,0 +1,4 @@
+# Base64 encode a file for use in CSS
+function cssBase64() {
+  echo "url(data:$(file -b --mime-type $1);base64,$(openssl base64 < $1 | tr -d '\n'))" | pbcopy
+}
