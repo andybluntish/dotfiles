@@ -1,3 +1,6 @@
 [submodule "janus/vim-ragtag"]
 	path = janus/vim-ragtag
 	url = https://github.com/tpope/vim-ragtag.git
+[submodule "janus/emmet-vim"]
+	path = janus/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
