@@ -3,3 +3,16 @@ color molokai
 
 " Highlight the current line
 set cursorline
+
+" Mappings
+if has("gui_macvim") && has("gui_running")
+
+  " Close the current HTML tag
+  imap <D-≥> <C-X>/
+  nmap <D-≥> i<C-X>/<Esc>
+else
+
+  " Close the current HTML tag
+  imap <leader>. <C-X>/
+  nmap <leader>. i<C-X>/<Esc>
+endif
