@@ -16,3 +16,10 @@ else
   imap <leader>. <C-X>/
   nmap <leader>. i<C-X>/<Esc>
 endif
+
+" Delete trailing whitespace automatically on save
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
+
+" Disable 'delete trailing whitespace' for Markdown files
+au FileType markdown let g:DeleteTrailingWhitespace = 0
