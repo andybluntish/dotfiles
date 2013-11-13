@@ -23,3 +23,6 @@ let g:DeleteTrailingWhitespace_Action = 'delete'
 
 " Disable 'delete trailing whitespace' for Markdown files
 au FileType markdown let g:DeleteTrailingWhitespace = 0
+
+" Use powerline fonts with Airline
+let g:airline_powerline_fonts = 1
