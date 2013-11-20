@@ -14,14 +14,15 @@ unset file
 # Load environments
 ###
 
+# Paths
+export PATH="$HOME/bin:$(brew --prefix)/bin:$PATH"
+
 # rbenv
 eval "$(rbenv init -)"
 
 # nvm
 source ~/.nvm/nvm.sh
 
-# Paths
-export PATH="$HOME/bin:$(brew --prefix)/bin:$PATH"
 
 
 ###
