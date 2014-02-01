@@ -5,4 +5,5 @@ set guioptions-=T
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14,Source\ Code\ Pro:h14,Menlo:h14
 
 " Color scheme
-colorscheme Tomorrow-Night
+set background=dark
+colorscheme base16-eighties

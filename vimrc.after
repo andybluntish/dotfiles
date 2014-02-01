@@ -1,5 +1,6 @@
 " Color scheme
-colorscheme Tomorrow-Night
+set background=dark
+colorscheme molokai
 
 " Highlight the current line
 set cursorline
