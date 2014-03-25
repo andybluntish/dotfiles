@@ -25,3 +25,5 @@ coverage/
 *.sqlite
 *.sqlite3
 *.db
+
+extra
