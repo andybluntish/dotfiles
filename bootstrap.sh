@@ -17,15 +17,15 @@
 cd `dirname $0`
 
 # Make the ~/.dotfiles directory if it doesn't exist.
-if [ ! -d "~/.dotfiles" ]; then
-  mkdir "~/.dotfiles"
+if [ ! -d "$HOME/.dotfiles" ]; then
+  mkdir "$HOME/.dotfiles"
 fi
 
 # Rsync files to ~/.dotfiles, excluding: hidden files, Readme, and this script.
-rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --verbose --delete --no-perms . ~/.dotfiles
+rsync --exclude `basename $0` --exclude ".*" --exclude "README.md" --archive --verbose --delete --no-perms . $HOME/.dotfiles
 
 # Loop through each file in ~/.dotfiles
-for file in `ls ~/.dotfiles`; do
+for file in `ls $HOME/.dotfiles`; do
 
   # Skip files that begin with an underscore
   if [[ $file =~ ^_.* ]] || [[ $file =~ \.old$ ]]; then
@@ -33,8 +33,11 @@ for file in `ls ~/.dotfiles`; do
   fi
 
   # Symlink file to the home directory
-  ln -snf ~/.dotfiles/$file ~/.$file
+  ln -snf $HOME/.dotfiles/$file $HOME/.$file
 done
 
 # Reload the bash_profile
-source ~/.bash_profile
+source $HOME/.bash_profile
+
+# Install VIM plugins with Vundle
+vim +PluginInstall +qall
