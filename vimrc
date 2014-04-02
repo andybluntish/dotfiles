@@ -256,6 +256,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " NERDCommenter
 map <leader>/ <plug>NERDCommenterToggle<CR>
 
+" Colorpicker
+map <leader>c :ColorHEX<CR>
+
 " Enambe newline support in Delimitmate
 let delimitMate_expand_cr = 1
 
