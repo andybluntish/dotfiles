@@ -20,7 +20,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'mxw/vim-jsx'
 
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
@@ -250,8 +250,8 @@ else
 endif
 
 " NERDTree
-map <leader>n :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" map <leader>n :NERDTreeToggle<CR>
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == 'primary') | q | endif
 
 " NERDCommenter
 map <leader>/ <plug>NERDCommenterToggle<CR>
