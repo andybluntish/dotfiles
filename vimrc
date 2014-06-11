@@ -141,9 +141,6 @@ set expandtab
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,extends:>,precedes:<
 
-" Add the g flag to search/replace by default
-set gdefault
-
 " Highlight searches
 set hlsearch
 
