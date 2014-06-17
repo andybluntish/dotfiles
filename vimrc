@@ -20,12 +20,10 @@ Plugin 'tpope/vim-markdown'
 Plugin 'mxw/vim-jsx'
 
 Plugin 'bling/vim-airline'
-" Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'iandoe/vim-osx-colorpicker'
 Plugin 'gorodinskiy/vim-coloresque'
 
 Plugin 'mattn/emmet-vim'
@@ -34,6 +32,7 @@ Plugin 'ddollar/nerdcommenter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-ragtag'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
+Plugin 'ervandew/supertab'
 
 filetype plugin indent on
 
@@ -175,6 +174,9 @@ set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set wildmenu
 
+" <Enter> selects highlighted item when menu is open
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Folding
 set foldmethod=syntax
 set foldnestmax=3
@@ -184,6 +186,26 @@ set nofoldenable
 set t_Co=256
 set background=dark
 colorscheme desert
+
+
+" NERDCommenter
+map <leader>/ <plug>NERDCommenterToggle<CR>
+
+" Enable newline support in Delimitmate
+let delimitMate_expand_cr = 1
+
+" CTRL-P ignore
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\.git$\|node_modules\|bower_components',
+      \ }
+
+" Delete trailing whitespace automatically on save
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
+
+" Super Tab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
 
 " Filetype mappings
 if has("autocmd")
@@ -195,6 +217,9 @@ if has("autocmd")
 
   " Make sure all mardown files have the correct filetype set and setup wrapping
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+
+  " Disable 'delete trailing whitespace' for Markdown files
+  au FileType markdown let g:DeleteTrailingWhitespace = 0
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
@@ -215,7 +240,6 @@ endif
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
-
 
 " Mappings
 if has("gui_macvim") && has("gui_running")
@@ -245,28 +269,3 @@ else
   imap <leader>. <C-X>/
   nmap <leader>. i<C-X>/<Esc>
 endif
-
-" NERDTree
-" map <leader>n :NERDTreeToggle<CR>
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == 'primary') | q | endif
-
-" NERDCommenter
-map <leader>/ <plug>NERDCommenterToggle<CR>
-
-" Colorpicker
-map <leader>c :ColorHEX<CR>
-
-" Enambe newline support in Delimitmate
-let delimitMate_expand_cr = 1
-
-" CTRL-P ignore
-let g:ctrlp_custom_ignore = {
-	\ 'dir': '\.git$\|node_modules\|bower_components',
-	\ }
-
-" Delete trailing whitespace automatically on save
-let g:DeleteTrailingWhitespace = 1
-let g:DeleteTrailingWhitespace_Action = 'delete'
-
-" Disable 'delete trailing whitespace' for Markdown files
-au FileType markdown let g:DeleteTrailingWhitespace = 0
