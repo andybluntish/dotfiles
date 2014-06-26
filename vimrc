@@ -237,29 +237,21 @@ endif
 map <Down> gj
 map <Up> gk
 
+" Move lines up and down
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " Mappings
 if has("gui_macvim") && has("gui_running")
-
-  " Move lines up and down
-  nnoremap <D-j> :m .+1<CR>==
-  nnoremap <D-k> :m .-2<CR>==
-  inoremap <D-j> <Esc>:m .+1<CR>==gi
-  inoremap <D-k> <Esc>:m .-2<CR>==gi
-  vnoremap <D-j> :m '>+1<CR>gv=gv
-  vnoremap <D-k> :m '<-2<CR>gv=gv
 
   " Close the current HTML tag
   imap <D-≥> <C-X>/
   nmap <D-≥> i<C-X>/<Esc>
 else
-
-  " Move lines up and down
-  nnoremap <C-j> :m .+1<CR>==
-  nnoremap <C-k> :m .-2<CR>==
-  inoremap <C-j> <Esc>:m .+1<CR>==gi
-  inoremap <C-k> <Esc>:m .-2<CR>==gi
-  vnoremap <C-j> :m '>+1<CR>gv=gv
-  vnoremap <C-k> :m '<-2<CR>gv=gv
 
   " Close the current HTML tag
   imap <leader>. <C-X>/
