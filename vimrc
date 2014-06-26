@@ -34,9 +34,6 @@ Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 
-filetype plugin indent on
-
-
 " Optimize for fast terminal connections
 set ttyfast
 
@@ -131,9 +128,10 @@ set autoindent
 set smartindent
 set smarttab
 
-" 2-space soft tabs
+" 2-space soft tabs, round to the nearest multiple
 set shiftwidth=2
 set softtabstop=2
+set shiftround
 set tabstop=2
 set expandtab
 
