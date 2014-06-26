@@ -31,6 +31,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'ddollar/nerdcommenter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 
 filetype plugin indent on
