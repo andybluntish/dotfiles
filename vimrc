@@ -32,7 +32,6 @@ Plugin 'ddollar/nerdcommenter'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-ragtag'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
-Plugin 'ervandew/supertab'
 
 filetype plugin indent on
 
@@ -203,8 +202,6 @@ let g:ctrlp_custom_ignore = {
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
 
-" Super Tab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 
 " Filetype mappings
