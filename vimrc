@@ -194,7 +194,7 @@ let delimitMate_expand_cr = 1
 
 " CTRL-P ignore
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\.git$\|node_modules\|bower_components',
+      \ 'dir': '\.git$\|node_modules\|bower_components\|tmp\|dist',
       \ }
 
 " Delete trailing whitespace automatically on save
