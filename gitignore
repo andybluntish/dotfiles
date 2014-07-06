@@ -135,4 +135,4 @@ temp
 # build
 build/
 _site/
-app/bower_components
+bower_components
