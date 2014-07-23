@@ -9,6 +9,7 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
 
 Plugin 'jelera/vim-javascript-syntax'
@@ -183,8 +184,10 @@ set nofoldenable
 " Color scheme
 set t_Co=256
 set background=dark
-colorscheme desert
+colorscheme solarized
 
+" Use Powerline fonts
+let g:airline_powerline_fonts = 1
 
 " NERDCommenter
 map <leader>/ <plug>NERDCommenterToggle<CR>
