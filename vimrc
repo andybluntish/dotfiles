@@ -222,6 +222,9 @@ if has("autocmd")
   " Disable 'delete trailing whitespace' for Markdown files
   au FileType markdown let g:DeleteTrailingWhitespace = 0
 
+  " Enable spellchecking for Markdown
+  au FileType markdown setlocal spell
+
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
