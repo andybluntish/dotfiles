@@ -186,6 +186,9 @@ colorscheme solarized
 " Use Powerline fonts
 let g:airline_powerline_fonts = 1
 
+" Check syntax on open, not just save
+let g:syntastic_check_on_open = 1
+
 " NERDCommenter
 map <leader>/ <plug>NERDCommenterToggle<CR>
 
