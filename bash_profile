@@ -15,13 +15,14 @@ unset file
 ###
 
 # Paths
-export PATH="$HOME/bin:$(brew --prefix)/bin:$PATH"
+export PATH="$HOME/.bin:$(brew --prefix)/bin:$PATH"
 
 # rbenv
 eval "$(rbenv init -)"
 
 # nvm
-source ~/.nvm/nvm.sh
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 
 
