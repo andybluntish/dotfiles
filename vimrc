@@ -173,9 +173,6 @@ set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set wildmenu
 
-" <Enter> selects highlighted item when menu is open
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Folding
 set foldmethod=syntax
 set foldnestmax=3
