@@ -30,9 +30,6 @@
   # Include summaries of merged commits in newly created merge commit messages
   log = true
 
-[url "https://"]
-  insteadOf = git://
-
 [alias]
 
   # Add
@@ -66,6 +63,3 @@
   # Reset
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
-
-[credential]
-  helper = osxkeychain
