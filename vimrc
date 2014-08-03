@@ -3,8 +3,8 @@ set nocompatible
 
 " Setup Vundle
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
@@ -36,6 +36,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
+
+call vundle#end()
+filetype plugin indent on
 
 " Optimize for fast terminal connections
 set ttyfast
@@ -97,9 +100,6 @@ let mapleader=","
 
 " Enable syntax highlighting
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
 
 " Highlight current line
 set cursorline
