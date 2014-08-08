@@ -520,7 +520,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>661 203 728 398 0 0 2560 1418 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>805 846 924 485 0 0 2560 1418 </string>
+	<string>790 848 924 485 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>317 156 1913 1163 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -1102,7 +1102,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>1000</integer>
+			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
 			<false/>
 			<key>Scrollback in Alternate Screen</key>
@@ -2785,7 +2785,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>~/.dotfiles/iterm2</string>
+	<string>~/.dotfiles/_iterm2</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
