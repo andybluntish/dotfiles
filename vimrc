@@ -24,6 +24,7 @@ Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'gorodinskiy/vim-coloresque'
@@ -194,6 +195,9 @@ let g:syntastic_check_on_open = 1
 
 " NERDCommenter
 map <leader>/ <plug>NERDCommenterToggle<CR>
+
+" Tagbar
+map <leader>t :TagbarToggle<CR>
 
 " Enable newline support in Delimitmate
 let delimitMate_expand_cr = 1
