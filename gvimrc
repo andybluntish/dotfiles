@@ -9,4 +9,3 @@ set linespace=2
 
 " Color scheme
 set background=dark
-colorscheme base16-ocean
