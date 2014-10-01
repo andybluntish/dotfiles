@@ -2,7 +2,10 @@
 set guioptions-=T
 
 " Set font in gvim
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14,Source\ Code\ Pro:h14,Menlo:h14
+set guifont=Menlo:h14
+
+" Set lineheight (extra px per line)
+set linespace=2
 
 " Color scheme
 set background=dark
