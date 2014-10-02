@@ -24,10 +24,10 @@
   remote = origin
   merge = refs/heads/master
 
-# [push]
-#   # 'git push' will push the current branch to its tracking branch
-#   # the usual default is to push all branches
-#   default = upstream
+[push]
+  # 'git push' will push the current branch to its tracking branch
+  # the usual default is to push all branches
+  default = simple
 
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
