@@ -291,3 +291,6 @@ else
   imap <leader>. <C-X>/
   nmap <leader>. i<C-X>/<Esc>
 endif
+
+" Find all 'TODO' comments using The Silver Searcher
+command Todo Ag TODO\|FIXME\|BUG
