@@ -21,8 +21,7 @@ export PATH="$HOME/.bin:$(brew --prefix)/bin:$PATH"
 eval "$(rbenv init -)"
 
 # nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+source ~/.nvm/nvm.sh
 
 
 
