@@ -13,7 +13,7 @@ Plugin 'altercation/vim-colors-solarized'
 
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'helino/vim-json'
+Plugin 'elzr/vim-json'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
@@ -251,8 +251,8 @@ if has("autocmd")
   " Enable spellchecking for Markdown
   au FileType markdown setlocal spell
 
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
+  " Don't hide quotes in JSON files
+  let g:vim_json_syntax_conceal = 0
 
   " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
