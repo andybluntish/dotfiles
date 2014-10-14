@@ -270,6 +270,8 @@ endif
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
+map j gj
+map k gk
 
 " Move lines up and down
 nnoremap <C-j> :m .+1<CR>==
