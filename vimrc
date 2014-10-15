@@ -251,6 +251,9 @@ if has("autocmd")
   " Enable spellchecking for Markdown
   au FileType markdown setlocal spell
 
+  " Syntax-based folding in JavaScript
+  au FileType javascript call JavaScriptFold()
+
   " Don't hide quotes in JSON files
   let g:vim_json_syntax_conceal = 0
 
