@@ -9,7 +9,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'jwhitley/vim-colors-solarized'
 
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
@@ -184,7 +185,7 @@ set nofoldenable
 " Color scheme
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme desert
 
 " Airline symbols
 if !exists('g:airline_symbols')
