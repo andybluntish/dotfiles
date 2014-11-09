@@ -2,7 +2,7 @@
 set guioptions-=T
 
 " Set font in gvim
-set guifont=Menlo:h14
+set guifont=Menlo:h12
 
 " Set lineheight (extra px per line)
 set linespace=2
