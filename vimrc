@@ -29,6 +29,7 @@ Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'gorodinskiy/vim-coloresque'
 
+Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'mattn/emmet-vim'
@@ -187,6 +188,7 @@ set t_Co=256
 set background=dark
 colorscheme desert
 
+
 " Airline symbols
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -205,17 +207,80 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
+
 " Check syntax on open, not just save
 let g:syntastic_check_on_open = 1
+
 
 " NERDCommenter
 map <leader>/ <plug>NERDCommenterToggle<CR>
 
+
+" NERDTree
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeHijackNetrw = 0
+
+" If the parameter is a directory, cd into it
+" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L12
+function s:CdIfDirectory(directory)
+  let explicitDirectory = isdirectory(a:directory)
+  let directory = explicitDirectory || empty(a:directory)
+
+  if explicitDirectory
+    exe "cd " . fnameescape(a:directory)
+  endif
+
+  " Allows reading from stdin
+  " ex: git diff | mvim -R -
+  if strlen(a:directory) == 0
+    return
+  endif
+
+  if directory
+    NERDTree
+    wincmd p
+    bd
+  endif
+
+  if explicitDirectory
+    wincmd p
+  endif
+endfunction
+
+" NERDTree utility function
+" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L38
+function s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+endfunction
+
+if has("autocmd")
+  autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+  autocmd FocusGained * call s:UpdateNERDTree()
+endif
+
+
 " Tagbar
 map <leader>t :TagbarToggle<CR>
 
+
 " Enable newline support in Delimitmate
 let delimitMate_expand_cr = 1
+
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -229,10 +294,10 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+
 " Delete trailing whitespace automatically on save
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
-
 
 
 " Filetype mappings
