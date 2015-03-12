@@ -9,7 +9,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/vundle'
 
-"Plugin 'altercation/vim-colors-solarized'
 Plugin 'jwhitley/vim-colors-solarized'
 
 Plugin 'jelera/vim-javascript-syntax'
@@ -23,7 +22,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
