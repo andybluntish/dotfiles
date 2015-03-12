@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'jwhitley/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
