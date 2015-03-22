@@ -186,7 +186,7 @@ set nofoldenable
 " Color scheme
 set t_Co=256
 set background=dark
-colorscheme desert
+colorscheme solarized
 
 
 " Airline symbols
