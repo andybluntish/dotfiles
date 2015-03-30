@@ -161,7 +161,7 @@ au FileType python setlocal omnifunc=pythoncomplete#Complete
 au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Run Emmet for HTML, XML, XSLT, and Handlebars
-au FileType html,xml,xslt,css,handlebars EmmetInstall
+au FileType html,xml,xslt,css,html.handlebars EmmetInstall
 
 
 " nmap <Space> <leader>
