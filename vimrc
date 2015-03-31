@@ -118,6 +118,7 @@ let g:neocomplete#enable_smart_case = 0          " use smartcase for completions
 let g:vim_json_syntax_conceal = 0                " don't hide quotes in JSON files
 let g:user_emmet_install_global = 0              " don't start Emmet by default
 let g:user_emmet_leader_key=','                  " change Emmet leader key
+let g:NERDTreeHijackNetrw=0                      " don't take over netwr
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
