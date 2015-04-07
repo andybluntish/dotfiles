@@ -213,7 +213,18 @@ map <leader>n :NERDTreeToggle<CR>
 map <leader>t :TagbarToggle<CR>
 
 " Find/Replace
-map <leader>fr :OverCommandLine<CR>
+function! VisualFindAndReplace()
+  :OverCommandLine%s/
+  :w
+endfunction
+
+function! VisualFindAndReplaceWithSelection() range
+  :'<,'>OverCommandLine s/
+  :w
+endfunction
+
+nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
+xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
 " List open buffers
 noremap <leader>b :CtrlPBuffer<CR>
