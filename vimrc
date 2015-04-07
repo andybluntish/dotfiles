@@ -207,7 +207,8 @@ vmap <Enter> <Plug>(EasyAlign)
 map <leader>/ :Commentary<CR>
 
 " Toggle NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>d :NERDTreeToggle<CR>
+map <leader>n :NERDTreeFind<CR>
 
 " Toggle Tagbar
 map <leader>t :TagbarToggle<CR>
