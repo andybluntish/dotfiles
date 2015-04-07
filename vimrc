@@ -107,7 +107,8 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
-let g:mapleader=" "
+
+let g:mapleader = " "
 let g:airline_powerline_fonts = 1                " Airline symbols
 let g:syntastic_check_on_open = 1                " Check syntax on open, not just save
 let g:delimitMate_expand_cr = 1                  " Enable newline support in Delimitmate
@@ -117,8 +118,8 @@ let g:neocomplete#enable_at_startup = 1          " enable Neocomplete
 let g:neocomplete#enable_smart_case = 0          " use smartcase for completions
 let g:vim_json_syntax_conceal = 0                " don't hide quotes in JSON files
 let g:user_emmet_install_global = 0              " don't start Emmet by default
-let g:user_emmet_leader_key=','                  " change Emmet leader key
-let g:NERDTreeHijackNetrw=0                      " don't take over netwr
+let g:user_emmet_leader_key = ','                  " change Emmet leader key
+let g:NERDTreeHijackNetrw = 0                      " don't take over netwr
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -131,6 +132,7 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
 
 " In Makefiles, use real tabs, not tabs expanded to spaces
 au FileType make setlocal noexpandtab
@@ -164,9 +166,71 @@ au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Run Emmet for HTML, XML, XSLT, and Handlebars
 au FileType html,xml,xslt,css,html.handlebars EmmetInstall
 
+" Open NERDTree at startup if no file specified
+au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+au FocusGained * call s:UpdateNERDTree()
 
-" nmap <Space> <leader>
-" vmap <Space> <leader>
+
+" If the parameter is a directory, cd into it
+" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L12
+function s:CdIfDirectory(directory)
+  let explicitDirectory = isdirectory(a:directory)
+  let directory = explicitDirectory || empty(a:directory)
+
+  if explicitDirectory
+    exe "cd " . fnameescape(a:directory)
+  endif
+
+  " Allows reading from stdin
+  " ex: git diff | mvim -R -
+  if strlen(a:directory) == 0
+    return
+  endif
+
+  if directory
+    NERDTree
+    wincmd p
+    bd
+  endif
+
+  if explicitDirectory
+    wincmd p
+  endif
+endfunction
+
+" NERDTree utility function
+" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L38
+function s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+endfunction
+
+" Find/Replace in whole buffer
+function! VisualFindAndReplace()
+  :OverCommandLine%s/
+  :w
+endfunction
+
+" Find/Replace within current visual selection
+function! VisualFindAndReplaceWithSelection() range
+  :'<,'>OverCommandLine s/
+  :w
+endfunction
+
 
 " Move based on display lines, not physical lines
 map j gj
@@ -214,16 +278,6 @@ map <leader>n :NERDTreeFind<CR>
 map <leader>t :TagbarToggle<CR>
 
 " Find/Replace
-function! VisualFindAndReplace()
-  :OverCommandLine%s/
-  :w
-endfunction
-
-function! VisualFindAndReplaceWithSelection() range
-  :'<,'>OverCommandLine s/
-  :w
-endfunction
-
 nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
