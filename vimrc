@@ -236,17 +236,18 @@ endfunction
 map j gj
 map k gk
 
+" Move between splits
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Move selected lines up and down
+vnoremap <C-j> :m '>+1<CR>gv=gv
+
+vnoremap <C-k> :m '<-2<CR>gv=gv
 " Use <TAB> for completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Move lines up and down
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-
 " Camel Case Motion
 map <silent> W <Plug>CamelCaseMotion_w
 map <silent> E <Plug>CamelCaseMotion_e
