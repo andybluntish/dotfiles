@@ -36,6 +36,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
