@@ -22,6 +22,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'jwhitley/vim-colors-solarized'
+Plugin 'trusktr/seti.vim'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -106,7 +107,7 @@ set nofoldenable
 syntax on
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme seti
 
 
 let g:mapleader = " "
