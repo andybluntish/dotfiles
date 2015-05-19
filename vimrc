@@ -21,8 +21,6 @@ Plugin 'osyo-manga/vim-over'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'jwhitley/vim-colors-solarized'
-Plugin 'trusktr/seti.vim'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -38,6 +36,10 @@ Plugin 'bkad/CamelCaseMotion'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'trusktr/seti.vim'
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plugin 'w0ng/vim-hybrid'
 
 call vundle#end()
 
@@ -107,7 +109,7 @@ set nofoldenable
 syntax on
 set t_Co=256
 set background=dark
-colorscheme seti
+colorscheme hybrid
 
 
 let g:mapleader = " "
