@@ -1,5 +1,5 @@
 # Default Editor
-export EDITOR="mvim -fv"
+export EDITOR="vim"
 
 # Atom Path
 export ATOM_PATH=/Applications
