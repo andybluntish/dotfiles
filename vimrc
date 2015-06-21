@@ -19,7 +19,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'osyo-manga/vim-over'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'rking/ag.vim'
 Plugin 'kien/ctrlp.vim'
@@ -113,7 +112,6 @@ colorscheme hybrid
 
 
 let g:mapleader = " "
-let g:airline_powerline_fonts = 1                " Airline symbols
 let g:syntastic_check_on_open = 1                " Check syntax on open, not just save
 let g:delimitMate_expand_cr = 1                  " Enable newline support in Delimitmate
 let g:DeleteTrailingWhitespace = 1               " run DeleteTrailingWhitespace automatically on save
