@@ -36,6 +36,7 @@ Plugin 'bkad/CamelCaseMotion'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'trusktr/seti.vim'
 Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
