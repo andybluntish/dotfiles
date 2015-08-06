@@ -37,9 +37,10 @@ Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'editorconfig/editorconfig-vim'
 
-Plugin 'trusktr/seti.vim'
-Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plugin 'w0ng/vim-hybrid'
+Plugin 'yosiat/oceanic-next-vim'
+Plugin 'trusktr/seti.vim'
+Plugin 'jwhitley/vim-colors-solarized'
 
 call vundle#end()
 
@@ -109,7 +110,7 @@ set nofoldenable
 syntax on
 set t_Co=256
 set background=dark
-colorscheme hybrid
+colorscheme solarized
 
 
 let g:mapleader = " "
