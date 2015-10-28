@@ -176,7 +176,6 @@ au FileType html,xml,xslt,css,html.handlebars EmmetInstall
 au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 au FocusGained * call s:UpdateNERDTree()
 
-
 " If the parameter is a directory, cd into it
 " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L12
 function s:CdIfDirectory(directory)
@@ -237,6 +236,20 @@ function! VisualFindAndReplaceWithSelection() range
   :w
 endfunction
 
+" Zoom / Restore window.
+" https://coderwall.com/p/qqz1lq/vim-zoom-restore-window
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        exec t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
 
 " Move based on display lines, not physical lines
 map j gj
@@ -250,10 +263,11 @@ nnoremap <c-l> <c-w>l
 
 " Move selected lines up and down
 vnoremap <C-j> :m '>+1<CR>gv=gv
-
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
 " Use <TAB> for completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " Camel Case Motion
 map <silent> W <Plug>CamelCaseMotion_w
 map <silent> E <Plug>CamelCaseMotion_e
@@ -270,6 +284,9 @@ nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
 nnoremap <Up> :resize +1<CR>
 nnoremap <Down> :resize -1<CR>
+
+" Zoom window
+nnoremap <leader>z :ZoomToggle<CR>
 
 " Align
 vmap <Enter> <Plug>(EasyAlign)
