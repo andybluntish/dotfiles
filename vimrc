@@ -11,8 +11,6 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
 Plugin 'mxw/vim-jsx'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'scrooloose/syntastic'
@@ -31,16 +29,10 @@ Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'tmhedberg/matchit'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'editorconfig/editorconfig-vim'
-
-Plugin 'w0ng/vim-hybrid'
-Plugin 'yosiat/oceanic-next-vim'
-Plugin 'trusktr/seti.vim'
 Plugin 'jwhitley/vim-colors-solarized'
 
 call vundle#end()
@@ -57,7 +49,7 @@ set encoding=utf-8 nobomb                              " utf-8 without bom
 set clipboard=unnamed                                  " use the OS clipboard
 set hidden                                             " buffers can exist in the background
 set autoread                                           " reload files changed outside vim
-set history=1000                                       " store lots of command line history
+set history=500                                        " store lots of command line history
 set undofile                                           " save undo tree to file
 set undolevels=1000                                    " maximum number of changes that can be undone
 set undodir=~/.vim/backups                             " save undo files here
@@ -113,7 +105,6 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
-
 let g:mapleader = " "
 let g:airline_powerline_fonts = 1                " Airline symbols
 let g:syntastic_check_on_open = 1                " Check syntax on open, not just save
@@ -124,8 +115,8 @@ let g:neocomplete#enable_at_startup = 1          " enable Neocomplete
 let g:neocomplete#enable_smart_case = 0          " use smartcase for completions
 let g:vim_json_syntax_conceal = 0                " don't hide quotes in JSON files
 let g:user_emmet_install_global = 0              " don't start Emmet by default
-let g:user_emmet_leader_key = ','                  " change Emmet leader key
-let g:NERDTreeHijackNetrw = 0                      " don't take over netwr
+let g:user_emmet_leader_key = ','                " change Emmet leader key
+let g:NERDTreeHijackNetrw = 0                    " don't take over netwr
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -138,7 +129,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
 
 " In Makefiles, use real tabs, not tabs expanded to spaces
 au FileType make setlocal noexpandtab
@@ -169,8 +159,8 @@ au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Run Emmet for HTML, XML, XSLT, and Handlebars
-au FileType html,xml,xslt,css,html.handlebars EmmetInstall
+" Run Emmet for HTML, XML, XSLT, Handlebars, and Markdown
+au FileType html,xml,xslt,css,html.handlebars,markdown EmmetInstall
 
 " Open NERDTree at startup if no file specified
 au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
@@ -267,17 +257,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Use <TAB> for completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Camel Case Motion
-map <silent> W <Plug>CamelCaseMotion_w
-map <silent> E <Plug>CamelCaseMotion_e
-map <silent> B <Plug>CamelCaseMotion_b
-omap <silent> iW <Plug>CamelCaseMotion_iw
-xmap <silent> iW <Plug>CamelCaseMotion_iw
-omap <silent> iE <Plug>CamelCaseMotion_ie
-xmap <silent> iE <Plug>CamelCaseMotion_ie
-omap <silent> iB <Plug>CamelCaseMotion_ib
-xmap <silent> iB <Plug>CamelCaseMotion_ib
 
 " Resize splits
 nnoremap <Left> :vertical resize +1<CR>
