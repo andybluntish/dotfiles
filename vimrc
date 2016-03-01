@@ -158,9 +158,6 @@ au FileType make setlocal noexpandtab
 au FileType markdown let g:DeleteTrailingWhitespace = 0
 au FileType markdown setlocal spell
 
-" Syntax-based folding in JavaScript
-au FileType javascript call JavaScriptFold()
-
 " Make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
