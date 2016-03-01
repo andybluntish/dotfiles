@@ -119,7 +119,6 @@ let g:neocomplete#enable_smart_case = 0          " use smartcase for completions
 let g:vim_json_syntax_conceal = 0                " don't hide quotes in JSON files
 let g:user_emmet_install_global = 0              " don't start Emmet by default
 let g:user_emmet_leader_key = ','                " change Emmet leader key
-let g:NERDTreeHijackNetrw = 0                    " don't take over netwr
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -166,35 +165,7 @@ au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 au FileType html,xml,xslt,css,html.handlebars,markdown EmmetInstall
 
 " Open NERDTree at startup if no file specified
-au VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 au FocusGained * call s:UpdateNERDTree()
-
-" If the parameter is a directory, cd into it
-" https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L12
-function s:CdIfDirectory(directory)
-  let explicitDirectory = isdirectory(a:directory)
-  let directory = explicitDirectory || empty(a:directory)
-
-  if explicitDirectory
-    exe "cd " . fnameescape(a:directory)
-  endif
-
-  " Allows reading from stdin
-  " ex: git diff | mvim -R -
-  if strlen(a:directory) == 0
-    return
-  endif
-
-  if directory
-    NERDTree
-    wincmd p
-    bd
-  endif
-
-  if explicitDirectory
-    wincmd p
-  endif
-endfunction
 
 " NERDTree utility function
 " https://github.com/carlhuda/janus/blob/master/janus/vim/tools/janus/after/plugin/nerdtree.vim#L38
@@ -259,7 +230,7 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Use <TAB> for completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Resize splits
 nnoremap <Left> :vertical resize +1<CR>
