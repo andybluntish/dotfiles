@@ -107,18 +107,33 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
+" Leader
 let g:mapleader = " "
-let g:airline_powerline_fonts = 1                " Airline symbols
-let g:airline#extensions#tabline#enabled = 1     " Airline tabline support
-let g:syntastic_check_on_open = 1                " Check syntax on open, not just save
-let g:delimitMate_expand_cr = 1                  " Enable newline support in Delimitmate
-let g:DeleteTrailingWhitespace = 1               " run DeleteTrailingWhitespace automatically on save
-let g:DeleteTrailingWhitespace_Action = 'delete' " delete trailing whitespace
-let g:neocomplete#enable_at_startup = 1          " enable Neocomplete
-let g:neocomplete#enable_smart_case = 0          " use smartcase for completions
-let g:vim_json_syntax_conceal = 0                " don't hide quotes in JSON files
-let g:user_emmet_install_global = 0              " don't start Emmet by default
-let g:user_emmet_leader_key = ','                " change Emmet leader key
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Syntastic
+let g:syntastic_check_on_open = 1
+
+" Delimitmate
+let g:delimitMate_expand_cr = 1
+
+" Delete trailing whitespace
+let g:DeleteTrailingWhitespace = 1
+let g:DeleteTrailingWhitespace_Action = 'delete'
+
+" Code completion
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 0
+
+" JSON
+let g:vim_json_syntax_conceal = 0
+
+" Emmet
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key = ','
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -132,19 +147,15 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" Set filetype for unknown extensions
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} setf ruby
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+
 " In Makefiles, use real tabs, not tabs expanded to spaces
 au FileType make setlocal noexpandtab
 
-" Set the Ruby filetype for a number of common Ruby files without .rb
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Guardfile,config.ru,*.rake} setf ruby
-
-" Make sure all mardown files have the correct filetype set and setup wrapping
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
-
-" Disable 'delete trailing whitespace' for Markdown files
+" Markdown files
 au FileType markdown let g:DeleteTrailingWhitespace = 0
-
-" Enable spellchecking for Markdown
 au FileType markdown setlocal spell
 
 " Syntax-based folding in JavaScript
