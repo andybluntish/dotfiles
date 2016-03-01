@@ -14,7 +14,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'mxw/vim-jsx'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'osyo-manga/vim-over'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'gorodinskiy/vim-coloresque'
@@ -28,6 +29,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
@@ -107,6 +109,7 @@ colorscheme solarized
 
 let g:mapleader = " "
 let g:airline_powerline_fonts = 1                " Airline symbols
+let g:airline#extensions#tabline#enabled = 1     " Airline tabline support
 let g:syntastic_check_on_open = 1                " Check syntax on open, not just save
 let g:delimitMate_expand_cr = 1                  " Enable newline support in Delimitmate
 let g:DeleteTrailingWhitespace = 1               " run DeleteTrailingWhitespace automatically on save
