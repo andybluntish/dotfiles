@@ -2,6 +2,7 @@
 
 Various personal dotfiles, inspired by the following:
 
+  * [https://github.com/gf3/dotfiles](https://github.com/gf3/dotfiles)
   * [https://github.com/toranb/dotfiles](https://github.com/toranb/dotfiles)
   * [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
   * [https://github.com/addyosmani/dotfiles](https://github.com/addyosmani/dotfiles)
