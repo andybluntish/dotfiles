@@ -38,8 +38,6 @@ set backspace=indent,eol,start " Backspacing over everything in insert mode
 set esckeys " Allow cursor keys in insert mode
 set autoread " Read open files again when changed outside Vim
 set lazyredraw " Don't redraw when we don't have to
-set pastetoggle=<F5> " toggle paste mode
-
 set title " Show the filename in the window titlebar
 set shortmess=atI " Don't show the intro message when starting vim
 set number " Enable line numbers
@@ -52,13 +50,11 @@ set ruler " Show the cursor position
 set showcmd " Show the (partial) command as it’s being typed
 set report=0 " Show all changes
 set list listchars=tab:»·,trail:·,extends:>,precedes:< " set list mode characters
-
 set autoindent " Copy indent from last line when starting new line
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces
 set shiftwidth=2 " The # of spaces for indenting
 set softtabstop=2 " Tab key results in # spaces
 set expandtab " Expand tabs to spaces
-
 set magic " Enable extended regexes
 set hlsearch " Highlight searches
 set incsearch " Highlight dynamically as pattern is typed
@@ -66,10 +62,8 @@ set ignorecase " Ignore case of searches
 set smartcase " Ignore 'ignorecase' if search patter contains uppercase characters
 set gdefault " By default add g flag to search/replace. Add g to toggle
 set wrapscan " Searches wrap around end of file
-
 set ofu=syntaxcomplete#Complete " Set omni-completion method
 set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.brf,.cb,.dmg,.exe,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyd,.dll
-
 set wildmenu " Hitting TAB in command mode will show possible completions above command line
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion)
 set wildmode=list:longest,list:full " Complete only until point of ambiguity
@@ -77,18 +71,15 @@ set wildignore+=.DS_Store
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/smarty/*,*/vendor/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/*,*/source_maps/*,*/dist/*
-
 set winminheight=0 " Allow splits to be reduced to a single line
 set splitbelow " New window goes below
 set splitright " New windows goes right
 set scrolloff=3 " Start scrolling three lines before horizontal border of window
 set sidescrolloff=3 " Start scrolling three columns before vertical border of window
-
 set nofoldenable " Open all folds by default
 set foldmethod=syntax " Syntax are used to specify folds
 set foldnestmax=5 " Set max fold nesting level
 set foldminlines=0 " Allow folding single lines
-
 set nostartofline " Don't reset cursor to start of line when moving around
 set nowrap " Do not wrap lines
 set linebreak " wrap lines at convenient points
@@ -96,5 +87,55 @@ set showbreak=↪\ " display marker for wrapped lines
 set nojoinspaces " Only insert single space after a '.', '?' and '!' with a join command
 set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
-
 set spelllang=en_au,en_gb " spelling language
+
+" Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" Resize splits
+nnoremap <Left> :vertical resize +1<CR>
+nnoremap <Right> :vertical resize -1<CR>
+nnoremap <Up> :resize +1<CR>
+nnoremap <Down> :resize -1<CR>
+
+" Fixage up and down {{{
+map <PageUp> <C-U>
+map <PageDown> <C-D>
+imap <PageUp> <C-O><C-U>
+imap <PageDown> <C-O><C-D>
+
+" Move based on display lines, not physical lines
+map j gj
+map k gk
+
+" Move selected lines up and down
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Use <TAB> for completion
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Paste toggle
+set pastetoggle=<leader>p
+map <leader>p :set invpaste paste?<CR>
+
+" Clear Highlight
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" Zoom / Restore window.
+function! ToggleZoomWindow() abort
+  if exists('t:zoomed') && t:zoomed
+    exec t:zoom_winrestcmd
+    let t:zoomed = 0
+  else
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+    let t:zoomed = 1
+  endif
+endfunction
+
+nnoremap <leader>z :call ToggleZoomWindow()<CR>
