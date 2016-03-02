@@ -89,53 +89,106 @@ set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set spelllang=en_au,en_gb " spelling language
 
-" Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" General
+augroup general_config
+  autocmd!
 
-" Resize splits
-nnoremap <Left> :vertical resize +1<CR>
-nnoremap <Right> :vertical resize -1<CR>
-nnoremap <Up> :resize +1<CR>
-nnoremap <Down> :resize -1<CR>
+  " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-l> <C-w>l
 
-" Fixage up and down {{{
-map <PageUp> <C-U>
-map <PageDown> <C-D>
-imap <PageUp> <C-O><C-U>
-imap <PageDown> <C-O><C-D>
+  " Resize splits
+  nnoremap <Left> :vertical resize +1<CR>
+  nnoremap <Right> :vertical resize -1<CR>
+  nnoremap <Up> :resize +1<CR>
+  nnoremap <Down> :resize -1<CR>
 
-" Move based on display lines, not physical lines
-map j gj
-map k gk
+  " Fixage up and down {{{
+  map <PageUp> <C-U>
+  map <PageDown> <C-D>
+  imap <PageUp> <C-O><C-U>
+  imap <PageDown> <C-O><C-D>
 
-" Move selected lines up and down
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
+  " Move based on display lines, not physical lines
+  map j gj
+  map k gk
 
-" Use <TAB> for completion
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  " Move selected lines up and down
+  vnoremap <C-j> :m '>+1<CR>gv=gv
+  vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" Paste toggle
-set pastetoggle=<leader>p
-map <leader>p :set invpaste paste?<CR>
+  " Use <TAB> for completion
+  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" Clear Highlight
-nnoremap <Esc><Esc> :nohlsearch<CR>
+  " Paste toggle
+  set pastetoggle=<leader>p
+  map <leader>p :set invpaste paste?<CR>
 
-" Zoom / Restore window.
-function! ToggleZoomWindow() abort
-  if exists('t:zoomed') && t:zoomed
-    exec t:zoom_winrestcmd
-    let t:zoomed = 0
-  else
-    let t:zoom_winrestcmd = winrestcmd()
-    resize
-    vertical resize
-    let t:zoomed = 1
-  endif
-endfunction
+  " Clear Highlight
+  nnoremap <Esc><Esc> :nohlsearch<CR>
 
-nnoremap <leader>z :call ToggleZoomWindow()<CR>
+  " Zoom / Restore window.
+  function! ToggleZoomWindow() abort
+    if exists('t:zoomed') && t:zoomed
+      exec t:zoom_winrestcmd
+      let t:zoomed = 0
+    else
+      let t:zoom_winrestcmd = winrestcmd()
+      resize
+      vertical resize
+      let t:zoomed = 1
+    endif
+  endfunction
+
+  nnoremap <leader>z :call ToggleZoomWindow()<CR>
+augroup END
+
+" Filetypes
+
+" JavaScript
+augroup filetype_javascript
+  autocmd!
+  let g:jsx_ext_required = 0
+augroup END
+
+" JSON
+augroup filetype_json
+  autocmd!
+  au BufRead,BufNewFile *.json set ft=json syntax=javascript
+  let g:vim_json_syntax_conceal = 0
+augroup END
+
+" Handlebars
+augroup filetype_hbs
+  autocmd!
+  au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb setlocal ft=mustache syntax=mustache
+augroup END
+
+" Markdown {{{
+augroup filetype_markdown
+  autocmd!
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf ft=markdown syntax=markdown
+  au FileType markdown let g:DeleteTrailingWhitespace = 0
+  au FileType markdown setlocal spell
+  let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
+augroup END
+
+" Ruby
+augroup filetype_ruby
+  autocmd!
+  au BufRead,BufNewFile Rakefile,Capfile,Gemfile,Vagrantfile,Procfile,Guardfile,config.ru,*.rake,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
+augroup END
+
+" Python
+augroup filetype_python
+  autocmd!
+  au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
+augroup END
+
+" Make
+augroup filetype_make
+  autocmd!
+  au FileType make setlocal noexpandtab
+augroup END
