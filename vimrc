@@ -159,10 +159,6 @@ map k gk
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
-" Use <TAB> for completion
-inoremap <expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <s-tab> pumvisible() ? "\<C-n>" : "\<s-tab>"
-
 " Paste toggle
 set pastetoggle=<leader>p
 map <leader>p :set invpaste paste?<CR>
