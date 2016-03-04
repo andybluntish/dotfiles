@@ -11,6 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
 Plug 'honza/vim-snippets'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'JulesWang/css.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'jwhitley/vim-colors-solarized'
 Plug 'majutsushi/tagbar'
@@ -25,6 +26,7 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips'
+Plug 'edkolev/tmuxline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-haml'
@@ -37,7 +39,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-co
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
-Plug 'JulesWang/css.vim'
 
 call plug#end()
 
