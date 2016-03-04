@@ -37,7 +37,7 @@ for file in `ls $HOME/.dotfiles`; do
 done
 
 # Install VIM plugins with Vundle
-if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
