@@ -39,6 +39,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-co
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 
@@ -48,7 +49,7 @@ filetype plugin indent on
 syntax on
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme hybrid
 
 " Mapleader
 let mapleader=" "
