@@ -269,7 +269,7 @@ map <leader>/ :Commentary<CR>
 
 " NERDTree
 let g:NERDTreeHijackNetrw = 0
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 map <leader>d :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
