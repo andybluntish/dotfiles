@@ -103,7 +103,6 @@ set hlsearch                        " Highlight searches
 set incsearch                       " Highlight dynamically as pattern is typed
 set ignorecase                      " Ignore case of searches
 set smartcase                       " Ignore 'ignorecase' if search patter contains uppercase characters
-set gdefault                        " By default add g flag to search/replace. Add g to toggle
 set wrapscan                        " Searches wrap around end of file
 set ofu=syntaxcomplete#Complete     " Set omni-completion method
 set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.brf,.cb,.dmg,.exe,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyd,.dll
