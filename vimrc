@@ -225,6 +225,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" You Complete Me
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " Delete trailing whitespace
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
