@@ -1,14 +1,9 @@
 # Dotfiles
 
-Various personal dotfiles, inspired by the following:
+Dependant on
 
-  * [https://github.com/gf3/dotfiles](https://github.com/gf3/dotfiles)
-  * [https://github.com/toranb/dotfiles](https://github.com/toranb/dotfiles)
-  * [https://github.com/mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)
-  * [https://github.com/addyosmani/dotfiles](https://github.com/addyosmani/dotfiles)
-  * [https://github.com/holman/dotfiles](https://github.com/holman/dotfiles)
-  * [https://github.com/skwp/dotfiles](https://github.com/skwp/dotfiles)
-  * [https://github.com/ryanb/dotfiles](https://github.com/ryanb/dotfiles)
-  * [https://github.com/rtomayko/dotfiles](https://github.com/rtomayko/dotfiles)
-  * [https://github.com/github/gitignore](https://github.com/github/gitignore)
-  * [https://github.com/Wolfy87/vim-config](https://github.com/Wolfy87/vim-config)
+- http://brew.sh/
+- https://caskroom.github.io/
+- https://github.com/sorin-ionescu/prezto
+- https://github.com/creationix/nvm
+- https://github.com/postmodern/chruby

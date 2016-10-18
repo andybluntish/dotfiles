@@ -1,5 +1,5 @@
 [user]
-  name = Andy Bluntish
+  name = Andy Stanford-Bluntish
   email = andy@bluntish.net
 
 [github]
@@ -10,36 +10,22 @@
   attributesfile = ~/.gitattributes
 
 [color]
-  ui = auto
+  ui = true
 
 [apply]
-  # Detect whitespace errors when applying a patch
   whitespace = fix
 
-[url "https://"]
-  insteadOf = git://
-
 [push]
-  # 'git push' will push the current branch to its tracking branch
-  # the usual default is to push all branches
-  default = simple
-
-[merge]
-  # Include summaries of merged commits in newly created merge commit messages
-  log = true
+  default = current
 
 [alias]
+  cb = rev-parse --symbolic-full-name --abbrev-ref HEAD
+  gp = !git push --set-upstream origin HEAD:$(git cb)
+  gup = !git fetch --prune origin && git rebase -p origin/$(git cb)
 
-  # Add
   a = add
-
-  # Status
   s = status -s
-
-  # View abbreviated SHA, description, and history graph of the latest 20 commits
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
-
-  # Commit
   c = commit -m
   ca = !git add -A && git commit -av
   ci = commit
@@ -57,6 +43,7 @@
   d = diff
   dc = diff --cached
   last = diff HEAD^
+  conflicts = diff --name-only --diff-filter=U
 
   # Reset
   unstage = reset HEAD
