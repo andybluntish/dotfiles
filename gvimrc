@@ -5,7 +5,10 @@ set guioptions-=T
 set linespace=2
 
 " GUI Font
-set guifont=Input\ Mono:h12,Source\ Code\ Pro:h12,Menlo:h12
+set guifont=Input\ Mono:h14,Menlo:h14
 
 " GUI Colorscheme
-colorscheme hybrid
+" colorscheme solarized
+
+" Open NERDTree
+autocmd vimenter * NERDTree
