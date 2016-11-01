@@ -31,7 +31,6 @@ Plug 'pangloss/vim-javascript', { 'branch': 'develop' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'marijnh/tern_for_vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'heavenshell/vim-jsdoc'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
@@ -48,79 +47,104 @@ Plug 'dracula/vim'
 
 call plug#end()
 
-filetype plugin indent on
+" Filetypes
+filetype plugin on
+filetype indent on
+
+" General config
+set history=1000               " Store lots of :cmdline history
+set backspace=indent,eol,start " Backspacing over everything in insert mode
+set mouse=a                    " Enable mouse in all in all modes
+set clipboard=unnamed          " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set ruler                      " Show the cursor position
+set laststatus=2               " Always show status line
+set winminheight=0             " Allow splits to be reduced to a single line
+set ttyfast                    " Send more characters at a given time
+set ttimeoutlen=0              " Fix delay when escaping from insert with Esc
+set lazyredraw                 " Don't redraw when we don't have to
+set title                      " Show the filename in the window titlebar
+set number                     " Enable line numbers
+set numberwidth=5              " set a wider number gutter
+set showcmd                    " Show the (partial) command as it’s being typed
+set noshowmode                 " Don't show the current mode (airline.vim takes care of us)
+set visualbell                 " Use visual bell instead of audible bell (annnnnoying)
+set autoread                   " Read open files again when changed outside Vim
+set hidden                     " Allow buffers to exist in the background
+set nostartofline              " Don't reset cursor to start of line when moving around
 
 " Syntax highlighting
 syntax on
 set t_Co=256
+set synmaxcol=300
 set background=dark
 colorscheme hybrid
 
 " Mapleader
 let mapleader=" "
 
-" Centralize backups, swapfiles and undo history
-silent !mkdir -p $HOME/.vim/backups
-silent !mkdir -p $HOME/.vim/swaps
-silent !mkdir -p $HOME/.vim/undo
+" Turn off swap files
+set noswapfile
+set nobackup
+set nowritebackup
 
-set backupdir=~/.vim/backups                      " Backup file directory
-set directory=~/.vim/swaps                        " Swap file directory
-set undodir=~/.vim/undo                           " Undo file directory
-set undofile                                      " Persistent Undo
-set undolevels=1000                               " Keep more levels of undo history
+" Persistent undo
+silent !mkdir -p $HOME/.vim/undo > /dev/null 2>&1
+set undodir=~/.vim/backups
+set undofile
+set undolevels=1000
 
-" set hidden                                        " When a buffer is brought to foreground, remember undo history and marks
-set visualbell                                    " Use visual bell instead of audible bell (annnnnoying)
-set ttyfast                                       " Send more characters at a given time
-set ttimeoutlen=0                                 " Fix delay when escaping from insert with Esc
-set encoding=utf-8                                " Set default encoding
-set nobomb                                        " BOM often causes trouble
-set clipboard=unnamed                             " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set mouse=a                                       " Enable mouse in all in all modes
-set backspace=indent,eol,start                    " Backspacing over everything in insert mode
-set autoread                                      " Read open files again when changed outside Vim
-set lazyredraw                                    " Don't redraw when we don't have to
-set title                                         " Show the filename in the window titlebar
-set number                                        " Enable line numbers
-set numberwidth=5                                 " set a wider number gutter
-set showtabline=2                                 " Always show tab bar
-set laststatus=2                                  " Always show status line
-set ruler                                         " Show the cursor position
-set noshowmode                                    " Don't show the current mode (airline.vim takes care of us)
-set showcmd                                       " Show the (partial) command as it’s being typed
-set report=0                                      " Show all changes
-set list                                          " List mode
-set listchars=tab:»·,trail:·,extends:>,precedes:< " set list mode characters
-set autoindent                                    " Copy indent from last line when starting new line
-set smarttab                                      " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces
-set shiftwidth=2                                  " The # of spaces for indenting
-set softtabstop=2                                 " Tab key results in # spaces
-set expandtab                                     " Expand tabs to spaces
-set hlsearch                                      " Highlight searches
-set incsearch                                     " Highlight dynamically as pattern is typed
-set ignorecase                                    " Ignore case of searches
-set smartcase                                     " Ignore 'ignorecase' if search patter contains uppercase characters
-set wildmenu                                      " Hitting TAB in command mode will show possible completions above command line
-set wildmode=list:longest,list:full               " Complete only until point of ambiguity
+" Indentation
+set autoindent
+set smartindent
+set smarttab  
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" Display tabs and trailing spaces visually
+set list
+set listchars=tab:»·,trail:·,extends:>,precedes:<
+
+" Wrapping
+set nowrap
+set linebreak
+set showbreak=↪\
+set nojoinspaces
+
+" Folds
+set nofoldenable
+
+" Completion
+set wildmenu
+set wildmode=list:longest,list:full
 set wildignore+=.DS_Store
-set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
-set wildignore+=*/bower_components/*,*/node_modules/*,*/vendor/*
-set wildignore+=*/.git/*,*/.sass-cache/*
+set wildignore+=*/vim/undo*
+set wildignore+=*/.git/*
+set wildignore+=*/.sass-cache/*
+set wildignore+=*/bower_components/*
+set wildignore+=*/node_modules/*
+set wildignore+=*/vendor/*
 set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
-set winminheight=0                                " Allow splits to be reduced to a single line
-set scrolloff=3                                   " Start scrolling three lines before horizontal border of window
-set sidescrolloff=3                               " Start scrolling three columns before vertical border of window
-set nofoldenable                                  " Open all folds by default
-set nostartofline                                 " Don't reset cursor to start of line when moving around
-set nowrap                                        " Do not wrap lines
-set linebreak                                     " wrap lines at convenient points
-set showbreak=↪\                                  " display marker for wrapped lines
-set nojoinspaces                                  " Only insert single space after a '.', '?' and '!' with a join command
-set diffopt=filler                                " Add vertical spaces to keep right and left aligned
-set diffopt+=iwhite                               " Ignore whitespace changes (focus on code changes)
-set spelllang=en_au,en_gb                         " spelling language
-set synmaxcol=300                                 " Stop highlighting after x columns
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
+
+" Scrolling
+set scrolloff=3
+set sidescrolloff=3
+
+" Search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Encoding
+set encoding=utf-8
+set nobomb
+
+" Spelling
+set spelllang=en_au,en_gb
+
 
 " General
 
@@ -173,19 +197,19 @@ endfunction
 nnoremap <leader>z :call ToggleZoomWindow()<CR>
 
 " JSON
-au BufRead,BufNewFile *.json set ft=json syntax=javascript
+au BufRead,BufNewFile *.json setlocal ft=json syntax=javascript
 
 " Handlebars
-au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb set ft=mustache syntax=mustache
+au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb setlocal ft=mustache syntax=mustache
 
 " Markdown
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown syntax=markdown
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setlocal ft=markdown syntax=markdown
 au FileType markdown let g:DeleteTrailingWhitespace = 0
 au FileType markdown setlocal spell wrap
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
 
 " Ruby
-au BufRead,BufNewFile Rakefile,Capfile,Gemfile,Vagrantfile,Procfile,Guardfile,config.ru,*.rake,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
+au BufRead,BufNewFile Rakefile,Capfile,Gemfile,Vagrantfile,Procfile,Guardfile,config.ru,*.rake,.autotest,.irbrc,*.treetop,*.tt setlocal ft=ruby syntax=ruby
 
 " Python
 au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
@@ -197,6 +221,9 @@ au FileType make setlocal noexpandtab
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" CtrlP searches in the current working directory by default
+let g:ctrlp_cmd = 'CtrlP .'
 
 " List open buffers
 noremap <leader>b :CtrlPBuffer<CR>
@@ -260,11 +287,3 @@ let g:syntastic_loc_list_height = 5
 
 " JSON
 let g:vim_json_syntax_conceal = 0
-
-" OmniComplete
-au Filetype * setlocal omnifunc=syntaxcomplete#Complete
-au FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
-au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-au FileType python setlocal omnifunc=pythoncomplete#Complete
-au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
