@@ -145,6 +145,8 @@ set nobomb
 " Spelling
 set spelllang=en_au,en_gb
 
+" Omni Completion
+set omnifunc=syntaxcomplete#Complete
 
 " General
 
