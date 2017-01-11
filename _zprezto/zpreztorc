@@ -99,6 +99,21 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'pure'
 
+# PROMPT_EMOJI="🍺"
+# PROMPT_EMOJI="🌮"
+# PROMPT_EMOJI="🍔"
+# PROMPT_EMOJI="🍣"
+# PROMPT_EMOJI="🌭"
+# PROMPT_EMOJI="🍕"
+# PROMPT_EMOJI="👻"
+# PROMPT_EMOJI="🤖"
+# PROMPT_EMOJI="👾"
+# PROMPT_EMOJI="🐼"
+# PROMPT_EMOJI="⚡️"
+
+# PURE_PROMPT_SYMBOL="$PROMPT_EMOJI  ❯"
+# PURE_PROMPT_SYMBOL="$PROMPT_EMOJI "
+
 #
 # Ruby
 #
