@@ -26,8 +26,10 @@ Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
 
 Plug 'elzr/vim-json'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript', { 'branch': 'develop' }
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'marijnh/tern_for_vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
@@ -37,7 +39,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'elixir-lang/vim-elixir'
 
@@ -96,7 +98,7 @@ set undolevels=1000
 " Indentation
 set autoindent
 set smartindent
-set smarttab  
+set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
@@ -148,6 +150,11 @@ set spelllang=en_au,en_gb
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete
 
+au FileType ruby,eruby setl ofu=rubycomplete#Complete
+au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+au FileType css,scss setl ofu=csscomplete#CompleteCSS
+au FileType javascript setl ofu=javascriptcomplete#CompleteJS
+
 " General
 
 " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
@@ -197,27 +204,6 @@ function! ToggleZoomWindow() abort
 endfunction
 
 nnoremap <leader>z :call ToggleZoomWindow()<CR>
-
-" JSON
-au BufRead,BufNewFile *.json setlocal ft=json syntax=javascript
-
-" Handlebars
-au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb setlocal ft=mustache syntax=mustache
-
-" Markdown
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setlocal ft=markdown syntax=markdown
-au FileType markdown let g:DeleteTrailingWhitespace = 0
-au FileType markdown setlocal spell wrap
-let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
-
-" Ruby
-au BufRead,BufNewFile Rakefile,Capfile,Gemfile,Vagrantfile,Procfile,Guardfile,config.ru,*.rake,.autotest,.irbrc,*.treetop,*.tt setlocal ft=ruby syntax=ruby
-
-" Python
-au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4
-
-" Make
-au FileType make setlocal noexpandtab
 
 " Airline.vim
 let g:airline_powerline_fonts = 1
@@ -289,3 +275,24 @@ let g:syntastic_loc_list_height = 5
 
 " JSON
 let g:vim_json_syntax_conceal = 0
+
+" JSON
+" au BufRead,BufNewFile *.json setlocal ft=json syntax=json
+
+" Handlebars
+" au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb setlocal ft=mustache syntax=mustache
+
+" Markdown
+" au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setlocal ft=markdown syntax=markdown
+au FileType markdown let g:DeleteTrailingWhitespace = 0
+au FileType markdown setlocal spell wrap
+let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
+
+" Ruby
+au BufRead,BufNewFile Rakefile,Capfile,Gemfile,Vagrantfile,Procfile,Guardfile,config.ru,*.rake,.autotest,.irbrc,*.treetop,*.tt setlocal ft=ruby syntax=ruby
+
+" Python
+au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab
+
+" Make
+au FileType make setlocal noexpandtab
