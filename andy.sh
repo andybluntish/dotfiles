@@ -10,9 +10,6 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall -HUP Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall -HUP Finder"
 
-# Tmuxinator
-alias mux=tmuxinator
-
 # Tree
 alias tree="tree -I 'node_modules|bower_components|tmp|vendor|typings'"
 
@@ -55,3 +52,11 @@ function agif() {
 
 export EDITOR="vim"
 export VISUAL="vim"
+
+
+##
+# Tmuxinator
+##
+
+alias mux=tmuxinator
+source ~/.bin/tmuxinator.zsh
