@@ -41,6 +41,7 @@ Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'elixir-lang/vim-elixir'
 
 Plug 'jwhitley/vim-colors-solarized'
+Plug 'trevordmiller/nova-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'dracula/vim'
 
@@ -76,7 +77,7 @@ syntax on
 set t_Co=256
 set synmaxcol=300
 set background=dark
-colorscheme hybrid
+colorscheme nova
 
 " Mapleader
 let mapleader=" "
