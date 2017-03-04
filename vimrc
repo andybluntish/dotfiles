@@ -208,9 +208,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
-" CtrlP searches in the current working directory by default
-let g:ctrlp_cmd = 'CtrlP .'
-
 " List open buffers
 noremap <leader>b :CtrlPBuffer<CR>
 
