@@ -1,19 +1,16 @@
-" Make vim more useful
 set nocompatible
 
 call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 
 Plug 'osyo-manga/vim-over'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/syntastic'
 
@@ -29,25 +26,21 @@ Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'marijnh/tern_for_vim'
-Plug 'mtscout6/syntastic-local-eslint.vim'
+" Plug 'mtscout6/syntastic-local-eslint.vim'
 
-Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'elixir-lang/vim-elixir'
 
-Plug 'jwhitley/vim-colors-solarized'
 Plug 'trevordmiller/nova-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'dracula/vim'
 
 call plug#end()
 
-" Filetypes
 filetype plugin on
 filetype indent on
 
@@ -89,7 +82,7 @@ set nowritebackup
 
 " Persistent undo
 silent !mkdir -p $HOME/.vim/undo > /dev/null 2>&1
-set undodir=~/.vim/backups
+set undodir=~/.vim/undo
 set undofile
 set undolevels=1000
 
@@ -148,12 +141,11 @@ set spelllang=en_au,en_gb
 " Omni Completion
 set omnifunc=syntaxcomplete#Complete
 
-au FileType ruby,eruby setl ofu=rubycomplete#Complete
-au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
-au FileType css,scss setl ofu=csscomplete#CompleteCSS
-au FileType javascript setl ofu=javascriptcomplete#CompleteJS
-
-" General
+au FileType css,scss setl omnifunc=csscomplete#CompleteCSS
+au FileType html,xml,markdown setl omnifunc=htmlcomplete#CompleteTags
+au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+au FileType ruby,eruby setl omnifunc=rubycomplete#Complete
+au FileType python setl omnifunc=pythoncomplete#Complete
 
 " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
 nnoremap <C-j> <C-w>j
@@ -206,26 +198,31 @@ nnoremap <leader>z :call ToggleZoomWindow()<CR>
 " Airline.vim
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
+
+" Make CtrlP search in the current working directory by default
+" Useful for monorepos
+let g:ctrlp_cmd = 'CtrlP .'
+
+" Use rg (ripgrep) in CtrlP for listing files.
+" Respects .gitignore, and is fast enough to not require caching.
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --vimgrep --files --smart-case %s'
+  let g:ctrlp_use_caching = 0
+endif
 
 " List open buffers
 noremap <leader>b :CtrlPBuffer<CR>
 
-" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
+" Use rg (ripgrep) for searching in grep and Ack.vim
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+  let g:ackprg = 'rg --vimgrep --no-heading --smart-case'
 endif
-
-" You Complete Me
-let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Delete trailing whitespace
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
-
-" Easy-align
-vmap <Enter> <Plug>(EasyAlign)
 
 " Find/Replace in whole buffer
 function! VisualFindAndReplace()
@@ -233,21 +230,17 @@ function! VisualFindAndReplace()
   :w
 endfunction
 
-nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
-
 " Find/Replace within current visual selection
 function! VisualFindAndReplaceWithSelection() range
   :'<,'>OverCommandLine s/
   :w
 endfunction
 
+nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
 xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 
 " Delimitmate
 let g:delimitMate_expand_cr = 1
-
-" SilverSearcher
-set grepprg=ag\ --nogroup\ --nocolor
 
 " Commentry
 map <leader>/ :Commentary<CR>
@@ -257,8 +250,23 @@ let g:NERDTreeHijackNetrw = 0
 map <leader>d :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
-" Toggle background
-map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+" Fix eslint errors
+function! ESLintFix()
+  :! yarn run eslint % -- --fix
+  :redraw
+  :e
+  :w
+endfunction
+
+function! ESLintFixAll()
+  :! yarn run eslint . -- --fix
+  :redraw
+  :ea
+  :wa
+endfunction
+
+map <Leader>fx :call ESLintFix()<CR>
+map <Leader>fxa :call ESLintFixAll()<CR>
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
@@ -271,14 +279,7 @@ let g:syntastic_loc_list_height = 5
 " JSON
 let g:vim_json_syntax_conceal = 0
 
-" JSON
-" au BufRead,BufNewFile *.json setlocal ft=json syntax=json
-
-" Handlebars
-" au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb setlocal ft=mustache syntax=mustache
-
 " Markdown
-" au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setlocal ft=markdown syntax=markdown
 au FileType markdown let g:DeleteTrailingWhitespace = 0
 au FileType markdown setlocal spell wrap
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
