@@ -30,6 +30,8 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-fubitive'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
