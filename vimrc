@@ -26,7 +26,7 @@ Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'marijnh/tern_for_vim'
-" Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
