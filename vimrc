@@ -49,6 +49,7 @@ filetype indent on
 " General config
 set history=100                " Number of :cmdline history items to store
 set backspace=indent,eol,start " Backspacing over everything in insert mode
+set iskeyword+=-,_,$,@,%,#,?   " These are not word dividers
 set mouse=a                    " Enable mouse in all in all modes
 set clipboard=unnamed          " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set ruler                      " Show the cursor position
