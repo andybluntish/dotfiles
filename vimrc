@@ -47,7 +47,7 @@ filetype plugin on
 filetype indent on
 
 " General config
-set history=1000               " Store lots of :cmdline history
+set history=100                " Number of :cmdline history items to store
 set backspace=indent,eol,start " Backspacing over everything in insert mode
 set mouse=a                    " Enable mouse in all in all modes
 set clipboard=unnamed          " Use the OS clipboard by default (on versions compiled with `+clipboard`)
