@@ -31,91 +31,67 @@ Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
-
 Plug 'trevordmiller/nova-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'dracula/vim'
 
 call plug#end()
 
-filetype plugin on
-filetype indent on
 
-" General config
-set history=100                " Number of :cmdline history items to store
-set backspace=indent,eol,start " Backspacing over everything in insert mode
-set iskeyword+=-,_,$,@,%,#,?   " These are not word dividers
-set mouse=a                    " Enable mouse in all in all modes
-set clipboard=unnamed          " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set ruler                      " Show the cursor position
-set laststatus=2               " Always show status line
-set winminheight=0             " Allow splits to be reduced to a single line
+" General
 set ttyfast                    " Send more characters at a given time
 set ttimeoutlen=0              " Fix delay when escaping from insert with Esc
-set lazyredraw                 " Don't redraw when we don't have to
+set mouse=a                    " Enable mouse in all in all modes
+set clipboard=unnamed          " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set history=100                " Number of :cmdline history items to store
+set nostartofline              " Don't reset cursor to start of line when moving around
+set nofoldenable               " No folding
+
+
+" Appearance
+syntax on                      " Turn on syntax highlighting
+colorscheme nova               " Set the colorscheme
+set t_Co=256                   " Use all 265 colours
+set synmaxcol=300              " Number of columns to apply syntax highlighting
+set background=dark            " Use dark themes
+set ruler                      " Show the cursor position
+set showcmd                    " Show the (partial) command as it’s being typed
+set noshowmode                 " Don't show the current mode (airline.vim takes care of us)
+set laststatus=2               " Always show status line
+set visualbell                 " Use visual bell instead of audible bell (annnnnoying)
 set title                      " Show the filename in the window titlebar
 set number                     " Enable line numbers
 set numberwidth=5              " set a wider number gutter
-set showcmd                    " Show the (partial) command as it’s being typed
-set noshowmode                 " Don't show the current mode (airline.vim takes care of us)
-set visualbell                 " Use visual bell instead of audible bell (annnnnoying)
-set autoread                   " Read open files again when changed outside Vim
-set hidden                     " Allow buffers to exist in the background
-set nostartofline              " Don't reset cursor to start of line when moving around
-
-" Syntax highlighting
-syntax on
-set t_Co=256
-set synmaxcol=300
-set background=dark
-colorscheme nova
-
-" Mapleader
-let mapleader=" "
-
-" Turn off swap files
-set noswapfile
-set nobackup
-set nowritebackup
-
-" Persistent undo
-silent !mkdir -p $HOME/.vim/undo > /dev/null 2>&1
-set undodir=~/.vim/undo
-set undofile
-set undolevels=1000
-
-" Indentation
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-set shiftround
-
-" Display tabs and trailing spaces visually
-set list
+set nowrap                     " Disable soft-wrap
+set showbreak=↪\               " Character to display at the start of soft-wrapped lines
+set lazyredraw                 " Don't redraw when we don't have to
+set incsearch                  " Shows the search as you type!
+set hlsearch                   " Highlight search matches
+set list                       " Show hidden characters
 set listchars=tab:»·,trail:·,extends:>,precedes:<
+set scrolloff=3                " Minimal number of lines to keep above and below the cursor
+set sidescrolloff=3            " Minimal number of columns to keep to the left and right of the cursor
+set winminheight=0             " Allow splits to be reduced to a single line
 
-" Wrapping
-set nowrap
-set linebreak
-set showbreak=↪\
-set nojoinspaces
 
-" Folds
-set nofoldenable
-
-" Completion
-set wildmenu
+" Files and buffers
+silent !mkdir -p $HOME/.vim/undo > /dev/null 2>&1
+set undodir=~/.vim/undo        " Directory to save undo files
+set undofile                   " Persist undo history to a file
+set undolevels=1000            " Maximum number of changes that can be undone
+set nobackup                   " Don't make a backup before overwriting a file
+set nowritebackup              " Don't make a backup before writing the file
+set noswapfile                 " Don't create swap files
+set hidden                     " Allow buffers to exist in the background
+set autoread                   " Read open files again when changed outside Vim
+set wildmenu                   " Enhanced completion mode
 set wildmode=list:longest,list:full
-set wildignore+=.DS_Store
+set wildignore+=.DS_Store      " File patterns to ignore when expanding wildcards
 set wildignore+=*/vim/undo*
 set wildignore+=*/.git/*
 set wildignore+=*/.sass-cache/*
@@ -125,31 +101,50 @@ set wildignore+=*/vendor/*
 set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 
-" Scrolling
-set scrolloff=3
-set sidescrolloff=3
 
-" Search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-" Encoding
-set encoding=utf-8
-set nobomb
-
-" Spelling
-set spelllang=en_au,en_gb
-
-" Omni Completion
+" Text and editing
+set backspace=indent,eol,start " Backspacing over everything in insert mode
+set encoding=utf-8             " Set the default character encoding
+set nobomb                     " No BOMs
+set spelllang=en_au,en_gb      " Spellchecking languages
+set linebreak                  " Break on boundaries when wrapping
+set nojoinspaces               " Only one space when joining lines
+set expandtab                  " Spaces, not tabs-obviously ;-)
+set tabstop=2                  " Set the wisth of hard tabs
+set softtabstop=2              " Set the width of soft tabs
+set shiftwidth=2               " Set the width of indents
+set shiftround                 " Round indents to multiples of 'shiftwidth'
+set autoindent                 " Copy indent from current line when starting a new line
+set smartindent                " Be smart about auto indenting
+set ignorecase                 " Ignore case in search patterns
+set smartcase                  " Obey case if there's an upper case character in search patterns
+set iskeyword+=-,_,$,@,%,#,?   " These are not word dividers
 set omnifunc=syntaxcomplete#Complete
 
-au FileType css,scss setl omnifunc=csscomplete#CompleteCSS
-au FileType html,xml,markdown setl omnifunc=htmlcomplete#CompleteTags
-au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
-au FileType ruby,eruby setl omnifunc=rubycomplete#Complete
-au FileType python setl omnifunc=pythoncomplete#Complete
+
+" File types
+filetype plugin indent on
+augroup filetypedetect
+au BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
+au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
+au BufNewFile,BufRead *.ejs setlocal filetype=html
+
+au FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+au FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+au FileType plaintex setlocal spell
+au FileType make setlocal noexpandtab
+au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+
+au FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
+au FileType html,xml,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+au FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+au FileType python setlocal omnifunc=pythoncomplete#Complete
+augroup END
+
+
+" Mappings
+let mapleader=" "
 
 " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
 nnoremap <C-j> <C-w>j
@@ -157,7 +152,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Resize splits
+" Resize splits with arrow keys
 nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
 nnoremap <Up> :resize +1<CR>
@@ -184,7 +179,7 @@ map <leader>p :set invpaste paste?<CR>
 " Clear Highlight
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-" Zoom / Restore window.
+" Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
     exec t:zoom_winrestcmd
@@ -198,6 +193,27 @@ function! ToggleZoomWindow() abort
 endfunction
 
 nnoremap <leader>z :call ToggleZoomWindow()<CR>
+
+" Fix eslint errors
+function! ESLintFix()
+  :! yarn run eslint % -- --fix
+  :redraw
+  :e
+  :w
+endfunction
+
+function! ESLintFixAll()
+  :! yarn run eslint . -- --fix
+  :redraw
+  :ea
+  :wa
+endfunction
+
+map <Leader>fx :call ESLintFix()<CR>
+map <Leader>fxa :call ESLintFixAll()<CR>
+
+
+" Plugins
 
 " Airline.vim
 let g:airline_powerline_fonts = 1
@@ -227,6 +243,7 @@ endif
 " Delete trailing whitespace
 let g:DeleteTrailingWhitespace = 1
 let g:DeleteTrailingWhitespace_Action = 'delete'
+au FileType markdown let g:DeleteTrailingWhitespace = 0
 
 " Find/Replace in whole buffer
 function! VisualFindAndReplace()
@@ -254,24 +271,6 @@ let g:NERDTreeHijackNetrw = 0
 map <leader>d :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
-" Fix eslint errors
-function! ESLintFix()
-  :! yarn run eslint % -- --fix
-  :redraw
-  :e
-  :w
-endfunction
-
-function! ESLintFixAll()
-  :! yarn run eslint . -- --fix
-  :redraw
-  :ea
-  :wa
-endfunction
-
-map <Leader>fx :call ESLintFix()<CR>
-map <Leader>fxa :call ESLintFixAll()<CR>
-
 " Syntastic
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
@@ -284,15 +283,4 @@ let g:syntastic_loc_list_height = 5
 let g:vim_json_syntax_conceal = 0
 
 " Markdown
-au FileType markdown let g:DeleteTrailingWhitespace = 0
-au FileType markdown setlocal spell wrap
 let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
-
-" Ruby
-au BufRead,BufNewFile Rakefile,Capfile,Gemfile,Vagrantfile,Procfile,Guardfile,config.ru,*.rake,.autotest,.irbrc,*.treetop,*.tt setlocal ft=ruby syntax=ruby
-
-" Python
-au FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4 noexpandtab
-
-" Make
-au FileType make setlocal noexpandtab
