@@ -68,3 +68,11 @@ source ~/.bin/tmuxinator.zsh
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
+
+
+##
+# asdf
+##
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
