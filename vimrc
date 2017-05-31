@@ -183,6 +183,10 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" Removes doc lookup binding because it's easy to fat finger
+nmap K k
+vmap K k
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
