@@ -196,6 +196,9 @@ map <Leader>w :w<CR>
 " use ; instead of : because it is quicker
 nnoremap ; :
 
+" Use ;w!! to sudo save a file
+cnoremap w!! w !sudo tee % >/dev/null
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
