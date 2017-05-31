@@ -193,6 +193,9 @@ inoremap jj <Esc>
 " save without reaching for :
 map <Leader>w :w<CR>
 
+" use ; instead of : because it is quicker
+nnoremap ; :
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
