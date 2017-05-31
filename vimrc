@@ -187,6 +187,9 @@ vnoremap > >gv
 nmap K k
 vmap K k
 
+" jj in insert mode exits back to normal mode
+inoremap jj <Esc>
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
