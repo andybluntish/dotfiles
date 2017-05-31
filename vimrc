@@ -190,6 +190,9 @@ vmap K k
 " jj in insert mode exits back to normal mode
 inoremap jj <Esc>
 
+" save without reaching for :
+map <Leader>w :w<CR>
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
