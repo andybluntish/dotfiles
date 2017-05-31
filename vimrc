@@ -179,6 +179,10 @@ map <leader>p :set invpaste paste?<CR>
 " Clear Highlight
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
+" Reselect the visual area when changing indenting in visual mode.
+vnoremap < <gv
+vnoremap > >gv
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
