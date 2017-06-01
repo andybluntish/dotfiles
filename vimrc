@@ -9,6 +9,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'gmarik/sudo-gui.vim'
+Plug 'michaeljsmith/vim-indent-object'
 
 Plug 'osyo-manga/vim-over'
 Plug 'mileszs/ack.vim'
