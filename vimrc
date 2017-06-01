@@ -12,6 +12,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'osyo-manga/vim-over'
 Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'tmhedberg/matchit'
 Plug 'scrooloose/syntastic'
 
 Plug 'othree/html5.vim'
