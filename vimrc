@@ -8,6 +8,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'gmarik/sudo-gui.vim'
 
 Plug 'osyo-manga/vim-over'
 Plug 'mileszs/ack.vim'
