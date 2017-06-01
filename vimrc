@@ -18,6 +18,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'PeterRincker/vim-argumentative'
 Plug 'scrooloose/syntastic'
 
 Plug 'othree/html5.vim'
