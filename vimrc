@@ -65,6 +65,7 @@ set nofoldenable               " No folding
 syntax on                      " Turn on syntax highlighting
 colorscheme nova               " Set the colorscheme
 set t_Co=256                   " Use all 265 colours
+set termguicolors              " use 24-bit colour
 set synmaxcol=300              " Number of columns to apply syntax highlighting
 set background=dark            " Use dark themes
 set ruler                      " Show the cursor position
