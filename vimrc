@@ -16,6 +16,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
+Plug 'tpope/vim-repeat'
 Plug 'scrooloose/syntastic'
 
 Plug 'othree/html5.vim'
