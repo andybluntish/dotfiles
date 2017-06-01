@@ -17,6 +17,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/syntastic'
 
 Plug 'othree/html5.vim'
