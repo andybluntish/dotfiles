@@ -44,9 +44,16 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
+
 Plug 'trevordmiller/nova-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'dracula/vim'
+
+Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-vividchalk'
+Plug 'vim-scripts/molokai'
+Plug 'twerth/ir_black'
+Plug 'larssmit/vim-getafe'
 
 call plug#end()
 
