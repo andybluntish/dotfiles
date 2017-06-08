@@ -44,6 +44,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
 
 Plug 'trevordmiller/nova-vim'
 Plug 'w0ng/vim-hybrid'
