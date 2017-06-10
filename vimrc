@@ -197,10 +197,6 @@ map <leader>p :set invpaste paste?<CR>
 " Clear Highlight
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-" Reselect the visual area when changing indenting in visual mode.
-vnoremap < <gv
-vnoremap > >gv
-
 " Removes doc lookup binding because it's easy to fat finger
 nmap K k
 vmap K k
