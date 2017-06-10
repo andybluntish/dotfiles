@@ -47,6 +47,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 
 Plug 'trevordmiller/nova-vim'
+Plug 'andybluntish/nova-vim', { 'branch': 'snazzy' }
 Plug 'w0ng/vim-hybrid'
 Plug 'dracula/vim'
 
@@ -71,7 +72,7 @@ set nofoldenable               " No folding
 
 " Appearance
 syntax on                      " Turn on syntax highlighting
-colorscheme nova               " Set the colorscheme
+colorscheme snazzy             " Set the colorscheme
 set t_Co=256                   " Use all 265 colours
 set termguicolors              " use 24-bit colour
 set synmaxcol=300              " Number of columns to apply syntax highlighting
