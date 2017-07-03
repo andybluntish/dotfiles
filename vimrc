@@ -21,6 +21,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/SearchComplete'
 
 Plug 'othree/html5.vim'
 Plug 'tpope/vim-ragtag'
