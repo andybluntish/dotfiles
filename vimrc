@@ -33,7 +33,7 @@ Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
-Plug 'marijnh/tern_for_vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'mtscout6/syntastic-local-eslint.vim'
 
 Plug 'tpope/vim-commentary'
