@@ -53,7 +53,7 @@ Plug 'dracula/vim'
 
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-vividchalk'
-Plug 'vim-scripts/molokai'
+Plug 'tomasr/molokai'
 Plug 'twerth/ir_black'
 Plug 'larssmit/vim-getafe'
 
