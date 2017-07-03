@@ -31,7 +31,7 @@ Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
 
 Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'marijnh/tern_for_vim'
 Plug 'mtscout6/syntastic-local-eslint.vim'
