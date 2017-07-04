@@ -50,6 +50,7 @@ Plug 'Quramy/tsuquyomi'
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -66,11 +67,7 @@ set nofoldenable               " No folding
 
 " Appearance
 syntax on                      " Turn on syntax highlighting
-colorscheme nova               " Set the colorscheme
-set t_Co=256                   " Use all 265 colours
-set termguicolors              " use 24-bit colour
 set synmaxcol=300              " Number of columns to apply syntax highlighting
-set background=dark            " Use dark themes
 set ruler                      " Show the cursor position
 set showcmd                    " Show the (partial) command as it’s being typed
 set noshowmode                 " Don't show the current mode (airline.vim takes care of us)
@@ -90,6 +87,21 @@ set scrolloff=3                " Minimal number of lines to keep above and below
 set sidescrolloff=3            " Minimal number of columns to keep to the left and right of the cursor
 set winminheight=0             " Allow splits to be reduced to a single line
 
+if (has("termguicolors"))
+  " use 24-bit colour
+  set termguicolors
+else
+  " use 265 colours
+  set t_Co=256
+endif
+
+" use italics in gui
+if (has("gui_running"))
+  let g:one_allow_italics = 1
+endif
+
+colorscheme one
+set background=dark
 
 " Files and buffers
 silent !mkdir -p $HOME/.vim/undo > /dev/null 2>&1
