@@ -20,7 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
 Plug 'PeterRincker/vim-argumentative'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'vim-scripts/SearchComplete'
 
 Plug 'othree/html5.vim'
@@ -35,7 +35,6 @@ Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'mtscout6/syntastic-local-eslint.vim'
 
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -102,6 +101,7 @@ endif
 
 colorscheme one
 set background=dark
+
 
 " Files and buffers
 silent !mkdir -p $HOME/.vim/undo > /dev/null 2>&1
@@ -234,30 +234,11 @@ endfunction
 
 nnoremap <leader>z :call ToggleZoomWindow()<CR>
 
-" Fix eslint errors
-function! ESLintFix()
-  :! yarn run eslint % -- --fix
-  :redraw
-  :e
-  :w
-endfunction
-
-function! ESLintFixAll()
-  :! yarn run eslint . -- --fix
-  :redraw
-  :ea
-  :wa
-endfunction
-
-map <Leader>fx :call ESLintFix()<CR>
-map <Leader>fxa :call ESLintFixAll()<CR>
-
 
 " Plugins
 
 " Airline.vim
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#syntastic#enabled = 1
 
 " Make CtrlP search in the current working directory by default
 " Useful for monorepos
@@ -311,13 +292,17 @@ let g:NERDTreeHijackNetrw = 0
 map <leader>d :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
-" Syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 5
+" Ale
+let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_open_list = 1
+let g:ale_list_window_size = 5
+let g:ale_sign_column_always = 1
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+
+nmap <silent> <leader>E <Plug>(ale_previous_wrap)
+nmap <silent> <leader>e <Plug>(ale_next_wrap)
+nmap <silent> <leader>fx <Plug>(ale_fix)
 
 " JSON
 let g:vim_json_syntax_conceal = 0
