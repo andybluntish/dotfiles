@@ -299,6 +299,7 @@ let g:ale_list_window_size = 5
 let g:ale_sign_column_always = 1
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_fixers = { 'javascript': [ 'eslint' ] }
 
 nmap <silent> <leader>E <Plug>(ale_previous_wrap)
 nmap <silent> <leader>e <Plug>(ale_next_wrap)
