@@ -5,7 +5,7 @@ set guioptions-=T
 set linespace=2
 
 " GUI Font
-set guifont=Input\ Mono:h16,Menlo:h16
+set guifont=Input\ Mono:h14,Menlo:h14
 
 " Open NERDTree
 autocmd vimenter * NERDTree
