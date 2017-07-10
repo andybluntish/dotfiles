@@ -234,6 +234,8 @@ endfunction
 
 nnoremap <leader>z :call ToggleZoomWindow()<CR>
 
+" Toggle background
+nnoremap <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Plugins
 
