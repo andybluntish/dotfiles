@@ -74,7 +74,6 @@ set laststatus=2               " Always show status line
 set visualbell                 " Use visual bell instead of audible bell (annnnnoying)
 set title                      " Show the filename in the window titlebar
 set number                     " Enable line numbers
-set numberwidth=5              " set a wider number gutter
 set nowrap                     " Disable soft-wrap
 set showbreak=↪\               " Character to display at the start of soft-wrapped lines
 set lazyredraw                 " Don't redraw when we don't have to
