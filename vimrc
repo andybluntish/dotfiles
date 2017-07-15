@@ -294,7 +294,6 @@ map <leader>d :NERDTreeToggle<CR>
 map <leader>n :NERDTreeFind<CR>
 
 " Ale
-let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = { 'javascript': ['eslint'] }
