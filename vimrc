@@ -295,8 +295,9 @@ map <leader>/ :Commentary<CR>
 
 " NERDTree
 let g:NERDTreeHijackNetrw = 0
-map <leader>d :NERDTreeToggle<CR>
-map <leader>n :NERDTreeFind<CR>
+noremap <leader>dn :NERDTreeToggle<CR>
+noremap <leader>nn :NERDTreeFind<CR>
+noremap <leader>fn :NERDTreeFocus<CR>
 
 " Ale
 let g:ale_sign_column_always = 1
