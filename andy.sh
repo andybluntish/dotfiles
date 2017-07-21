@@ -13,6 +13,9 @@ alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false &
 # Tree
 alias tree="tree -I 'node_modules|bower_components|tmp|vendor|typings'"
 
+# gup
+alias gup="g gup"
+
 
 ##
 # Functions
