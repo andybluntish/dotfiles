@@ -300,6 +300,8 @@ noremap <leader>nn :NERDTreeFind<CR>
 noremap <leader>fn :NERDTreeFocus<CR>
 
 " Ale
+let g:ale_open_list = 1
+let g:ale_list_window_size = 5
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = { 'javascript': ['eslint'] }
