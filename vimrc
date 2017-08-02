@@ -50,6 +50,7 @@ Plug 'rgarver/Kwbd.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'ElmCast/elm-vim'
 
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
