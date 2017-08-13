@@ -1661,11 +1661,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>1194 958 620 392 0 0 3008 1669 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>394 914 770 429 0 0 3008 1669 </string>
+	<string>1293 1087 918 381 0 0 3008 1669 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 28 2005 1641 0 0 3008 1669 </string>
+	<string>1 1163 730 501 0 0 3008 1669 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>400 456 730 501 0 0 1920 1177 </string>
+	<string>0 1168 745 501 0 0 3008 1669 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>1504 41 1504 1625 0 0 3008 1669 </string>
 	<key>New Bookmarks</key>
@@ -2380,26 +2380,26 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.90218889713287354</real>
+				<real>0.92156862745098034</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.92725068330764771</real>
+				<real>0.94117647058823528</real>
 				<key>Red Component</key>
-				<real>0.9216761589050293</real>
+				<real>0.93725490196078431</real>
 			</dict>
 			<key>Selection Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.096062153577804565</real>
+				<real>0.80101615190505981</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0742945596575737</real>
+				<real>0.52141976356506348</real>
 				<key>Red Component</key>
-				<real>0.071684017777442932</real>
+				<real>1</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -2617,7 +2617,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-07-19T22:30:09Z</date>
+	<date>2017-08-13T22:07:18Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2670,6 +2670,8 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
