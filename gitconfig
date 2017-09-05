@@ -45,3 +45,6 @@
   # Reset
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
+
+[merge]
+  tool = vimdiff
