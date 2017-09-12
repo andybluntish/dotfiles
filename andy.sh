@@ -71,3 +71,10 @@ source ~/.bin/tmuxinator.zsh
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+
+##
+# Yarn
+##
+
+export PATH="$HOME/.yarn/bin:$PATH"
