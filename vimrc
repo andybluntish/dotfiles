@@ -51,6 +51,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'ElmCast/elm-vim'
+Plug 'alexlafroscia/vim-ember-cli'
 
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
