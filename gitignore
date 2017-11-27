@@ -34,6 +34,7 @@ typings/
 Session.vim
 .netrwhist
 *~
+.tern-port
 
 # OS X
 ._*
