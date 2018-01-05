@@ -225,6 +225,10 @@ nnoremap ; :
 " Use ;w!! to sudo save a file
 cnoremap w!! w !sudo tee % >/dev/null
 
+" Toggle buffer diff
+nnoremap <Leader>don :diffthis<CR>
+nnoremap <Leader>dof :diffoff<CR>
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
