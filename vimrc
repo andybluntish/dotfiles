@@ -13,7 +13,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-eunuch'
 
 Plug 'osyo-manga/vim-over'
-Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-repeat'
@@ -265,13 +265,6 @@ endif
 
 " List open buffers
 noremap <leader>b :CtrlPBuffer<CR>
-
-" Use rg (ripgrep) for searching in grep and Ack.vim
-if executable('rg')
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-  let g:ackprg = 'rg --vimgrep --no-heading --smart-case'
-endif
 
 " Delete trailing whitespace
 let g:DeleteTrailingWhitespace = 1
