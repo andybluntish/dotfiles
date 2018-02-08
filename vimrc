@@ -53,9 +53,6 @@ Plug 'Quramy/tsuquyomi'
 Plug 'ElmCast/elm-vim'
 Plug 'alexlafroscia/vim-ember-cli'
 
-Plug 'trevordmiller/nova-vim'
-Plug 'chriskempson/base16-vim'
-Plug 'joshdick/onedark.vim'
 Plug 'rakr/vim-one'
 
 call plug#end()
