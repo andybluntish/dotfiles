@@ -78,3 +78,10 @@ source ~/.bin/tmuxinator.zsh
 ##
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+
+##
+# Elixir
+##
+
+export ERL_AFLAGS="-kernel shell_history enabled"
