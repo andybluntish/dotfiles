@@ -39,6 +39,7 @@
   # Diff
   d = diff
   dc = diff --cached
+  dw = diff --color-words
   last = diff HEAD^
   conflicts = diff --name-only --diff-filter=U
 
