@@ -19,6 +19,7 @@ temp
 .tmp
 
 # VSCode
+.vscode/
 .vscodeignore
 jsconfig.json
 typings/
