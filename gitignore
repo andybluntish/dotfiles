@@ -1,0 +1,126 @@
+# Dependencies
+node_modules
+bower_components
+typings/
+/.bundle
+/vendor/bundle
+
+# Compiled output
+/build
+/dist
+/doc
+
+# Node.js
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+.lock-wscript
+build/Release
+.npm
+.eslintcache
+.node_repl_history
+.yarn-integrity
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/log
+
+# Tmp
+/.tmp
+/tmp
+/temp
+
+# Config
+.env
+
+# Sass
+.sass-cache/
+*.css.map
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+Session.vim
+.netrwhist
+*~
+tags
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Redis
+*.rdb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Office
+*.tmp
+~$*.doc*
+~$*.xls*
+*.xlk
+~$*.ppt*
+*.~vsd*
+
+# Archives
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.tgz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.cab
+*.iso
+*.tar
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+*.msi
+*.msix
+*.msm
+*.msp
