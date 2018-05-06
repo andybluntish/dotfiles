@@ -8,17 +8,12 @@ export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH"
 
 alias la="ls -lah"
 alias gup="git gup"
+alias tree="tree -I 'node_modules|bower_components|tmp|vendor|typings'"
 
 if [ -x "$(command -v pygmentize)" ]; then
   alias c='pygmentize -O style=monokai -f console256 -g'
 else
   alias c=cat
-fi
-
-if [ -x "$(command -v tree)" ]; then
-  alias tree="tree -I 'node_modules|bower_components|tmp|vendor|typings'"
-else
-  echo "tree is not installed" >&2
 fi
 
 bind '"\e[A":history-search-backward'
