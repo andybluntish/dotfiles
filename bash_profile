@@ -1,5 +1,3 @@
-echo "Hi there 👋"
-
 export CLICOLOR=1
 export PS1="\w $ "
 export EDITOR="vim"
