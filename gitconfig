@@ -22,13 +22,13 @@
   a = add
   s = status -s
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  c = commit
+  c = commit --verbose
   ca = !git add -A && git commit -av
-  ci = commit
   amend = commit --amend
+  p = push
 
   # Pull in remote changes for the current repository and all its submodules
-  p = !"git pull; git submodule foreach git pull origin master"
+  pa = !"git pull; git submodule foreach git pull origin master"
 
   # Branch
   co = checkout
