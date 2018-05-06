@@ -7,7 +7,8 @@ export MANPAGER="less -X"
 export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH"
 
 alias la="ls -lah"
-alias gup="git gup"
+alias g="git"
+alias gup="g gup"
 alias tree="tree -I 'node_modules|bower_components|tmp|vendor|typings'"
 
 if [ -x "$(command -v pygmentize)" ]; then
