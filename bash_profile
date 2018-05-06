@@ -1,5 +1,4 @@
 export CLICOLOR=1
-export PS1="\w $ "
 export EDITOR="vim"
 export MANPAGER="less -X"
 export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH"
@@ -72,4 +71,9 @@ function parse_git_branch() {
 }
 
 # Prompt
-export PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} $ "
+
+if [ -x "$(command -v git)" ]; then
+  export PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} $ "
+else
+  export PS1="${CYAN}\w${COLOR_RESET} $ "
+fi
