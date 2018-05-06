@@ -72,4 +72,4 @@ function parse_git_branch() {
 }
 
 # Prompt
-export PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} $ "
+export PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} $ "
