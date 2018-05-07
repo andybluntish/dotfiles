@@ -191,8 +191,8 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Paste toggle
-set pastetoggle=<leader>p
-map <leader>p :set invpaste paste?<CR>
+set pastetoggle=<F2>
+map <F2> :set invpaste paste?<CR>
 
 " Clear Highlight
 nnoremap <Esc><Esc> :nohlsearch<CR>
