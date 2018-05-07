@@ -8,7 +8,7 @@ alias g="git"
 alias gup="g gup"
 alias tree="tree -I 'node_modules|bower_components|tmp|vendor|typings'"
 
-if [ -x "$(command -v pygmentize)" ]; then
+if hash pygmentize 2>/dev/null; then
   alias c='pygmentize -O style=monokai -f console256 -g'
 else
   alias c=cat
@@ -72,7 +72,7 @@ function parse_git_branch() {
 
 # Prompt
 
-if [ -x "$(command -v git)" ]; then
+if hash git 2>/dev/null; then
   export PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET} $ "
 else
   export PS1="${CYAN}\w${COLOR_RESET} $ "
