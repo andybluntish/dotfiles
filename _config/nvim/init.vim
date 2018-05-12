@@ -31,7 +31,7 @@ Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 Plug 'mhartington/nvim-typescript'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
