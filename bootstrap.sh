@@ -1,19 +1,23 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 [[ ${DEBUG:-} ]] && set -x
 
-for file in `ls .`; do
-  IN="$PWD/$file"
-  OUT="$HOME/.$file"
+function link() {
+  source=$PWD/$1
+  target=${2:-$HOME/.$1}
 
-  # Skip this script, and files that begin with an underscore, or end in .md
-  if [[ $file = $(basename $0) ]] || [[ $file =~ ^_.* ]] || [[ $file =~ .*\.md$ ]] ; then
-    continue
-  fi
+  echo "Linking $source -> $target"
 
-  echo "Linking $IN -> $OUT"
+  ln -snf $source $target
+}
 
-  # Symlink file to the home directory
-  ln -snf $IN $OUT
-done
+mkdir -p $HOME/.config/fish
+mkdir -p $HOME/.config/nvim
+
+link bin
+link gemrc
+link gitconfig
+link gitignore
+link hushlogin
+link init.vim $HOME/.config/nvim/init.vim
+link tmux.conf
