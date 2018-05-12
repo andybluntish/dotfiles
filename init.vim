@@ -372,7 +372,7 @@ augroup nerd_commenter
 
   let NERDSpaceDelims=1
   let NERDCompactSexyComs=1
-  map <leader>/ :NERDComToggleComment<CR>
+  map <leader>/ <plug>NERDCommenterToggle
 augroup END
 
 " NERDTree
