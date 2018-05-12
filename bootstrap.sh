@@ -14,6 +14,7 @@ function link() {
 mkdir -p $HOME/.config/fish
 mkdir -p $HOME/.config/nvim
 
+link config.fish $HOME/.config/fish/config.fish
 link bin
 link gemrc
 link gitconfig
