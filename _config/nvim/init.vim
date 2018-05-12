@@ -1,5 +1,3 @@
-" set nocompatible
-
 call plug#begin('~/.vim/bundle')
 
 Plug 'rakr/vim-one'
@@ -37,7 +35,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
 Plug 'mhartington/nvim-typescript'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
