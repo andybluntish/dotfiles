@@ -8,6 +8,12 @@ set -x GREP_COLOR "30;43"
 
 set PATH $HOME/.bin $PATH
 
+function ..    ; cd .. ; end
+function ...   ; cd ../.. ; end
+function ....  ; cd ../../.. ; end
+function ..... ; cd ../../../.. ; end
+function ll ; tree --dirsfirst -ChFupDaLg 1 $argv ; end
+
 function g; git $argv; end
 function gup; git gup; end
 function tree; command tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git' $argv; end
