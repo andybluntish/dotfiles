@@ -2,36 +2,26 @@
 
 These dotfiles are for [fish shell](https://fishshell.com/) and [Neovim](https://neovim.io/).
 
-```
-brew install git
-brew install fish
-brew install neovim
-brew install python
-brew install python@2
-brew install fzf
-brew install fd
-brew install ripgrep
-brew install tree
-brew install tmux
-brew install reattach-to-user-namespace
-```
+Install the following dependencies to get started.
 
-```
-# install pygments for syntax highlighting
+```sh
+# the basics
+brew install git fish neovim python python@2 fzf fd ripgrep tree
+
+# pygments for syntax highlighting
 pip install Pygments
 
 # enable Python3 interface for neovim
 pip3 install neovim
 
-# install useful key bindings and fuzzy completion
+# setup useful key bindings and fuzzy completion for fzf
 eval (brew --prefix)/opt/fzf/install --all
+
+# if using tmux
+brew install tmux reattach-to-user-namespace
+
+# for writing JavaScript
+npm i -g tern typescript
 ```
 
-- [Fish Shell](https://fishshell.com/)
-- [Neovim]()
-- [fzf]()
-- [fd]()
-- [ripgrep]()
-- [Pygments](http://pygments.org/)
-
-These are _heavily_ based on the dotfiles of [gf3](https://github.com/gf3/dotfiles), [toranb](https://github.com/toranb/dotfiles), [mathiasbynens](https://github.com/mathiasbynens/dotfiles), and [Olical](https://github.com/Olical/dotfiles).
+These are _heavily_ based on the dotfiles of [gf3](https://github.com/gf3/dotfiles), [toranb](https://github.com/toranb/dotfiles), [mathiasbynens](https://github.com/mathiasbynens/dotfiles), and [Olical](https://github.com/Olical/dotfiles), and no doubt countless others. Thank you.
