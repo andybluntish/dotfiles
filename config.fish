@@ -6,7 +6,7 @@ set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x GPG_TTY (tty)
 set -x GREP_COLOR "30;43"
 
-set PATH $HOME/.bin $HOME/.yarn/bin $PATH
+set PATH $HOME/.bin $PATH
 
 function g; git $argv; end
 function gup; git gup; end
