@@ -1,41 +1,24 @@
 #!/usr/bin/env bash
+set -euo pipefail
+[[ ${DEBUG:-} ]] && set -x
 
-###
-#
-# bootstrap.sh
-#
-# Symlink dotfiles to home directory.
-#
-###
+function link() {
+  source=$PWD/$1
+  target=${2:-$HOME/.$1}
 
-# Loop through each file
-for file in `ls .`; do
-  IN="$PWD/$file"
-  OUT="$HOME/.$file"
+  echo "Linking $source -> $target"
 
-  # Skip files that begin with an underscore, readme, and the bootstrap file
-  if [[ $file =~ ^_.* ]] || [[ $file =~ ^README ]] || [[ $file =~ ^bootstrap ]]; then
-    continue
-  fi
+  ln -snf $source $target
+}
 
-  echo "Linking $IN -> $OUT"
+mkdir -p $HOME/.config/fish
+mkdir -p $HOME/.config/nvim
 
-  # Symlink file to the home directory
-  ln -snf $IN $OUT
-done
-
-# Loop through vim files
-for file in `ls ./_vim`; do
-  IN="$PWD/_vim/$file"
-  OUT="$HOME/.vim/$file"
-
-  # Skip files that begin with an underscore, readme, and the bootstrap file
-  if [[ $file =~ ^_.* ]] || [[ $file =~ ^README ]] || [[ $file =~ ^bootstrap ]]; then
-    continue
-  fi
-
-  echo "VIM: Linking $IN -> $OUT"
-
-  # Symlink file to the home directory
-  ln -snf $IN $OUT
-done
+link config.fish $HOME/.config/fish/config.fish
+link bin
+link gemrc
+link gitconfig
+link gitignore
+link hushlogin
+link init.vim $HOME/.config/nvim/init.vim
+link tmux.conf
