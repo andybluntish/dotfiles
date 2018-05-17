@@ -11,40 +11,37 @@
 [apply]
   whitespace = fix
 
+[color]
+  ui = true
+
 [push]
   default = current
 
 [alias]
+  a = add
+  b = branch
+  c = commit -v
+  ca = !git add -A && git commit -av
+  co = checkout
+  d = diff
+  dc = diff --cached
+  dl = diff HEAD^
+  dw = diff --color-words
+  f = fetch
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  p = push
+  pa = !"git pull; git submodule foreach git pull origin master"
+  pl = pull
+  s = status -s
+
+  amend = commit --amend
+  conflicts = diff --name-only --diff-filter=U
+  uncommit = reset --soft HEAD^
+  unstage = reset HEAD
+
   cb = rev-parse --symbolic-full-name --abbrev-ref HEAD
   gp = !git push --set-upstream origin HEAD:$(git cb)
   gup = !git fetch --prune origin && git rebase -p origin/$(git cb)
-
-  a = add
-  s = status -s
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  c = commit --verbose
-  ca = !git add -A && git commit -av
-  amend = commit --amend
-  p = push
-
-  # Pull in remote changes for the current repository and all its submodules
-  pa = !"git pull; git submodule foreach git pull origin master"
-
-  # Branch
-  co = checkout
-  b = branch
-  nb = checkout -b
-
-  # Diff
-  d = diff
-  dc = diff --cached
-  dw = diff --color-words
-  last = diff HEAD^
-  conflicts = diff --name-only --diff-filter=U
-
-  # Reset
-  unstage = reset HEAD
-  uncommit = reset --soft HEAD^
 
 [merge]
   tool = vimdiff
