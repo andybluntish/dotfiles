@@ -19,6 +19,7 @@
 
 [alias]
   a = add
+  ap = add --patch
   b = branch
   c = commit -v
   ca = !git add -A && git commit -av
@@ -29,6 +30,7 @@
   dw = diff --color-words
   f = fetch
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  m = merge
   p = push
   pa = !"git pull; git submodule foreach git pull origin master"
   pl = pull
