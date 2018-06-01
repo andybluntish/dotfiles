@@ -7,6 +7,7 @@ set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x GPG_TTY (tty)
 set -x GREP_COLOR "30;43"
 
+set PATH /usr/local/opt/node@8/bin $PATH
 set PATH $HOME/.bin $PATH
 
 function ..    ; cd .. ; end
