@@ -6,7 +6,13 @@ Install the following dependencies to get started.
 
 ```sh
 # the basics
-brew install git fish neovim python python@2 fzf fd ripgrep tree
+brew install git fish neovim python python@2 fzf fd ripgrep tree rbenv
+
+# Fisherman
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+fisher edc/bass
+fisher nvm
+fisher rbenv
 
 # pygments for syntax highlighting
 pip install Pygments
