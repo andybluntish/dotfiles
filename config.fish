@@ -60,5 +60,3 @@ function c
     set_color normal
   end
 end
-
-source ~/.asdf/asdf.fish
