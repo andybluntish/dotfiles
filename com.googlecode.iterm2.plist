@@ -899,9 +899,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>785 483 620 392 0 0 1680 1028 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>504 449 796 486 0 0 1680 1028 </string>
+	<string>513 524 928 394 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1 0 838 1028 0 0 1680 1028 </string>
+	<string>1 24 838 1004 0 0 1680 1028 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>576 248 730 501 0 0 1680 1028 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1627,13 +1629,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.096062153577804565</real>
+				<real>0.75294117647058822</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0742945596575737</real>
+				<real>0.41176470588235292</real>
 				<key>Red Component</key>
-				<real>0.071684017777442932</real>
+				<real>1</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
