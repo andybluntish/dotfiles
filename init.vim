@@ -33,7 +33,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript', 'typescript.tsx'] }
-Plug 'mhartington/nvim-typescript'
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf.vim'
 
