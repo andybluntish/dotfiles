@@ -23,6 +23,7 @@ build/Release
 .eslintcache
 .node_repl_history
 .yarn-integrity
+.tern-port
 
 # Logs
 logs
