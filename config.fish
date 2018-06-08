@@ -16,11 +16,16 @@ function ....  ; cd ../../.. ; end
 function ..... ; cd ../../../.. ; end
 function ll ; tree --dirsfirst -ChFupDaLg 1 $argv ; end
 
-function g; git $argv; end
-function gup; git gup; end
 function tree; command tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git' $argv; end
 function df; command df -h $argv; end
 function tmux; command tmux -2 $argv; end
+
+if not set -q abbrs_initialized
+  set -U abbrs_initialized
+
+  abbr g 'git'
+  abbr gup 'git gup'
+end
 
 # Fuzzy find & vim
 function vp
