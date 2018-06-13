@@ -1,4 +1,6 @@
 function initialize_abbrs
+  abbr nv 'node --version'
+
   abbr g 'git'
   abbr gup 'git gup'
 
