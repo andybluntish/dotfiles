@@ -15,7 +15,7 @@ mkdir -p $HOME/.config/fish
 mkdir -p $HOME/.config/nvim
 
 link config/fish/config.fish $HOME/.config/fish/
-link fish_prompt.fish $HOME/.config/fish/functions/
+link config/fish/functions/fish_prompt.fish $HOME/.config/fish/functions/
 link config/fish/functions/initialize_abbrs.fish $HOME/.config/fish/functions/
 link bin
 link gemrc
