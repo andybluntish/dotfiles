@@ -14,12 +14,12 @@ function link() {
 mkdir -p $HOME/.config/fish
 mkdir -p $HOME/.config/nvim
 
-link config.fish $HOME/.config/fish/config.fish
+link config/fish/config.fish $HOME/.config/fish/config.fish
 link fish_prompt.fish $HOME/.config/fish/functions/fish_prompt.fish
 link bin
 link gemrc
 link gitconfig
 link gitignore
 link hushlogin
-link init.vim $HOME/.config/nvim/init.vim
+link config/nvim/init.vim $HOME/.config/nvim/init.vim
 link tmux.conf
