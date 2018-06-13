@@ -22,8 +22,7 @@ function tmux; command tmux -2 $argv; end
 if not set -q abbrs_initialized
   set -U abbrs_initialized
 
-  abbr g 'git'
-  abbr gup 'git gup'
+  initialize_abbrs
 end
 
 # Fuzzy find & vim
