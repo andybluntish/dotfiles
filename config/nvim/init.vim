@@ -346,7 +346,7 @@ augroup fzf_config
   nnoremap <C-g> :GFiles?<CR>
   nnoremap <C-b> :Buffers<CR>
   nnoremap <C-t> :Tags<CR>
-  nnoremap <C-m> :Marks<CR>
+  " nnoremap <C-m> :Marks<CR>
   nnoremap <leader>l :Lines<CR>
 
   " Mapping selecting mappings
@@ -368,9 +368,6 @@ augroup fzf_config
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 augroup END
-
-
-
 
 " NERD Commenter
 augroup nerd_commenter
