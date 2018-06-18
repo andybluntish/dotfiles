@@ -55,13 +55,9 @@ if (has("gui_running"))
 endif
 
 " Local directories
-silent !mkdir -p $HOME/.config/nvim/backup > /dev/null 2>&1
-silent !mkdir -p $HOME/.config/nvim/swap > /dev/null 2>&1
 silent !mkdir -p $HOME/.config/nvim/undo > /dev/null 2>&1
 
 " Config
-set backupdir=~/.config/nvim/backup
-set directory=~/.config/nvim/swap
 set undodir=~/.config/nvim/undo
 set ttyfast                          " Send more characters at a given time
 set lazyredraw                       " Don't redraw when we don't have to
@@ -71,6 +67,9 @@ set clipboard=unnamedplus            " Use the OS clipboard by default (on versi
 set history=10000                    " Number of :cmdline history items to store
 set undolevels=1000                  " Maximum number of changes that can be undone
 set undofile                         " Persist undo history to a file
+set nobackup                         " Don't make a backup before overwriting a file
+set nowritebackup                    " Don't make a backup before writing the file
+set noswapfile                       " Don't create swap files
 set hidden                           " Allow buffers to exist in the background
 set autoread                         " Read open files again when changed outside Vim
 set backspace=indent,eol,start       " Backspacing over everything in insert mode
