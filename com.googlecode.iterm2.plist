@@ -903,11 +903,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>1194 958 620 392 0 0 3008 1670 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>487 1106 796 486 0 0 3008 1670 </string>
+	<string>504 863 796 473 0 0 3008 1670 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1006 0 1999 1670 0 0 3008 1670 </string>
+	<string>0 1169 745 501 0 0 3008 1670 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1381 550 730 501 0 0 3008 1670 </string>
+	<string>1349 639 727 569 0 0 3008 1670 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>430 210 730 501 0 0 3008 1670 </string>
 	<key>New Bookmarks</key>
@@ -1869,7 +1869,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-06-18T06:11:02Z</date>
+	<date>2018-06-19T06:33:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -1929,7 +1929,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.0beta4</string>
+	<string>3.1.6</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
