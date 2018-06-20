@@ -1,6 +1,6 @@
 function initialize_abbrs
   abbr lf 'functions | tr ", " "\n" | fzf'
-
+  abbr dsh 'cd ~/Code/dashboard'
   abbr nv 'node --version'
 
   abbr g 'git'
