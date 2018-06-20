@@ -1,4 +1,6 @@
 function initialize_abbrs
+  abbr lf 'functions | tr ", " "\n" | fzf'
+
   abbr nv 'node --version'
 
   abbr g 'git'
