@@ -381,7 +381,6 @@ augroup END
 augroup nerd_tree
   autocmd!
 
-  let g:NERDTreeHijackNetrw = 0
   noremap <leader>dn :NERDTreeToggle<CR>
   noremap <leader>nn :NERDTreeFind<CR>
   noremap <leader>fn :NERDTreeFocus<CR>
