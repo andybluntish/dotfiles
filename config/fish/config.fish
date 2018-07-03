@@ -64,3 +64,8 @@ function c
     set_color normal
   end
 end
+
+# Setup additional config local to this machine
+if test -e ~/.local.fish
+  source ~/.local.fish
+end
