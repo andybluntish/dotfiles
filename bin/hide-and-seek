@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+def say(msg)
+  puts msg
+  `say #{msg}`
+  `sleep 0.5`
+end
+
+(1..5).each {|i| say(i) }
+
+say("Ready or not, here I come")
