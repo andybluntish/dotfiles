@@ -26,5 +26,8 @@ shopt -s nocaseglob
 shopt -s histappend
 shopt -s cdspell
 
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
 LOCAL_SH="$HOME/.local.sh"
 [ -f $LOCAL_SH ] && source $LOCAL_SH
