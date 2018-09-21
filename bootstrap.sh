@@ -24,5 +24,5 @@ link gitconfig
 link gitignore
 link hushlogin
 link irbrc
-link config/nvim/init.vim $HOME/.config/nvim/
+link init.vim $HOME/.config/nvim/
 link tmux.conf
