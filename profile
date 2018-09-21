@@ -31,3 +31,6 @@ bind '"\e[B":history-search-forward'
 
 LOCAL_SH="$HOME/.local.sh"
 [ -f $LOCAL_SH ] && source $LOCAL_SH
+
+BASHRC="$HOME/.bashrc"
+[ -f $BASHRC ] && source $BASHRC
