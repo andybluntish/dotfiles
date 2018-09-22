@@ -26,8 +26,8 @@ shopt -s nocaseglob
 shopt -s histappend
 shopt -s cdspell
 
-LOCAL_SH="$HOME/.local.sh"
-[ -f $LOCAL_SH ] && source $LOCAL_SH
-
 BASHRC="$HOME/.bashrc"
 [ -f $BASHRC ] && source $BASHRC
+
+LOCAL_SH="$HOME/.local.sh"
+[ -f $LOCAL_SH ] && source $LOCAL_SH
