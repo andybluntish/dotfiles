@@ -13,6 +13,7 @@ alias la="ls -lah"
 alias ll="tree --dirsfirst -ChFupDaLg 1"
 alias ef="fzf -m | xargs $EDITOR"
 alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
+alias c="bat"
 
 alias g="git"
 alias gup="git gup"
