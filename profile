@@ -25,9 +25,12 @@ alias etu="ember test --filter 'Unit | '"
 alias eti="ember test --filter 'Integration | '"
 alias eta="ember test --filter 'Acceptance | '"
 
-shopt -s nocaseglob
-shopt -s histappend
 shopt -s cdspell
+shopt -s dirspell
+shopt -s extglob
+shopt -s globstar
+shopt -s histappend
+shopt -s nocaseglob
 
 # Prompt
 COLOR_RESET="\[\033[0m\]"
