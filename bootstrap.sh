@@ -19,6 +19,8 @@ link config/fish/functions/fish_prompt.fish $HOME/.config/fish/functions/
 link config/fish/functions/initialize_abbrs.fish $HOME/.config/fish/functions/
 link config/nvim/init.vim $HOME/.config/nvim/
 
+link bash_profile
+link bashrc
 link bin
 link gemrc
 link gitconfig
@@ -26,5 +28,4 @@ link gitignore
 link hushlogin
 link inputrc
 link irbrc
-link profile
 link tmux.conf
