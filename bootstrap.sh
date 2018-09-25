@@ -17,6 +17,8 @@ mkdir -p $HOME/.config/nvim
 link config/fish/config.fish $HOME/.config/fish/
 link config/fish/functions/fish_prompt.fish $HOME/.config/fish/functions/
 link config/fish/functions/initialize_abbrs.fish $HOME/.config/fish/functions/
+link config/nvim/init.vim $HOME/.config/nvim/
+
 link profile
 
 link bin
@@ -24,7 +26,6 @@ link gemrc
 link gitconfig
 link gitignore
 link hushlogin
-link init.vim $HOME/.config/nvim/
 link inputrc
 link irbrc
 link profile
