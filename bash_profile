@@ -62,8 +62,5 @@ function parse_git_branch() {
 # Prompt
 PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET}\n❯ "
 
-BASHRC="$HOME/.bashrc"
-[ -f $BASHRC ] && source $BASHRC
-
-LOCAL_SH="$HOME/.local.sh"
-[ -f $LOCAL_SH ] && source $LOCAL_SH
+[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+[ -f "$HOME/.local.sh" ] && source "$HOME/.local.sh"
