@@ -27,6 +27,7 @@ alias etu="ember test --filter 'Unit | '"
 alias eti="ember test --filter 'Integration | '"
 alias eta="ember test --filter 'Acceptance | '"
 
+shopt -s autocd
 shopt -s cdspell
 shopt -s dirspell
 shopt -s extglob
