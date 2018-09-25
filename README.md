@@ -4,10 +4,11 @@ Install the following dependencies to get started.
 
 ```sh
 # the basics
-brew install git neovim python python@2 fzf fd ripgrep tree rbenv
+brew install bash zsh fish git neovim python python@2 fzf fd ripgrep tree rbenv neovim yarn
 
-# enable Python3 interface for neovim
+# enable Node and Python interfaces for neovim
 pip3 install neovim
+yarn global add neovim
 
 # setup useful key bindings and fuzzy completion for fzf
 $(brew --prefix)/opt/fzf/install --all
@@ -16,5 +17,5 @@ $(brew --prefix)/opt/fzf/install --all
 brew install tmux reattach-to-user-namespace
 
 # for writing JavaScript
-npm i -g tern typescript
+yarn global add tern typescript
 ```
