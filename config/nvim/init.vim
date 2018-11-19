@@ -37,6 +37,7 @@ Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf.vim'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'jparise/vim-graphql'
 
 Plug 'rakr/vim-one'
 Plug 'ajh17/spacegray.vim'
