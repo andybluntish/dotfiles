@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/bundle')
 
-Plug 'rakr/vim-one'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
@@ -39,6 +38,12 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf.vim'
 Plug 'ekalinin/dockerfile.vim'
 
+Plug 'rakr/vim-one'
+Plug 'ajh17/spacegray.vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " Map leader
@@ -47,8 +52,9 @@ let mapleader=" "
 
 " Colours and syntax highlighting
 syntax on
-set t_Co=256
+" set t_Co=256
 set termguicolors
+
 set background=dark
 colorscheme one
 
