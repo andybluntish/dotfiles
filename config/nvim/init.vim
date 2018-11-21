@@ -22,7 +22,6 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'w0rp/ale'
-Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'niftylettuce/vim-jinja'
@@ -184,13 +183,6 @@ augroup filetype_make
   autocmd!
 
   au FileType make setlocal noexpandtab
-augroup END
-
-" Shell
-augroup filetype_shell
-  autocmd!
-
-  au BufNewFile,BufRead *.fish set ft=fish
 augroup END
 
 " General config
