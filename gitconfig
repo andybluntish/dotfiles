@@ -28,6 +28,7 @@
   dc = diff --cached
   dl = diff HEAD^
   dw = diff --color-words
+  dcw = diff --cached --color-words
   f = fetch
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   m = merge
