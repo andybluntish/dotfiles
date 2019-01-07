@@ -32,6 +32,7 @@ Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
 
+" Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
@@ -46,6 +47,7 @@ Plug 'ajh17/spacegray.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
@@ -54,9 +56,11 @@ call plug#end()
 let mapleader=" "
 
 " Colours and syntax highlighting
-syntax on
-" set t_Co=256
-set termguicolors
+syntax enable
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 set background=dark
 colorscheme one
