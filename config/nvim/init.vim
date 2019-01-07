@@ -22,19 +22,22 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'w0rp/ale'
+Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'carlitux/deoplete-ternjs'
+
 Plug 'othree/html5.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'niftylettuce/vim-jinja'
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
+
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf.vim'
+
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'niftylettuce/vim-jinja'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'jparise/vim-graphql'
 
