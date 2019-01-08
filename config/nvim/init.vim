@@ -44,10 +44,6 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
 
 Plug 'rakr/vim-one'
-Plug 'ajh17/spacegray.vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
