@@ -32,8 +32,8 @@ Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
 
-" Plug 'othree/yajs.vim'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'othree/yajs.vim'
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 
