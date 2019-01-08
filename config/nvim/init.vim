@@ -50,19 +50,19 @@ call plug#end()
 
 " Map leader
 " <Space> is by far the easiest key to hit
-let mapleader=" "
+let mapleader=' '
 
 " Colours and syntax highlighting
 syntax enable
 
-if (has("termguicolors"))
+if (has('termguicolors'))
   set termguicolors
 endif
 
 set background=dark
 colorscheme OceanicNext
 
-if (has("gui_running"))
+if (has('gui_running'))
   let g:one_allow_italics = 1
 endif
 
@@ -228,9 +228,9 @@ augroup general_config
   vnoremap <C-k> :m '<-2<CR>gv=gv
 
   " Remap keys for auto-completion menu
-  inoremap <expr> <CR>   pumvisible() ? "\<C-y>" : "\<CR>"
-  inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-  inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+  inoremap <expr> <CR>   pumvisible() ? '\<C-y>' : '\<CR>'
+  inoremap <expr> <Down> pumvisible() ? '\<C-n>' : '\<Down>'
+  inoremap <expr> <Up> pumvisible() ? '\<C-p>' : '\<Up>'
 
   " Clear Highlight
   nnoremap <Esc><Esc> :nohlsearch<CR>
@@ -271,7 +271,7 @@ augroup general_config
   nnoremap <leader>z :call ToggleZoomWindow()<CR>
 
   " Toggle background
-  nnoremap <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+  nnoremap <Leader>bg :let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>
 augroup END
 
 " Airline.vim
@@ -409,6 +409,6 @@ augroup tern_for_vim_config
   autocmd!
 
   " Use the same tern for tern_for_vim and deoplete-ternjs
-  let g:tern#command = ["tern"]
-  let g:tern#arguments = ["--persistent"]
+  let g:tern#command = ['tern']
+  let g:tern#arguments = ['--persistent']
 augroup END
