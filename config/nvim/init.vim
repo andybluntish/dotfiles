@@ -63,7 +63,7 @@ if (has("termguicolors"))
 endif
 
 set background=dark
-colorscheme one
+colorscheme OceanicNext
 
 if (has("gui_running"))
   let g:one_allow_italics = 1
