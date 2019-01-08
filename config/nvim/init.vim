@@ -38,9 +38,10 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'niftylettuce/vim-jinja'
-Plug 'ekalinin/dockerfile.vim'
+Plug 'mxw/vim-jsx'
 Plug 'jparise/vim-graphql'
+Plug 'ekalinin/dockerfile.vim'
+Plug 'niftylettuce/vim-jinja'
 
 Plug 'rakr/vim-one'
 Plug 'ajh17/spacegray.vim'
