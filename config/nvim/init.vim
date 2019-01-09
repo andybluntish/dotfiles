@@ -228,9 +228,10 @@ augroup general_config
   vnoremap <C-k> :m '<-2<CR>gv=gv
 
   " Remap keys for auto-completion menu
-  inoremap <expr> <CR>   pumvisible() ? '<C-y>' : '<CR>'
-  inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
-  inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
+  inoremap <expr> <CR>   pumvisible() ? "\<C-y>" : "\<CR>"
+  inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+  inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+
 
   " Clear Highlight
   nnoremap <Esc><Esc> :nohlsearch<CR>
