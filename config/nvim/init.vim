@@ -21,6 +21,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'kshenoy/vim-signature'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
