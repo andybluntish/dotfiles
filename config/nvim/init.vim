@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
