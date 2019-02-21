@@ -415,3 +415,10 @@ augroup tern_for_vim_config
   let g:tern#command = ['tern']
   let g:tern#arguments = ['--persistent']
 augroup END
+
+" Tagbar
+augroup tagbar
+  autocmd!
+
+  nnoremap <leader>t :Tagbar<CR>
+augroup END
