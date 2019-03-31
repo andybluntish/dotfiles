@@ -422,3 +422,10 @@ augroup tagbar
 
   nnoremap <leader>t :Tagbar<CR>
 augroup END
+
+" Ragtag
+augroup tagbar
+  autocmd!
+
+  autocmd FileType jinja call RagtagInit()
+augroup END
