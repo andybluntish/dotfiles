@@ -45,7 +45,6 @@ Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
 
-Plug 'rakr/vim-one'
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
@@ -63,10 +62,6 @@ endif
 
 set background=dark
 colorscheme OceanicNext
-
-if (has('gui_running'))
-  let g:one_allow_italics = 1
-endif
 
 " Local directories
 silent !mkdir -p $HOME/.config/nvim/undo > /dev/null 2>&1
