@@ -11,7 +11,7 @@ export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND="(git ls-tree -r --name-only HEAD || fd --type f --hidden --follow --exclude .git) 2> /dev/null"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export PATH=$HOME/.bin:$PATH
+export PATH=$HOME/.bin:$HOME/go/bin:$PATH
 
 alias la="ls -lah"
 alias ll="tree --dirsfirst -ChFupDaLg 1"
