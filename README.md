@@ -4,7 +4,7 @@ Install the following dependencies to get started.
 
 ```sh
 # the basics
-brew install bash zsh git neovim python python@2 fzf fd ripgrep tree rbenv neovim yarn
+brew install fish bash git neovim bat python python@2 fzf fd ripgrep tree rbenv yarn
 
 # enable Node and Python interfaces for neovim
 pip3 install neovim
