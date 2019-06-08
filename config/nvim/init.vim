@@ -24,6 +24,7 @@ Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
 Plug 'w0rp/ale'
+Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -185,6 +186,13 @@ augroup filetype_make
   autocmd!
 
   au FileType make setlocal noexpandtab
+augroup END
+
+" Shell
+augroup filetype_shell
+  autocmd!
+
+  au BufNewFile,BufRead *.fish set ft=fish
 augroup END
 
 " General config

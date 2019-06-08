@@ -12,8 +12,10 @@ function link() {
   ln -snf $source $target
 }
 
+mkdir -p $HOME/.config/fish
 mkdir -p $HOME/.config/nvim
 
+link config/fish/config.fish $HOME/.config/fish/
 link config/nvim/init.vim $HOME/.config/nvim/
 
 link bash_profile
