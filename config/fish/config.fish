@@ -19,6 +19,9 @@ abbr -g g "git"
 abbr -g gup "git gup"
 abbr -g be "bundle exec"
 
+# rbenv
+source (rbenv init - | psub)
+
 # Fuzzy find & edit file
 function ef
   if test (count $argv) -gt 0
