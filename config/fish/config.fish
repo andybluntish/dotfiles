@@ -14,6 +14,11 @@ alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings
 alias df="df -h"
 alias tmux="tmux -2"
 
+# Abbreviations
+abbr -g g "git"
+abbr -g gup "git gup"
+abbr -g be "bundle exec"
+
 # Fuzzy find & edit file
 function ef
   if test (count $argv) -gt 0
