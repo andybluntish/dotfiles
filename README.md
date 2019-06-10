@@ -18,4 +18,7 @@ brew install tmux reattach-to-user-namespace
 
 # for writing JavaScript
 yarn global add tern typescript
+
+# install bass
+fisher add edc/bass
 ```
