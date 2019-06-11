@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
 export CLICOLOR=1
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 export MANPAGER="less -X"
-
 export GPG_TTY=$(tty)
 
 export FZF_DEFAULT_COMMAND="(git ls-tree -r --name-only HEAD || fd --type f --hidden --follow --exclude .git) 2> /dev/null"
