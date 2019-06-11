@@ -20,7 +20,7 @@ abbr -g gup "git gup"
 abbr -g be "bundle exec"
 
 # rbenv
-source (rbenv init - | psub)
+status --is-interactive; and source (rbenv init -|psub)
 
 # Fuzzy find & edit file
 function ef
