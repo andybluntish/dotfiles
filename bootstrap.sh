@@ -18,7 +18,6 @@ mkdir -p $HOME/.config/nvim
 link config/fish/config.fish $HOME/.config/fish/
 link config/fish/fish_variables $HOME/.config/fish/
 link config/fish/functions/fish_prompt.fish $HOME/.config/fish/functions/
-link config/fish/functions/fisher.fish $HOME/.config/fish/functions/
 link config/nvim/init.vim $HOME/.config/nvim/
 
 link bash_profile
