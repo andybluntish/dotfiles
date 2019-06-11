@@ -19,7 +19,8 @@ abbr -g g "git"
 abbr -g gup "git gup"
 abbr -g be "bundle exec"
 
-# rbenv
+# version managers
+status --is-interactive; and source (nodenv init -|psub)
 status --is-interactive; and source (rbenv init -|psub)
 
 # Fuzzy find & edit file
