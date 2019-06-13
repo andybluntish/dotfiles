@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
@@ -422,15 +421,8 @@ augroup tern_for_vim_config
   let g:tern#arguments = ['--persistent']
 augroup END
 
-" Tagbar
-augroup tagbar
-  autocmd!
-
-  nnoremap <leader>t :Tagbar<CR>
-augroup END
-
 " Ragtag
-augroup tagbar
+augroup ragtag
   autocmd!
 
   autocmd FileType jinja call RagtagInit()
