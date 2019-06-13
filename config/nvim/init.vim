@@ -292,19 +292,9 @@ augroup END
 augroup ale_config
   autocmd!
 
-  let g:ale_linters = {}
-  let g:ale_linters['javascript'] = ['eslint']
-  let g:ale_linters['typescript'] = ['eslint', 'tsserver']
-
-  let g:ale_fixers = {}
-  let g:ale_fixers['javascript'] = ['prettier', 'eslint']
-  let g:ale_fixers['typescript'] = ['prettier', 'eslint']
-  let g:ale_fixers['json'] = ['prettier']
-  let g:ale_fixers['css'] = ['prettier']
-
+  let g:ale_fixers = ['prettier']
   let g:ale_fix_on_save = 1
   let g:ale_sign_column_always = 1
-  let g:ale_completion_enabled = 1
   let g:ale_javascript_prettier_use_local_config = 1
 
   nmap <silent> <leader>E <Plug>(ale_previous_wrap)
