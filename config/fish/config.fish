@@ -5,8 +5,8 @@ set -x VISUAL nvim
 set -x FZF_DEFAULT_COMMAND 'git ls-tree -r --name-only HEAD 2> /dev/null; or fd --type f --hidden --follow --exclude .git 2> /dev/null'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x GPG_TTY (tty)
-
-set PATH $HOME/.bin /usr/local/sbin /usr/local/opt/python/libexec/bin $PATH
+set -x GOPATH $HOME/Code/go
+set -x PATH $HOME/.bin $GOPATH/bin /usr/local/sbin /usr/local/opt/python/libexec/bin $PATH
 
 # Alias functions
 alias ll="tree --dirsfirst -ChFupDaLg 1"
