@@ -40,8 +40,11 @@ Plug 'mxw/vim-jsx'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
@@ -319,7 +322,6 @@ augroup deoplete_config
   autocmd!
 
   let g:deoplete#enable_at_startup = 1
-  call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 augroup END
 
 " EasyAlign.vim
@@ -406,6 +408,21 @@ augroup tern_for_vim_config
   " Use the same tern for tern_for_vim and deoplete-ternjs
   let g:tern#command = ['tern']
   let g:tern#arguments = ['--persistent']
+augroup END
+
+" vim-go
+augroup vim_go
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_types = 1
+  let g:go_auto_sameids = 1
+  let g:go_fmt_command = 'goimports'
+  let g:go_auto_type_info = 1
 augroup END
 
 " Ragtag
