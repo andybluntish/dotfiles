@@ -319,6 +319,7 @@ augroup deoplete_config
   autocmd!
 
   let g:deoplete#enable_at_startup = 1
+  call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 augroup END
 
 " EasyAlign.vim
