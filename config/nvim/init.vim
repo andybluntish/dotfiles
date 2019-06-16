@@ -25,27 +25,23 @@ Plug 'kshenoy/vim-signature'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'carlitux/deoplete-ternjs'
-
 Plug 'othree/html5.vim'
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
-
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mxw/vim-jsx'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
-
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs'
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
