@@ -71,6 +71,7 @@ set undodir=~/.config/nvim/undo
 set ttyfast                          " Send more characters at a given time
 set lazyredraw                       " Don't redraw when we don't have to
 set ttimeoutlen=0                    " Fix delay when escaping from insert with Esc
+set updatetime=300                   " Smaller updatetime for CursorHold & CursorHoldI
 set mouse=a                          " Enable mouse in all in all modes
 set clipboard=unnamedplus            " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set history=10000                    " Number of :cmdline history items to store
@@ -101,6 +102,7 @@ set hlsearch                         " Highlight search matches
 set gdefault                         " By default add g flag to search/replace. Add g to toggle
 set title                            " Show the filename in the window titlebar
 set number                           " Enable line numbers
+set signcolumn=yes                   " always show signcolumn
 set nowrap                           " Disable soft-wrap
 set showbreak=↪\                     " Character to display at the start of soft-wrapped lines
 set nostartofline                    " Don't reset cursor to start of line when moving around
@@ -110,6 +112,7 @@ set splitright                       " New windows goes right
 set ruler                            " Show the cursor position
 set report=0                         " Show all changes
 set showcmd                          " Show the (partial) command as it’s being typed
+set cmdheight=2                      " Number of screen lines to use for the command-line.
 set noshowmode                       " Don't show the current mode (airline.vim takes care of us)
 set laststatus=2                     " Always show status line
 set visualbell                       " Use visual bell instead of audible bell (annnnnoying)
@@ -124,6 +127,7 @@ set diffopt+=iwhite                  " Ignore whitespace changes (focus on code 
 set formatoptions+=r                 " Continue comments by default
 set formatoptions+=n                 " Recognize numbered lists
 set formatoptions+=1                 " Break before 1-letter words
+set shortmess+=c                     " don't give ins-completion-menu messages
 set wildmenu                         " Enhanced completion mode
 set wildchar=<TAB>                   " Character for CLI expansion (TAB-completion)
 set wildmode=list:longest,list:full
