@@ -40,11 +40,7 @@ Plug 'mxw/vim-jsx'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
@@ -71,6 +67,7 @@ set undodir=~/.config/nvim/undo
 set ttyfast                          " Send more characters at a given time
 set lazyredraw                       " Don't redraw when we don't have to
 set ttimeoutlen=0                    " Fix delay when escaping from insert with Esc
+set updatetime=300                   " Smaller updatetime for CursorHold & CursorHoldI
 set mouse=a                          " Enable mouse in all in all modes
 set clipboard=unnamedplus            " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set history=10000                    " Number of :cmdline history items to store
@@ -101,6 +98,7 @@ set hlsearch                         " Highlight search matches
 set gdefault                         " By default add g flag to search/replace. Add g to toggle
 set title                            " Show the filename in the window titlebar
 set number                           " Enable line numbers
+set signcolumn=yes                   " always show signcolumn
 set nowrap                           " Disable soft-wrap
 set showbreak=↪\                     " Character to display at the start of soft-wrapped lines
 set nostartofline                    " Don't reset cursor to start of line when moving around
@@ -110,6 +108,7 @@ set splitright                       " New windows goes right
 set ruler                            " Show the cursor position
 set report=0                         " Show all changes
 set showcmd                          " Show the (partial) command as it’s being typed
+set cmdheight=2                      " Number of screen lines to use for the command-line.
 set noshowmode                       " Don't show the current mode (airline.vim takes care of us)
 set laststatus=2                     " Always show status line
 set visualbell                       " Use visual bell instead of audible bell (annnnnoying)
@@ -124,6 +123,7 @@ set diffopt+=iwhite                  " Ignore whitespace changes (focus on code 
 set formatoptions+=r                 " Continue comments by default
 set formatoptions+=n                 " Recognize numbered lists
 set formatoptions+=1                 " Break before 1-letter words
+set shortmess+=c                     " don't give ins-completion-menu messages
 set wildmenu                         " Enhanced completion mode
 set wildchar=<TAB>                   " Character for CLI expansion (TAB-completion)
 set wildmode=list:longest,list:full
@@ -193,8 +193,8 @@ augroup filetype_shell
   au BufNewFile,BufRead *.fish set ft=fish
 augroup END
 
-" General config
-augroup general_config
+" Key mappings
+augroup key_mappings
   autocmd!
 
   " Speed up viewport scrolling
@@ -230,12 +230,6 @@ augroup general_config
   " Move selected lines up and down
   vnoremap <C-j> :m '>+1<CR>gv=gv
   vnoremap <C-k> :m '<-2<CR>gv=gv
-
-  " Remap keys for auto-completion menu
-  inoremap <expr> <CR>   pumvisible() ? "\<C-y>" : "\<CR>"
-  inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-  inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
-
 
   " Clear Highlight
   nnoremap <Esc><Esc> :nohlsearch<CR>
@@ -279,6 +273,47 @@ augroup general_config
   nnoremap <Leader>bg :let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>
 augroup END
 
+" coc.nvim
+augroup coc_config
+  " Use tab for trigger completion with characters ahead and navigate.
+  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  " Use <c-space> to trigger completion.
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+  " Coc only does snippet and additional edit on confirm.
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+  inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+
+  " Remap keys for gotos
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+
+  " Use K to show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR> nmap <silent> gr <Plug>(coc-references)
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+augroup END
+
 " Airline.vim
 augroup airline_config
   autocmd!
@@ -315,13 +350,6 @@ augroup delimitmate_config
   autocmd!
 
   let g:delimitMate_expand_cr = 1
-augroup END
-
-" Deoplete.vim
-augroup deoplete_config
-  autocmd!
-
-  let g:deoplete#enable_at_startup = 1
 augroup END
 
 " EasyAlign.vim
@@ -423,6 +451,10 @@ augroup vim_go
   let g:go_auto_sameids = 1
   let g:go_fmt_command = 'goimports'
   let g:go_auto_type_info = 1
+
+  " disable vim-go :GoDef short cut (gd)
+  " this is handled by coc.nvim
+  let g:go_def_mapping_enabled = 0
 augroup END
 
 " Ragtag
