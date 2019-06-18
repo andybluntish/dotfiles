@@ -25,7 +25,6 @@ Plug 'kshenoy/vim-signature'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf.vim'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'othree/html5.vim'
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
@@ -42,6 +41,7 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && yarn global add tern' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 

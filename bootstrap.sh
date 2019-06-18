@@ -29,4 +29,5 @@ link gitignore
 link hushlogin
 link inputrc
 link irbrc
+link tern-config
 link tmux.conf
