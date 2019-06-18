@@ -40,7 +40,11 @@ Plug 'mxw/vim-jsx'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'niftylettuce/vim-jinja'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+
 Plug 'mhartington/oceanic-next'
 
 call plug#end()
@@ -315,6 +319,13 @@ augroup delimitmate_config
   autocmd!
 
   let g:delimitMate_expand_cr = 1
+augroup END
+
+" Deoplete.vim
+augroup deoplete_config
+  autocmd!
+
+  let g:deoplete#enable_at_startup = 1
 augroup END
 
 " EasyAlign.vim
