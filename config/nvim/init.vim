@@ -325,6 +325,10 @@ augroup deoplete_config
   autocmd!
 
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_camel_case = 1
+  let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+  let g:deoplete#sources#tss#javascript_support = 1
+  call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 augroup END
 
 " EasyAlign.vim
