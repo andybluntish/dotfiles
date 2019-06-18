@@ -416,10 +416,6 @@ augroup vim_go
   let g:go_auto_sameids = 1
   let g:go_fmt_command = 'goimports'
   let g:go_auto_type_info = 1
-
-  " disable vim-go :GoDef short cut (gd)
-  " this is handled by coc.nvim
-  let g:go_def_mapping_enabled = 0
 augroup END
 
 " Ragtag
