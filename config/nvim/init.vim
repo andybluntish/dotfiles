@@ -141,7 +141,6 @@ set wildignore+=*/vendor/*
 set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set iskeyword+=-,_,$,@,%,#,?         " These are not word dividers
-set omnifunc=syntaxcomplete#Complete " Set omni-completion method
 
 filetype plugin indent on
 
