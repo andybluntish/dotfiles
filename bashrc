@@ -62,7 +62,7 @@ function parse_git_branch() {
 }
 
 # Prompt
-PS1="${CYAN}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${MAGENTA}\$(parse_git_branch)${COLOR_RESET}\n❯ "
+PS1="${YELLOW}\w${WHITE}\$( [[ \$(parse_git_branch) ]] && echo \" → \")${LIGHT_BLUE}\$(parse_git_branch)${COLOR_RESET}\n❯ "
 
 # Bash completion
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
