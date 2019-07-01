@@ -79,5 +79,6 @@ fi;
 
 # rbenv
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 
 [ -f "$HOME/.local.sh" ] && source "$HOME/.local.sh"
