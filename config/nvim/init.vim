@@ -298,8 +298,11 @@ augroup ale_config
   let g:ale_fixers['html'] = []
 
   let g:ale_fixers = {
-  \   '*': ['prettier'],
-  \   'html': [],
+  \   'javascript': ['prettier'],
+  \   'typescript': ['prettier'],
+  \   'css': ['prettier'],
+  \   'scss': ['prettier'],
+  \   'json': ['prettier'],
   \}
 
   let g:ale_fix_on_save = 1
