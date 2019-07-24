@@ -13,17 +13,17 @@ export GOPATH=$HOME/Code/go
 export PATH=$HOME/.bin:$GOPATH/bin:$PATH
 
 alias la="ls -lah"
-command -v nvim >/dev/null 2>&1 && alias vim="nvim"
-command -v fzf  >/dev/null 2>&1 && alias ef="fzf -m | xargs $EDITOR"
-command -v bat  >/dev/null 2>&1 && alias c="bat"
-command -v bundle >/dev/null 2>&1 && alias be="bundle exec"
+type nvim   &> /dev/null && alias vim="nvim"
+type fzf    &> /dev/null && alias ef="fzf -m | xargs $EDITOR"
+type bat    &> /dev/null && alias c="bat"
+type bundle &> /dev/null && alias be="bundle exec"
 
-if command -v tree >/dev/null 2>&1; then
+if type tree &> /dev/null; then
   alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
   alias ll="tree --dirsfirst -ChFupDaLg 1"
 fi
 
-if command -v git >/dev/null 2>&1; then
+if type git &> /dev/null; then
   alias g="git"
   alias gup="git gup"
 fi
