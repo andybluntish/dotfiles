@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
 export CLICOLOR=1
-export EDITOR="vim"
-export VISUAL="vim"
 export MANPAGER="less -X"
 export GPG_TTY=$(tty)
-
 export FZF_DEFAULT_COMMAND="(git ls-tree -r --name-only HEAD || fd --type f --hidden --follow --exclude .git) 2> /dev/null"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 export GOPATH=$HOME/Code/go
 export PATH=$HOME/.bin:$GOPATH/bin:$PATH
 
+if type nvim &> /dev/null; then
+  export EDITOR="nvim"
+else
+  export EDITOR="vim"
+fi
+
+export VISUAL="$EDITOR"
+
+alias vim="$EDITOR"
+alias nvim="$EDITOR"
 alias la="ls -lah"
-type nvim   &> /dev/null && alias vim="nvim"
 type fzf    &> /dev/null && alias ef="fzf -m | xargs $EDITOR"
 type bat    &> /dev/null && alias c="bat"
 type bundle &> /dev/null && alias be="bundle exec"
