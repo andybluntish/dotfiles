@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 export CLICOLOR=1
-export EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR="vim"
+export VISUAL="vim"
 export MANPAGER="less -X"
 export GPG_TTY=$(tty)
 
@@ -17,6 +17,8 @@ alias ll="tree --dirsfirst -ChFupDaLg 1"
 alias ef="fzf -m | xargs $EDITOR"
 alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
 alias c="bat"
+
+command -v nvim >/dev/null 2>&1 && alias vim="nvim"
 
 alias g="git"
 alias gup="git gup"
