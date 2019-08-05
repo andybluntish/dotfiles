@@ -112,7 +112,6 @@ set splitright                       " New windows goes right
 set ruler                            " Show the cursor position
 set report=0                         " Show all changes
 set showcmd                          " Show the (partial) command as it’s being typed
-set cmdheight=2                      " Number of screen lines to use for the command-line.
 set noshowmode                       " Don't show the current mode (airline.vim takes care of us)
 set laststatus=2                     " Always show status line
 set visualbell                       " Use visual bell instead of audible bell (annnnnoying)
