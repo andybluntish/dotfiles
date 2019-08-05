@@ -758,9 +758,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>155 593 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1125 606 730 538 0 0 1920 1177 </string>
+	<string>960 0 960 1177 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>433 529 730 501 0 0 1920 1177 </string>
+	<string>0 0 1920 1177 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>186 347 730 517 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1817,7 +1817,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.0691248178482056</real>
+			<real>1.0700000000000001</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1831,6 +1831,10 @@
 		<string>3.2.9</string>
 		<string>3.3.0</string>
 	</array>
+	<key>NoSyncBFPRecents</key>
+	<array>
+		<string>Input Mono</string>
+	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
 	<key>NoSyncConfirmBeta</key>
@@ -1840,7 +1844,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1200}}</string>
 		<key>topLeft</key>
-		<string>{969, 761}</string>
+		<string>{782, 960}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -1855,7 +1859,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>E128A38F-D692-4D78-9A30-60E0C4B2A577</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
