@@ -14,14 +14,14 @@ set -x GOPATH $HOME/Code/go
 set -x PATH $HOME/.bin $GOPATH/bin /usr/local/sbin /usr/local/opt/python/libexec/bin $PATH
 
 # Alias functions
-alias vim=$EDITOR
-alias nvim=$EDITOR
 alias ll="tree --dirsfirst -ChFupDaLg 1"
 alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
 alias df="df -h"
 alias tmux="tmux -2"
 
 # Abbreviations
+abbr -g vim "$EDITOR"
+abbr -g nvim "$EDITOR"
 abbr -g g "git"
 abbr -g gup "git gup"
 abbr -g be "bundle exec"
