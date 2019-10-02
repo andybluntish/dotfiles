@@ -302,15 +302,13 @@ augroup END
 augroup ale_config
   autocmd!
 
-  let g:ale_fixers = ['prettier']
-  let g:ale_fixers['html'] = []
-
   let g:ale_fixers = {
   \   'javascript': ['prettier'],
   \   'typescript': ['prettier'],
   \   'css': ['prettier'],
   \   'scss': ['prettier'],
   \   'json': ['prettier'],
+  \   'ruby': ['rubocop'],
   \}
 
   let g:ale_fix_on_save = 1
