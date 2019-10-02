@@ -308,6 +308,8 @@ augroup ale_config
   \   'css': ['prettier'],
   \   'scss': ['prettier'],
   \   'json': ['prettier'],
+  \   'yaml': ['prettier'],
+  \   'graphql': ['prettier'],
   \   'ruby': ['rubocop'],
   \}
 
