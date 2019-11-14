@@ -88,4 +88,7 @@ fi;
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 
+# Starship prompts
+eval "$(starship init bash)"
+
 [ -f "$HOME/.local.sh" ] && source "$HOME/.local.sh"
