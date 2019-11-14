@@ -5,7 +5,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'michaeljsmith/vim-indent-object'
 Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over'
 Plug 'Raimondi/delimitMate'
@@ -14,7 +13,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-ragtag'
@@ -25,6 +23,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf.vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'othree/html5.vim'
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
@@ -35,10 +34,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'mxw/vim-jsx'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
-Plug 'niftylettuce/vim-jinja'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && yarn global add tern' }
@@ -126,6 +123,7 @@ set diffopt+=iwhite                  " Ignore whitespace changes (focus on code 
 set formatoptions+=r                 " Continue comments by default
 set formatoptions+=n                 " Recognize numbered lists
 set formatoptions+=1                 " Break before 1-letter words
+set omnifunc=ale#completion#OmniFunc " OmniComplete Function
 set shortmess+=c                     " don't give ins-completion-menu messages
 set wildmenu                         " Enhanced completion mode
 set wildchar=<TAB>                   " Character for CLI expansion (TAB-completion)
@@ -162,7 +160,7 @@ augroup filetype_markdown
   autocmd!
 
   au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-  let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
+  let g:vim_markdown_fenced_languages = ['bash=sh', 'ruby=rb', 'erb=eruby.html', 'javascript=js', 'typescript=ts']
 augroup END
 
 " Ruby
@@ -448,11 +446,4 @@ augroup vim_go
   let g:go_auto_sameids = 1
   let g:go_fmt_command = 'goimports'
   let g:go_auto_type_info = 1
-augroup END
-
-" Ragtag
-augroup ragtag
-  autocmd!
-
-  autocmd FileType jinja call RagtagInit()
 augroup END
