@@ -301,8 +301,8 @@ augroup ale_config
   autocmd!
 
   let g:ale_fixers = {
-  \   'javascript': ['prettier'],
-  \   'typescript': ['prettier'],
+  \   'javascript': ['prettier', 'eslint'],
+  \   'typescript': ['prettier', 'eslint'],
   \   'css': ['prettier'],
   \   'scss': ['prettier'],
   \   'json': ['prettier'],
