@@ -21,8 +21,8 @@
   a = add
   ap = add --patch
   b = branch
-  c = commit -v
-  ca = !git add -A && git commit -av
+  c = commit --verbose
+  ca = !git add --all && git commit --all --verbose
   co = checkout
   d = diff
   dc = diff --cached
@@ -30,12 +30,12 @@
   dw = diff --color-words
   dcw = diff --cached --color-words
   f = fetch
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  l = log --pretty=oneline --max-count 20 --graph --abbrev-commit
   m = merge
   p = push
-  pa = !"git pull; git submodule foreach git pull origin master"
   pl = pull
-  s = status -s
+  pla = !"git pull; git submodule foreach git pull origin master"
+  s = status --short
 
   amend = commit --amend
   conflicts = diff --name-only --diff-filter=U
@@ -44,7 +44,7 @@
 
   cb = rev-parse --symbolic-full-name --abbrev-ref HEAD
   gp = !git push --set-upstream origin HEAD:$(git cb)
-  gup = !git fetch --prune origin && git rebase -p origin/$(git cb)
+  gup = !git fetch --prune origin && git rebase --rebase-merges origin/$(git cb)
 
 [merge]
   tool = vimdiff
