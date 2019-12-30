@@ -37,6 +37,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
+Plug 'chr4/nginx.vim'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && yarn global add tern' }
