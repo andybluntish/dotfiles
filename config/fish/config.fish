@@ -7,7 +7,7 @@ else
 end
 
 set -x VISUAL $EDITOR
-set -x FZF_DEFAULT_COMMAND 'git ls-tree -r --name-only HEAD 2> /dev/null; or fd --type f --hidden --follow --exclude .git 2> /dev/null'
+set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git 2> /dev/null; or git ls-tree -r --name-only HEAD 2> /dev/null'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 set -x GPG_TTY (tty)
 set -x GOPATH $HOME/Code/go

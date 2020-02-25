@@ -22,6 +22,7 @@ Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
+Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'othree/html5.vim'
