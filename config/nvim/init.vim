@@ -144,6 +144,9 @@ set iskeyword+=-,_,$,@,%,#,?         " These are not word dividers
 
 filetype plugin indent on
 
+let g:python_host_prog  = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/opt/python/libexec/bin/python'
+
 " JSON
 augroup filetype_json
   autocmd!
