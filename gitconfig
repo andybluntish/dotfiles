@@ -31,6 +31,7 @@
   dcw = diff --cached --color-words
   f = fetch
   l = log --pretty=oneline --max-count 20 --graph --abbrev-commit
+  lw = log --pretty=format:"%C(yellow)%h%Creset %Cblue%as%Creset %s" --max-count=20
   m = merge
   p = push
   pl = pull
