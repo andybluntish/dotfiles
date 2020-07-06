@@ -12,6 +12,13 @@ function link() {
   ln -snf $source $target
 }
 
+function install_vim_plug() {
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+  nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
+}
+
 mkdir -p $HOME/.config/fish/functions
 mkdir -p $HOME/.config/nvim
 
@@ -31,3 +38,5 @@ link inputrc
 link irbrc
 link tern-config
 link tmux.conf
+
+install_vim_plug
