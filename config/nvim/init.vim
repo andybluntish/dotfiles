@@ -41,10 +41,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'chr4/nginx.vim'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && yarn global add tern' }
-Plug 'carlitux/deoplete-ternjs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'mhartington/oceanic-next'
 
@@ -363,14 +360,6 @@ augroup delimitmate_config
   let g:delimitMate_expand_cr = 1
 augroup END
 
-" Deoplete.vim
-augroup deoplete_config
-  autocmd!
-
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_camel_case = 1
-augroup END
-
 " EasyAlign.vim
 augroup easy_align_config
   autocmd!
@@ -446,13 +435,4 @@ augroup over_config
 
   nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
   xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
-augroup END
-
-" tern_for_vim
-augroup tern_for_vim_config
-  autocmd!
-
-  " Use the same tern for tern_for_vim and deoplete-ternjs
-  let g:tern#command = ['tern']
-  let g:tern#arguments = ['--persistent']
 augroup END
