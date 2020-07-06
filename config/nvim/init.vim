@@ -1,3 +1,7 @@
+if !has('nvim')
+  set nocompatible
+endif
+
 call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree'
@@ -49,10 +53,6 @@ Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
-" Map leader
-" <Space> is by far the easiest key to hit
-let mapleader=' '
-
 " Colours and syntax highlighting
 set t_Co=256
 if (has('termguicolors'))
@@ -63,77 +63,99 @@ syntax enable
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
-set background=dark
 
-" Local directories
-silent !mkdir -p $HOME/.config/nvim/undo > /dev/null 2>&1
+" Map leader
+" <Space> is by far the easiest key to hit
+let mapleader=' '
 
-" Config
-set undodir=~/.config/nvim/undo
-set ttyfast                          " Send more characters at a given time
-set lazyredraw                       " Don't redraw when we don't have to
-set ttimeoutlen=0                    " Fix delay when escaping from insert with Esc
-set updatetime=300                   " Smaller updatetime for CursorHold & CursorHoldI
-set mouse=a                          " Enable mouse in all in all modes
-set clipboard=unnamedplus            " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set history=10000                    " Number of :cmdline history items to store
-set undolevels=1000                  " Maximum number of changes that can be undone
-set undofile                         " Persist undo history to a file
-set nobackup                         " Don't make a backup before overwriting a file
-set nowritebackup                    " Don't make a backup before writing the file
-set noswapfile                       " Don't create swap files
-set hidden                           " Allow buffers to exist in the background
-set autoread                         " Read open files again when changed outside Vim
-set backspace=indent,eol,start       " Backspacing over everything in insert mode
-set encoding=utf-8                   " Set the default character encoding
-set nobomb                           " No BOMs
-set spelllang=en_au,en_gb            " Spellchecking languages
-set linebreak                        " Break on boundaries when wrapping
-set nojoinspaces                     " Only one space when joining lines
-set expandtab                        " Spaces, not tabs-obviously ;-)
-set tabstop=2                        " Set the wisth of hard tabs
-set softtabstop=2                    " Set the width of soft tabs
-set shiftwidth=2                     " Set the width of indents
-set shiftround                       " Round indents to multiples of 'shiftwidth'
-set autoindent                       " Copy indent from current line when starting a new line
-set smartindent                      " Be smart about auto indenting
-set smartcase                        " Obey case if there's an upper case character in search patterns
-set ignorecase                       " Ignore case in search patterns
-set incsearch                        " Shows the search as you type!
-set hlsearch                         " Highlight search matches
-set gdefault                         " By default add g flag to search/replace. Add g to toggle
-set title                            " Show the filename in the window titlebar
-set number                           " Enable line numbers
-set signcolumn=yes                   " always show signcolumn
-set nowrap                           " Disable soft-wrap
-set showbreak=↪\                     " Character to display at the start of soft-wrapped lines
-set nostartofline                    " Don't reset cursor to start of line when moving around
-set cursorline                       " Highlight the current line
-set splitbelow                       " New window goes below
-set splitright                       " New windows goes right
-set ruler                            " Show the cursor position
-set report=0                         " Show all changes
-set showcmd                          " Show the (partial) command as it’s being typed
-set noshowmode                       " Don't show the current mode (airline.vim takes care of us)
-set laststatus=2                     " Always show status line
-set visualbell                       " Use visual bell instead of audible bell (annnnnoying)
-set nofoldenable                     " No folding
-set list                             " Show hidden characters
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+if has ('unnamedplus')
+  set clipboard=unnamedplus
+endif
+
+" VIM-only config (make it match Neovim defaults)
+if !has('nvim')
+  silent !mkdir -p ~/.local/share/nvim/undo > /dev/null 2>&1
+  set undodir=~/.local/share/nvim/undo
+
+  set ttyfast
+  set autoindent
+  set autoread
+  set background=dark
+  set backspace=indent,eol,start
+  set encoding=utf-8
+  set formatoptions=tcqj
+  set history=10000
+  set hlsearch
+  set incsearch
+  set langnoremap
+  set laststatus=2
+  set ruler
+  set shortmess+=F
+  set shortmess-=S
+  set showcmd
+  set smarttab
+  set nostartofline
+  set wildmenu
+endif
+
+" Neovim-only config
+if !has('nvim')
+  "
+endif
+
+" Shared config
+set lazyredraw
+set ttimeoutlen=0
+set updatetime=300
+set mouse=a
+set undolevels=1000
+set undofile
+set nobackup
+set nowritebackup
+set noswapfile
+set hidden
+set nobomb
+set spelllang=en_au,en_gb
+set linebreak
+set nojoinspaces
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+set smartindent
+set smartcase
+set ignorecase
+set gdefault
+set title
+set number
+set signcolumn=yes
+set nowrap
+set showbreak=↪\
+set cursorline
+set splitbelow
+set splitright
+set report=0
+set noshowmode
+set visualbell
+set nofoldenable
+set list
 set listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
-set scrolloff=3                      " Minimal number of lines to keep above and below the cursor
-set sidescrolloff=3                  " Minimal number of columns to keep to the left and right of the cursor
-set winminheight=0                   " Allow splits to be reduced to a single line
-set diffopt=filler                   " Add vertical spaces to keep right and left aligned
-set diffopt+=iwhite                  " Ignore whitespace changes (focus on code changes)
-set formatoptions+=r                 " Continue comments by default
-set formatoptions+=n                 " Recognize numbered lists
-set formatoptions+=1                 " Break before 1-letter words
-set omnifunc=ale#completion#OmniFunc " OmniComplete Function
-set shortmess+=c                     " don't give ins-completion-menu messages
-set wildmenu                         " Enhanced completion mode
-set wildchar=<TAB>                   " Character for CLI expansion (TAB-completion)
+set scrolloff=3
+set sidescrolloff=3
+set winminheight=0
+set diffopt=filler
+set diffopt+=iwhite
+set formatoptions+=r
+set formatoptions+=n
+set formatoptions+=1
+set omnifunc=ale#completion#OmniFunc
+set shortmess+=c
+set wildchar=<TAB>
 set wildmode=list:longest,list:full
-set wildignore+=.DS_Store            " File patterns to ignore when expanding wildcards
+set wildignore+=.DS_Store
 set wildignore+=*/nvim/backup*,*/nvim/swap*,*/nvim/undo*
 set wildignore+=*/.git/*
 set wildignore+=*/.sass-cache/*
@@ -142,7 +164,7 @@ set wildignore+=*/node_modules/*
 set wildignore+=*/vendor/*
 set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
-set iskeyword+=-,_,$,@,%,#,?         " These are not word dividers
+set iskeyword+=-,_,$,@,%,#,?
 
 filetype plugin indent on
 
