@@ -54,14 +54,16 @@ call plug#end()
 let mapleader=' '
 
 " Colours and syntax highlighting
-syntax enable
-
+set t_Co=256
 if (has('termguicolors'))
   set termguicolors
 endif
 
-set background=dark
+syntax enable
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
+set background=dark
 
 " Local directories
 silent !mkdir -p $HOME/.config/nvim/undo > /dev/null 2>&1
@@ -280,15 +282,13 @@ augroup general_config
     endif
   endfunction
   nnoremap <leader>z :call ToggleZoomWindow()<CR>
-
-  " Toggle background
-  nnoremap <Leader>bg :let &background = ( &background == 'dark'? 'light' : 'dark' )<CR>
 augroup END
 
 " Airline.vim
 augroup airline_config
   autocmd!
 
+  let g:airline_theme='oceanicnext'
   let g:airline#extensions#ale#enabled = 1
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
