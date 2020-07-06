@@ -38,7 +38,6 @@ Plug 'othree/es.next.syntax.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'MaxMEllon/vim-jsx-pretty'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
@@ -47,7 +46,6 @@ Plug 'chr4/nginx.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && yarn global add tern' }
 Plug 'carlitux/deoplete-ternjs'
-" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 Plug 'mhartington/oceanic-next'
 
@@ -460,19 +458,4 @@ augroup tern_for_vim_config
   " Use the same tern for tern_for_vim and deoplete-ternjs
   let g:tern#command = ['tern']
   let g:tern#arguments = ['--persistent']
-augroup END
-
-" vim-go
-augroup vim_go
-  let g:go_highlight_build_constraints = 1
-  let g:go_highlight_extra_types = 1
-  let g:go_highlight_fields = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_structs = 1
-  let g:go_highlight_types = 1
-  let g:go_auto_sameids = 1
-  let g:go_fmt_command = 'goimports'
-  let g:go_auto_type_info = 1
 augroup END
