@@ -329,6 +329,7 @@ augroup ale_config
   let g:ale_fixers = {
   \   'javascript': ['prettier', 'eslint'],
   \   'typescript': ['prettier', 'eslint'],
+  \   'javascriptreact': ['prettier', 'eslint'],
   \   'typescriptreact': ['prettier', 'eslint'],
   \   'css': ['prettier'],
   \   'scss': ['prettier'],
