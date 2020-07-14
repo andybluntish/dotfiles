@@ -36,16 +36,12 @@ Plug 'elzr/vim-json'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'chr4/nginx.vim'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && yarn global add tern' }
-Plug 'carlitux/deoplete-ternjs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'mhartington/oceanic-next'
 
@@ -99,7 +95,7 @@ if !has('nvim')
 endif
 
 " Neovim-only config
-if !has('nvim')
+if has('nvim')
   "
 endif
 
@@ -154,7 +150,6 @@ set shortmess+=c
 set wildchar=<TAB>
 set wildmode=list:longest,list:full
 set wildignore+=.DS_Store
-set wildignore+=*/nvim/backup*,*/nvim/swap*,*/nvim/undo*
 set wildignore+=*/.git/*
 set wildignore+=*/.sass-cache/*
 set wildignore+=*/bower_components/*
@@ -168,6 +163,15 @@ filetype plugin indent on
 
 let g:python_host_prog  = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/opt/python/libexec/bin/python'
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-tsserver',
+  \ 'coc-solargraph',
+  \ 'coc-svg',
+  \ 'coc-cssmodules',
+  \ ]
 
 " JSON
 augroup filetype_json
@@ -329,6 +333,7 @@ augroup ale_config
   let g:ale_fixers = {
   \   'javascript': ['prettier', 'eslint'],
   \   'typescript': ['prettier', 'eslint'],
+  \   'javascriptreact': ['prettier', 'eslint'],
   \   'typescriptreact': ['prettier', 'eslint'],
   \   'css': ['prettier'],
   \   'scss': ['prettier'],
@@ -361,14 +366,6 @@ augroup delimitmate_config
   autocmd!
 
   let g:delimitMate_expand_cr = 1
-augroup END
-
-" Deoplete.vim
-augroup deoplete_config
-  autocmd!
-
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_camel_case = 1
 augroup END
 
 " EasyAlign.vim
@@ -446,13 +443,4 @@ augroup over_config
 
   nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
   xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
-augroup END
-
-" tern_for_vim
-augroup tern_for_vim_config
-  autocmd!
-
-  " Use the same tern for tern_for_vim and deoplete-ternjs
-  let g:tern#command = ['tern']
-  let g:tern#arguments = ['--persistent']
 augroup END
