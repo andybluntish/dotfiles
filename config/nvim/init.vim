@@ -150,7 +150,6 @@ set shortmess+=c
 set wildchar=<TAB>
 set wildmode=list:longest,list:full
 set wildignore+=.DS_Store
-set wildignore+=*/nvim/backup*,*/nvim/swap*,*/nvim/undo*
 set wildignore+=*/.git/*
 set wildignore+=*/.sass-cache/*
 set wildignore+=*/bower_components/*
