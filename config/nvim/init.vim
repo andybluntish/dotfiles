@@ -95,7 +95,7 @@ if !has('nvim')
 endif
 
 " Neovim-only config
-if !has('nvim')
+if has('nvim')
   "
 endif
 
