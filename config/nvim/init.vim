@@ -175,6 +175,7 @@ let g:coc_global_extensions = [
   \ 'coc-svg',
   \ 'coc-cssmodules',
   \ 'coc-vetur',
+  \ 'coc-tailwindcss'
   \ ]
 
 " JSON
