@@ -9,7 +9,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over'
 Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
@@ -371,17 +370,6 @@ augroup delimitmate_config
   autocmd!
 
   let g:delimitMate_expand_cr = 1
-augroup END
-
-" EasyAlign.vim
-augroup easy_align_config
-  autocmd!
-
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  vmap <Enter> <Plug>(EasyAlign)
-
-  " Start interactive EasyAlign for a motion/text object (e.g. <Leader>aip)
-  nmap <Leader>a <Plug>(EasyAlign)
 augroup END
 
 " fzf
