@@ -424,7 +424,7 @@ augroup nerd_commenter
   autocmd!
 
   let NERDSpaceDelims=1
-  nmap <leader>/ <plug>NERDCommenterToggle
+  map <leader>/ <plug>NERDCommenterToggle
 augroup END
 
 " NERDTree
