@@ -16,26 +16,18 @@ Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-ragtag'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'PeterRincker/vim-argumentative'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'othree/html5.vim'
-Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
-Plug 'elzr/vim-json'
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'posva/vim-vue'
@@ -166,13 +158,6 @@ filetype plugin indent on
 let g:python_host_prog  = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/opt/python/libexec/bin/python'
 
-" JSON
-augroup filetype_json
-  autocmd!
-
-  let g:vim_json_syntax_conceal = 0
-augroup END
-
 " JavaScript
 augroup filetype_js
   autocmd!
@@ -185,7 +170,6 @@ augroup filetype_markdown
   autocmd!
 
   au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-  let g:vim_markdown_fenced_languages = ['bash=sh', 'ruby=rb', 'erb=eruby.html', 'javascript=js', 'typescript=ts']
 augroup END
 
 " Ruby
