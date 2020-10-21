@@ -285,7 +285,7 @@ augroup general_config
   vmap K k
 
   " save without reaching for :
-  noremap <Leader>w :w<CR>
+  noremap <leader>w :w<CR>
 
   " use ; instead of : because it is quicker
   nnoremap ; :
@@ -294,8 +294,8 @@ augroup general_config
   cnoremap w!! w !sudo tee % >/dev/null
 
   " Toggle buffer diff
-  nnoremap <Leader>don :diffthis<CR>
-  nnoremap <Leader>dof :diffoff<CR>
+  nnoremap <leader>don :diffthis<CR>
+  nnoremap <leader>dof :diffoff<CR>
 
   " Zoom / Restore splits
   function! ToggleZoomWindow() abort
@@ -381,10 +381,10 @@ augroup fzf_config
   let g:fzf_history_dir = '~/.config/nvim/fzf-history'
   let g:fzf_buffers_jump = 1 " Jump to existing buffer if available
 
-  nnoremap <C-p> :Files<CR>
-  nnoremap <C-g> :GFiles?<CR>
-  nnoremap <C-b> :Buffers<CR>
-  nnoremap <C-t> :Tags<CR>
+  nnoremap <leader>p :Files<CR>
+  nnoremap <leader>g :GFiles?<CR>
+  nnoremap <leader>b :Buffers<CR>
+  nnoremap <leader>t :Tags<CR>
   " nnoremap <C-m> :Marks<CR>
   nnoremap <leader>l :Lines<CR>
 
@@ -405,8 +405,7 @@ augroup nerd_commenter
   autocmd!
 
   let NERDSpaceDelims=1
-  let NERDCompactSexyComs=1
-  noremap <leader>/ <plug>NERDCommenterToggle
+  nmap <leader>/ <plug>NERDCommenterToggle
 augroup END
 
 " NERDTree
@@ -443,6 +442,6 @@ augroup over_config
     :w
   endfunction
 
-  nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
-  xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
+  nnoremap <leader>fr :call VisualFindAndReplace()<CR>
+  xnoremap <leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 augroup END
