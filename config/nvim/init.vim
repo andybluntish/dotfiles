@@ -25,6 +25,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -314,6 +315,7 @@ augroup coc
   \ 'coc-json',
   \ 'coc-yaml',
   \ 'coc-html',
+  \ 'coc-emmet',
   \ 'coc-css',
   \ 'coc-tsserver',
   \ 'coc-solargraph',
