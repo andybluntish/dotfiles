@@ -245,10 +245,10 @@ augroup general_config
   nnoremap <Down> :resize -1<CR>
 
   " Fix page up and down
-  map <PageUp> <C-U>
-  map <PageDown> <C-D>
-  imap <PageUp> <C-O><C-U>
-  imap <PageDown> <C-O><C-D>
+  noremap <PageUp> <C-U>
+  noremap <PageDown> <C-D>
+  inoremap <PageUp> <C-O><C-U>
+  inoremap <PageDown> <C-O><C-D>
 
   " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
   tnoremap <C-h> <C-\><C-n><C-w>h
@@ -261,8 +261,8 @@ augroup general_config
   nnoremap <C-l> <C-W>l
 
   " Move based on display lines, not physical lines
-  map j gj
-  map k gk
+  noremap j gj
+  noremap k gk
 
   " Move selected lines up and down
   vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -279,14 +279,14 @@ augroup general_config
 
   " Paste toggle
   set pastetoggle=<F2>
-  map <F2> :set invpaste paste?<CR>
+  noremap <F2> :set invpaste paste?<CR>
 
   " Removes doc lookup binding because it's easy to fat finger
   nmap K k
   vmap K k
 
   " save without reaching for :
-  map <Leader>w :w<CR>
+  noremap <Leader>w :w<CR>
 
   " use ; instead of : because it is quicker
   nnoremap ; :
@@ -418,7 +418,7 @@ augroup nerd_commenter
 
   let NERDSpaceDelims=1
   let NERDCompactSexyComs=1
-  map <leader>/ <plug>NERDCommenterToggle
+  noremap <leader>/ <plug>NERDCommenterToggle
 augroup END
 
 " NERDTree
