@@ -25,7 +25,6 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
-Plug 'w0rp/ale'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -149,7 +148,6 @@ set diffopt+=iwhite
 set formatoptions+=r
 set formatoptions+=n
 set formatoptions+=1
-set omnifunc=ale#completion#OmniFunc
 set shortmess+=c
 set wildchar=<TAB>
 set wildmode=list:longest,list:full
@@ -167,17 +165,6 @@ filetype plugin indent on
 
 let g:python_host_prog  = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/opt/python/libexec/bin/python'
-let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-html',
-  \ 'coc-css',
-  \ 'coc-tsserver',
-  \ 'coc-solargraph',
-  \ 'coc-svg',
-  \ 'coc-cssmodules',
-  \ 'coc-vetur',
-  \ 'coc-tailwindcss'
-  \ ]
 
 " JSON
 augroup filetype_json
@@ -333,12 +320,39 @@ augroup terminal
   endif
 augroup END
 
+" CoC
+augroup coc
+  autocmd!
+
+  let g:coc_global_extensions = [
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-yaml',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-tsserver',
+  \ 'coc-solargraph',
+  \ 'coc-svg',
+  \ 'coc-vetur',
+  \ 'coc-tailwindcss'
+  \ ]
+
+  nmap <silent> <leader>e <Plug>(coc-diagnostic-next-error)
+  nmap <silent> <leader>E <Plug>(coc-diagnostic-prev-error)
+
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gr <Plug>(coc-references)
+
+  nmap <leader>do <Plug>(coc-codeaction)
+  nmap <leader>rn <Plug>(coc-rename)
+augroup END
+
 " Airline.vim
 augroup airline_config
   autocmd!
 
-  let g:airline_theme='oceanicnext'
-  let g:airline#extensions#ale#enabled = 1
   let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
   if !exists('g:airline_symbols')
@@ -349,32 +363,6 @@ augroup airline_config
   let g:airline_symbols.linenr = ''
   let g:airline_symbols.maxlinenr = ''
   let g:airline_symbols.dirty='*'
-augroup END
-
-" Ale.vim
-augroup ale_config
-  autocmd!
-
-  let g:ale_fixers = {
-  \   'javascript': ['prettier', 'eslint'],
-  \   'typescript': ['prettier', 'eslint'],
-  \   'javascriptreact': ['prettier', 'eslint'],
-  \   'typescriptreact': ['prettier', 'eslint'],
-  \   'css': ['prettier'],
-  \   'scss': ['prettier'],
-  \   'json': ['prettier'],
-  \   'yaml': ['prettier'],
-  \   'graphql': ['prettier'],
-  \   'ruby': ['rubocop'],
-  \}
-
-  let g:ale_fix_on_save = 1
-  let g:ale_sign_column_always = 1
-  let g:ale_javascript_prettier_use_local_config = 1
-
-  nmap <silent> <leader>E <Plug>(ale_previous_wrap)
-  nmap <silent> <leader>e <Plug>(ale_next_wrap)
-  nmap <silent> <leader>fx <Plug>(ale_fix)
 augroup END
 
 " Delete trailing whitespace
