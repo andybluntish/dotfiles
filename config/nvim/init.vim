@@ -47,6 +47,7 @@ Plug 'chr4/nginx.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'mhartington/oceanic-next'
+Plug 'dracula/vim'
 
 call plug#end()
 
@@ -59,7 +60,7 @@ endif
 syntax enable
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-colorscheme OceanicNext
+colorscheme dracula
 
 " Map leader
 " <Space> is by far the easiest key to hit
