@@ -425,6 +425,15 @@ augroup END
 augroup nerd_tree
   autocmd!
 
+  " Open NERDTree automatically when launching with a directory
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+  " Exit if the last window is NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+  let g:NERDTreeMinimalUI = 1
+
   noremap <leader>dn :NERDTreeToggle<CR>
   noremap <leader>nn :NERDTreeFind<CR>
   noremap <leader>fn :NERDTreeFocus<CR>
