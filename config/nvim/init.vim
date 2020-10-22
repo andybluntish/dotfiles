@@ -376,6 +376,7 @@ augroup fzf_config
   let g:fzf_history_dir = '~/.config/nvim/fzf-history'
   let g:fzf_buffers_jump = 1 " Jump to existing buffer if available
 
+  nnoremap <c-p> :Files<CR>
   nnoremap <leader>p :Files<CR>
   nnoremap <leader>g :GFiles?<CR>
   nnoremap <leader>b :Buffers<CR>
