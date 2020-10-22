@@ -142,7 +142,7 @@ set formatoptions+=r
 set formatoptions+=n
 set formatoptions+=1
 set shortmess+=c
-set wildchar=<TAB>
+set wildchar=<Tab>
 set wildmode=list:longest,list:full
 set wildignore+=.DS_Store
 set wildignore+=*/.git/*
@@ -218,20 +218,20 @@ augroup general_config
   nnoremap <Down> :resize -1<CR>
 
   " Fix page up and down
-  noremap <PageUp> <C-U>
-  noremap <PageDown> <C-D>
-  inoremap <PageUp> <C-O><C-U>
-  inoremap <PageDown> <C-O><C-D>
+  noremap <PageUp> <C-u>
+  noremap <PageDown> <C-d>
+  inoremap <PageUp> <C-o><C-U>
+  inoremap <PageDown> <C-o><C-d>
 
   " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
   tnoremap <C-h> <C-\><C-n><C-w>h
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
-  nnoremap <C-j> <C-W>j
-  nnoremap <C-k> <C-W>k
-  nnoremap <C-h> <C-W>h
-  nnoremap <C-l> <C-W>l
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-l> <C-w>l
 
   " Move based on display lines, not physical lines
   noremap j gj
@@ -259,7 +259,7 @@ augroup general_config
   vmap K k
 
   " save without reaching for :
-  noremap <leader>w :w<CR>
+  noremap <Leader>w :w<CR>
 
   " use ; instead of : because it is quicker
   nnoremap ; :
@@ -268,8 +268,8 @@ augroup general_config
   cnoremap w!! w !sudo tee % >/dev/null
 
   " Toggle buffer diff
-  nnoremap <leader>don :diffthis<CR>
-  nnoremap <leader>dof :diffoff<CR>
+  nnoremap <Leader>don :diffthis<CR>
+  nnoremap <Leader>dof :diffoff<CR>
 
   " Zoom / Restore splits
   function! ToggleZoomWindow() abort
@@ -283,7 +283,7 @@ augroup general_config
       let t:zoomed = 1
     endif
   endfunction
-  nnoremap <leader>z :call ToggleZoomWindow()<CR>
+  nnoremap <Leader>z :call ToggleZoomWindow()<CR>
 augroup END
 
 " Terminal
@@ -301,7 +301,7 @@ augroup terminal
       resize 15
     endfunction
 
-    nnoremap <leader>cm :call OpenTerminal()<CR>
+    nnoremap <Leader>cm :call OpenTerminal()<CR>
   endif
 augroup END
 
@@ -324,15 +324,14 @@ augroup coc
   \ 'coc-tailwindcss'
   \ ]
 
-  nmap <silent> <leader>e <Plug>(coc-diagnostic-next-error)
-  nmap <silent> <leader>E <Plug>(coc-diagnostic-prev-error)
+  nmap <silent> <Leader>do <Plug>(coc-codeaction)
+  nmap <silent> <Leader>rn <Plug>(coc-rename)
+  nmap <silent> <Leader>e <Plug>(coc-diagnostic-next-error)
+  nmap <silent> <Leader>E <Plug>(coc-diagnostic-prev-error)
 
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gr <Plug>(coc-references)
-
-  nmap <leader>do <Plug>(coc-codeaction)
-  nmap <leader>rn <Plug>(coc-rename)
 augroup END
 
 " Airline.vim
@@ -376,24 +375,24 @@ augroup fzf_config
   let g:fzf_history_dir = '~/.config/nvim/fzf-history'
   let g:fzf_buffers_jump = 1 " Jump to existing buffer if available
 
-  nnoremap <c-p> :Files<CR>
-  nnoremap <leader>p :Files<CR>
-  nnoremap <leader>g :GFiles?<CR>
-  nnoremap <leader>b :Buffers<CR>
-  nnoremap <leader>t :Tags<CR>
-  " nnoremap <C-m> :Marks<CR>
-  nnoremap <leader>l :Lines<CR>
+  nnoremap <C-p> :Files<CR>
+  nnoremap <Leader>p :Files<CR>
+  nnoremap <Leader>g :GFiles?<CR>
+  nnoremap <Leader>b :Buffers<CR>
+  nnoremap <Leader>t :Tags<CR>
+  nnoremap <C-m> :Marks<CR>
+  nnoremap <Leader>l :Lines<CR>
 
   " Mapping selecting mappings
-  nmap <leader><tab> <plug>(fzf-maps-n)
-  xmap <leader><tab> <plug>(fzf-maps-x)
-  omap <leader><tab> <plug>(fzf-maps-o)
+  nmap <Leader><Tab> <Plug>(fzf-maps-n)
+  xmap <Leader><Tab> <Plug>(fzf-maps-x)
+  omap <Leader><Tab> <Plug>(fzf-maps-o)
 
   " Insert mode completion
-  imap <c-x><c-k> <plug>(fzf-complete-word)
-  imap <c-x><c-f> <plug>(fzf-complete-path)
-  imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-  imap <c-x><c-l> <plug>(fzf-complete-line)
+  imap <C-x><C-k> <Plug>(fzf-complete-word)
+  imap <C-x><C-f> <Plug>(fzf-complete-path)
+  imap <C-x><C-j> <Plug>(fzf-complete-file-ag)
+  imap <C-x><C-l> <Plug>(fzf-complete-line)
 augroup END
 
 " NERD Commenter
@@ -401,7 +400,7 @@ augroup nerd_commenter
   autocmd!
 
   let NERDSpaceDelims=1
-  map <leader>/ <plug>NERDCommenterToggle
+  map <Leader>/ <Plug>NERDCommenterToggle
 augroup END
 
 " NERDTree
@@ -413,9 +412,9 @@ augroup nerd_tree
 
   let g:NERDTreeMinimalUI = 1
 
-  noremap <leader>dn :NERDTreeToggle<CR>
-  noremap <leader>nn :NERDTreeFind<CR>
-  noremap <leader>fn :NERDTreeFocus<CR>
+  noremap <Leader>dn :NERDTreeToggle<CR>
+  noremap <Leader>nn :NERDTreeFind<CR>
+  noremap <Leader>fn :NERDTreeFocus<CR>
 augroup END
 
 " Vim Over
@@ -434,6 +433,6 @@ augroup over_config
     :w
   endfunction
 
-  nnoremap <leader>fr :call VisualFindAndReplace()<CR>
-  xnoremap <leader>fr :call VisualFindAndReplaceWithSelection()<CR>
+  nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
+  xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 augroup END
