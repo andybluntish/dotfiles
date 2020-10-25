@@ -25,7 +25,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -393,6 +393,13 @@ augroup fzf_config
   imap <C-x><C-f> <Plug>(fzf-complete-path)
   imap <C-x><C-j> <Plug>(fzf-complete-file-ag)
   imap <C-x><C-l> <Plug>(fzf-complete-line)
+augroup END
+
+" Emmet
+augroup emmet
+  autocmd!
+
+  let g:user_emmet_leader_key='<C-Z>'
 augroup END
 
 " NERD Commenter
