@@ -301,7 +301,7 @@ augroup terminal
       resize 15
     endfunction
 
-    nnoremap <Leader>cm :call OpenTerminal()<CR>
+    nnoremap <Leader>cx :call OpenTerminal()<CR>
   endif
 augroup END
 
