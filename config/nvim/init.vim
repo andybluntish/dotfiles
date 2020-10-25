@@ -380,7 +380,7 @@ augroup fzf_config
   nnoremap <Leader>g :GFiles?<CR>
   nnoremap <Leader>b :Buffers<CR>
   nnoremap <Leader>t :Tags<CR>
-  nnoremap <C-m> :Marks<CR>
+  " nnoremap <C-m> :Marks<CR>
   nnoremap <Leader>l :Lines<CR>
 
   " Mapping selecting mappings
