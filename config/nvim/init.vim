@@ -290,7 +290,7 @@ augroup END
 augroup terminal
   if has('nvim')
     " go into normal mode in terminal with Esc
-    tnoremap <Esc> <C-\><C-n>
+    " tnoremap <Esc> <C-\><C-n>
 
     " start terminal in insert mode
     autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
