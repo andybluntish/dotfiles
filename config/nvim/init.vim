@@ -25,7 +25,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -396,11 +396,11 @@ augroup fzf_config
 augroup END
 
 " Emmet
-augroup emmet
-  autocmd!
+" augroup emmet
+  " autocmd!
 
-  let g:user_emmet_leader_key='<C-Z>'
-augroup END
+  " let g:user_emmet_leader_key='<C-Z>'
+" augroup END
 
 " NERD Commenter
 augroup nerd_commenter
