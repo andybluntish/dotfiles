@@ -21,6 +21,7 @@ brew "nodenv"
 brew "rbenv"
 brew "yarn"
 
+brew "gpg"
 brew "starship"
 brew "tldr"
 brew "bat"
