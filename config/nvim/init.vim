@@ -318,7 +318,6 @@ augroup coc
   \ 'coc-json',
   \ 'coc-yaml',
   \ 'coc-html',
-  \ 'coc-emmet',
   \ 'coc-css',
   \ 'coc-tsserver',
   \ 'coc-solargraph',
