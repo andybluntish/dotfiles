@@ -1,4 +1,22 @@
+################################################################################
+# Terminal
+################################################################################
+
 set fish_greeting
+
+set -x GPG_TTY (tty)
+set -x PATH $HOME/.bin $PATH
+
+################################################################################
+# Version Managers
+################################################################################
+
+status --is-interactive; and source (nodenv init -|psub)
+status --is-interactive; and source (rbenv init -|psub)
+
+################################################################################
+# Editor
+################################################################################
 
 if type nvim > /dev/null
   set -x EDITOR nvim
@@ -7,28 +25,53 @@ else
 end
 
 set -x VISUAL $EDITOR
-set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git 2> /dev/null; or git ls-tree -r --name-only HEAD 2> /dev/null'
+
+################################################################################
+# FZF
+################################################################################
+
+if type fd > /dev/null
+  set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git 2> /dev/null'
+else if type git > /dev/null
+  set -x FZF_DEFAULT_COMMAND 'git ls-tree -r --name-only HEAD 2> /dev/null'
+end
+
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-set -x GPG_TTY (tty)
-set -x GOPATH $HOME/Code/go
-set -x PATH $HOME/.bin $GOPATH/bin /usr/local/sbin /usr/local/opt/python/libexec/bin $PATH
 
-# Alias functions
-alias ll="tree --dirsfirst -ChFupDaLg 1"
-alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
+################################################################################
+# Aliases
+################################################################################
+
 alias df="df -h"
-alias tmux="tmux -2"
 
+if type tree > /dev/null
+  alias ll="tree --dirsfirst -ChFupDaLg 1"
+  alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
+end
+
+if type tmux > /dev/null
+  alias tmux="tmux -2"
+end
+
+################################################################################
 # Abbreviations
+################################################################################
+
 abbr -g vim "$EDITOR"
 abbr -g nvim "$EDITOR"
-abbr -g g "git"
-abbr -g gup "git gup"
-abbr -g be "bundle exec"
 
-# version managers
-status --is-interactive; and source (nodenv init -|psub)
-status --is-interactive; and source (rbenv init -|psub)
+if type git > /dev/null
+  abbr -g g   "git"
+  abbr -g gup "git gup"
+end
+
+if type bundle > /dev/null
+  abbr -g be "bundle exec"
+end
+
+################################################################################
+# Functions
+################################################################################
 
 # Fuzzy find & edit file
 function ef
@@ -42,9 +85,15 @@ end
 # Pretty view directories and files
 # - if directory, list the contents with tree
 # - if file(s), show the highlighted contents with bat
+# - if image, render with terminal-image-cli
 function c
   if test (count $argv) -eq 0
-    tree ./
+    if type tree > /dev/null
+      tree
+    else
+      la
+    end
+
     return
   end
 
@@ -55,20 +104,39 @@ function c
 
     if test -e $i; and test -r $i
       if test -d $i
-        tree $i
-      # else if file -b --mime-type $i | string match -q -r '^image\/'
-      #   imgcat $i
+        if type tree > /dev/null
+          tree $i
+        else
+          la $i
+        end
+
+        return
+      else if file -b --mime-type $i | string match -q -r '^image\/'
+        if type image > /dev/null
+          image $i
+
+          return
+        end
       else
-        bat $i
+        if type bat > /dev/null
+          bat $i
+        else
+          cat $i
+        end
+
+        return
       end
-    else
-      set_color red
-      echo "Cannot open: $i" 1>&2
     end
 
+    set_color red
+    echo "Cannot open: $i" 1>&2
     set_color normal
   end
 end
+
+################################################################################
+# Local overrides & extensions
+################################################################################
 
 # Setup additional config local to this machine
 if test -e ~/.local.fish
