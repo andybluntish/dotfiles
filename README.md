@@ -34,7 +34,7 @@ rbenv install $ruby_version
 rbenv global $ruby_version
 
 # for writing JavaScript
-yarn global add eslint prettier live-server typescript
+yarn global add eslint prettier live-server terminal-image-cli typescript
 
 # enable Node and Python interfaces for neovim
 gem install neovim
