@@ -3,10 +3,9 @@
 export CLICOLOR=1
 export MANPAGER="less -X"
 export GPG_TTY=$(tty)
-export FZF_DEFAULT_COMMAND="(git ls-tree -r --name-only HEAD || fd --type f --hidden --follow --exclude .git) 2> /dev/null"
+export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export GOPATH=$HOME/Code/go
-export PATH=$HOME/.bin:$GOPATH/bin:$PATH
+export PATH=$HOME/.bin:$PATH
 
 if type nvim &> /dev/null; then
   export EDITOR="nvim"
