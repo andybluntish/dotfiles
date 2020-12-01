@@ -24,6 +24,7 @@
   c = commit --verbose
   ca = !git add --all && git commit --all --verbose
   co = checkout
+  cp = cherry-pick
   d = diff
   dc = diff --cached
   dl = diff HEAD^
