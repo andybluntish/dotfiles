@@ -1303,15 +1303,15 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>969 539 673 242 0 0 3008 1670 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>1112 966 400 129 0 0 2560 1418 </string>
+	<string>1080 966 400 129 0 0 2560 1418 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>962 597 700 622 0 0 2560 1418 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>698 763 796 486 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 24 2560 1394 0 0 2560 1418 </string>
+	<string>232 222 1006 836 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>188 24 2005 1394 0 0 2560 1418 </string>
+	<string>0 125 1127 903 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>896 24 1664 1394 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -2012,7 +2012,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodeProNerdFontCompleteM-Medium 15</string>
+			<string>SauceCodeProNerdFontCompleteM-Medium 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2498,9 +2498,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {2560, 1440}}</string>
+		<string>{{0, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{314, 1224}</string>
+		<string>{385, 901}</string>
 	</dict>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
@@ -2509,7 +2509,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>B76172AB-DC13-43A3-82E2-274E110B8B1D</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>376</integer>
+	<integer>457</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3234,6 +3234,10 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSuppressDownloadConfirmation</key>
+	<true/>
+	<key>NoSyncSuppressDownloadConfirmation_selection</key>
+	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>549523282.41904604</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -3306,7 +3310,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-28T04:47:12Z</date>
+	<date>2021-01-18T01:59:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
