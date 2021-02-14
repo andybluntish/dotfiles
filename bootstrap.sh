@@ -37,8 +37,5 @@ link gitignore
 link hushlogin
 link inputrc
 link irbrc
-link tern-config
-link tmux.conf
-link hyper.js
 
 install_vim_plug
