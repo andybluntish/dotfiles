@@ -37,5 +37,6 @@ link gitignore
 link hushlogin
 link inputrc
 link irbrc
+link zshrc
 
 install_vim_plug
