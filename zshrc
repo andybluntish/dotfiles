@@ -38,9 +38,9 @@ bindkey "^R" history-incremental-search-backward
 bindkey "\e[A" history-beginning-search-backward
 bindkey "\e[B" history-beginning-search-forward
 
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=$HISTSIZ
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=$HISTSIZ
 
 setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
@@ -76,5 +76,9 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.cache/zsh/zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+eval "$(starship init zsh)"
