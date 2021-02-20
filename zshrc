@@ -1,19 +1,16 @@
 #!/usr/bin/env zsh
 
+export PATH=$HOME/.bin:$PATH
+export EDITOR="nvim"
+export VISUAL=$EDITOR
 export CLICOLOR=1
 export KEYTIMEOUT=1
 export MANPAGER="less -X"
 export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-
-export PATH=$HOME/.bin:$PATH
-
 export PROMPT="%F{cyan}%~
 %F{reset_color}❯ "
-
-export EDITOR="nvim"
-export VISUAL=$EDITOR
 
 alias vim=$EDITOR
 alias nvim=$EDITOR
@@ -21,16 +18,10 @@ alias la="ls -lah"
 alias ef="fzf -m | xargs $EDITOR"
 alias c="bat"
 alias be="bundle exec"
-
-if type tree &> /dev/null; then
-  alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
-  alias ll="tree --dirsfirst -ChFupDaLg 1"
-fi
-
-if type git &> /dev/null; then
-  alias g="git"
-  alias gup="git gup"
-fi
+alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
+alias ll="tree --dirsfirst -ChFupDaLg 1"
+alias g="git"
+alias gup="git gup"
 
 bindkey -v
 bindkey "^R" history-incremental-search-backward
