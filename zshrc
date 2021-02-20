@@ -18,10 +18,9 @@ export VISUAL=$EDITOR
 alias vim=$EDITOR
 alias nvim=$EDITOR
 alias la="ls -lah"
-
-type fzf    &> /dev/null && alias ef="fzf -m | xargs $EDITOR"
-type bat    &> /dev/null && alias c="bat"
-type bundle &> /dev/null && alias be="bundle exec"
+alias ef="fzf -m | xargs $EDITOR"
+alias c="bat"
+alias be="bundle exec"
 
 if type tree &> /dev/null; then
   alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
