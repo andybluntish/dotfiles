@@ -1,77 +1,21 @@
-################################################################################
-# Terminal
-################################################################################
-
 set fish_greeting
 
-set -x GPG_TTY (tty)
 set -x PATH $HOME/.bin $PATH
-
-################################################################################
-# Version Managers
-################################################################################
-
-status --is-interactive; and source (nodenv init -|psub)
-status --is-interactive; and source (rbenv init -|psub)
-
-################################################################################
-# Editor
-################################################################################
-
-if type nvim > /dev/null
-  set -x EDITOR nvim
-else
-  set -x EDITOR vim
-end
-
+set -x EDITOR nvim
 set -x VISUAL $EDITOR
-
-################################################################################
-# FZF
-################################################################################
-
-if type fd > /dev/null
-  set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git 2> /dev/null'
-else if type git > /dev/null
-  set -x FZF_DEFAULT_COMMAND 'git ls-tree -r --name-only HEAD 2> /dev/null'
-end
-
+set -x GPG_TTY (tty)
+set -x FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git 2> /dev/null'
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
-
-################################################################################
-# Aliases
-################################################################################
-
-alias df="df -h"
-
-if type tree > /dev/null
-  alias ll="tree --dirsfirst -ChFupDaLg 1"
-  alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
-end
-
-if type tmux > /dev/null
-  alias tmux="tmux -2"
-end
-
-################################################################################
-# Abbreviations
-################################################################################
 
 abbr -g vim "$EDITOR"
 abbr -g nvim "$EDITOR"
+abbr -g g "git"
+abbr -g gup "git gup"
+abbr -g be "bundle exec"
 
-if type git > /dev/null
-  abbr -g g   "git"
-  abbr -g gup "git gup"
-end
-
-if type bundle > /dev/null
-  abbr -g be "bundle exec"
-end
-
-################################################################################
-# Functions
-################################################################################
+alias df="df -h"
+alias tree="tree -aFCN -L 1 -I 'node_modules|bower_components|tmp|vendor|typings|.git'"
+alias ll="tree --dirsfirst -ChFupDaLg 1"
 
 # Fuzzy find & edit file
 function ef
@@ -135,10 +79,10 @@ function c
 end
 
 ################################################################################
-# Local overrides & extensions
+# Version Managers
 ################################################################################
 
-# Setup additional config local to this machine
-if test -e ~/.local.fish
-  source ~/.local.fish
-end
+status --is-interactive; and source (/opt/homebrew/bin/brew shellenv -|psub)
+status --is-interactive; and source (nodenv init -|psub)
+status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and starship init fish | source
