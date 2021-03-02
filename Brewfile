@@ -1,5 +1,6 @@
-brew "zsh"
+brew "bash"
 brew "fish"
+brew "zsh"
 
 brew "git"
 brew "neovim"
