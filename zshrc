@@ -1,19 +1,19 @@
 #!/usr/bin/env zsh
 
-export PATH=$HOME/.bin:$PATH
+export PATH="$HOME/.bin:$PATH"
 export EDITOR="nvim"
-export VISUAL=$EDITOR
+export VISUAL="$EDITOR"
 export CLICOLOR=1
 export KEYTIMEOUT=1
 export MANPAGER="less -X"
 export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
-export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PROMPT="%F{cyan}%~
 %F{reset_color}❯ "
 
-alias vim=$EDITOR
-alias nvim=$EDITOR
+alias vim="$EDITOR"
+alias nvim="$EDITOR"
 alias la="ls -lah"
 alias ef="fzf -m | xargs $EDITOR"
 alias c="bat"
@@ -28,9 +28,9 @@ bindkey "^R" history-incremental-search-backward
 bindkey "\e[A" history-beginning-search-backward
 bindkey "\e[B" history-beginning-search-forward
 
-export HISTFILE=$HOME/.zsh_history
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
-export SAVEHIST=$HISTSIZ
+export SAVEHIST="$HISTSIZ"
 
 setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
