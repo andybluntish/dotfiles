@@ -26,11 +26,14 @@ link config/fish/config.fish $HOME/.config/fish/
 link config/nvim/init.vim $HOME/.config/nvim/
 link config/nvim/coc-settings.json $HOME/.config/nvim/
 
+link bash_profile
+link bashrc
 link bin
 link gemrc
 link gitconfig
 link gitignore
 link hushlogin
+link inputrc
 link irbrc
 link zshrc
 
