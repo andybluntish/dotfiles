@@ -322,7 +322,8 @@ augroup coc
   \ 'coc-solargraph',
   \ 'coc-svg',
   \ 'coc-vetur',
-  \ 'coc-tailwindcss'
+  \ 'coc-tailwindcss',
+  \ 'coc-pyright'
   \ ]
 
   nmap <silent> <Leader>do <Plug>(coc-codeaction)
