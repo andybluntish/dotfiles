@@ -1,6 +1,6 @@
 set fish_greeting
 
-set -x PATH $HOME/.bin $PATH
+set -x PATH $HOME/.bin /Applications/Blender.app/Contents/MacOS $PATH
 set -x EDITOR nvim
 set -x VISUAL $EDITOR
 set -x GPG_TTY (tty)

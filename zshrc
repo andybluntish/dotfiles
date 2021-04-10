@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:/Applications/Blender.app/Contents/MacOS:$PATH"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export CLICOLOR=1
