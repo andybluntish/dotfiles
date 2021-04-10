@@ -3,6 +3,7 @@ brew "bash-completion@2"
 brew "fish"
 brew "zsh"
 
+brew "python"
 brew "git"
 brew "neovim"
 brew "nodenv"
