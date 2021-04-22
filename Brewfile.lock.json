@@ -606,6 +606,20 @@
           }
         }
       }
+    },
+    "cask": {
+      "imageoptim": {
+        "version": "1.8.8",
+        "options": {
+          "full_name": "imageoptim"
+        }
+      },
+      "imagealpha": {
+        "version": "1.5.1",
+        "options": {
+          "full_name": "imagealpha"
+        }
+      }
     }
   },
   "system": {

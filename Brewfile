@@ -20,3 +20,6 @@ brew "imagemagick"
 brew "ffmpeg"
 brew "youtube-dl"
 brew "tldr"
+
+cask "imageoptim"
+cask "imagealpha"
