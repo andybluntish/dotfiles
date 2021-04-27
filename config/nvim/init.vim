@@ -18,6 +18,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-eunuch'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/SearchComplete'
@@ -445,4 +446,11 @@ augroup over_config
 
   nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
   xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
+augroup END
+
+" Ragtag
+augroup ragtag
+  autocmd!
+
+  autocmd FileType jinja call RagtagInit()
 augroup END
