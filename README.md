@@ -45,7 +45,7 @@ Install the following dependencies to get started.
    chsh -s /usr/local/bin/fish
    ```
 
-8. install node.js
+8. install Node.js
 
    ```bash
    node_version=14.16.0
@@ -53,7 +53,7 @@ Install the following dependencies to get started.
    nodenv global $node_version
    ```
 
-9. install ruby
+9. install Ruby
 
    ```bash
    ruby_version=3.0.0
@@ -61,16 +61,25 @@ Install the following dependencies to get started.
    rbenv global $ruby_version
    ```
 
-10. for writing JavaScript
+10. install Python
 
     ```bash
-    npm i -g eslint prettier live-server terminal-image-cli typescript
+    python_version=3.9.4
+    pyenv install $python_version
+    pyenv global $python_version
     ```
 
-11. enable Node and Python interfaces for NeoVim
+11. enable Node, Ruby, and Python interfaces for NeoVim
 
     ```bash
     gem install neovim
-    pip install neovim
+    pip install pynvim
+    pip3 install pynvim
     yarn global add neovim
+    ```
+
+12. for writing JavaScript
+
+    ```bash
+    yarn global add eslint prettier typescript
     ```

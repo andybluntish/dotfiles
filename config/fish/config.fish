@@ -85,4 +85,5 @@ end
 status --is-interactive; and source (/opt/homebrew/bin/brew shellenv -|psub)
 status --is-interactive; and source (nodenv init -|psub)
 status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and starship init fish | source

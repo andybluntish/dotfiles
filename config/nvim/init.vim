@@ -159,8 +159,8 @@ set iskeyword+=-,_,$,@,%,#,?
 
 filetype plugin indent on
 
-let g:python_host_prog  = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/opt/python/libexec/bin/python'
+let g:python_host_prog  = '/usr/bin/python'
+let g:python3_host_prog = '~/.pyenv/shims/python'
 
 " JavaScript
 augroup filetype_js

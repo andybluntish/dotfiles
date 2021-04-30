@@ -32,8 +32,9 @@ shopt -s nocaseglob
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 eval "$(starship init bash)"
 
 # Bash completion

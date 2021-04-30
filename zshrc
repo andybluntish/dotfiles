@@ -69,6 +69,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 eval "$(starship init zsh)"
