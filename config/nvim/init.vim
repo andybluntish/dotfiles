@@ -319,12 +319,12 @@ augroup coc
   \ 'coc-yaml',
   \ 'coc-html',
   \ 'coc-css',
+  \ 'coc-svg',
   \ 'coc-tsserver',
   \ 'coc-solargraph',
-  \ 'coc-svg',
-  \ 'coc-vetur',
-  \ 'coc-tailwindcss',
-  \ 'coc-pyright'
+  \ 'coc-pyright',
+  \ 'coc-sh',
+  \ 'coc-markdownlint'
   \ ]
 
   nmap <silent> <Leader>do <Plug>(coc-codeaction)

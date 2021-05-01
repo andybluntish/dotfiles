@@ -21,30 +21,7 @@
     "svelte",
     "graphql"
   ],
-  "eslint.packageManager": "yarn",
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
   "prettier.disableSuccessMessage": true,
-  "tailwindCSS.htmlLanguages": [
-    "ejs",
-    "erb",
-    "eruby",
-    "handlebars",
-    "html",
-    "markdown",
-    "njk",
-    "nunjucks",
-    "php",
-    "svelte",
-    "vue",
-    "jinja",
-    "jinja.html",
-    "javascriptreact",
-    "typescriptreact"
-  ]
+  "eslint.packageManager": "yarn",
+  "eslint.autoFixOnSave": true
 }
