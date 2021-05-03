@@ -25,6 +25,7 @@ mkdir -p $HOME/.config/nvim
 link config/fish/config.fish $HOME/.config/fish/
 link config/nvim/init.vim $HOME/.config/nvim/
 link config/nvim/coc-settings.json $HOME/.config/nvim/
+link config/starship.toml $HOME/.config/
 
 link bash_profile
 link bashrc
