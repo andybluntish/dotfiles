@@ -42,7 +42,7 @@ Install the following dependencies to get started.
    /opt/homebrew/bin/fish
    /opt/homebrew/bin/zsh
    EOF
-   chsh -s /usr/local/bin/fish
+   chsh -s /opt/homebrew/bin/fish
    ```
 
 8. install Node.js
