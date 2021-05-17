@@ -23,3 +23,4 @@ brew "tldr"
 
 cask "imageoptim"
 cask "imagealpha"
+cask "slack"
