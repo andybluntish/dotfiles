@@ -19,10 +19,8 @@ function install_vim_plug() {
   nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
 }
 
-mkdir -p $HOME/.config/fish/functions
 mkdir -p $HOME/.config/nvim
 
-link config/fish/config.fish $HOME/.config/fish/
 link config/nvim/init.vim $HOME/.config/nvim/
 link config/nvim/coc-settings.json $HOME/.config/nvim/
 link config/starship.toml $HOME/.config/

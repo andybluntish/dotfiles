@@ -24,7 +24,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/fish.vim', { 'for': 'fish' }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'mattn/emmet-vim'
@@ -199,13 +198,6 @@ augroup filetype_make
   au FileType make setlocal noexpandtab
 augroup END
 
-" Shell
-augroup filetype_shell
-  autocmd!
-
-  au BufNewFile,BufRead *.fish set ft=fish
-augroup END
-
 " General config
 augroup general_config
   autocmd!
@@ -300,7 +292,7 @@ augroup terminal
 
     " open terminal
     function! OpenTerminal()
-      split term://fish
+      split term://zsh
       resize 15
     endfunction
 

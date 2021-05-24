@@ -39,10 +39,9 @@ Install the following dependencies to get started.
    ```bash
    cat <<- EOF | sudo tee -a /etc/shells
    /opt/homebrew/bin/bash
-   /opt/homebrew/bin/fish
    /opt/homebrew/bin/zsh
    EOF
-   chsh -s /opt/homebrew/bin/fish
+   chsh -s /opt/homebrew/bin/zsh
    ```
 
 8. install Node.js
