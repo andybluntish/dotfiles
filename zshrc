@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
-[ -f "$HOME/.exports" ] && source "$HOME/.exports"
-[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+[ -f "$HOME/.base.sh" ] && source "$HOME/.base.sh"
 
 export PROMPT="%F{cyan}%~
 %F{reset_color}❯ "
@@ -45,13 +44,13 @@ unsetopt CASE_GLOB
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.cache/zsh/zcompcache"

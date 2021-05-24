@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-[ -f "$HOME/.exports" ] && source "$HOME/.exports"
-[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+[ -f "$HOME/.base.sh" ] && source "$HOME/.base.sh"
 
 export PS1="\[\033[0;33m\]\w\[\033[0m\]\n❯ "
 
@@ -16,7 +15,7 @@ shopt -s nocaseglob
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(starship init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

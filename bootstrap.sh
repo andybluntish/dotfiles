@@ -27,11 +27,10 @@ link config/nvim/init.vim $HOME/.config/nvim/
 link config/nvim/coc-settings.json $HOME/.config/nvim/
 link config/starship.toml $HOME/.config/
 
-link aliases
+link base.sh
 link bash_profile
 link bashrc
 link bin
-link exports
 link gemrc
 link gitconfig
 link gitignore
