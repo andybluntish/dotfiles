@@ -49,8 +49,8 @@ eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit
+compinit
 
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path "$HOME/.cache/zsh/zcompcache"
