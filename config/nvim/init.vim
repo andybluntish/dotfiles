@@ -316,7 +316,8 @@ augroup coc
   \ 'coc-solargraph',
   \ 'coc-pyright',
   \ 'coc-sh',
-  \ 'coc-markdownlint'
+  \ 'coc-markdownlint',
+  \ 'coc-tailwindcss'
   \ ]
 
   nmap <silent> <Leader>do <Plug>(coc-codeaction)

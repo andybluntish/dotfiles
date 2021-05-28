@@ -23,5 +23,23 @@
   ],
   "prettier.disableSuccessMessage": true,
   "eslint.packageManager": "yarn",
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "solargraph.formatting": true,
+  "tailwindCSS.htmlLanguages": [
+    "ejs",
+    "erb",
+    "eruby",
+    "handlebars",
+    "html",
+    "markdown",
+    "njk",
+    "nunjucks",
+    "php",
+    "svelte",
+    "vue",
+    "jinja",
+    "jinja.html",
+    "javascriptreact",
+    "typescriptreact"
+  ]
 }
