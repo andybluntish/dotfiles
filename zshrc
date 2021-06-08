@@ -145,7 +145,7 @@ zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($HOMEBREW_LOCATION/bin/brew shellenv)"
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"

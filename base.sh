@@ -9,6 +9,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$HOME/.bin:$HOME/.yarn/bin:$PYENV_ROOT/bin:/Applications/Blender.app/Contents/MacOS:$PATH"
 
+UNAME_MACHINE="$(uname -m)"
+if [[ "$UNAME_MACHINE" == "arm64" ]]; then
+    # On ARM macOS, this script installs to /opt/homebrew only
+    export HOMEBREW_LOCATION="/opt/homebrew"
+else
+    # On Intel macOS, this script installs to /usr/local only
+    export HOMEBREW_LOCATION="/usr/local"
+fi
+
 alias vim="$EDITOR"
 alias nvim="$EDITOR"
 alias g="git"

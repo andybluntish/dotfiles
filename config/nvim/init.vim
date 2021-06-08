@@ -24,7 +24,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
-Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
@@ -410,7 +410,6 @@ augroup END
 " fzf
 augroup fzf_config
   autocmd!
-  set rtp+=/usr/local/opt/fzf
 
   let g:fzf_layout = { 'up': '~40%' }
   let g:fzf_history_dir = '~/.config/nvim/fzf-history'
