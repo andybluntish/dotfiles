@@ -22,6 +22,8 @@ brew "ffmpeg"
 brew "mkvtoolnix"
 brew "mp4v2"
 brew "youtube-dl"
+
+tap "heroku/brew"
 brew "heroku"
 
 cask "imageoptim"
