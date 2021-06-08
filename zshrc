@@ -94,7 +94,6 @@ unsetopt FLOW_CONTROL
 # automatically remove duplicates from these arrays
 typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
 
-bindkey -v
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
