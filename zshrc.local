@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+# Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
+
+[ -f "$HOME/.sh.sh" ] && source "$HOME/.sh.sh"
+
+eval "$($HOMEBREW_LOCATION/bin/brew shellenv)"
+eval "$(nodenv init -)"
+eval "$(rbenv init -)"
+eval "$(pyenv init --path)"
+eval "$(starship init zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

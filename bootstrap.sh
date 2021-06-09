@@ -21,13 +21,19 @@ function install_vim_plug() {
 
 mkdir -p $HOME/.config/nvim
 
+# Config
 link config/nvim/init.vim $HOME/.config/nvim/
 link config/nvim/coc-settings.json $HOME/.config/nvim/
 link config/starship.toml $HOME/.config/
 
+# Shell
 link sh.sh
 link bash_profile
 link bashrc
+link grml.zsh $HOME/.zshrc
+link zshrc.local
+
+# Misc
 link bin
 link gemrc
 link gitconfig
@@ -35,6 +41,5 @@ link gitignore
 link hushlogin
 link inputrc
 link irbrc
-link zshrc
 
 install_vim_plug
