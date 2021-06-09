@@ -2,6 +2,9 @@
 
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 
+# Disable the grml prompt in favour of Starship
+prompt off
+
 [ -f "$HOME/.sh.sh" ] && source "$HOME/.sh.sh"
 
 eval "$($HOMEBREW_LOCATION/bin/brew shellenv)"
