@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-[ -f "$HOME/.base.sh" ] && source "$HOME/.base.sh"
+[ -f "$HOME/.sh.sh" ] && source "$HOME/.sh.sh"
 
 PROMPT="%F{cyan}%~
 %F{reset_color}❯ "

@@ -11,11 +11,11 @@ export PATH="$HOME/.bin:$HOME/.yarn/bin:$PYENV_ROOT/bin:/Applications/Blender.ap
 
 UNAME_MACHINE="$(uname -m)"
 if [[ "$UNAME_MACHINE" == "arm64" ]]; then
-    # On ARM macOS, this script installs to /opt/homebrew only
-    export HOMEBREW_LOCATION="/opt/homebrew"
+  # On ARM macOS, Homebrew installs to /opt/homebrew
+  export HOMEBREW_LOCATION="/opt/homebrew"
 else
-    # On Intel macOS, this script installs to /usr/local only
-    export HOMEBREW_LOCATION="/usr/local"
+  # On Intel macOS, Homebrew installs to /usr/local
+  export HOMEBREW_LOCATION="/usr/local"
 fi
 
 alias vim="$EDITOR"

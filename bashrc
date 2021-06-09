@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-[ -f "$HOME/.base.sh" ] && source "$HOME/.base.sh"
+[ -f "$HOME/.sh.sh" ] && source "$HOME/.sh.sh"
 
 export PS1="\[\033[0;33m\]\w\[\033[0m\]\n❯ "
 
