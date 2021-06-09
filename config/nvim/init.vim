@@ -31,6 +31,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'posva/vim-vue'
 Plug 'niftylettuce/vim-jinja'
 Plug 'jparise/vim-graphql'
@@ -305,6 +306,7 @@ augroup coc
   autocmd!
 
   let g:coc_global_extensions = [
+  \ 'coc-highlight',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
@@ -317,7 +319,8 @@ augroup coc
   \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-markdownlint',
-  \ 'coc-tailwindcss'
+  \ 'coc-tailwindcss',
+  \ 'coc-ember'
   \ ]
 
   " Use tab for trigger completion with characters ahead and navigate.
