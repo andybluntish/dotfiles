@@ -32,6 +32,7 @@ link bash_profile
 link bashrc
 link grml.zsh $HOME/.zshrc
 link zshrc.local
+link zshrc.custom.local
 
 # Misc
 link bin
