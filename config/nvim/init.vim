@@ -394,6 +394,20 @@ augroup airline_config
   let g:airline_symbols.dirty='*'
 augroup END
 
+" GitGutter
+augroup gitgutter
+  let g:gitgutter_override_sign_column_highlight = 1
+  highlight SignColumn guibg=bg
+  highlight SignColumn ctermbg=bg
+
+  " Jump between hunks
+  nmap <Leader>gn <Plug>GitGutterNextHunk
+  nmap <Leader>gp <Plug>GitGutterPrevHunk
+
+  " Load hunks into quickfix
+  nmap <Leader>gh :GitGutterQuickFix <Bar> :copen<CR>
+augroup END
+
 " Delete trailing whitespace
 augroup delete_trailing_whitespace_config
   autocmd!
@@ -420,7 +434,7 @@ augroup fzf_config
 
   nnoremap <C-p> :Files<CR>
   nnoremap <Leader>p :Files<CR>
-  nnoremap <Leader>g :GFiles?<CR>
+  " nnoremap <Leader>g :GFiles?<CR>
   nnoremap <Leader>b :Buffers<CR>
   nnoremap <Leader>t :Tags<CR>
   " nnoremap <C-m> :Marks<CR>
