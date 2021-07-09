@@ -401,8 +401,8 @@ augroup gitgutter
   highlight SignColumn ctermbg=bg
 
   " Jump between hunks
-  nmap <Leader>gn <Plug>GitGutterNextHunk
-  nmap <Leader>gp <Plug>GitGutterPrevHunk
+  nmap <Leader>gn <Plug>(GitGutterNextHunk)
+  nmap <Leader>gp <Plug>(GitGutterPrevHunk)
 
   " Load hunks into quickfix
   nmap <Leader>gh :GitGutterQuickFix <Bar> :copen<CR>
