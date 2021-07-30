@@ -8,6 +8,8 @@ brew "neovim"
 brew "nodenv"
 brew "rbenv"
 brew "pyenv"
+brew "tmux"
+brew "reattach-to-user-namespace"
 
 brew "starship"
 brew "bat"
