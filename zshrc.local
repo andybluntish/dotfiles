@@ -14,5 +14,4 @@ eval "$(pyenv init --path)"
 eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 [ -f ~/.zshrc.custom.local ] && source ~/.zshrc.custom.local

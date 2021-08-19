@@ -3,6 +3,10 @@
 set -euo pipefail
 [[ ${DEBUG:-} ]] && set -x
 
+function setup_grml() {
+  curl -L https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc -o "${HOME}/.zshrc"
+}
+
 function link() {
   source=$PWD/$1
   target=${2:-$HOME/.$1}
@@ -30,9 +34,9 @@ link config/starship.toml $HOME/.config/
 link sh.sh
 link bash_profile
 link bashrc
-link grml.zsh $HOME/.zshrc
 link zshrc.local
 link zshrc.custom.local
+setup_grml
 
 # Misc
 link bin
