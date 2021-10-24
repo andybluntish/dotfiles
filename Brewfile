@@ -32,5 +32,4 @@ brew "heroku"
 
 cask "imageoptim"
 cask "imagealpha"
-cask "slack"
 cask "docker"
