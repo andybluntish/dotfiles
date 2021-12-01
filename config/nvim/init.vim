@@ -315,7 +315,6 @@ augroup coc
   \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-markdownlint',
-  \ 'coc-tailwindcss',
   \ 'coc-ember'
   \ ]
 
