@@ -315,7 +315,8 @@ augroup coc
   \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-markdownlint',
-  \ 'coc-ember'
+  \ 'coc-ember',
+  \ 'coc-deno'
   \ ]
 
   " Use tab for trigger completion with characters ahead and navigate.
