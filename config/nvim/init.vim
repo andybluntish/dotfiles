@@ -33,6 +33,7 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'posva/vim-vue'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'niftylettuce/vim-jinja'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
@@ -316,7 +317,8 @@ augroup coc
   \ 'coc-sh',
   \ 'coc-markdownlint',
   \ 'coc-ember',
-  \ 'coc-deno'
+  \ 'coc-deno',
+  \ 'coc-svelte'
   \ ]
 
   " Use tab for trigger completion with characters ahead and navigate.
