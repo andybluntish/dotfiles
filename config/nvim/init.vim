@@ -347,16 +347,18 @@ augroup coc
   inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
     \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+  nnoremap <silent> <Leader>c :<C-u>CocList commands<cr>
   nmap <silent> <Leader>E <Plug>(coc-diagnostic-prev-error)
   nmap <silent> <Leader>e <Plug>(coc-diagnostic-next-error)
+  nmap <silent> <Leader>gd <Plug>(coc-definition)
+  nmap <silent> <Leader>gy <Plug>(coc-type-definition)
+  nmap <silent> <Leader>gi <Plug>(coc-implementation)
+  nmap <silent> <Leader>gr <Plug>(coc-references)
 
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-
-  nmap <silent> <Leader>do <Plug>(coc-codeaction)
-  nmap <silent> <Leader>rn <Plug>(coc-rename)
+  nmap <Leader>ga <Plug>(coc-codeaction)
+  nmap <Leader>rn <Plug>(coc-rename)
+  nmap <leader>f <Plug>(coc-format-selected)
+  vmap <leader>f <Plug>(coc-format-selected)
 
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<CR>
