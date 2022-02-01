@@ -348,6 +348,9 @@ augroup coc
     \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
   nnoremap <silent> <Leader>c :<C-u>CocList commands<cr>
+  nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+  nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+
   nmap <silent> <Leader>E <Plug>(coc-diagnostic-prev-error)
   nmap <silent> <Leader>e <Plug>(coc-diagnostic-next-error)
   nmap <silent> <Leader>gd <Plug>(coc-definition)
@@ -355,7 +358,7 @@ augroup coc
   nmap <silent> <Leader>gi <Plug>(coc-implementation)
   nmap <silent> <Leader>gr <Plug>(coc-references)
 
-  nmap <Leader>ga <Plug>(coc-codeaction)
+  nmap <Leader>do <Plug>(coc-codeaction)
   nmap <Leader>rn <Plug>(coc-rename)
   nmap <leader>f <Plug>(coc-format-selected)
   vmap <leader>f <Plug>(coc-format-selected)
