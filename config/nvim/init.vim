@@ -303,22 +303,22 @@ augroup coc
   autocmd!
 
   let g:coc_global_extensions = [
-  \ 'coc-highlight',
-  \ 'coc-eslint',
-  \ 'coc-prettier',
-  \ 'coc-json',
-  \ 'coc-yaml',
-  \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-svg',
-  \ 'coc-tsserver',
-  \ 'coc-solargraph',
+  \ 'coc-deno',
+  \ 'coc-ember',
+  \ 'coc-eslint',
+  \ 'coc-highlight',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-markdownlint',
+  \ 'coc-prettier',
   \ 'coc-pyright',
   \ 'coc-sh',
-  \ 'coc-markdownlint',
-  \ 'coc-ember',
-  \ 'coc-deno',
-  \ 'coc-svelte'
+  \ 'coc-solargraph',
+  \ 'coc-svelte',
+  \ 'coc-svg',
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
   \ ]
 
   " Use tab for trigger completion with characters ahead and navigate.
