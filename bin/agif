@@ -7,13 +7,11 @@ if ! [ -x "$(command -v ffmpeg)" ]; then
   echo "ffmpeg is not installed" >&2
 fi
 
-palette="/tmp/palette.png"
 input=$1
 output=$2
 scale=${3:-720}
 fps=${4:-10}
+colors=${5:-256}
+dither=${6:-sierra2}
 
-filters="fps=$fps,scale=$scale:-1:flags=lanczos"
-
-ffmpeg -v warning -i $input -vf "$filters,palettegen" -y $palette
-ffmpeg -v warning -i $input -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $output
+ffmpeg -i $input -filter_complex "[0:v] fps=${fps},scale=${scale}:-1:flags=lanczos,split [a][b];[a] palettegen=max_colors=${colors} [p];[b][p] paletteuse=dither=${dither}" -y $output;
