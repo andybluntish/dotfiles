@@ -1,5 +1,4 @@
 brew "zsh"
-
 brew "git"
 brew "neovim"
 brew "nodenv"
@@ -7,7 +6,6 @@ brew "rbenv"
 brew "pyenv"
 brew "tmux"
 brew "reattach-to-user-namespace"
-
 brew "bat"
 brew "fd"
 brew "tree"
@@ -20,9 +18,7 @@ brew "imagemagick"
 brew "handbrake"
 brew "ffmpeg"
 brew "mkvtoolnix"
-brew "mp4v2"
 brew "youtube-dl"
 
 cask "imageoptim"
-cask "imagealpha"
 cask "docker"
