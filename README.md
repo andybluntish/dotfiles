@@ -5,40 +5,39 @@ Install the following dependencies to get started.
 1. install [homebrew](https://brew.sh)
 2. install `git`
 
-   ```bash
+   ```sh
    brew install git
    ```
 
 3. clone dotfiles
 
-   ```bash
+   ```sh
    git clone git@github.com:andybluntish/dotfiles.git "$HOME/Developer/dotfiles"
    cd "$HOME/Developer/dotfiles"
    ```
 
 4. bootstrap dotfiles
 
-   ```bash
+   ```sh
    ./bootstrap.sh
    ```
 
 5. install dependencies
 
-   ```bash
+   ```sh
    brew bundle
    ```
 
 6. setup useful key bindings and fuzzy completion for fzf
 
-   ```bash
+   ```sh
    $(brew --prefix)/opt/fzf/install --all
    ```
 
 7. set shell
 
-   ```bash
+   ```sh
    cat <<- EOF | sudo tee -a /etc/shells
-   /opt/homebrew/bin/bash
    /opt/homebrew/bin/zsh
    EOF
    chsh -s /opt/homebrew/bin/zsh
@@ -46,7 +45,7 @@ Install the following dependencies to get started.
 
 8. install Node.js
 
-   ```bash
+   ```sh
    node_version=14.16.0
    nodenv install $node_version
    nodenv global $node_version
@@ -54,7 +53,7 @@ Install the following dependencies to get started.
 
 9. install Ruby
 
-   ```bash
+   ```sh
    ruby_version=3.0.0
    rbenv install $ruby_version
    rbenv global $ruby_version
@@ -62,7 +61,7 @@ Install the following dependencies to get started.
 
 10. install Python
 
-    ```bash
+    ```sh
     python_version=3.9.4
     pyenv install $python_version
     pyenv global $python_version
@@ -70,7 +69,7 @@ Install the following dependencies to get started.
 
 11. enable Node, Ruby, and Python interfaces for NeoVim
 
-    ```bash
+    ```sh
     gem install neovim
     pip install pynvim
     pip3 install pynvim
@@ -79,6 +78,6 @@ Install the following dependencies to get started.
 
 12. for writing JavaScript
 
-    ```bash
+    ```sh
     yarn global add eslint prettier typescript
     ```
