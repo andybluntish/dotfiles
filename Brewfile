@@ -9,7 +9,6 @@ brew "pyenv"
 brew "tmux"
 brew "reattach-to-user-namespace"
 
-brew "starship"
 brew "bat"
 brew "fd"
 brew "tree"

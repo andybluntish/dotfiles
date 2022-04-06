@@ -3,7 +3,7 @@
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 
 # Disable the grml prompt in favour of Starship
-prompt off
+# prompt off
 
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
@@ -41,7 +41,6 @@ eval "$($HOMEBREW_LOCATION/bin/brew shellenv)"
 eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
-eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc.custom.local ] && source ~/.zshrc.custom.local
