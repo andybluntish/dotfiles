@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -euo pipefail
 [[ ${DEBUG:-} ]] && set -x
@@ -31,9 +31,6 @@ link config/nvim/coc-settings.json $HOME/.config/nvim/
 link config/starship.toml $HOME/.config/
 
 # Shell
-link sh.sh
-link bash_profile
-link bashrc
 link zshrc.local
 link zshrc.custom.local
 setup_grml
