@@ -43,6 +43,5 @@ link gitignore
 link hushlogin
 link inputrc
 link irbrc
-link tmux.conf
 
 install_vim_plug
