@@ -46,7 +46,7 @@ Install the following dependencies to get started.
 8. install Node.js
 
    ```sh
-   node_version=14.16.0
+   node_version=16.14.2
    nodenv install $node_version
    nodenv global $node_version
    ```
@@ -54,7 +54,7 @@ Install the following dependencies to get started.
 9. install Ruby
 
    ```sh
-   ruby_version=3.0.0
+   ruby_version=3.1.1
    rbenv install $ruby_version
    rbenv global $ruby_version
    ```
@@ -62,7 +62,7 @@ Install the following dependencies to get started.
 10. install Python
 
     ```sh
-    python_version=3.9.4
+    python_version=3.10.4
     pyenv install $python_version
     pyenv global $python_version
     ```
@@ -71,7 +71,6 @@ Install the following dependencies to get started.
 
     ```sh
     gem install neovim
-    pip install pynvim
     pip3 install pynvim
     yarn global add neovim
     ```
