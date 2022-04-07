@@ -2,45 +2,43 @@
 
 Install the following dependencies to get started.
 
-1. install [homebrew](https://brew.sh)
-2. install `git`
+1. set shell
+
+   ```sh
+   chsh -s /bin/zsh
+   ```
+
+2. install [homebrew](https://brew.sh)
+
+3. install `git`
 
    ```sh
    brew install git
    ```
 
-3. clone dotfiles
+4. clone dotfiles
 
    ```sh
    git clone git@github.com:andybluntish/dotfiles.git "$HOME/Developer/dotfiles"
    cd "$HOME/Developer/dotfiles"
    ```
 
-4. bootstrap dotfiles
+5. bootstrap dotfiles
 
    ```sh
    ./bootstrap.sh
    ```
 
-5. install dependencies
+6. install dependencies
 
    ```sh
    brew bundle
    ```
 
-6. setup useful key bindings and fuzzy completion for fzf
+7. setup useful key bindings and fuzzy completion for fzf
 
    ```sh
-   $(brew --prefix)/opt/fzf/install --all
-   ```
-
-7. set shell
-
-   ```sh
-   cat <<- EOF | sudo tee -a /etc/shells
-   /opt/homebrew/bin/zsh
-   EOF
-   chsh -s /opt/homebrew/bin/zsh
+   $(brew --prefix)/opt/fzf/install --no-bash --no-fish
    ```
 
 8. install Node.js

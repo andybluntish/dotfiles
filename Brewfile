@@ -1,4 +1,3 @@
-brew "zsh"
 brew "git"
 brew "neovim"
 brew "nodenv"
