@@ -2,9 +2,6 @@
 
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 
-# Disable the grml prompt in favour of Starship
-# prompt off
-
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export CLICOLOR=1
