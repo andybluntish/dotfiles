@@ -29,19 +29,13 @@ Install the following dependencies to get started.
    ./bootstrap.sh
    ```
 
-6. install dependencies
-
-   ```sh
-   brew bundle
-   ```
-
-7. setup useful key bindings and fuzzy completion for fzf
+6. setup useful key bindings and fuzzy completion for fzf
 
    ```sh
    $(brew --prefix)/opt/fzf/install --no-bash --no-fish
    ```
 
-8. install Node.js
+7. install Node.js
 
    ```sh
    node_version=16.14.2
@@ -49,7 +43,7 @@ Install the following dependencies to get started.
    nodenv global $node_version
    ```
 
-9. install Ruby
+8. install Ruby
 
    ```sh
    ruby_version=3.1.1
@@ -57,15 +51,15 @@ Install the following dependencies to get started.
    rbenv global $ruby_version
    ```
 
-10. install Python
+9. install Python
 
-    ```sh
-    python_version=3.10.4
-    pyenv install $python_version
-    pyenv global $python_version
-    ```
+   ```sh
+   python_version=3.10.4
+   pyenv install $python_version
+   pyenv global $python_version
+   ```
 
-11. enable Node, Ruby, and Python interfaces for NeoVim
+10. enable Node, Ruby, and Python interfaces for NeoVim
 
     ```sh
     gem install neovim
@@ -73,7 +67,7 @@ Install the following dependencies to get started.
     yarn global add neovim
     ```
 
-12. for writing JavaScript
+11. for writing JavaScript
 
     ```sh
     yarn global add eslint prettier typescript

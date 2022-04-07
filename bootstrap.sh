@@ -3,6 +3,9 @@
 set -euo pipefail
 [[ ${DEBUG:-} ]] && set -x
 
+# Homebrew
+brew bundle
+
 # Shell config from grml (https://grml.org/zsh/)
 curl -fLo "${HOME}/.zshrc" https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 
