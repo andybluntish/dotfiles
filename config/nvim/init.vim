@@ -276,7 +276,6 @@ augroup coc
 
   let g:coc_global_extensions = [
   \ 'coc-css',
-  \ 'coc-deno',
   \ 'coc-ember',
   \ 'coc-eslint',
   \ 'coc-highlight',
@@ -287,7 +286,6 @@ augroup coc
   \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-solargraph',
-  \ 'coc-svelte',
   \ 'coc-svg',
   \ 'coc-tsserver',
   \ 'coc-yaml',
