@@ -151,43 +151,6 @@ set iskeyword+=-,_,$,@,%,#,?
 let g:python_host_prog  = '/usr/bin/python'
 let g:python3_host_prog = '~/.pyenv/shims/python'
 
-" JavaScript
-augroup filetype_js
-  autocmd!
-
-  au BufNewFile,BufRead *.ejs setlocal filetype=html
-augroup END
-
-" Markdown
-augroup filetype_markdown
-  autocmd!
-
-  au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-augroup END
-
-" Ruby
-augroup filetype_ruby
-  autocmd!
-
-  au BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
-  au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
-augroup END
-
-" Txt
-augroup filetype_txt
-  autocmd!
-
-  au FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-  au FileType plaintex setlocal spell
-augroup END
-
-" Make
-augroup filetype_make
-  autocmd!
-
-  au FileType make setlocal noexpandtab
-augroup END
-
 " General config
 augroup general_config
   autocmd!
@@ -231,7 +194,6 @@ augroup general_config
   inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
-
   " Clear Highlight
   nnoremap <Esc><Esc> :nohlsearch<CR>
 
@@ -269,6 +231,43 @@ augroup general_config
     endif
   endfunction
   nnoremap <Leader>z :call ToggleZoomWindow()<CR>
+augroup END
+
+" Txt
+augroup filetype_txt
+  autocmd!
+
+  au FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+  au FileType plaintex setlocal spell
+augroup END
+
+" Markdown
+augroup filetype_markdown
+  autocmd!
+
+  au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+augroup END
+
+" Make
+augroup filetype_make
+  autocmd!
+
+  au FileType make setlocal noexpandtab
+augroup END
+
+" JavaScript
+augroup filetype_js
+  autocmd!
+
+  au BufNewFile,BufRead *.ejs setlocal filetype=html
+augroup END
+
+" Ruby
+augroup filetype_ruby
+  autocmd!
+
+  au BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
+  au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
 augroup END
 
 " Terminal
