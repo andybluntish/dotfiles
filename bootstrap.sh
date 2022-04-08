@@ -26,5 +26,9 @@ ln -snf "${PWD}/config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 
 # Install Vim Plug
 curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
+
+# NeoVim language extensions
+gem install neovim
+pip3 install pynvim
+yarn global add neovim

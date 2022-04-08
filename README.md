@@ -59,15 +59,7 @@ Install the following dependencies to get started.
    pyenv global $python_version
    ```
 
-10. enable Node, Ruby, and Python interfaces for NeoVim
-
-    ```sh
-    gem install neovim
-    pip3 install pynvim
-    yarn global add neovim
-    ```
-
-11. for writing JavaScript
+10. for writing JavaScript
 
     ```sh
     yarn global add eslint prettier typescript
