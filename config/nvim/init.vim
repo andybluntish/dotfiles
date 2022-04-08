@@ -466,10 +466,3 @@ augroup over_config
   nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
   xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 augroup END
-
-" Ragtag
-augroup ragtag
-  autocmd!
-
-  autocmd FileType jinja call RagtagInit()
-augroup END
