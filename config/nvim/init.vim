@@ -25,18 +25,11 @@ Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'posva/vim-vue'
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
-Plug 'niftylettuce/vim-jinja'
-Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
-Plug 'chr4/nginx.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
 
