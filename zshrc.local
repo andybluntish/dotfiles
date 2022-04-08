@@ -2,9 +2,6 @@
 
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 
-prompt off
-prompt spaceship
-
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export CLICOLOR=1
