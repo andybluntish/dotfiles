@@ -41,7 +41,6 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-syntax enable
 let g:gruvbox_italic = 1
 
 colorscheme gruvbox
@@ -58,24 +57,27 @@ endif
 
 " VIM-only config (make it match Neovim defaults)
 if !has('nvim')
-  silent !mkdir -p ~/.local/share/nvim/undo > /dev/null 2>&1
-  set undodir=~/.local/share/nvim/undo
+  syntax enable
+  filetype plugin indent on
 
   set ttyfast
   set autoindent
   set autoread
   set background=dark
   set backspace=indent,eol,start
+  set belloff=all
+  set complete=.,w,b,u,t
   set encoding=utf-8
   set formatoptions=tcqj
+  set hidden
   set history=10000
   set hlsearch
   set incsearch
+  set nojoinspaces
   set langnoremap
   set laststatus=2
   set ruler
-  set shortmess+=F
-  set shortmess+=c
+  set shortmess=filnxtToOFc
   set showcmd
   set smarttab
   set nostartofline
@@ -88,20 +90,20 @@ if has('nvim')
 endif
 
 " Shared config
+silent !mkdir -p ~/.local/share/nvim/undo > /dev/null 2>&1
 set lazyredraw
 set ttimeoutlen=0
 set updatetime=300
 set mouse=a
 set undolevels=1000
 set undofile
+set undodir=~/.local/share/nvim/undo
 set nobackup
 set nowritebackup
 set noswapfile
-set hidden
 set nobomb
 set spelllang=en_au,en_gb
 set linebreak
-set nojoinspaces
 set expandtab
 set tabstop=2
 set softtabstop=2
@@ -145,8 +147,6 @@ set wildignore+=*/vendor/*
 set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set iskeyword+=-,_,$,@,%,#,?
-
-filetype plugin indent on
 
 let g:python_host_prog  = '/usr/bin/python'
 let g:python3_host_prog = '~/.pyenv/shims/python'
