@@ -270,25 +270,6 @@ augroup filetype_ruby
   au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
 augroup END
 
-" Terminal
-augroup terminal
-  if has('nvim')
-    " go into normal mode in terminal with Esc
-    " tnoremap <Esc> <C-\><C-n>
-
-    " start terminal in insert mode
-    autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
-
-    " open terminal
-    function! OpenTerminal()
-      split term://zsh
-      resize 15
-    endfunction
-
-    nnoremap <Leader>cx :call OpenTerminal()<CR>
-  endif
-augroup END
-
 " CoC
 augroup coc
   autocmd!
