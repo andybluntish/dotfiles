@@ -2,83 +2,65 @@
 
 Install the following dependencies to get started.
 
-1. install [homebrew](https://brew.sh)
-2. install `git`
+1. set shell
 
-   ```bash
+   ```sh
+   chsh -s /bin/zsh
+   ```
+
+2. install [homebrew](https://brew.sh)
+
+3. install `git`
+
+   ```sh
    brew install git
    ```
 
-3. clone dotfiles
+4. clone dotfiles
 
-   ```bash
+   ```sh
    git clone git@github.com:andybluntish/dotfiles.git "$HOME/Developer/dotfiles"
    cd "$HOME/Developer/dotfiles"
    ```
 
-4. bootstrap dotfiles
+5. bootstrap dotfiles
 
-   ```bash
+   ```sh
    ./bootstrap.sh
-   ```
-
-5. install dependencies
-
-   ```bash
-   brew bundle
    ```
 
 6. setup useful key bindings and fuzzy completion for fzf
 
-   ```bash
-   $(brew --prefix)/opt/fzf/install --all
+   ```sh
+   $(brew --prefix)/opt/fzf/install --no-bash --no-fish
    ```
 
-7. set shell
+7. install Node.js
 
-   ```bash
-   cat <<- EOF | sudo tee -a /etc/shells
-   /opt/homebrew/bin/bash
-   /opt/homebrew/bin/zsh
-   EOF
-   chsh -s /opt/homebrew/bin/zsh
-   ```
-
-8. install Node.js
-
-   ```bash
-   node_version=14.16.0
+   ```sh
+   node_version=16.14.2
    nodenv install $node_version
    nodenv global $node_version
    ```
 
-9. install Ruby
+8. install Ruby
 
-   ```bash
-   ruby_version=3.0.0
+   ```sh
+   ruby_version=3.1.1
    rbenv install $ruby_version
    rbenv global $ruby_version
    ```
 
-10. install Python
+9. install Python
 
-    ```bash
-    python_version=3.9.4
-    pyenv install $python_version
-    pyenv global $python_version
-    ```
+   ```sh
+   python_version=3.10.4
+   pyenv install $python_version
+   pyenv global $python_version
+   ```
 
-11. enable Node, Ruby, and Python interfaces for NeoVim
+10. for writing JavaScript
 
-    ```bash
-    gem install neovim
-    pip install pynvim
-    pip3 install pynvim
-    yarn global add neovim
-    ```
-
-12. for writing JavaScript
-
-    ```bash
+    ```sh
     yarn global add eslint prettier typescript
     ```

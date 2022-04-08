@@ -9,7 +9,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'osyo-manga/vim-over'
 Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
@@ -26,18 +25,11 @@ Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'posva/vim-vue'
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
-Plug 'niftylettuce/vim-jinja'
-Plug 'jparise/vim-graphql'
 Plug 'ekalinin/dockerfile.vim'
-Plug 'chr4/nginx.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'morhetz/gruvbox'
 
@@ -49,7 +41,6 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-syntax enable
 let g:gruvbox_italic = 1
 
 colorscheme gruvbox
@@ -66,24 +57,27 @@ endif
 
 " VIM-only config (make it match Neovim defaults)
 if !has('nvim')
-  silent !mkdir -p ~/.local/share/nvim/undo > /dev/null 2>&1
-  set undodir=~/.local/share/nvim/undo
+  syntax enable
+  filetype plugin indent on
 
   set ttyfast
   set autoindent
   set autoread
   set background=dark
   set backspace=indent,eol,start
+  set belloff=all
+  set complete=.,w,b,u,t
   set encoding=utf-8
   set formatoptions=tcqj
+  set hidden
   set history=10000
   set hlsearch
   set incsearch
+  set nojoinspaces
   set langnoremap
   set laststatus=2
   set ruler
-  set shortmess+=F
-  set shortmess+=c
+  set shortmess=filnxtToOFc
   set showcmd
   set smarttab
   set nostartofline
@@ -96,20 +90,20 @@ if has('nvim')
 endif
 
 " Shared config
+silent !mkdir -p ~/.local/share/nvim/undo > /dev/null 2>&1
 set lazyredraw
 set ttimeoutlen=0
 set updatetime=300
 set mouse=a
 set undolevels=1000
 set undofile
+set undodir=~/.local/share/nvim/undo
 set nobackup
 set nowritebackup
 set noswapfile
-set hidden
 set nobomb
 set spelllang=en_au,en_gb
 set linebreak
-set nojoinspaces
 set expandtab
 set tabstop=2
 set softtabstop=2
@@ -154,47 +148,8 @@ set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set iskeyword+=-,_,$,@,%,#,?
 
-filetype plugin indent on
-
 let g:python_host_prog  = '/usr/bin/python'
 let g:python3_host_prog = '~/.pyenv/shims/python'
-
-" JavaScript
-augroup filetype_js
-  autocmd!
-
-  au BufNewFile,BufRead *.ejs setlocal filetype=html
-augroup END
-
-" Markdown
-augroup filetype_markdown
-  autocmd!
-
-  au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-augroup END
-
-" Ruby
-augroup filetype_ruby
-  autocmd!
-
-  au BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
-  au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
-augroup END
-
-" Txt
-augroup filetype_txt
-  autocmd!
-
-  au FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-  au FileType plaintex setlocal spell
-augroup END
-
-" Make
-augroup filetype_make
-  autocmd!
-
-  au FileType make setlocal noexpandtab
-augroup END
 
 " General config
 augroup general_config
@@ -239,7 +194,6 @@ augroup general_config
   inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
   inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 
-
   " Clear Highlight
   nnoremap <Esc><Esc> :nohlsearch<CR>
 
@@ -279,23 +233,41 @@ augroup general_config
   nnoremap <Leader>z :call ToggleZoomWindow()<CR>
 augroup END
 
-" Terminal
-augroup terminal
-  if has('nvim')
-    " go into normal mode in terminal with Esc
-    " tnoremap <Esc> <C-\><C-n>
+" Txt
+augroup filetype_txt
+  autocmd!
 
-    " start terminal in insert mode
-    autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  au FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+  au FileType plaintex setlocal spell
+augroup END
 
-    " open terminal
-    function! OpenTerminal()
-      split term://zsh
-      resize 15
-    endfunction
+" Markdown
+augroup filetype_markdown
+  autocmd!
 
-    nnoremap <Leader>cx :call OpenTerminal()<CR>
-  endif
+  au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+augroup END
+
+" Make
+augroup filetype_make
+  autocmd!
+
+  au FileType make setlocal noexpandtab
+augroup END
+
+" JavaScript
+augroup filetype_js
+  autocmd!
+
+  au BufNewFile,BufRead *.ejs setlocal filetype=html
+augroup END
+
+" Ruby
+augroup filetype_ruby
+  autocmd!
+
+  au BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
+  au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
 augroup END
 
 " CoC
@@ -304,7 +276,6 @@ augroup coc
 
   let g:coc_global_extensions = [
   \ 'coc-css',
-  \ 'coc-deno',
   \ 'coc-ember',
   \ 'coc-eslint',
   \ 'coc-highlight',
@@ -315,7 +286,6 @@ augroup coc
   \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-solargraph',
-  \ 'coc-svelte',
   \ 'coc-svg',
   \ 'coc-tsserver',
   \ 'coc-yaml',
@@ -455,13 +425,6 @@ augroup fzf_config
   imap <C-x><C-l> <Plug>(fzf-complete-line)
 augroup END
 
-" Emmet
-" augroup emmet
-  " autocmd!
-
-  " let g:user_emmet_leader_key='<C-Z>'
-" augroup END
-
 " NERD Commenter
 augroup nerd_commenter
   autocmd!
@@ -502,11 +465,4 @@ augroup over_config
 
   nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
   xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
-augroup END
-
-" Ragtag
-augroup ragtag
-  autocmd!
-
-  autocmd FileType jinja call RagtagInit()
 augroup END
