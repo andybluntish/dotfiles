@@ -425,13 +425,6 @@ augroup fzf_config
   imap <C-x><C-l> <Plug>(fzf-complete-line)
 augroup END
 
-" Emmet
-" augroup emmet
-  " autocmd!
-
-  " let g:user_emmet_leader_key='<C-Z>'
-" augroup END
-
 " NERD Commenter
 augroup nerd_commenter
   autocmd!
