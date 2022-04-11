@@ -37,7 +37,13 @@ eval "$(nodenv init -)"
 eval "$(rbenv init -)"
 eval "$(pyenv init --path)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f ~/.zshrc.custom.local ] && source ~/.zshrc.custom.local
-
 prompt pure
+
+
+# if it exists, source it
+maybe_source() {
+  [ -f $1 ] && source $1;
+}
+
+maybe_source ~/.fzf.zsh
+maybe_source ~/.zshrc.custom.local
