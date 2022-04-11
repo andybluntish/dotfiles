@@ -2,6 +2,15 @@
 
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 
+UNAME_MACHINE="$(uname -m)"
+if [[ "$UNAME_MACHINE" == "arm64" ]]; then
+  # On ARM macOS, Homebrew installs to /opt/homebrew
+  export HOMEBREW_LOCATION="/opt/homebrew"
+else
+  # On Intel macOS, Homebrew installs to /usr/local
+  export HOMEBREW_LOCATION="/usr/local"
+fi
+
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export CLICOLOR=1
@@ -22,15 +31,6 @@ alias df="df -h"
 alias la="ls -lah"
 alias c="bat"
 alias ef="fzf -m | xargs $EDITOR"
-
-UNAME_MACHINE="$(uname -m)"
-if [[ "$UNAME_MACHINE" == "arm64" ]]; then
-  # On ARM macOS, Homebrew installs to /opt/homebrew
-  export HOMEBREW_LOCATION="/opt/homebrew"
-else
-  # On Intel macOS, Homebrew installs to /usr/local
-  export HOMEBREW_LOCATION="/usr/local"
-fi
 
 eval "$($HOMEBREW_LOCATION/bin/brew shellenv)"
 eval "$(nodenv init -)"
