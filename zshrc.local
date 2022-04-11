@@ -47,3 +47,4 @@ maybe_source() {
 
 maybe_source ~/.fzf.zsh
 maybe_source ~/.zshrc.custom.local
+maybe_source ${HOMEBREW_LOCATION}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
