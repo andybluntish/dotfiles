@@ -20,7 +20,7 @@ alias gup="git gup"
 alias be="bundle exec"
 alias df="df -h"
 alias la="ls -lah"
-alias c="bat --theme=gruvbox-dark"
+alias c="bat"
 alias ef="fzf -m | xargs $EDITOR"
 
 UNAME_MACHINE="$(uname -m)"

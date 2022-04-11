@@ -56,7 +56,6 @@
 
 [delta]
   features = side-by-side line-numbers decorations
-  syntax-theme = gruvbox-dark
   navigate = true
 
 [delta "decorations"]

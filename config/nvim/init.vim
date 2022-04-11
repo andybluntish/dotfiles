@@ -31,7 +31,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
+
 
 call plug#end()
 
@@ -41,9 +42,11 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-let g:gruvbox_italic = 1
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+let g:airline_theme='oceanicnext'
 
-colorscheme gruvbox
+colorscheme oceanicnext
 
 " Map leader
 " <Space> is by far the easiest key to hit
