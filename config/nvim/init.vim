@@ -9,6 +9,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'osyo-manga/vim-over'
 Plug 'Raimondi/delimitMate'
 Plug 'tmhedberg/matchit'
@@ -33,7 +34,6 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhartington/oceanic-next'
 
-
 call plug#end()
 
 " Colours and syntax highlighting
@@ -46,6 +46,7 @@ let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 let g:airline_theme='oceanicnext'
 
+syntax enable
 colorscheme oceanicnext
 
 " Map leader
@@ -60,7 +61,6 @@ endif
 
 " VIM-only config (make it match Neovim defaults)
 if !has('nvim')
-  syntax enable
   filetype plugin indent on
 
   set ttyfast
@@ -448,6 +448,13 @@ augroup nerd_tree
   noremap <Leader>dn :NERDTreeToggle<CR>
   noremap <Leader>nn :NERDTreeFind<CR>
   noremap <Leader>fn :NERDTreeFocus<CR>
+augroup END
+
+" NERDTree Syntax Highlight
+augroup nerd_tree_syntax_highlighter
+  " Disable unmatched folder and file icons having the same color as their label
+  let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+  let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 augroup END
 
 " Vim Over
