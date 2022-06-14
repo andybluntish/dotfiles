@@ -44,7 +44,6 @@ endif
 
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
-let g:airline_theme='oceanicnext'
 
 syntax enable
 colorscheme oceanicnext
@@ -368,6 +367,9 @@ augroup airline_config
   let g:airline_symbols.linenr = ''
   let g:airline_symbols.maxlinenr = ''
   let g:airline_symbols.dirty='*'
+
+  let g:airline#extensions#branch#format = 1
+  let g:airline#extensions#branch#displayed_head_limit = 16
 augroup END
 
 " GitGutter
