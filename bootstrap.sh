@@ -3,6 +3,15 @@
 set -euo pipefail
 [[ ${DEBUG:-} ]] && set -x
 
+function link() {
+  source="${PWD}/${1}"
+  target=${2:-"${HOME}/.${1}"}
+
+  echo "Linking ${source} -> ${target}"
+
+  ln -snf "${source}" "${target}"
+}
+
 # Homebrew
 brew bundle
 
@@ -56,12 +65,3 @@ nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
 
 # Setup fzf
 $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
-
-function link() {
-  source="${PWD}/${1}"
-  target=${2:-"${HOME}/.${1}"}
-
-  echo "Linking ${source} -> ${target}"
-
-  ln -snf "${source}" "${target}"
-}
