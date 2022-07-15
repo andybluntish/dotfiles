@@ -20,7 +20,7 @@ alias la="ls -lah"
 alias c="bat"
 alias ef="fzf -m | xargs $EDITOR"
 
-maybe_source "$(brew --prefix asdf)/libexec/asdf.sh"
+. "$(brew --prefix asdf)/libexec/asdf.sh"
 maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 maybe_source "${HOME}/.fzf.zsh"
 maybe_source "${HOME}/.zshrc.custom.local"
