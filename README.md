@@ -28,9 +28,3 @@ Install the following dependencies to get started.
    ```sh
    ./bootstrap.sh
    ```
-
-6. setup useful key bindings and fuzzy completion for fzf
-
-   ```sh
-   $(brew --prefix)/opt/fzf/install --no-bash --no-fish
-   ```

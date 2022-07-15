@@ -53,6 +53,9 @@ link "config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
 
+# Setup fzf
+$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+
 function link() {
   source=$PWD/$1
   target=${2:-$HOME/.$1}
