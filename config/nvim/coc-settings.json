@@ -3,5 +3,6 @@
   "eslint.packageManager": "yarn",
   "eslint.autoFixOnSave": true,
   "solargraph.diagnostics": true,
-  "solargraph.formatting": true
+  "solargraph.formatting": true,
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
 }
