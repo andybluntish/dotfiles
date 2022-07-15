@@ -1,6 +1,5 @@
 brew "git"
 brew "neovim"
-brew "pyenv"
 brew "asdf"
 brew "yarn"
 brew "bat"

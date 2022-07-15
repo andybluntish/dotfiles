@@ -36,6 +36,14 @@ asdf global ruby $ruby_version
 gem install neovim bundler
 asdf reshim ruby
 
+# Python
+python_version=3.10.5
+asdf plugin-add python https://github.com/danhper/asdf-python
+asdf install python $python_version
+asdf global python $python_version
+pip install pynvim
+asdf reshim python
+
 # NeoVim config
 mkdir -p "${HOME}/.config/nvim"
 ln -snf "${PWD}/config/nvim/init.vim" "${HOME}/.config/nvim/"
@@ -44,6 +52,3 @@ ln -snf "${PWD}/config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 # Install Vim Plug
 curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
-
-# NeoVim language extensions
-pip3 install pynvim

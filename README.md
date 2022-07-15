@@ -34,11 +34,3 @@ Install the following dependencies to get started.
    ```sh
    $(brew --prefix)/opt/fzf/install --no-bash --no-fish
    ```
-
-7. install Python
-
-   ```sh
-   python_version=3.10.4
-   pyenv install $python_version
-   pyenv global $python_version
-   ```
