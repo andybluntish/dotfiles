@@ -35,15 +35,7 @@ Install the following dependencies to get started.
    $(brew --prefix)/opt/fzf/install --no-bash --no-fish
    ```
 
-7. install Node.js
-
-   ```sh
-   node_version=16.14.2
-   nodenv install $node_version
-   nodenv global $node_version
-   ```
-
-8. install Ruby
+7. install Ruby
 
    ```sh
    ruby_version=3.1.1
@@ -51,16 +43,10 @@ Install the following dependencies to get started.
    rbenv global $ruby_version
    ```
 
-9. install Python
+8. install Python
 
    ```sh
    python_version=3.10.4
    pyenv install $python_version
    pyenv global $python_version
    ```
-
-10. for writing JavaScript
-
-    ```sh
-    yarn global add eslint prettier typescript
-    ```
