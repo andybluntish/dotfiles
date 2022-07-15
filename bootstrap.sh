@@ -19,6 +19,7 @@ brew bundle
 curl -fLo "${HOME}/.zshrc" https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 
 # Link dotfiles
+mkdir -p "${HOME}/.config/nvim"
 link "zshrc.pre"
 link "zshrc.local"
 link "zshrc.custom.local"
@@ -29,6 +30,8 @@ link "gitconfig"
 link "gitignore"
 link "hushlogin"
 link "irbrc"
+link "config/nvim/init.vim" "${HOME}/.config/nvim/"
+link "config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 
 # continue on error installing languages
 set +e
@@ -59,11 +62,6 @@ asdf reshim python
 
 # exit on error again
 set -e
-
-# NeoVim config
-mkdir -p "${HOME}/.config/nvim"
-link "config/nvim/init.vim" "${HOME}/.config/nvim/"
-link "config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 
 # Install Vim Plug
 curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
