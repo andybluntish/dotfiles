@@ -10,15 +10,15 @@ brew bundle
 curl -fLo "${HOME}/.zshrc" https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 
 # Link dotfiles
-ln -snf "${PWD}/zshrc.local" "${HOME}/.zshrc.local"
-ln -snf "${PWD}/zshrc.custom.local" "${HOME}/.zshrc.custom.local"
-ln -snf "${PWD}/bin" "${HOME}/.bin"
-ln -snf "${PWD}/asdfrc" "${HOME}/.asdfrc"
-ln -snf "${PWD}/gemrc" "${HOME}/.gemrc"
-ln -snf "${PWD}/gitconfig" "${HOME}/.gitconfig"
-ln -snf "${PWD}/gitignore" "${HOME}/.gitignore"
-ln -snf "${PWD}/hushlogin" "${HOME}/.hushlogin"
-ln -snf "${PWD}/irbrc" "${HOME}/.irbrc"
+link "zshrc.local"
+link "zshrc.custom.local"
+link "bin"
+link "asdfrc"
+link "gemrc"
+link "gitconfig"
+link "gitignore"
+link "hushlogin"
+link "irbrc"
 
 # Node.js
 node_version=16.15.1
@@ -46,9 +46,18 @@ asdf reshim python
 
 # NeoVim config
 mkdir -p "${HOME}/.config/nvim"
-ln -snf "${PWD}/config/nvim/init.vim" "${HOME}/.config/nvim/"
-ln -snf "${PWD}/config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
+link "config/nvim/init.vim" "${HOME}/.config/nvim/"
+link "config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 
 # Install Vim Plug
 curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
+
+function link() {
+  source=$PWD/$1
+  target=${2:-$HOME/.$1}
+
+  echo "Linking $source -> $target"
+
+  ln -snf $source $target
+}
