@@ -10,6 +10,7 @@ brew bundle
 curl -fLo "${HOME}/.zshrc" https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 
 # Link dotfiles
+link "zshrc.pre"
 link "zshrc.local"
 link "zshrc.custom.local"
 link "bin"
