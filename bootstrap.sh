@@ -30,6 +30,9 @@ link "gitignore"
 link "hushlogin"
 link "irbrc"
 
+# continue on error installing languages
+set +e
+
 # Node.js
 node_version="16.15.1"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -53,6 +56,9 @@ asdf install python "${python_version}"
 asdf global python "${python_version}"
 pip install pynvim
 asdf reshim python
+
+# exit on error again
+set -e
 
 # NeoVim config
 mkdir -p "${HOME}/.config/nvim"
