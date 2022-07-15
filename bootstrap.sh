@@ -44,7 +44,7 @@ asdf reshim nodejs
 # Ruby
 ruby_version="3.1.2"
 asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
-asdf install ruby "${ruby_version}"
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
 asdf global ruby "${ruby_version}"
 gem install neovim bundler
 asdf reshim ruby
