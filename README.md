@@ -35,15 +35,7 @@ Install the following dependencies to get started.
    $(brew --prefix)/opt/fzf/install --no-bash --no-fish
    ```
 
-7. install Ruby
-
-   ```sh
-   ruby_version=3.1.1
-   rbenv install $ruby_version
-   rbenv global $ruby_version
-   ```
-
-8. install Python
+7. install Python
 
    ```sh
    python_version=3.10.4

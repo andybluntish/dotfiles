@@ -28,6 +28,14 @@ asdf global nodejs $node_version
 yarn global add neovim eslint prettier typescript
 asdf reshim nodejs
 
+# Ruby
+ruby_version=3.1.2
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+asdf install ruby $ruby_version
+asdf global ruby $ruby_version
+gem install neovim bundler
+asdf reshim ruby
+
 # NeoVim config
 mkdir -p "${HOME}/.config/nvim"
 ln -snf "${PWD}/config/nvim/init.vim" "${HOME}/.config/nvim/"
@@ -38,5 +46,4 @@ curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https
 nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
 
 # NeoVim language extensions
-gem install neovim
 pip3 install pynvim
