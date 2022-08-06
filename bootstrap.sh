@@ -37,7 +37,7 @@ link "config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 set +e
 
 # Node.js
-node_version="16.15.1"
+node_version="16.16.0"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs "${node_version}"
 asdf global nodejs "${node_version}"
@@ -53,7 +53,7 @@ gem install neovim bundler
 asdf reshim ruby
 
 # Python
-python_version="3.10.5"
+python_version="3.10.6"
 asdf plugin-add python https://github.com/danhper/asdf-python
 asdf install python "${python_version}"
 asdf global python "${python_version}"
