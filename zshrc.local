@@ -1,27 +1,14 @@
 #!/usr/bin/env zsh
 
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
+# This file is sourced at the end of .zshrc
 
-UNAME_MACHINE="$(uname -m)"
-if [[ "$UNAME_MACHINE" == "arm64" ]]; then
-  # On ARM macOS, Homebrew installs to /opt/homebrew
-  export HOMEBREW_LOCATION="/opt/homebrew"
-else
-  # On Intel macOS, Homebrew installs to /usr/local
-  export HOMEBREW_LOCATION="/usr/local"
-fi
+# if it exists, source it
+maybe_source() {
+  [ -f $1 ] && source $1;
+}
 
-export EDITOR="nvim"
-export VISUAL="$EDITOR"
-export CLICOLOR=1
-export KEYTIMEOUT=1
-export MANPAGER="less -X"
-export GPG_TTY=$(tty)
-export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$HOME/.bin:$HOME/.yarn/bin:$PYENV_ROOT/bin:/Applications/Blender.app/Contents/MacOS:$PATH"
-export FPATH="${HOMEBREW_LOCATION}/share/zsh/site-functions:$FPATH"
+export PATH="${HOME}/.bin:${HOME}/.yarn/bin:/Applications/Blender.app/Contents/MacOS:${PATH}"
 
 alias vim="$EDITOR"
 alias nvim="$EDITOR"
@@ -33,19 +20,10 @@ alias la="ls -lah"
 alias c="bat"
 alias ef="fzf -m | xargs $EDITOR"
 
-eval "$($HOMEBREW_LOCATION/bin/brew shellenv)"
-eval "$(nodenv init -)"
-eval "$(rbenv init -)"
-eval "$(pyenv init --path)"
-
-# if it exists, source it
-maybe_source() {
-  [ -f $1 ] && source $1;
-}
-
-maybe_source ~/.fzf.zsh
-maybe_source ~/.zshrc.custom.local
-maybe_source ${HOMEBREW_LOCATION}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+maybe_source "${HOME}/.fzf.zsh"
+maybe_source "${HOME}/.zshrc.custom.local"
 
 # Setup prompt
 autoload -U promptinit; promptinit

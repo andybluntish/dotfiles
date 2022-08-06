@@ -30,6 +30,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'glench/vim-jinja2-syntax'
+Plug 'elixir-editors/vim-elixir'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhartington/oceanic-next'
@@ -291,6 +292,7 @@ augroup coc
   \ 'coc-svg',
   \ 'coc-tsserver',
   \ 'coc-yaml',
+  \ 'coc-elixir',
   \ ]
 
   " Use tab for trigger completion with characters ahead and navigate.
