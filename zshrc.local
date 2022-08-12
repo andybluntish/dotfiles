@@ -8,7 +8,11 @@ maybe_source() {
   [ -f $1 ] && source $1;
 }
 
-export PATH="${HOME}/.bin:${HOME}/.yarn/bin:/Applications/Blender.app/Contents/MacOS:${PATH}"
+path=("${HOME}/.bin/" $path)
+path=("${HOME}/.yarn/bin/" $path)
+path=("/Applications/Visual Studio Code.app/Contents/Resources/app/bin/" $path)
+path=("/Applications/Blender.app/Contents/MacOS/" $path)
+export PATH
 
 alias vim="$EDITOR"
 alias nvim="$EDITOR"
