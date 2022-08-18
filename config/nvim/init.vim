@@ -33,7 +33,9 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'elixir-editors/vim-elixir'
 Plug 'ekalinin/dockerfile.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -45,9 +47,11 @@ endif
 
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
+let g:gruvbox_italic = 1
 
 syntax enable
 colorscheme oceanicnext
+" colorscheme gruvbox
 
 " Map leader
 " <Space> is by far the easiest key to hit
