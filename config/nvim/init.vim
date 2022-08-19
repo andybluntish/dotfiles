@@ -50,8 +50,8 @@ let g:oceanic_next_terminal_italic = 1
 let g:gruvbox_italic = 1
 
 syntax enable
-colorscheme oceanicnext
-" colorscheme gruvbox
+" colorscheme oceanicnext
+colorscheme gruvbox
 
 " Map leader
 " <Space> is by far the easiest key to hit
