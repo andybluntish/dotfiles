@@ -387,6 +387,12 @@ augroup gitgutter
   nmap <Leader>gh :GitGutterQuickFix <Bar> :copen<CR>
 augroup END
 
+" Fugitive
+augroup fugitive
+  nnoremap <Leader>gb :GBrowse<CR>
+  vnoremap <Leader>gb :'<,'>:GBrowse<CR>
+augroup END
+
 " Delete trailing whitespace
 augroup delete_trailing_whitespace_config
   autocmd!
