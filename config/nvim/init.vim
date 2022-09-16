@@ -1,7 +1,3 @@
-if !has('nvim')
-  set nocompatible
-endif
-
 call plug#begin('~/.vim/bundle')
 
 Plug 'scrooloose/nerdtree'
@@ -11,46 +7,34 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'osyo-manga/vim-over'
 Plug 'Raimondi/delimitMate'
-Plug 'tmhedberg/matchit'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
-Plug 'tpope/vim-eunuch'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/SearchComplete'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'kshenoy/vim-signature'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'glench/vim-jinja2-syntax'
 Plug 'elixir-editors/vim-elixir'
-Plug 'ekalinin/dockerfile.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 " Colours and syntax highlighting
-set t_Co=256
 if (has('termguicolors'))
   set termguicolors
 endif
 
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 let g:gruvbox_italic = 1
 
 syntax enable
-" colorscheme oceanicnext
 colorscheme gruvbox
 
 " Map leader
@@ -63,100 +47,29 @@ if has ('unnamedplus')
   set clipboard=unnamedplus
 endif
 
-" VIM-only config (make it match Neovim defaults)
-if !has('nvim')
-  filetype plugin indent on
-
-  set ttyfast
-  set autoindent
-  set autoread
-  set background=dark
-  set backspace=indent,eol,start
-  set belloff=all
-  set complete=.,w,b,u,t
-  set encoding=utf-8
-  set formatoptions=tcqj
-  set hidden
-  set history=10000
-  set hlsearch
-  set incsearch
-  set nojoinspaces
-  set langnoremap
-  set laststatus=2
-  set ruler
-  set shortmess=filnxtToOFc
-  set showcmd
-  set smarttab
-  set nostartofline
-  set wildmenu
-endif
-
-" Neovim-only config
-if has('nvim')
-  "
-endif
-
 " Shared config
-silent !mkdir -p ~/.local/share/nvim/undo > /dev/null 2>&1
-set lazyredraw
-set ttimeoutlen=0
-set updatetime=300
+filetype plugin indent on
 set mouse=a
-set undolevels=1000
 set undofile
-set undodir=~/.local/share/nvim/undo
-set nobackup
-set nowritebackup
-set noswapfile
-set nobomb
 set spelllang=en_au,en_gb
-set linebreak
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set shiftround
+set ts=2 sw=2 sts=-1 expandtab
 set smartindent
-set smartcase
-set ignorecase
+set ignorecase smartcase
 set gdefault
-set title
-set number
-set signcolumn=yes
-set nowrap
-set showbreak=↪\
 set cursorline
-set splitbelow
-set splitright
-set report=0
+set number
 set noshowmode
-set visualbell
-set nofoldenable
-set list
-set listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
-set scrolloff=3
-set sidescrolloff=3
-set winminheight=0
-set diffopt=filler
-set diffopt+=iwhite
-set formatoptions+=r
-set formatoptions+=n
-set formatoptions+=1
+set nowrap
+set linebreak
+set showbreak=↪\
+set list listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
+set formatoptions+=rn1
 set shortmess+=c
-set wildchar=<Tab>
 set wildmode=list:longest,list:full
-set wildignore+=.DS_Store
-set wildignore+=*/.git/*
-set wildignore+=*/.sass-cache/*
-set wildignore+=*/bower_components/*
-set wildignore+=*/node_modules/*
-set wildignore+=*/vendor/*
-set wildignore+=*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
+set wildignore+=.DS_Store,*/.git/*,*/.sass-cache/*,*/bower_components/*,*/node_modules/*
+set wildignore+=*/vendor/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set iskeyword+=-,_,$,@,%,#,?
-
-let g:python_host_prog  = '/usr/bin/python'
-let g:python3_host_prog = '~/.pyenv/shims/python'
 
 " General config
 augroup general_config
@@ -203,10 +116,6 @@ augroup general_config
 
   " Clear Highlight
   nnoremap <Esc><Esc> :nohlsearch<CR>
-
-  " Paste toggle
-  set pastetoggle=<F2>
-  noremap <F2> :set invpaste paste?<CR>
 
   " Removes doc lookup binding because it's easy to fat finger
   nmap K k
@@ -300,7 +209,6 @@ augroup coc
   \ ]
 
   " Use <tab> and <S-tab> to navigate completion list: >
-
   function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
@@ -419,10 +327,10 @@ augroup fzf_config
 
   nnoremap <C-p> :Files<CR>
   nnoremap <Leader>p :Files<CR>
-  " nnoremap <Leader>g :GFiles?<CR>
+  nnoremap <Leader>gf :GFiles?<CR>
   nnoremap <Leader>b :Buffers<CR>
   nnoremap <Leader>t :Tags<CR>
-  " nnoremap <C-m> :Marks<CR>
+  nnoremap <C-m> :Marks<CR>
   nnoremap <Leader>l :Lines<CR>
 
   " Mapping selecting mappings
