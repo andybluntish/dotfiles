@@ -52,7 +52,7 @@ filetype plugin indent on
 set mouse=a
 set undofile
 set spelllang=en_au,en_gb
-set ts=2 sw=2 sts=-1 expandtab
+set tabstop=2 shiftwidth=2 softtabstop=-1 expandtab
 set smartindent
 set ignorecase smartcase
 set gdefault
