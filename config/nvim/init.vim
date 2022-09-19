@@ -62,6 +62,7 @@ set noshowmode
 set nowrap
 set linebreak
 set showbreak=↪\
+set splitbelow splitright
 set list listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
 set formatoptions+=rn1
 set shortmess+=c
