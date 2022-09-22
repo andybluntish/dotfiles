@@ -1,16 +1,66 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 set -euo pipefail
-[[ ${DEBUG:-} ]] && set -x
+[ ${DEBUG:-} ] && set -x
 
 function link() {
   source="${PWD}/${1}"
   target=${2:-"${HOME}/.${1}"}
 
   echo "Linking ${source} -> ${target}"
-
   ln -snf "${source}" "${target}"
 }
+
+function is_exec() {
+  [ -x $(which "${1}") ]
+}
+
+function install_node() {
+  if [ "${node_version}" ]; then
+    asdf plugin add nodejs "https://github.com/asdf-vm/asdf-nodejs.git"
+    asdf install nodejs "${node_version}"
+    asdf global nodejs "${node_version}"
+  fi
+
+  yarn global add neovim eslint prettier typescript
+  asdf reshim nodejs
+}
+
+function install_ruby() {
+  if [ "${ruby_version}" ]; then
+    asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
+    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
+    asdf global ruby "${ruby_version}"
+  fi
+
+  gem install neovim bundler
+  asdf reshim ruby
+}
+
+function install_python() {
+  if [ "${python_version}" ]; then
+    asdf plugin-add python "https://github.com/danhper/asdf-python.git"
+    asdf install python "${python_version}"
+    asdf global python "${python_version}"
+  fi
+
+  pip install pynvim
+  asdf reshim python
+}
+
+node_version=
+ruby_version=
+python_version=
+
+while getopts node_version:ruby_version:python_version: option
+do
+  case "${option}"
+    in
+    node_version)node_version=${OPTARG};;
+    ruby_version)ruby_version=${OPTARG};;
+    python_version)python_version=${OPTARG};;
+  esac
+done
 
 # Homebrew
 brew bundle
@@ -36,29 +86,9 @@ link "config/nvim/coc-settings.json" "${HOME}/.config/nvim/"
 # continue on error installing languages
 set +e
 
-# Node.js
-node_version="16.16.0"
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs "${node_version}"
-asdf global nodejs "${node_version}"
-yarn global add neovim eslint prettier typescript
-asdf reshim nodejs
-
-# Ruby
-ruby_version="3.1.2"
-asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
-asdf global ruby "${ruby_version}"
-gem install neovim bundler
-asdf reshim ruby
-
-# Python
-python_version="3.10.6"
-asdf plugin-add python https://github.com/danhper/asdf-python
-asdf install python "${python_version}"
-asdf global python "${python_version}"
-pip install pynvim
-asdf reshim python
+install_node
+install_ruby
+install_python
 
 # exit on error again
 set -e
