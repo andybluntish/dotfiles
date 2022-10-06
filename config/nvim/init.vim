@@ -172,11 +172,11 @@ augroup filetype_make
   au FileType make setlocal noexpandtab
 augroup END
 
-" JavaScript
-augroup filetype_js
+" HTML
+augroup filetype_html
   autocmd!
 
-  au BufNewFile,BufRead *.ejs setlocal filetype=html
+  au BufNewFile,BufRead *.{webc,ejs} setlocal filetype=html
 augroup END
 
 " Ruby
