@@ -51,6 +51,7 @@ endif
 filetype plugin indent on
 set mouse=a
 set undofile
+set noswapfile
 set spelllang=en_au,en_gb
 set tabstop=2 shiftwidth=2 softtabstop=-1 expandtab
 set smartindent
