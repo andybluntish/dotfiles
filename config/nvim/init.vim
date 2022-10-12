@@ -59,6 +59,7 @@ set ignorecase smartcase
 set gdefault
 set cursorline
 set number
+set signcolumn=yes
 set noshowmode
 set nowrap
 set linebreak
