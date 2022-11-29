@@ -23,6 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'elixir-editors/vim-elixir'
+Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
@@ -197,7 +198,6 @@ augroup coc
   \ 'coc-css',
   \ 'coc-ember',
   \ 'coc-eslint',
-  \ 'coc-highlight',
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-markdownlint',
