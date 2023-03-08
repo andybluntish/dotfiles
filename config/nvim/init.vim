@@ -33,7 +33,6 @@ endif
 
 let g:gruvbox_italic = 1
 
-syntax enable
 colorscheme gruvbox
 
 " Map leader
