@@ -5,7 +5,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'osyo-manga/vim-over'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
@@ -367,24 +366,4 @@ augroup nerd_tree
   noremap <Leader>dn :NERDTreeToggle<CR>
   noremap <Leader>nn :NERDTreeFind<CR>
   noremap <Leader>fn :NERDTreeFocus<CR>
-augroup END
-
-" Vim Over
-augroup over_config
-  autocmd!
-
-  " Find/Replace in whole buffer
-  function! VisualFindAndReplace()
-    :OverCommandLine%s/
-    :w
-  endfunction
-
-  " Find/Replace within current visual selection
-  function! VisualFindAndReplaceWithSelection() range
-    :'<,'>OverCommandLine s/
-    :w
-  endfunction
-
-  nnoremap <Leader>fr :call VisualFindAndReplace()<CR>
-  xnoremap <Leader>fr :call VisualFindAndReplaceWithSelection()<CR>
 augroup END
