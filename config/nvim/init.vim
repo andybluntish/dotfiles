@@ -200,8 +200,6 @@ imap <C-x><C-f> <Plug>(fzf-complete-path)
 imap <C-x><C-j> <Plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <Plug>(fzf-complete-line)
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " " Remap keys for auto-completion menu
 " inoremap <expr> <CR>   pumvisible() ? "\<C-y>" : "\<CR>"
 " inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
