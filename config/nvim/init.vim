@@ -19,6 +19,17 @@ Plug 'pangloss/vim-javascript'
 Plug 'herringtondarkholme/yats.vim'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'elixir-editors/vim-elixir'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'sbdchd/neoformat'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/nvim-cmp'
+" Plug 'hrsh7th/cmp-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+
 Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -113,15 +124,15 @@ endfunction
 nnoremap <Leader>z :call ToggleZoomWindow()<CR>
 
 " Set filetypes
-au BufNewFile,BufRead *.{webc,njk,ejs} setlocal filetype=html
-au BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
-au BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
+autocmd BufNewFile,BufRead *.{webc,njk,ejs} setlocal filetype=html
+autocmd BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
+autocmd BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
 
 " Configure filetypes
-au FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-au FileType plaintex setlocal spell
-au FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
-au FileType make setlocal noexpandtab
+autocmd FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+autocmd FileType plaintex setlocal spell
+autocmd FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
+autocmd FileType make setlocal noexpandtab
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -133,7 +144,7 @@ noremap <Leader>nn :NERDTreeFind<CR>
 noremap <Leader>fn :NERDTreeFocus<CR>
 
 " Exit if the last window is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ------------------------------------------------------------------------------
 " NERDCommenter
@@ -199,6 +210,54 @@ imap <C-x><C-k> <Plug>(fzf-complete-word)
 imap <C-x><C-f> <Plug>(fzf-complete-path)
 imap <C-x><C-j> <Plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <Plug>(fzf-complete-line)
+
+" ------------------------------------------------------------------------------
+" Neoformat
+" ------------------------------------------------------------------------------
+let g:neoformat_try_node_exe = 1
+
+" Run Prettier on save
+autocmd BufWritePre * Neoformat
+
+
+" ------------------------------------------------------------------------------
+" LSP
+" ------------------------------------------------------------------------------
+lua << EOF
+  local opts = { noremap=true, silent=true }
+
+  local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<Leader>K', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<Leader>fm', vim.lsp.buf.format, bufopts)
+    vim.keymap.set('n', '<Leader>d', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  end
+
+  local servers = { 'tsserver', 'eslint', 'html', 'cssls', 'solargraph', 'pylsp' }
+  for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+      on_attach = on_attach,
+      flags = {
+        debounce_text_changes = 150,
+      }
+    }
+  end
+EOF
+
 
 " " Remap keys for auto-completion menu
 " inoremap <expr> <CR>   pumvisible() ? "\<C-y>" : "\<CR>"
