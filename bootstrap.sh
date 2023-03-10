@@ -22,7 +22,7 @@ function install_node() {
     asdf global nodejs "${node_version}"
   fi
 
-  yarn global add neovim eslint prettier typescript
+  yarn global add neovim eslint prettier
   asdf reshim nodejs
 }
 
@@ -88,6 +88,11 @@ set +e
 install_node
 install_ruby
 install_python
+
+# LSPs
+yarn global add typescript typescript-language-server vscode-langservers-extracted
+gem install solargraph ruby-lsp
+pip install python-lsp-server
 
 # exit on error again
 set -e
