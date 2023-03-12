@@ -217,7 +217,8 @@ imap <C-x><C-l> <Plug>(fzf-complete-line)
 let g:neoformat_try_node_exe = 1
 
 " Run Prettier on save
-autocmd BufWritePre * Neoformat
+" autocmd BufWritePre * Neoformat
+nnoremap <Leader>fm :Neoformat<CR>
 
 
 " ------------------------------------------------------------------------------
@@ -241,7 +242,7 @@ lua << EOF
     vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', '<Leader>fm', vim.lsp.buf.format, bufopts)
+    vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', '<Leader>d', vim.diagnostic.setloclist, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
