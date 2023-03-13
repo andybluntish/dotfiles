@@ -19,17 +19,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'herringtondarkholme/yats.vim'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'elixir-editors/vim-elixir'
-
 Plug 'neovim/nvim-lspconfig'
 Plug 'sbdchd/neoformat'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-cmdline'
-" Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/cmp-vsnip'
-" Plug 'hrsh7th/vim-vsnip'
-
 Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -240,7 +231,6 @@ lua << EOF
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<Leader>K', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', '<Leader>d', vim.diagnostic.setloclist, opts)
