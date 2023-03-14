@@ -42,7 +42,7 @@ set tabstop=2 shiftwidth=0 softtabstop=-1 expandtab
 set smartindent
 set ignorecase smartcase
 set formatoptions+=rn1
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone
 set wildmode=list:longest,list:full
 set wildignore+=.DS_Store,*/.git/*,*/.sass-cache/*,*/bower_components/*,*/node_modules/*
 set wildignore+=*/vendor/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
