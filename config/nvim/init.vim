@@ -228,7 +228,7 @@ lua << EOF
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gtd', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<Leader>K', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, bufopts)
