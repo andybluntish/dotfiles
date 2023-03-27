@@ -22,6 +22,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'neovim/nvim-lspconfig'
 Plug 'sbdchd/neoformat'
 Plug 'morhetz/gruvbox'
+Plug 'github/copilot.vim'
 call plug#end()
 
 filetype plugin indent on
