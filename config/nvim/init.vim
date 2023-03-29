@@ -101,6 +101,9 @@ cnoremap w!! w !sudo tee % >/dev/null
 nnoremap <Leader>don :diffthis<CR>
 nnoremap <Leader>dof :diffoff<CR>
 
+" Copy current file path to clipboard
+nnoremap <F10> :let @+ = expand("%")<CR>
+
 " Zoom / Restore splits
 function! ToggleZoomWindow() abort
   if exists('t:zoomed') && t:zoomed
