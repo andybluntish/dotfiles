@@ -33,6 +33,7 @@ set mouse=a
 set number
 set cursorline
 set signcolumn=auto
+set foldcolumn=auto
 set splitbelow splitright
 set nowrap
 set linebreak
