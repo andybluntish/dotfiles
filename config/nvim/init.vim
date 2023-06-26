@@ -176,8 +176,8 @@ highlight SignColumn guibg=bg
 highlight SignColumn ctermbg=bg
 
 " Jump between hunks
-noremap <Leader>gn <Plug>(GitGutterNextHunk)
-noremap <Leader>gp <Plug>(GitGutterPrevHunk)
+noremap <Leader>gj <Plug>(GitGutterNextHunk)
+noremap <Leader>gk <Plug>(GitGutterPrevHunk)
 
 " Load hunks into quickfix
 noremap <Leader>gh :GitGutterQuickFix <Bar> :copen<CR>
