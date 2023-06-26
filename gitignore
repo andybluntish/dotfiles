@@ -140,28 +140,6 @@ typings/
 
 
 #################################################
-# Tags
-#################################################
-
-# Ignore tags created by etags, ctags, gtags (GNU global) and cscope
-TAGS
-.TAGS
-!TAGS/
-tags
-.tags
-!tags/
-gtags.files
-GTAGS
-GRTAGS
-GPATH
-GSYMS
-cscope.files
-cscope.out
-cscope.in.out
-cscope.po.out
-
-
-#################################################
 # Vim
 #################################################
 
@@ -180,8 +158,7 @@ Sessionx.vim
 # Temporary
 .netrwhist
 *~
-# Auto-generated tag files
-tags
+
 # Persistent undo
 [._]*.un~
 
@@ -195,6 +172,13 @@ tags
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
 
 
 #################################################
@@ -299,12 +283,15 @@ $RECYCLE.BIN/
 *.rar
 *.zip
 *.gz
+*.gzip
 *.tgz
 *.bzip
+*.bzip2
 *.bz2
 *.xz
 *.lzma
 *.cab
+*.xar
 
 # Packing-only formats
 *.iso
@@ -320,12 +307,31 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+*.txz
 
 
 #################################################
 # Dropbox
 #################################################
 
+# Dropbox settings and caches
 .dropbox
 .dropbox.attr
 .dropbox.cache
+
+#################################################
+# GPG
+#################################################
+
+secring.*
+
+#################################################
+# Xcode
+#################################################
+
+## User settings
+xcuserdata/
+
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
