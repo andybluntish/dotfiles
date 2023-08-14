@@ -15,11 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'vim-scripts/SearchComplete'
-Plug 'ap/vim-css-color'
-Plug 'pangloss/vim-javascript'
-Plug 'herringtondarkholme/yats.vim'
-Plug 'joukevandermaas/vim-ember-hbs'
-Plug 'elixir-editors/vim-elixir'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'sbdchd/neoformat'
 Plug 'morhetz/gruvbox'
@@ -217,6 +213,58 @@ let g:neoformat_try_node_exe = 1
 " autocmd BufWritePre * Neoformat
 nnoremap <Leader>fm :Neoformat<CR>
 
+" ------------------------------------------------------------------------------
+" Tree-sitter
+" ------------------------------------------------------------------------------
+lua << EOF
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+      "javascript",
+      "typescript",
+      "glimmer",
+      "svelte",
+      "jsdoc",
+
+      "html",
+      "css",
+      "scss",
+
+      "ruby",
+      "python",
+      "elixir",
+      "bash",
+      "lua",
+      "sql",
+      "vim",
+
+      "json",
+      "xml",
+      "yaml",
+      "toml",
+      "dockerfile",
+      "make",
+      "regex",
+
+      "markdown",
+      "markdown_inline",
+
+      "diff",
+      "git_rebase",
+      "gitcommit",
+      "gitignore",
+    },
+
+    auto_install = true,
+
+    highlight = {
+      enable = true,
+    },
+  }
+EOF
+
+" Ensure the colorscheme defines the highlight groups @text.diff.add and @text.diff.delete.
+hi link @text.diff.add DiffAdd
+hi link @text.diff.delete DiffDelete
 
 " ------------------------------------------------------------------------------
 " LSP
