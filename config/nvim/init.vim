@@ -219,39 +219,34 @@ nnoremap <Leader>fm :Neoformat<CR>
 lua << EOF
   require'nvim-treesitter.configs'.setup {
     ensure_installed = {
-      "javascript",
-      "typescript",
-      "glimmer",
-      "svelte",
-      "jsdoc",
-
-      "html",
-      "css",
-      "scss",
-
-      "ruby",
-      "python",
-      "elixir",
-      "bash",
-      "lua",
-      "sql",
-      "vim",
-
-      "json",
-      "xml",
-      "yaml",
-      "toml",
-      "dockerfile",
-      "make",
-      "regex",
-
-      "markdown",
-      "markdown_inline",
-
-      "diff",
-      "git_rebase",
-      "gitcommit",
-      "gitignore",
+      'javascript',
+      'typescript',
+      'glimmer',
+      'svelte',
+      'jsdoc',
+      'html',
+      'css',
+      'scss',
+      'ruby',
+      'python',
+      'elixir',
+      'bash',
+      'lua',
+      'sql',
+      'vim',
+      'json',
+      'xml',
+      'yaml',
+      'toml',
+      'dockerfile',
+      'make',
+      'regex',
+      'markdown',
+      'markdown_inline',
+      'diff',
+      'git_rebase',
+      'gitcommit',
+      'gitignore',
     },
 
     auto_install = true,
@@ -292,7 +287,14 @@ lua << EOF
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
   end
 
-  local servers = { 'tsserver', 'eslint', 'html', 'cssls', 'solargraph', 'pylsp' }
+  local servers = {
+    'tsserver',
+    'html',
+    'cssls',
+    'solargraph',
+    'pylsp',
+    'eslint',
+  }
   for _, lsp in pairs(servers) do
     require('lspconfig')[lsp].setup {
       on_attach = on_attach,
