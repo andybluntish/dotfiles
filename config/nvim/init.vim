@@ -38,7 +38,7 @@ Plug 'github/copilot.vim'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
-Plug 'morhetz/gruvbox'
+Plug 'rebelot/kanagawa.nvim'
 call plug#end()
 
 filetype plugin indent on
@@ -72,8 +72,7 @@ set clipboard+=unnamedplus
 set omnifunc=syntaxcomplete#Complete
 set termguicolors
 
-let g:gruvbox_italic = 1
-colorscheme gruvbox
+colorscheme kanagawa
 
 let mapleader=' '
 
