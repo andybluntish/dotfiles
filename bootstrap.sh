@@ -87,9 +87,7 @@ install_ruby
 install_python
 
 # LSPs
-yarn global add typescript typescript-language-server vscode-langservers-extracted
-gem install solargraph ruby-lsp
-pip install python-lsp-server
+yarn global add typescript
 
 asdf reshim nodejs
 asdf reshim ruby
