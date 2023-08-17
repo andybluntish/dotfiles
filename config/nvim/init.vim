@@ -193,16 +193,12 @@ vnoremap <Leader>gb :'<,'>:GBrowse<CR>
 " ------------------------------------------------------------------------------
 " GitGutter
 " ------------------------------------------------------------------------------
-let g:gitgutter_override_sign_column_highlight = 1
-highlight SignColumn guibg=bg
-highlight SignColumn ctermbg=bg
-
 " Jump between hunks
-noremap <Leader>gj <Plug>(GitGutterNextHunk)
-noremap <Leader>gk <Plug>(GitGutterPrevHunk)
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
 " Load hunks into quickfix
-noremap <Leader>gh :GitGutterQuickFix <Bar> :copen<CR>
+noremap <Leader>h :GitGutterQuickFix <Bar> :copen<CR>
 
 " ------------------------------------------------------------------------------
 " fzf
@@ -281,10 +277,6 @@ lua << EOF
     },
   }
 EOF
-
-" Ensure the colorscheme defines the highlight groups @text.diff.add and @text.diff.delete.
-hi link @text.diff.add DiffAdd
-hi link @text.diff.delete DiffDelete
 
 " ------------------------------------------------------------------------------
 " LSP
