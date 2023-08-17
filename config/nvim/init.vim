@@ -12,6 +12,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/SearchComplete'
 Plug 'sbdchd/neoformat'
 
