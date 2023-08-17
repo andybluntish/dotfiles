@@ -82,6 +82,12 @@ noremap <Down> :resize -1<CR>
 noremap j gj
 noremap k gk
 
+" Add Leader to prevent accidental invocation
+nnoremap K k
+vnoremap K k
+nnoremap <Leader>K K
+vnoremap <Leader>K K
+
 " Move selected lines up and down
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
