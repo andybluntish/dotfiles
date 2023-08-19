@@ -22,7 +22,8 @@ function install_node() {
     asdf global nodejs "${node_version}"
   fi
 
-  yarn global add neovim eslint prettier
+  yarn global add neovim eslint prettier typescript
+  asdf reshim nodejs
 }
 
 function install_ruby() {
@@ -33,6 +34,7 @@ function install_ruby() {
   fi
 
   gem install neovim bundler
+  asdf reshim ruby
 }
 
 function install_python() {
@@ -43,6 +45,7 @@ function install_python() {
   fi
 
   pip install pynvim
+  asdf reshim python
 }
 
 node_version=
@@ -85,15 +88,6 @@ set +e
 install_node
 install_ruby
 install_python
-
-# LSPs
-yarn global add typescript typescript-language-server vscode-langservers-extracted
-gem install solargraph ruby-lsp
-pip install python-lsp-server
-
-asdf reshim nodejs
-asdf reshim ruby
-asdf reshim python
 
 # exit on error again
 set -e
