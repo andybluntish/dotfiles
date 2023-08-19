@@ -288,7 +288,7 @@ lua << EOF
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        vim.fn['vsnip#anonymous'](args.body)
       end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -374,9 +374,9 @@ lua << EOF
   require('mason').setup {
     ui = {
       icons = {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗"
+        server_installed = '✓',
+        server_pending = '➜',
+        server_uninstalled = '✗'
       }
     }
   }
@@ -397,15 +397,15 @@ lua << EOF
         capabilities = capabilities,
         settings = settings[serverName],
         filetypes = {
-          "javascript", "typescript",
-          "typescript.glimmer", "javascript.glimmer",
-          "json",
-          "markdown"
+          'javascript', 'typescript',
+          'typescript.glimmer', 'javascript.glimmer',
+          'json',
+          'markdown'
         },
         on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
+          vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
-            command = "EslintFixAll",
+            command = 'EslintFixAll',
           })
           on_attach(client, bufnr)
         end
