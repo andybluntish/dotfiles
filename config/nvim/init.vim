@@ -194,8 +194,8 @@ vnoremap <Leader>gb :'<,'>:GBrowse<CR>
 " GitGutter
 " ------------------------------------------------------------------------------
 " Jump between hunks
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " Load hunks into quickfix
 noremap <Leader>h :GitGutterQuickFix <Bar> :copen<CR>
