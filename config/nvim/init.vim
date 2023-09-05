@@ -145,6 +145,7 @@ nnoremap <Leader>z :call ToggleZoomWindow()<CR>
 autocmd BufNewFile,BufRead *.{webc,njk,ejs} setlocal filetype=html
 autocmd BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
 autocmd BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
+autocmd BufNewFile,BufRead .{env,envrc} setlocal filetype=sh
 
 " Configure filetypes
 autocmd FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
