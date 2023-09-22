@@ -14,6 +14,10 @@ path=("/Applications/Visual Studio Code.app/Contents/Resources/app/bin/" $path)
 path=("/Applications/Blender.app/Contents/MacOS/" $path)
 export PATH
 
+# store more history
+export HISTSIZE=100000
+export SAVEHIST=100000
+
 alias vim="$EDITOR"
 alias nvim="$EDITOR"
 alias g="git"
