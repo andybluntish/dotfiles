@@ -384,7 +384,7 @@ lua << EOF
 
   require('mason-lspconfig').setup {
     ensure_installed = servers,
-    automatic_installation = false
+    automatic_installation = true
   }
 
   local lsp = require('lspconfig')
