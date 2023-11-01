@@ -33,6 +33,14 @@ maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highligh
 maybe_source "${HOME}/.fzf.zsh"
 maybe_source "${HOME}/.zshrc.custom.local"
 
+# pnpm
+export PNPM_HOME="/Users/andy/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 # Setup prompt
 autoload -U promptinit; promptinit
 prompt pure

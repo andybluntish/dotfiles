@@ -22,7 +22,7 @@ function install_node() {
     asdf global nodejs "${node_version}"
   fi
 
-  yarn global add neovim eslint prettier typescript
+  pnpm add --global neovim eslint prettier typescript
   asdf reshim nodejs
 }
 
