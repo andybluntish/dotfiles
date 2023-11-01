@@ -3,6 +3,23 @@
 set -euo pipefail
 [ ${DEBUG:-} ] && set -x
 
+node_version=""
+ruby_version=""
+python_version=""
+
+while getopts ":n:r:p:" opt; do
+  case $opt in
+    n) node_version="$OPTARG"
+    ;;
+    r) ruby_version="$OPTARG"
+    ;;
+    p) python_version="$OPTARG"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
 function link() {
   source="${PWD}/${1}"
   target=${2:-"${HOME}/.${1}"}
@@ -17,6 +34,8 @@ function is_exec() {
 
 function install_node() {
   if [ "${node_version}" ]; then
+    echo "Installing node ${node_version}"
+
     asdf plugin add nodejs "https://github.com/asdf-vm/asdf-nodejs.git"
     asdf install nodejs "${node_version}"
     asdf global nodejs "${node_version}"
@@ -28,6 +47,8 @@ function install_node() {
 
 function install_ruby() {
   if [ "${ruby_version}" ]; then
+    echo "Installing ruby ${ruby_version}"
+
     asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
     RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
     asdf global ruby "${ruby_version}"
@@ -39,6 +60,8 @@ function install_ruby() {
 
 function install_python() {
   if [ "${python_version}" ]; then
+    echo "Installing python ${python_version}"
+
     asdf plugin-add python "https://github.com/danhper/asdf-python.git"
     asdf install python "${python_version}"
     asdf global python "${python_version}"
@@ -47,20 +70,6 @@ function install_python() {
   pip install pynvim
   asdf reshim python
 }
-
-node_version=
-ruby_version=
-python_version=
-
-while getopts node_version:ruby_version:python_version: option
-do
-  case "${option}"
-    in
-    node_version)node_version=${OPTARG};;
-    ruby_version)ruby_version=${OPTARG};;
-    python_version)python_version=${OPTARG};;
-  esac
-done
 
 # Homebrew
 brew bundle
