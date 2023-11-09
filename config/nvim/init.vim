@@ -357,6 +357,7 @@ lua << EOF
     'bashls',
     'ruby_ls',
     'solargraph',
+    'standardrb',
     'pylsp',
     'elixirls',
     'ember',
