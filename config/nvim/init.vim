@@ -230,10 +230,10 @@ imap <C-x><C-l> <Plug>(fzf-complete-line)
 " Neoformat
 " ------------------------------------------------------------------------------
 let g:neoformat_try_node_exe = 1
-
-" Run Prettier on save
-" autocmd BufWritePre * Neoformat
 nnoremap <Leader>fm :Neoformat<CR>
+
+" Run Neoformat on save
+autocmd BufWritePre * undojoin | Neoformat
 
 " ------------------------------------------------------------------------------
 " Tree-sitter
