@@ -356,7 +356,6 @@ lua << EOF
     'tsserver',
     'bashls',
     'ruby_ls',
-    'solargraph',
     'standardrb',
     'pylsp',
     'elixirls',
