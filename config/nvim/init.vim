@@ -234,7 +234,7 @@ let g:neoformat_only_msg_on_error = 1
 nnoremap <Leader>fm :Neoformat<CR>
 
 " Run Neoformat on save
-autocmd BufWritePre * undojoin | Neoformat
+autocmd BufWritePre * Neoformat
 
 " ------------------------------------------------------------------------------
 " Tree-sitter
