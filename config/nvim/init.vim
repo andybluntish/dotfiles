@@ -230,6 +230,7 @@ imap <C-x><C-l> <Plug>(fzf-complete-line)
 " Neoformat
 " ------------------------------------------------------------------------------
 let g:neoformat_try_node_exe = 1
+let g:neoformat_only_msg_on_error = 1
 nnoremap <Leader>fm :Neoformat<CR>
 
 " Run Neoformat on save
