@@ -41,6 +41,7 @@ function install_node() {
     asdf global nodejs "${node_version}"
   fi
 
+  npm install -g pnpm
   pnpm add --global neovim eslint prettier typescript
   asdf reshim nodejs
 }
