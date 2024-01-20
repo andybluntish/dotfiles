@@ -8,11 +8,10 @@ maybe_source() {
   [ -f $1 ] && source $1;
 }
 
-path=("${HOME}/.bin/" $path)
-path=("${HOME}/.yarn/bin/" $path)
-path=("/Applications/Visual Studio Code.app/Contents/Resources/app/bin/" $path)
-path=("/Applications/Blender.app/Contents/MacOS/" $path)
-export PATH
+export PNPM_HOME="/Users/andy/Library/pnpm"
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+export PATH="/Applications/Blender.app/Contents/MacOS:${PATH}"
+export PATH="${HOME}/.bin:${PNPM_HOME}:${HOME}/.yarn/bin:${PATH}"
 
 # store more history
 export HISTSIZE=100000
@@ -32,14 +31,6 @@ alias ef="fzf -m | xargs $EDITOR"
 maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 maybe_source "${HOME}/.fzf.zsh"
 maybe_source "${HOME}/.zshrc.custom.local"
-
-# pnpm
-export PNPM_HOME="/Users/andy/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 # Setup prompt
 autoload -U promptinit; promptinit
