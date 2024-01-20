@@ -33,43 +33,27 @@ function is_exec() {
 }
 
 function install_node() {
-  if [ "${node_version}" ]; then
-    echo "Installing node ${node_version}"
+  echo "Installing node ${node_version}"
 
-    asdf plugin add nodejs "https://github.com/asdf-vm/asdf-nodejs.git"
-    asdf install nodejs "${node_version}"
-    asdf global nodejs "${node_version}"
-  fi
-
-  npm install -g pnpm
-  pnpm add --global neovim eslint prettier typescript
-  asdf reshim nodejs
+  asdf plugin add nodejs "https://github.com/asdf-vm/asdf-nodejs.git"
+  asdf install nodejs "${node_version}"
+  asdf global nodejs "${node_version}"
 }
 
 function install_ruby() {
-  if [ "${ruby_version}" ]; then
-    echo "Installing ruby ${ruby_version}"
+  echo "Installing ruby ${ruby_version}"
 
-    asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
-    RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
-    asdf global ruby "${ruby_version}"
-  fi
-
-  gem install neovim bundler
-  asdf reshim ruby
+  asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
+  RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
+  asdf global ruby "${ruby_version}"
 }
 
 function install_python() {
-  if [ "${python_version}" ]; then
-    echo "Installing python ${python_version}"
+  echo "Installing python ${python_version}"
 
-    asdf plugin-add python "https://github.com/danhper/asdf-python.git"
-    asdf install python "${python_version}"
-    asdf global python "${python_version}"
-  fi
-
-  pip install pynvim
-  asdf reshim python
+  asdf plugin-add python "https://github.com/danhper/asdf-python.git"
+  asdf install python "${python_version}"
+  asdf global python "${python_version}"
 }
 
 # Homebrew
@@ -95,9 +79,27 @@ link "config/nvim/init.vim" "${HOME}/.config/nvim/"
 # continue on error installing languages
 set +e
 
-install_node
-install_ruby
-install_python
+# Node
+[[ "${node_version}" ]] && install_node
+if is_exec node; then
+  npm install -g pnpm
+  pnpm add --global neovim eslint prettier typescript
+  asdf reshim nodejs
+fi
+
+# Ruby
+[[ "${ruby_version}" ]] && install_ruby
+if is_exec ruby; then
+  gem install neovim bundler
+  asdf reshim ruby
+fi
+
+# Python
+[[ "${python_version}" ]] && install_python
+if python ruby; then
+  pip install pynvim
+  asdf reshim python
+fi
 
 # exit on error again
 set -e
