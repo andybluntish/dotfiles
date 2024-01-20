@@ -82,7 +82,7 @@ set +e
 # Node
 [[ "${node_version}" ]] && install_node
 if is_exec node; then
-  npm install -g pnpm
+  npm install -g pnpm yarn
   pnpm add --global neovim eslint prettier typescript
   asdf reshim nodejs
 fi

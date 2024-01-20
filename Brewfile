@@ -1,7 +1,6 @@
 brew "git"
 brew "neovim"
 brew "asdf"
-brew "yarn"
 brew "bat"
 brew "fd"
 brew "fzf"
