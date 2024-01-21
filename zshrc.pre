@@ -3,7 +3,12 @@
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 # This file is sourced at the start of .zshrc
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  . "$(brew --prefix asdf)/libexec/asdf.sh"
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  . "$HOME/.asdf/asdf.sh"
+fi
 
 export EDITOR="nvim"
 export VISUAL="${EDITOR}"
@@ -12,4 +17,8 @@ export MANPAGER="less -X"
 export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+export FPATH="${ASDF_DIR}/completions:$FPATH"
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi

@@ -8,9 +8,13 @@ maybe_source() {
   [ -f $1 ] && source $1;
 }
 
-export PNPM_HOME="/Users/andy/Library/pnpm"
-export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
-export PATH="/Applications/Blender.app/Contents/MacOS:${PATH}"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export PNPM_HOME="/Users/andy/Library/pnpm"
+  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
+  export PATH="/Applications/Blender.app/Contents/MacOS:${PATH}"
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  export PNPM_HOME="${HOME}/.pnpm"
+fi
 export PATH="${HOME}/.bin:${PNPM_HOME}:${HOME}/.yarn/bin:${PATH}"
 
 # store more history
@@ -24,11 +28,21 @@ alias gup="git gup"
 alias be="bundle exec"
 alias df="df -h"
 alias la="ls -lah"
-alias c="bat"
 alias ef="fzf -m | xargs $EDITOR"
 
-. "$(brew --prefix asdf)/libexec/asdf.sh"
-maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  alias c="bat"
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  alias c="batcat"
+  alias fd="fdfind"
+fi
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+elif [[ "$(uname -s)" == "Linux" ]]; then
+  maybe_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
 maybe_source "${HOME}/.fzf.zsh"
 maybe_source "${HOME}/.zshrc.custom.local"
 
