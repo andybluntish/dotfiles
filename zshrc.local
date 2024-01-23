@@ -9,12 +9,11 @@ maybe_source() {
 }
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  export PNPM_HOME="/Users/andy/Library/pnpm"
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
   export PATH="/Applications/Blender.app/Contents/MacOS:${PATH}"
-elif [[ "$(uname -s)" == "Linux" ]]; then
-  export PNPM_HOME="${HOME}/.pnpm"
 fi
+
+export PNPM_HOME="${HOME}/.pnpm"
 export PATH="${HOME}/.bin:${PNPM_HOME}:${HOME}/.yarn/bin:${PATH}"
 
 # store more history
@@ -32,14 +31,12 @@ alias ef="fzf -m | xargs $EDITOR"
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   alias c="bat"
+
+  maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 elif [[ "$(uname -s)" == "Linux" ]]; then
   alias c="batcat"
   alias fd="fdfind"
-fi
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-elif [[ "$(uname -s)" == "Linux" ]]; then
   maybe_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
