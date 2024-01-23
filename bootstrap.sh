@@ -82,15 +82,15 @@ set +e
 # Node
 [[ "${node_version}" ]] && install_node
 if is_exec node; then
-  npm install -g pnpm yarn
-  pnpm add --global neovim eslint prettier typescript
+  npm install -g pnpm yarn pure-prompt
+  pnpm add --global neovim eslint prettier typescript tldr
   asdf reshim nodejs
 fi
 
 # Ruby
 [[ "${ruby_version}" ]] && install_ruby
 if is_exec ruby; then
-  gem install neovim bundler
+  gem install neovim bundler ruby-lsp
   asdf reshim ruby
 fi
 
