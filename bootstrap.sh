@@ -96,7 +96,7 @@ fi
 
 # Python
 [[ "${python_version}" ]] && install_python
-if python ruby; then
+if is_exec python; then
   pip install pynvim
   asdf reshim python
 fi
