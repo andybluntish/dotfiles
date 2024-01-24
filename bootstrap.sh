@@ -56,6 +56,16 @@ function install_python() {
   asdf global python "${python_version}"
 }
 
+function install_default_packages() {
+  local filename=$1
+  local install_command=$2
+  local lines=()
+  while IFS= read -r line; do
+    lines+=("$line")
+  done < "$filename"
+  $install_command "${lines[@]}"
+}
+
 # Homebrew
 brew bundle
 
@@ -75,6 +85,9 @@ link "gitignore"
 link "hushlogin"
 link "irbrc"
 link "config/nvim/init.vim" "${HOME}/.config/nvim/"
+link "default-npm-packages"
+link "default-gems"
+link "default-python-packages"
 
 # continue on error installing languages
 set +e
@@ -82,22 +95,21 @@ set +e
 # Node
 [[ "${node_version}" ]] && install_node
 if is_exec node; then
-  npm install -g pnpm yarn pure-prompt
-  pnpm add --global neovim eslint prettier typescript tldr
+  install_default_packages "default-npm-packages" "npm install -g"
   asdf reshim nodejs
 fi
 
 # Ruby
 [[ "${ruby_version}" ]] && install_ruby
 if is_exec ruby; then
-  gem install neovim bundler ruby-lsp
+  install_default_packages "default-gems" "gem install"
   asdf reshim ruby
 fi
 
 # Python
 [[ "${python_version}" ]] && install_python
 if is_exec python; then
-  pip install pynvim
+  install_default_packages "default-python-packages" "pip install"
   asdf reshim python
 fi
 
