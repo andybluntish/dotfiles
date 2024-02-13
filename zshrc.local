@@ -8,14 +8,6 @@ maybe_source() {
   [ -f $1 ] && source $1;
 }
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${PATH}"
-  export PATH="/Applications/Blender.app/Contents/MacOS:${PATH}"
-fi
-
-export PNPM_HOME="${HOME}/.pnpm"
-export PATH="${HOME}/.bin:${PNPM_HOME}:${HOME}/.yarn/bin:${PATH}"
-
 # store more history
 export HISTSIZE=100000
 export SAVEHIST=100000

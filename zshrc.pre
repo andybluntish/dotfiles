@@ -6,6 +6,12 @@
 if [[ "$(uname -s)" == "Darwin" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
   . "$(brew --prefix asdf)/libexec/asdf.sh"
+
+  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+  path+=(
+    '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+    '/Applications/Blender.app/Contents/MacOS'
+  )
 elif [[ "$(uname -s)" == "Linux" ]]; then
   . "$HOME/.asdf/asdf.sh"
 fi
@@ -15,10 +21,10 @@ export VISUAL="${EDITOR}"
 export KEYTIMEOUT=1
 export MANPAGER="less -X"
 export GPG_TTY=$(tty)
+
 export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
-export FPATH="${ASDF_DIR}/completions:$FPATH"
+export PNPM_HOME="${HOME}/.pnpm"
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
+fpath=("${ASDF_DIR}/completions" $fpath)
+path=("${HOME}/.bin" "${PNPM_HOME}" "${HOME}/.yarn/bin" $path)
