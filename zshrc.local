@@ -24,6 +24,7 @@ alias c="bat"
 
 maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 maybe_source "${HOME}/.fzf.zsh"
+maybe_source "${HOME}/.zshrc.custom.local"
 
 # Setup prompt
 autoload -U promptinit; promptinit
