@@ -3,18 +3,8 @@
 # Extends ~/.zshrc, which is grml (https://grml.org/zsh/)
 # This file is sourced at the start of .zshrc
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  . "$(brew --prefix asdf)/libexec/asdf.sh"
-
-  fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
-  path+=(
-    '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
-    '/Applications/Blender.app/Contents/MacOS'
-  )
-elif [[ "$(uname -s)" == "Linux" ]]; then
-  . "$HOME/.asdf/asdf.sh"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+. "$(brew --prefix asdf)/libexec/asdf.sh"
 
 export EDITOR="nvim"
 export VISUAL="${EDITOR}"
@@ -26,5 +16,17 @@ export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export PNPM_HOME="${HOME}/.pnpm"
 
-fpath=("${ASDF_DIR}/completions" $fpath)
-path=("${HOME}/.bin" "${PNPM_HOME}" "${HOME}/.yarn/bin" $path)
+fpath=(
+  "${ASDF_DIR}/completions"
+  "$(brew --prefix)/share/zsh/site-functions"
+  $fpath
+)
+
+path=(
+  "${HOME}/.bin"
+  "${PNPM_HOME}"
+  "${HOME}/.yarn/bin"
+  $path
+  '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
+  '/Applications/Blender.app/Contents/MacOS'
+)

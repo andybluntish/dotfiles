@@ -20,20 +20,10 @@ alias be="bundle exec"
 alias df="df -h"
 alias la="ls -lah"
 alias ef="fzf -m | xargs $EDITOR"
+alias c="bat"
 
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  alias c="bat"
-
-  maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-elif [[ "$(uname -s)" == "Linux" ]]; then
-  alias c="batcat"
-  alias fd="fdfind"
-
-  maybe_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
-
+maybe_source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 maybe_source "${HOME}/.fzf.zsh"
-maybe_source "${HOME}/.zshrc.custom.local"
 
 # Setup prompt
 autoload -U promptinit; promptinit
