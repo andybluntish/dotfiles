@@ -14,9 +14,6 @@
 [color]
   ui = true
 
-[push]
-  default = current
-
 [alias]
   a = add
   ap = add --patch
@@ -46,7 +43,7 @@
 
   cb = rev-parse --symbolic-full-name --abbrev-ref HEAD
   gp = !git push --set-upstream origin HEAD:$(git cb)
-  gup = !git fetch --prune origin && git rebase --rebase-merges origin/$(git cb)
+  gup = pull --prune --rebase=merges
 
 [pager]
   diff = delta
@@ -67,8 +64,11 @@
 [interactive]
   diffFilter = delta --color-only
 
+[init]
+  defaultBranch = main
+
 [merge]
   tool = vimdiff
 
-[init]
-  defaultBranch = main
+[push]
+  default = upstream
