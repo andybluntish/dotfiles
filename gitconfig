@@ -71,4 +71,4 @@
   tool = vimdiff
 
 [push]
-  default = upstream
+  default = current
