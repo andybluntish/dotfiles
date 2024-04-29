@@ -358,7 +358,7 @@ lua << EOF
     'cssls',
     'tsserver',
     'bashls',
-    'ruby_ls',
+    'ruby_lsp',
     'standardrb',
     'pylsp',
     'elixirls',
