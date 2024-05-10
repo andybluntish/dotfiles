@@ -43,6 +43,7 @@
 
   cb = rev-parse --symbolic-full-name --abbrev-ref HEAD
   gp = !git push --set-upstream origin HEAD:$(git cb)
+  suo = !git branch -u origin/$(cb)
   gup = pull --prune --rebase=merges
 
 [pager]
