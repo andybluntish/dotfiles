@@ -736,6 +736,8 @@
 	<true/>
 	<key>DisableWindowSizeSnap</key>
 	<true/>
+	<key>DoubleClickPerformsSmartSelection</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
@@ -746,6 +748,8 @@
 	<false/>
 	<key>FsTabDelay</key>
 	<real>1</real>
+	<key>HTMLTabTitles</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HiddenAFRStrokeThickness</key>
@@ -761,7 +765,7 @@
 	<key>HideTab</key>
 	<true/>
 	<key>HideTabNumber</key>
-	<false/>
+	<true/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -1996,6 +2000,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
+	<false/>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2019,7 +2025,7 @@
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
-	<false/>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
@@ -2049,7 +2055,7 @@
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
 	<key>TripleClickSelectsFullWrappedLines</key>
-	<false/>
+	<true/>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
