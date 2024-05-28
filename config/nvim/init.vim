@@ -349,7 +349,7 @@ lua << EOF
     vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
 
     if client.server_capabilities.inlayHintProvider then
-      vim.lsp.inlay_hint(bufnr, true)
+      vim.lsp.buf.inlay_hint(bufnr, true)
     end
   end
 
