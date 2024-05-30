@@ -14,7 +14,6 @@ Plug 'tpope/vim-ragtag'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/SearchComplete'
-Plug 'sbdchd/neoformat'
 
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -225,16 +224,6 @@ imap <C-x><C-k> <Plug>(fzf-complete-word)
 imap <C-x><C-f> <Plug>(fzf-complete-path)
 imap <C-x><C-j> <Plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <Plug>(fzf-complete-line)
-
-" ------------------------------------------------------------------------------
-" Neoformat
-" ------------------------------------------------------------------------------
-let g:neoformat_try_node_exe = 1
-let g:neoformat_only_msg_on_error = 1
-nnoremap <Leader>fm :Neoformat<CR>
-
-" Run Neoformat on save
-autocmd BufWritePre * Neoformat
 
 " ------------------------------------------------------------------------------
 " Tree-sitter
