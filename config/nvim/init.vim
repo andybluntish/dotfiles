@@ -353,26 +353,39 @@ lua << EOF
     end
   end
 
-  local servers = {
-    'html',
-    'cssls',
-    'tsserver',
-    'bashls',
-    'ruby_lsp',
-    'standardrb',
-    'pylsp',
-    'elixirls',
-    'ember',
-    'glint',
-    'eslint',
-  }
-
-  local settings = {
+  local lsp = require('lspconfig')
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local server_config = {
+    html = {},
+    cssls = {},
     tsserver = {
-      implicitProjectConfig = {
-        experimentalDecorators = true,
+      settings = {
+        implicitProjectConfig = {
+          experimentalDecorators = true
+        }
       },
+      filetypes = {
+        'javascript', 'typescript',
+        'typescript.glimmer', 'javascript.glimmer',
+        'json',
+        'markdown'
+      },
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          buffer = bufnr,
+          command = 'EslintFixAll',
+        })
+        on_attach(client, bufnr)
+      end
     },
+    bashls = {},
+    ruby_lsp = {},
+    standardrb = {},
+    pylsp = {},
+    elixirls = {},
+    ember = {},
+    glint = {},
+    eslint = {}
   }
 
   require('mason').setup {
@@ -385,41 +398,22 @@ lua << EOF
     }
   }
 
+  local server_names = {}
+  for name, _ in pairs(server_config) do
+    table.insert(server_names, name)
+  end
+
   require('mason-lspconfig').setup {
-    ensure_installed = servers,
+    ensure_installed = server_names,
     automatic_installation = true
   }
 
-  local lsp = require('lspconfig')
-  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-  for _, serverName in ipairs(servers) do
-    local server = lsp[serverName]
-
-    if (serverName == 'eslint') then
-      server.setup({
-        capabilities = capabilities,
-        settings = settings[serverName],
-        filetypes = {
-          'javascript', 'typescript',
-          'typescript.glimmer', 'javascript.glimmer',
-          'json',
-          'markdown'
-        },
-        on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'EslintFixAll',
-          })
-          on_attach(client, bufnr)
-        end
-      })
-    else
-      server.setup({
-        capabilities = capabilities,
-        settings = settings[serverName],
-        on_attach = on_attach
-      })
-    end
+  for name, config in pairs(server_config) do
+    lsp[name].setup({
+      capabilities = capabilities,
+      settings = config.settings,
+      filetypes = config.filetypes,
+      on_attach = config.on_attach or on_attach
+    })
   end
 EOF
