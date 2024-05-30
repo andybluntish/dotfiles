@@ -272,11 +272,10 @@ lua << EOF
 EOF
 
 " ------------------------------------------------------------------------------
-" LSP
+" Completion
 " ------------------------------------------------------------------------------
 lua << EOF
   local cmp = require('cmp')
-
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -317,11 +316,39 @@ lua << EOF
       ghost_text = false -- this feature conflict with copilot.vim's preview.
     }
   })
+EOF
 
+" ------------------------------------------------------------------------------
+" Mason
+" ------------------------------------------------------------------------------
+lua << EOF
+  -- Setup Mason and install LSPs
+  require('mason').setup {}
+  require('mason-lspconfig').setup {
+    ensure_installed = {
+      'html',
+      'cssls',
+      'tsserver',
+      'bashls',
+      'ruby_lsp',
+      'standardrb',
+      'pylsp',
+      'elixirls',
+      'ember',
+      'glint',
+      'eslint',
+    },
+    automatic_installation = true
+  }
+EOF
+
+" ------------------------------------------------------------------------------
+" LSP
+" ------------------------------------------------------------------------------
+lua << EOF
+  local lsp = require('lspconfig')
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
   local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -334,75 +361,59 @@ lua << EOF
     vim.keymap.set('n', '<Leader>e', vim.diagnostic.setloclist, bufopts)
     vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufnopts)
-    vim.keymap.set('n', '<Leader>ff', vim.lsp.buf.format, bufopts)
+    vim.keymap.set('n', '<Leader>fm', vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
 
     if client.server_capabilities.inlayHintProvider then
-      vim.lsp.buf.inlay_hint(bufnr, true)
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
   end
 
-  local lsp = require('lspconfig')
-  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  local server_config = {
-    html = {},
-    cssls = {},
-    tsserver = {
-      settings = {
-        implicitProjectConfig = {
-          experimentalDecorators = true
-        }
-      },
-      filetypes = {
-        'javascript', 'typescript',
-        'typescript.glimmer', 'javascript.glimmer',
-        'json',
-        'markdown'
-      },
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          buffer = bufnr,
-          command = 'EslintFixAll',
-        })
-        on_attach(client, bufnr)
-      end
-    },
-    bashls = {},
-    ruby_lsp = {},
-    standardrb = {},
-    pylsp = {},
-    elixirls = {},
-    ember = {},
-    glint = {},
-    eslint = {}
-  }
-
-  require('mason').setup {
-    ui = {
-      icons = {
-        server_installed = '✓',
-        server_pending = '➜',
-        server_uninstalled = '✗'
+  -- TypeScript
+  lsp.tsserver.setup({
+    capabilities = capabilities,
+    settings = {
+      implicitProjectConfig = {
+        experimentalDecorators = true
       }
-    }
-  }
+    },
+    filetypes = {
+      'javascript',
+      'typescript.glimmer',
+      'typescript',
+      'javascript.glimmer',
+      'json',
+      'markdown'
+    },
+    on_attach = function(client, bufnr)
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        command = 'EslintFixAll',
+      })
+      on_attach(client, bufnr)
+    end
+  })
 
-  local server_names = {}
-  for name, _ in pairs(server_config) do
-    table.insert(server_names, name)
-  end
+  -- Ruby LSP
+  lsp.ruby_lsp.setup({
+    capabilities = capabilities,
+    init_options = {
+      linters = {}
+    },
+    on_attach = on_attach
+  })
 
-  require('mason-lspconfig').setup {
-    ensure_installed = server_names,
-    automatic_installation = true
-  }
+  -- Other LSPs with default settings
+  lsp.html.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.cssls.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.bashls.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.standardrb.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.pylsp.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.elixirls.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.ember.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.glint.setup({ capabilities = capabilities, on_attach = on_attach })
+  lsp.eslint.setup({ capabilities = capabilities, on_attach = on_attach })
 
-  for name, config in pairs(server_config) do
-    lsp[name].setup({
-      capabilities = capabilities,
-      settings = config.settings,
-      filetypes = config.filetypes,
-      on_attach = config.on_attach or on_attach
-    })
-  end
+  -- Format on save, using the LSP
+  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 EOF
