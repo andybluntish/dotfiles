@@ -45,7 +45,6 @@ filetype plugin indent on
 
 set undofile
 set noswapfile
-set mouse=a
 set number
 set cursorline
 set signcolumn=auto
@@ -61,16 +60,11 @@ set smartindent
 set ignorecase smartcase
 set formatoptions+=rn1
 set completeopt=longest,menuone
-set wildmode=list:longest,list:full
-set wildignore+=.DS_Store,*/.git/*,*/.sass-cache/*,*/bower_components/*,*/node_modules/*
+set wildignore+=.DS_Store,*/.git/*,*/.sass-cache/*,*/node_modules/*
 set wildignore+=*/vendor/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
-set shortmess+=c
-set iskeyword+=-,_,$,@,%,#,?
 set spelllang=en_au,en_gb
 set clipboard+=unnamedplus
-set omnifunc=syntaxcomplete#Complete
-set termguicolors
 
 colorscheme kanagawa
 
