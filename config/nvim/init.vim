@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/bundle')
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
@@ -18,9 +17,7 @@ Plug 'vim-scripts/SearchComplete'
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" Syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'scrooloose/nerdtree'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -38,11 +35,15 @@ Plug 'github/copilot.vim'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
+" Syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rebelot/kanagawa.nvim'
+
 call plug#end()
 
 filetype plugin indent on
 
+" Basic settings
 set undofile
 set noswapfile
 set number
@@ -66,8 +67,10 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set spelllang=en_au,en_gb
 set clipboard+=unnamedplus
 
+" Colors
 colorscheme kanagawa
 
+" Big button is best
 let mapleader=' '
 
 " Speed up viewport scrolling
@@ -134,13 +137,13 @@ function! ToggleZoomWindow() abort
 endfunction
 nnoremap <Leader>z :call ToggleZoomWindow()<CR>
 
-" Set filetypes
+" Filetype associations
 autocmd BufNewFile,BufRead *.{webc,njk,ejs} setlocal filetype=html
 autocmd BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
 autocmd BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
 autocmd BufNewFile,BufRead .{env,envrc} setlocal filetype=sh
 
-" Configure filetypes
+" Filetype-specific settings
 autocmd FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
 autocmd FileType plaintex setlocal spell
 autocmd FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
@@ -223,7 +226,12 @@ imap <C-x><C-l> <Plug>(fzf-complete-line)
 " Tree-sitter
 " ------------------------------------------------------------------------------
 lua << EOF
+  -- Setup Treesitter and install parsers
   require'nvim-treesitter.configs'.setup {
+    auto_install = true,
+    highlight = {
+      enable = true,
+    },
     ensure_installed = {
       'javascript',
       'typescript',
@@ -255,13 +263,7 @@ lua << EOF
       'gitattributes',
       'gitcommit',
       'gitignore',
-    },
-
-    auto_install = true,
-
-    highlight = {
-      enable = true,
-    },
+    }
   }
 EOF
 
@@ -316,22 +318,25 @@ EOF
 " Mason
 " ------------------------------------------------------------------------------
 lua << EOF
+  -- LSP servers
+  local servers = {
+    'html',
+    'cssls',
+    'tsserver',
+    'bashls',
+    'ruby_lsp',
+    'standardrb',
+    'pylsp',
+    'elixirls',
+    'ember',
+    'glint',
+    'eslint',
+  }
+
   -- Setup Mason and install LSPs
   require('mason').setup {}
   require('mason-lspconfig').setup {
-    ensure_installed = {
-      'html',
-      'cssls',
-      'tsserver',
-      'bashls',
-      'ruby_lsp',
-      'standardrb',
-      'pylsp',
-      'elixirls',
-      'ember',
-      'glint',
-      'eslint',
-    },
+    ensure_installed = servers,
     automatic_installation = true
   }
 EOF
@@ -340,8 +345,11 @@ EOF
 " LSP
 " ------------------------------------------------------------------------------
 lua << EOF
+  -- Setup LSP and detect capabilities
   local lsp = require('lspconfig')
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+  -- Configure LSP when attached to a buffer, mainly keybindings
   local on_attach = function(client, bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
