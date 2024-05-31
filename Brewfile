@@ -1,4 +1,7 @@
+tap "jesseduffield/lazygit"
+
 brew "git"
+brew "jesseduffield/lazygit/lazygit"
 brew "neovim"
 brew "asdf"
 brew "bat"

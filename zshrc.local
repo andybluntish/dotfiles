@@ -15,6 +15,7 @@ export SAVEHIST=100000
 alias vim="$EDITOR"
 alias nvim="$EDITOR"
 alias g="git"
+alias gg="lazygit"
 alias gup="git gup"
 alias be="bundle exec"
 alias df="df -h"
