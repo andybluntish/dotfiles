@@ -736,8 +736,6 @@
 	<true/>
 	<key>DisableWindowSizeSnap</key>
 	<true/>
-	<key>DoubleClickPerformsSmartSelection</key>
-	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>EnableProxyIcon</key>
@@ -748,8 +746,6 @@
 	<false/>
 	<key>FsTabDelay</key>
 	<real>1</real>
-	<key>HTMLTabTitles</key>
-	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HiddenAFRStrokeThickness</key>
@@ -765,7 +761,7 @@
 	<key>HideTab</key>
 	<true/>
 	<key>HideTabNumber</key>
-	<true/>
+	<false/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -1015,13 +1011,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.31904058996587992</real>
+				<real>0.2825007438659668</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.31904058996587992</real>
+				<real>0.33159929513931274</real>
 				<key>Red Component</key>
-				<real>0.91644287109375</real>
+				<real>0.79817861318588257</real>
 			</dict>
 			<key>Automatically Log</key>
 			<false/>
@@ -1477,6 +1473,19 @@
 			</dict>
 			<key>Log Directory</key>
 			<string></string>
+			<key>Match Background Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>P3</string>
+				<key>Green Component</key>
+				<real>1</real>
+				<key>Red Component</key>
+				<real>1</real>
+			</dict>
 			<key>Minimum Contrast</key>
 			<real>0.0</real>
 			<key>Mouse Reporting</key>
@@ -2000,8 +2009,6 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
-	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
-	<false/>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2025,7 +2032,7 @@
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
-	<true/>
+	<false/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
@@ -2055,7 +2062,7 @@
 	<key>TmuxDashboardLimit</key>
 	<integer>10</integer>
 	<key>TripleClickSelectsFullWrappedLines</key>
-	<true/>
+	<false/>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
