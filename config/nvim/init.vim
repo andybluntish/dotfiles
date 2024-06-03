@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/bundle')
-Plug 'scrooloose/nerdcommenter'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'tpope/vim-fugitive'
@@ -116,6 +115,10 @@ noremap <Leader>w :w<CR>
 " Use :w!! to sudo save a file
 cnoremap w!! w !sudo tee % >/dev/null
 
+" Commenting
+nmap <Leader>/ gcc
+vmap <Leader>/ gc
+
 " Toggle buffer diff
 nnoremap <Leader>don :diffthis<CR>
 nnoremap <Leader>dof :diffoff<CR>
@@ -160,13 +163,6 @@ noremap <Leader>fn :NERDTreeFocus<CR>
 
 " Exit if the last window is NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" ------------------------------------------------------------------------------
-" NERDCommenter
-" ------------------------------------------------------------------------------
-let g:NERDSpaceDelims=1
-
-noremap <Leader>/ <Plug>NERDCommenterToggle
 
 " ------------------------------------------------------------------------------
 " Delimitmate
