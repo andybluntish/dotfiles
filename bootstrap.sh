@@ -32,6 +32,22 @@ function is_exec() {
   [ -x $(which "${1}") ]
 }
 
+function fetch_shell_config() {
+  local local_file="${HOME}/.zshrc.local"
+  local remote_file="https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc"
+
+  # Check if the local file is older than 1 month
+  local expiry_timestamp=$(date -v -1m +%s)
+  local local_last_modified=$(stat -f %m "${local_file}" 2>/dev/null || echo "0")
+
+  if [ ! -f "${local_file}" ] || [ "${local_last_modified}" -lt "${expiry_timestamp}" ]; then
+    echo "Shell config: fetching zshrc: ${remote_file} -> ${local_file}"
+    curl -fLo "${local_file}" "${remote_file}"
+  else
+    echo "Shell config: zshrc is up to date"
+  fi
+}
+
 function install_node() {
   echo "Installing node ${node_version}"
 
@@ -70,7 +86,7 @@ function install_default_packages() {
 brew bundle
 
 # Shell config from grml (https://grml.org/zsh/)
-curl -fLo "${HOME}/.zshrc" https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+fetch_shell_config
 
 # Link dotfiles
 mkdir -p "${HOME}/.config/nvim"
