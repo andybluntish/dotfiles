@@ -376,9 +376,7 @@ lua << EOF
         'javascript',
         'typescript.glimmer',
         'typescript',
-        'javascript.glimmer',
-        'json',
-        'markdown'
+        'javascript.glimmer'
       },
       on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd('BufWritePre', {
