@@ -33,7 +33,7 @@ function is_exec() {
 }
 
 function fetch_shell_config() {
-  local local_file="${HOME}/.zshrc.local"
+  local local_file="${HOME}/.zshrc"
   local remote_file="https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc"
 
   # Check if the local file is older than 1 month
