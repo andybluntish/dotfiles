@@ -330,14 +330,17 @@ lua << EOF
   }
 
   -- Setup Mason and install LSPs
-  require('mason').setup {}
-  require('mason-lspconfig').setup {
+  local lsp = require('lspconfig')
+  local mason = require('mason')
+  local mason_lspconfig = require("mason-lspconfig")
+
+  mason.setup {}
+  mason_lspconfig.setup {
     ensure_installed = servers,
     automatic_installation = true
   }
 
   -- Setup LSP and detect capabilities
-  local lsp = require('lspconfig')
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   -- Configure LSP when attached to a buffer, mainly keybindings
@@ -362,46 +365,63 @@ lua << EOF
     end
   end
 
-  -- Extra configuration for LSP servers that require special settings.
-  -- These servers also get the common capabilities and on_attach function (unless overridden).
-  local server_configs = {
-    -- TypeScript
-    tsserver = {
-      settings = {
-        implicitProjectConfig = {
-          experimentalDecorators = true
-        }
-      },
-      filetypes = {
-        'javascript',
-        'typescript.glimmer',
-        'typescript',
-        'javascript.glimmer'
-      },
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          buffer = bufnr,
-          command = 'EslintFixAll',
-        })
-        on_attach(client, bufnr)
-      end
-    },
-
-    -- Ruby
-    ruby_lsp = {
-      init_options = {
-        linters = {}
+  local handlers = {
+    -- default handler
+    function (server_name)
+      require("lspconfig")[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
       }
-    }
+    end,
+
+    -- Ruby LSP
+    ['ruby_lsp'] = function ()
+      require("lspconfig").ruby_lsp.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+          initializationOptions = {
+            enabledFeatures = {
+              diagnostics = false,
+              formatting = false,
+            },
+            linters = {}
+          }
+        },
+        init_options = {
+          formatter = 'standard',
+          linters = { 'standard' }
+        },
+      }
+    end,
+
+    -- TypeScript
+    ['tsserver'] = function ()
+      require("lspconfig").tsserver.setup {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            buffer = bufnr,
+            command = 'EslintFixAll',
+          })
+          on_attach(client, bufnr)
+        end,
+        settings = {
+          implicitProjectConfig = {
+            experimentalDecorators = true
+          }
+        },
+        filetypes = {
+          'javascript',
+          'typescript.glimmer',
+          'typescript',
+          'javascript.glimmer'
+        }
+      }
+    end
   }
 
-  -- Setup LSP servers
-  for _, serverName in ipairs(servers) do
-    local config = server_configs[serverName] or {}
-    config['capabilities'] = config['capabilities'] or capabilities
-    config['on_attach'] = config['on_attach'] or on_attach
-    lsp[serverName].setup(config)
-  end
+  mason_lspconfig.setup_handlers(handlers)
 
   -- Format on save, using the LSP
   vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
