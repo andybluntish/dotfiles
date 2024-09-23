@@ -318,7 +318,7 @@ lua << EOF
   local servers = {
     'html',
     'cssls',
-    'tsserver',
+    'ts_ls',
     'bashls',
     'ruby_lsp',
     'standardrb',
@@ -396,8 +396,8 @@ lua << EOF
     end,
 
     -- TypeScript
-    ['tsserver'] = function ()
-      require("lspconfig").tsserver.setup {
+    ['ts_ls'] = function ()
+      require("lspconfig").ts_ls.setup {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           vim.api.nvim_create_autocmd('BufWritePre', {
