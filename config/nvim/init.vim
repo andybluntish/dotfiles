@@ -379,15 +379,6 @@ lua << EOF
       require("lspconfig").ruby_lsp.setup {
         capabilities = capabilities,
         on_attach = on_attach,
-        settings = {
-          initializationOptions = {
-            enabledFeatures = {
-              diagnostics = false,
-              formatting = false,
-            },
-            linters = {}
-          }
-        },
         init_options = {
           formatter = 'standard',
           linters = { 'standard' }
