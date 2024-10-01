@@ -27,6 +27,6 @@ path=(
   "${PNPM_HOME}"
   "${HOME}/.yarn/bin"
   $path
-  '/Applications/Visual Studio Code.app/Contents/Resources/app/bin'
-  '/Applications/Blender.app/Contents/MacOS'
+  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+  "/Applications/Blender.app/Contents/MacOS"
 )

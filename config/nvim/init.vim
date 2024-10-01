@@ -241,6 +241,7 @@ lua << EOF
       'python',
       'elixir',
       'bash',
+      'fish',
       'lua',
       'sql',
       'vim',

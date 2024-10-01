@@ -1,2 +1,3 @@
 Brewfile.lock.json
 zshrc.custom.local
+config/fish/config.local.fish

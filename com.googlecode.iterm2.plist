@@ -1011,13 +1011,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.2825007438659668</real>
+				<real>0.14117647707462311</real>
 				<key>Color Space</key>
-				<string>P3</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.33159929513931274</real>
+				<real>0.14117647707462311</real>
 				<key>Red Component</key>
-				<real>0.79817861318588257</real>
+				<real>0.90980392694473267</real>
 			</dict>
 			<key>Automatically Log</key>
 			<false/>
@@ -1555,6 +1555,8 @@
 			<true/>
 			<key>Shortcut</key>
 			<string></string>
+			<key>Show Mark Indicators</key>
+			<false/>
 			<key>Show Status Bar</key>
 			<false/>
 			<key>Silence Bell</key>

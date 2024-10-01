@@ -100,6 +100,9 @@ link "gitconfig"
 link "gitignore"
 link "hushlogin"
 link "irbrc"
+link "config/fish/config.fish" "${HOME}/.config/fish/"
+link "config/fish/config.local.fish" "${HOME}/.config/fish/"
+link "config/fish/functions" "${HOME}/.config/fish/"
 link "config/nvim/init.vim" "${HOME}/.config/nvim/"
 link "default-npm-packages"
 link "default-gems"
@@ -137,4 +140,4 @@ curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https
 nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +TSUpdateSync +MasonUpdate +qa
 
 # Setup fzf
-$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
