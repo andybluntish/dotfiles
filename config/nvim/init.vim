@@ -320,6 +320,7 @@ lua << EOF
     'html',
     'cssls',
     'ts_ls',
+    'denols',
     'bashls',
     'ruby_lsp',
     'standardrb',
@@ -408,9 +409,20 @@ lua << EOF
           'typescript.glimmer',
           'typescript',
           'javascript.glimmer'
-        }
+        },
+        root_dir = lsp.util.root_pattern("package.json"),
+        single_file_support = false,
       }
-    end
+    end,
+
+    -- Deno
+    ['denols'] = function ()
+      require("lspconfig").denols.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
+      }
+    end,
   }
 
   mason_lspconfig.setup_handlers(handlers)
