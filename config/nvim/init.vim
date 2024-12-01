@@ -370,7 +370,7 @@ lua << EOF
   local handlers = {
     -- default handler
     function (server_name)
-      require("lspconfig")[server_name].setup {
+      lsp[server_name].setup {
         capabilities = capabilities,
         on_attach = on_attach,
       }
@@ -378,7 +378,7 @@ lua << EOF
 
     -- Ruby LSP
     ['ruby_lsp'] = function ()
-      require("lspconfig").ruby_lsp.setup {
+      lsp.ruby_lsp.setup {
         capabilities = capabilities,
         on_attach = on_attach,
         init_options = {
@@ -390,7 +390,7 @@ lua << EOF
 
     -- TypeScript
     ['ts_ls'] = function ()
-      require("lspconfig").ts_ls.setup {
+      lsp.ts_ls.setup {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           vim.api.nvim_create_autocmd('BufWritePre', {
@@ -417,7 +417,7 @@ lua << EOF
 
     -- Deno
     ['denols'] = function ()
-      require("lspconfig").denols.setup {
+      lsp.denols.setup {
         capabilities = capabilities,
         on_attach = on_attach,
         root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
