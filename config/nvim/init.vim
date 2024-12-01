@@ -390,13 +390,37 @@ lua << EOF
 
     -- TypeScript
     ['ts_ls'] = function ()
+      local root_dir = lsp.util.root_pattern("package.json")(vim.fn.expand("%:p"))
+      local package_json_path = root_dir .. "/package.json"
+
+      -- Check if an ESLint configuration is present
+      local eslint_config_found = not vim.fn.empty(
+        vim.fn.glob(root_dir .. "/.eslintrc*") .. vim.fn.glob(root_dir .. "/eslint.config.*")
+      )
+
+      -- Check for Standard JS in package.json
+      local standard_config_found = vim.fn.filereadable(package_json_path) == 1 and vim.fn.json_decode(vim.fn.readfile(package_json_path))["devDependencies"]["standard"]
+
       lsp.ts_ls.setup {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'EslintFixAll',
-          })
+          -- Set up the autocmd only if an ESLint configuration is present
+          if eslint_config_found then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              command = 'EslintFixAll',
+            })
+          elseif standard_config_found then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              callback = function()
+                local filepath = vim.fn.expand("%:p")
+                vim.fn.system("standard --fix " .. filepath)
+                vim.cmd("edit!")
+              end,
+            })
+          end
+
           on_attach(client, bufnr)
         end,
         settings = {
