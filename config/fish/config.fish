@@ -9,6 +9,7 @@ set -x FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git \$dir 2
 set -x FZF_CTRL_T_COMMAND $FZF_DEFAULT_COMMAND
 
 fish_add_path "/opt/homebrew/bin/"
+fish_add_path "/opt/homebrew/sbin/"
 fish_add_path $PNPM_HOME
 fish_add_path "$HOME/.yarn/bin"
 fish_add_path "$HOME/.bin"
