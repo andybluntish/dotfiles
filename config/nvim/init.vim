@@ -390,7 +390,7 @@ lua << EOF
 
     -- TypeScript
     ['ts_ls'] = function ()
-      local root_dir = lsp.util.root_pattern("package.json")(vim.fn.expand("%:p"))
+      local root_dir = lsp.util.root_pattern("package.json")(vim.fn.expand("%:p")) or vim.fn.getcwd()
       local package_json_path = root_dir .. "/package.json"
 
       -- Check if an ESLint configuration is present
