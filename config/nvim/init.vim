@@ -391,24 +391,13 @@ lua << EOF
 
     -- TypeScript
     ['ts_ls'] = function ()
-      local root_dir = lsp.util.root_pattern('package.json')(vim.fn.expand('%:p')) or vim.fn.getcwd()
-      local package_json_path = root_dir .. '/package.json'
-      local eslint_config_found = vim.fn.filereadable(package_json_path) == 1 and vim.fn.json_decode(vim.fn.readfile(package_json_path))["devDependencies"]["eslint"]
-
       lsp.ts_ls.setup {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
-          if eslint_config_found then
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = bufnr,
-              command = 'EslintFixAll'
-            })
-          else
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = bufnr,
-              command = 'Neoformat'
-            })
-          end
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            buffer = bufnr,
+            command = 'Neoformat'
+          })
 
           on_attach(client, bufnr)
         end,
