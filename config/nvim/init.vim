@@ -12,6 +12,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/SearchComplete'
+Plug 'sbdchd/neoformat'
 
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -390,13 +391,24 @@ lua << EOF
 
     -- TypeScript
     ['ts_ls'] = function ()
+      local root_dir = lsp.util.root_pattern('package.json')(vim.fn.expand('%:p')) or vim.fn.getcwd()
+      local package_json_path = root_dir .. '/package.json'
+      local eslint_config_found = vim.fn.filereadable(package_json_path) == 1 and vim.fn.json_decode(vim.fn.readfile(package_json_path))["devDependencies"]["eslint"]
+
       lsp.ts_ls.setup {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = 'EslintFixAll',
-          })
+          if eslint_config_found then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = bufnr,
+              command = 'EslintFixAll'
+            })
+          else
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = bufnr,
+              command = 'Neoformat'
+            })
+          end
 
           on_attach(client, bufnr)
         end,
@@ -411,7 +423,7 @@ lua << EOF
           'typescript',
           'javascript.glimmer'
         },
-        root_dir = lsp.util.root_pattern("package.json"),
+        root_dir = lsp.util.root_pattern('package.json'),
         single_file_support = false,
       }
     end,
