@@ -12,7 +12,6 @@ Plug 'tpope/vim-ragtag'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/SearchComplete'
-Plug 'sbdchd/neoformat'
 
 " File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -346,8 +345,36 @@ lua << EOF
   -- Setup LSP and detect capabilities
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+  local function detect_external_tool_format_command()
+    local formatters = {
+      { name = "eslint", config_files = { ".eslintrc.js", ".eslintrc.json", ".eslintrc", "eslint.config.js" } },
+      { name = "prettier", config_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json", "prettier.config.js", "prettier.config.cjs" } },
+      { name = "biome", config_files = { "biome.json", "biome.config.js" } },
+    }
+
+    local formatter = nil
+    for _, formatter_config in ipairs(formatters) do
+      if vim.fs.find(formatter_config.config_files, { upward = true })[1] then
+        formatter = formatter_config.name
+        break
+      end
+    end
+
+    if not formatter then
+      return nil
+    end
+
+    if formatter == "eslint" then
+      return "EslintFixAll"
+    elseif formatter == "prettier" then
+      return "silent! !prettier --write %"
+    elseif formatter == "biome" then
+      return "silent! !biome format %"
+    end
+  end
+
   -- Configure LSP when attached to a buffer, mainly keybindings
-  local on_attach = function(client, bufnr)
+  local function on_attach(client, bufnr)
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -366,6 +393,23 @@ lua << EOF
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
+
+    -- Format on save
+    local format_command = detect_external_tool_format_command()
+    if format_command then
+      client.server_capabilities.documentFormattingProvider = false
+    end
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      callback = function()
+        if format_command then
+          vim.cmd(format_command)
+        elseif client.server_capabilities.documentFormattingProvider then
+          vim.lsp.buf.format({ async = true })
+        end
+      end,
+    })
   end
 
   local handlers = {
@@ -393,14 +437,7 @@ lua << EOF
     ['ts_ls'] = function ()
       lsp.ts_ls.setup {
         capabilities = capabilities,
-        on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'silent! Neoformat'
-          })
-
-          on_attach(client, bufnr)
-        end,
+        on_attach = on_attach,
         settings = {
           implicitProjectConfig = {
             experimentalDecorators = true
@@ -428,7 +465,4 @@ lua << EOF
   }
 
   mason_lspconfig.setup_handlers(handlers)
-
-  -- Format on save, using the LSP
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 EOF
