@@ -54,7 +54,7 @@ set nowrap
 set linebreak
 set showbreak=↪\
 set breakindent
-set list listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+
+set list listchars=tab:\ \ ,trail:·,extends:>,precedes:<,nbsp:+
 set tabstop=2 shiftwidth=0 softtabstop=-1 expandtab
 set smartindent
 set ignorecase smartcase
