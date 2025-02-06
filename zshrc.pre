@@ -4,7 +4,6 @@
 # This file is sourced at the start of .zshrc
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-. "$(brew --prefix asdf)/libexec/asdf.sh"
 
 export EDITOR="nvim"
 export VISUAL="${EDITOR}"
@@ -15,15 +14,17 @@ export GPG_TTY=$(tty)
 export FZF_DEFAULT_COMMAND="(fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD) 2> /dev/null"
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export PNPM_HOME="${HOME}/.pnpm"
+export ASDF_DATA_DIR="${HOME}/.asdf"
 
 fpath=(
-  "${ASDF_DIR}/completions"
   "$(brew --prefix)/share/zsh/site-functions"
+  "${ASDF_DATA_DIR}/completions/zsh"
   $fpath
 )
 
 path=(
   "${HOME}/.bin"
+  "${ASDF_DATA_DIR}/shims"
   "${PNPM_HOME}"
   "${HOME}/.yarn/bin"
   $path

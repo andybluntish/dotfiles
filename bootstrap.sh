@@ -53,7 +53,7 @@ function install_node() {
 
   asdf plugin add nodejs "https://github.com/asdf-vm/asdf-nodejs.git"
   asdf install nodejs "${node_version}"
-  asdf global nodejs "${node_version}"
+  asdf set --home nodejs "${node_version}"
 }
 
 function install_ruby() {
@@ -61,7 +61,7 @@ function install_ruby() {
 
   asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
   RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
-  asdf global ruby "${ruby_version}"
+  asdf set --home ruby "${ruby_version}"
 }
 
 function install_python() {
@@ -69,7 +69,7 @@ function install_python() {
 
   asdf plugin-add python "https://github.com/danhper/asdf-python.git"
   asdf install python "${python_version}"
-  asdf global python "${python_version}"
+  asdf --home python "${python_version}"
 }
 
 function install_default_packages() {
@@ -141,3 +141,8 @@ nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +TSUpdateSync +MasonUpdat
 
 # Setup fzf
 $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+
+# Setup asdf
+mkdir -p "${HOME}/.asdf/completions/zsh"
+asdf completion zsh > "${HOME}/.asdf/completions/zsh/_asdf"
+asdf completion fish > ~/.config/fish/completions/asdf.fish
