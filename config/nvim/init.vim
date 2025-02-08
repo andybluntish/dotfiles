@@ -320,21 +320,18 @@ lua << EOF
     'html',
     'cssls',
     'ts_ls',
-    'denols',
-    'bashls',
-    'ruby_lsp',
-    'standardrb',
-    'pylsp',
-    'elixirls',
+    'eslint',
+    'biome',
     'ember',
     'glint',
-    'eslint',
+    'ruby_lsp',
+    'pylsp'
   }
 
   -- Setup Mason and install LSPs
   local lsp = require('lspconfig')
   local mason = require('mason')
-  local mason_lspconfig = require("mason-lspconfig")
+  local mason_lspconfig = require('mason-lspconfig')
 
   mason.setup {}
   mason_lspconfig.setup {
@@ -345,37 +342,8 @@ lua << EOF
   -- Setup LSP and detect capabilities
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-  local function detect_external_tool_format_command()
-    local formatters = {
-      { name = "eslint", config_files = { ".eslintrc.js", ".eslintrc.json", ".eslintrc", "eslint.config.js" } },
-      { name = "prettier", config_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json", "prettier.config.js", "prettier.config.cjs" } },
-      { name = "biome", config_files = { "biome.json", "biome.config.js" } },
-    }
-
-    local formatter = nil
-    for _, formatter_config in ipairs(formatters) do
-      if vim.fs.find(formatter_config.config_files, { upward = true })[1] then
-        formatter = formatter_config.name
-        break
-      end
-    end
-
-    if not formatter then
-      return nil
-    end
-
-    if formatter == "eslint" then
-      return "EslintFixAll"
-    elseif formatter == "prettier" then
-      return "silent! !prettier --write %"
-    elseif formatter == "biome" then
-      return "silent! !biome format %"
-    end
-  end
-
   -- Configure LSP when attached to a buffer, mainly keybindings
-  local function on_attach(client, bufnr)
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local function on_attach(client, bufnr) local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
@@ -386,7 +354,7 @@ lua << EOF
     vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<Leader>e', vim.diagnostic.setloclist, bufopts)
     vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, bufopts)
-    vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufnopts)
+    vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufopts)
     vim.keymap.set('n', '<Leader>fm', vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
 
@@ -394,34 +362,37 @@ lua << EOF
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 
-    -- Format on save
-    local format_command = detect_external_tool_format_command()
-    if format_command then
-      client.server_capabilities.documentFormattingProvider = false
-    end
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
+    -- format on save
+    vim.api.nvim_create_autocmd('BufWritePre', {
       buffer = bufnr,
       callback = function()
-        if format_command then
-          vim.cmd(format_command)
-        elseif client.server_capabilities.documentFormattingProvider then
-          vim.lsp.buf.format({ async = true })
+        local eslint_active = false
+
+        -- Check if ESLint LSP is active for the current buffer
+        for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+          if client.name == 'eslint' then
+            eslint_active = true
+            break
+          end
         end
-      end,
+
+        if eslint_active then
+          vim.cmd('EslintFixAll')
+        else
+          vim.lsp.buf.format({ async = false })
+        end
+      end
     })
   end
 
   local handlers = {
-    -- default handler
     function (server_name)
       lsp[server_name].setup {
         capabilities = capabilities,
-        on_attach = on_attach,
+        on_attach = on_attach
       }
     end,
 
-    -- Ruby LSP
     ['ruby_lsp'] = function ()
       lsp.ruby_lsp.setup {
         capabilities = capabilities,
@@ -429,11 +400,10 @@ lua << EOF
         init_options = {
           formatter = 'standard',
           linters = { 'standard' }
-        },
+        }
       }
     end,
 
-    -- TypeScript
     ['ts_ls'] = function ()
       lsp.ts_ls.setup {
         capabilities = capabilities,
@@ -445,23 +415,12 @@ lua << EOF
         },
         filetypes = {
           'javascript',
-          'typescript.glimmer',
+          'javascript.glimmer',
           'typescript',
-          'javascript.glimmer'
-        },
-        root_dir = lsp.util.root_pattern('package.json'),
-        single_file_support = false,
+          'typescript.glimmer'
+        }
       }
-    end,
-
-    -- Deno
-    ['denols'] = function ()
-      lsp.denols.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
-      }
-    end,
+    end
   }
 
   mason_lspconfig.setup_handlers(handlers)
