@@ -325,6 +325,7 @@ lua << EOF
     'ember',
     'glint',
     'ruby_lsp',
+    'standardrb',
     'pylsp'
   }
 
