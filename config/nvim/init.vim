@@ -146,6 +146,7 @@ autocmd BufNewFile,BufRead *.{webc,njk,ejs} setlocal filetype=html
 autocmd BufNewFile,BufRead *.{rjs,rbw,gem,gemspec,ru,rake} setlocal filetype=ruby
 autocmd BufNewFile,BufRead {Gemfile,Guardfile,Rakefile,Capfile,Procfile} setlocal filetype=ruby
 autocmd BufNewFile,BufRead .{env,envrc} setlocal filetype=sh
+autocmd BufNewFile,BufRead *.go.html setlocal filetype=gotmpl
 
 " Filetype-specific settings
 autocmd FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 spell
@@ -233,7 +234,6 @@ lua << EOF
       'javascript',
       'typescript',
       'glimmer',
-      'svelte',
       'jsdoc',
       'html',
       'css',
@@ -249,7 +249,6 @@ lua << EOF
       'json',
       'xml',
       'yaml',
-      'toml',
       'dockerfile',
       'make',
       'regex',
@@ -261,6 +260,10 @@ lua << EOF
       'gitattributes',
       'gitcommit',
       'gitignore',
+      'go',
+      'gomod',
+      'gosum',
+      'gotmpl'
     }
   }
 EOF
@@ -339,7 +342,8 @@ lua << EOF
     'glint',
     'ruby_lsp',
     'standardrb',
-    'pylsp'
+    'pylsp',
+    'gopls'
   }
 
   -- Setup Mason and install LSPs

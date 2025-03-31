@@ -89,7 +89,7 @@ brew bundle
 fetch_shell_config
 
 # Link dotfiles
-mkdir -p "${HOME}/.config/nvim"
+mkdir -p "${HOME}/.config/nvim/queries/gotmpl"
 link "zshrc.pre"
 link "zshrc.local"
 link "zshrc.custom.local"
@@ -104,6 +104,7 @@ link "config/fish/config.fish" "${HOME}/.config/fish/"
 link "config/fish/config.local.fish" "${HOME}/.config/fish/"
 link "config/fish/functions" "${HOME}/.config/fish/"
 link "config/nvim/init.vim" "${HOME}/.config/nvim/"
+link "config/nvim/queries/gotmpl/injections.scm" "${HOME}/.config/nvim/queries/gotmpl/"
 link "default-npm-packages"
 link "default-gems"
 link "default-python-packages"

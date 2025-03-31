@@ -27,6 +27,7 @@ path=(
   "${ASDF_DATA_DIR}/shims"
   "${PNPM_HOME}"
   "${HOME}/.yarn/bin"
+  "${HOME}/go/bin"
   $path
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   "/Applications/Blender.app/Contents/MacOS"

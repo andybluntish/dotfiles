@@ -15,6 +15,7 @@ fish_add_path "$PNPM_HOME"
 fish_add_path "$HOME/.yarn/bin"
 fish_add_path "$HOME/.bin"
 fish_add_path "$ASDF_DATA_DIR/shims"
+fish_add_path "$HOME/go/bin"
 
 fish_add_path -a "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fish_add_path -a "/Applications/Blender.app/Contents/MacOS"
