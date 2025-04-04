@@ -30,9 +30,10 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'github/copilot.vim'
 Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -297,6 +298,18 @@ lua << EOF
           fallback()
         end
       end,
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if require("copilot.suggestion").is_visible() then
+          require("copilot.suggestion").accept()
+        elseif cmp.visible() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        else
+          fallback()
+        end
+      end, {
+        'i',
+        's'
+      })
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
@@ -425,4 +438,18 @@ lua << EOF
   }
 
   mason_lspconfig.setup_handlers(handlers)
+
+  -- Copilot
+  require('copilot').setup({
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = false
+      }
+    },
+    panel = { auto_refresh = true },
+  })
+  require("CopilotChat").setup({
+    model = 'claude-3.7-sonnet'
+  })
 EOF
