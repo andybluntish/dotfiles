@@ -337,7 +337,6 @@ lua << EOF
     'cssls',
     'ts_ls',
     'eslint',
-    'biome',
     'ember',
     'glint',
     'ruby_lsp',
