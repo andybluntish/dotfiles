@@ -37,7 +37,7 @@ Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'rebelot/kanagawa.nvim'
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -66,9 +66,10 @@ set wildignore+=*/vendor/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set spelllang=en_au,en_gb
 set clipboard+=unnamedplus
+set termguicolors
 
 " Colors
-colorscheme kanagawa
+colorscheme nightfox
 
 " Big button is best
 let mapleader=' '
