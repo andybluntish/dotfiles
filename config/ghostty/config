@@ -1,3 +1,4 @@
 theme = nightfox
 font-family = IBM Plex Mono
 font-size = 12
+macos-option-as-alt = true
