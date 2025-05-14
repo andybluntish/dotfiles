@@ -98,7 +98,6 @@ link "gemrc"
 link "gitconfig"
 link "gitignore"
 link "hushlogin"
-link "irbrc"
 
 mkdir -p "${HOME}/.config/ghostty"
 link "config/ghostty/config" "${HOME}/.config/ghostty/"
