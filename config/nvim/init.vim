@@ -348,52 +348,42 @@ lua << EOF
     }
   }
 
-  -- Setup LSP and detect capabilities
-  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+      local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+      local bufopts = { noremap=true, silent=true, buffer=args.buf }
 
-  -- Configure LSP when attached to a buffer, mainly keybindings
-  local function on_attach(client, bufnr) local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<Leader>u', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<Leader><Space>', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', '<Leader>e', vim.diagnostic.setloclist, bufopts)
-    vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, bufopts)
-    vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufopts)
-    vim.keymap.set('n', '<Leader>fm', vim.lsp.buf.format, bufopts)
-    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+      vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, bufopts)
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+      vim.keymap.set('n', '<Leader>u', vim.lsp.buf.signature_help, bufopts)
+      vim.keymap.set('n', '<Leader><Space>', vim.lsp.buf.hover, bufopts)
+      vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action, bufopts)
+      vim.keymap.set('n', '<Leader>e', vim.diagnostic.setloclist, bufopts)
+      vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, bufopts)
+      vim.keymap.set('n', ']e', vim.diagnostic.goto_next, bufopts)
+      vim.keymap.set('n', '<Leader>fm', vim.lsp.buf.format, bufopts)
+      vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, bufopts)
 
-    if client.server_capabilities.inlayHintProvider then
-      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    end
+      if client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+      end
 
-    -- format on save
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      buffer = bufnr,
-      callback = function()
-        local eslint_active = false
-
-        -- Check if ESLint LSP is active for the current buffer
-        for _, client in ipairs(vim.lsp.get_active_clients({ bufnr = bufnr })) do
+      -- format on save
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = args.buf,
+        callback = function()
           if client.name == 'eslint' then
-            eslint_active = true
-            break
+            vim.cmd('LspEslintFixAll')
+          elseif client:supports_method('textDocument/formatting') then
+            vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000, async = false })
           end
         end
-
-        if eslint_active then
-          vim.cmd('EslintFixAll')
-        else
-          vim.lsp.buf.format({ async = false })
-        end
-      end
-    })
-
+      })
     end,
+  })
 
   vim.lsp.config('ruby_lsp', {
     init_options = {
