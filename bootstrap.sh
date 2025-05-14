@@ -60,7 +60,7 @@ function install_ruby() {
   echo "Installing ruby ${ruby_version}"
 
   asdf plugin add ruby "https://github.com/asdf-vm/asdf-ruby.git"
-  RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)" asdf install ruby "${ruby_version}"
+  asdf install ruby "${ruby_version}"
   asdf set --home ruby "${ruby_version}"
 }
 
