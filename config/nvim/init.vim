@@ -339,6 +339,9 @@ lua << EOF
     }
   })
 
+  -- Signature
+  require('lsp_signature').setup({})
+
   -- Copilot
   require('copilot').setup({
     suggestion = {
