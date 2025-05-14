@@ -218,7 +218,7 @@ omap <Leader><Tab> <Plug>(fzf-maps-o)
 " Insert mode completion
 imap <C-x><C-k> <Plug>(fzf-complete-word)
 imap <C-x><C-f> <Plug>(fzf-complete-path)
-imap <C-x><C-j> <Plug>(fzf-complete-file-ag)
+imap <C-x><C-j> <Plug>(fzf-complete-file)
 imap <C-x><C-l> <Plug>(fzf-complete-line)
 
 " ------------------------------------------------------------------------------
