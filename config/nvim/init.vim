@@ -331,29 +331,21 @@ EOF
 " LSP
 " ------------------------------------------------------------------------------
 lua << EOF
-  -- LSP servers
-  local servers = {
-    'html',
-    'cssls',
-    'ts_ls',
-    'eslint',
-    'ember',
-    'glint',
-    'ruby_lsp',
-    'standardrb',
-    'pylsp',
-    'gopls'
-  }
-
   -- Setup Mason and install LSPs
-  local lsp = require('lspconfig')
-  local mason = require('mason')
-  local mason_lspconfig = require('mason-lspconfig')
-
-  mason.setup {}
-  mason_lspconfig.setup {
-    ensure_installed = servers,
-    automatic_installation = true
+  require('mason').setup {}
+  require('mason-lspconfig').setup {
+    ensure_installed = {
+      'html',
+      'cssls',
+      'ts_ls',
+      'eslint',
+      'ember',
+      'glint',
+      'ruby_lsp',
+      'standardrb',
+      'pylsp',
+      'gopls',
+    }
   }
 
   -- Setup LSP and detect capabilities
@@ -400,47 +392,29 @@ lua << EOF
         end
       end
     })
-  end
 
-  local handlers = {
-    function (server_name)
-      lsp[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach
-      }
     end,
 
-    ['ruby_lsp'] = function ()
-      lsp.ruby_lsp.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        init_options = {
-          formatter = 'standard',
-          linters = { 'standard' }
-        }
-      }
-    end,
+  vim.lsp.config('ruby_lsp', {
+    init_options = {
+      formatter = 'standard',
+      linters = { 'standard' }
+    }
+  })
 
-    ['ts_ls'] = function ()
-      lsp.ts_ls.setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-          implicitProjectConfig = {
-            experimentalDecorators = true
-          }
-        },
-        filetypes = {
-          'javascript',
-          'javascript.glimmer',
-          'typescript',
-          'typescript.glimmer'
-        }
+  vim.lsp.config('ts_ls', {
+    settings = {
+      implicitProjectConfig = {
+        experimentalDecorators = true
       }
-    end
-  }
-
-  mason_lspconfig.setup_handlers(handlers)
+    },
+    filetypes = {
+      'javascript',
+      'javascript.glimmer',
+      'typescript',
+      'typescript.glimmer'
+    }
+  })
 
   -- Copilot
   require('copilot').setup({
