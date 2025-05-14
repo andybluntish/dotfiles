@@ -20,17 +20,9 @@ Plug 'scrooloose/nerdtree'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'mason-org/mason.nvim'
+Plug 'mason-org/mason-lspconfig.nvim'
 Plug 'ray-x/lsp_signature.nvim'
-
-" Completion
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
 Plug 'zbirenbaum/copilot.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'CopilotC-Nvim/CopilotChat.nvim'
@@ -266,65 +258,6 @@ lua << EOF
       'gotmpl'
     }
   }
-EOF
-
-" ------------------------------------------------------------------------------
-" Completion
-" ------------------------------------------------------------------------------
-lua << EOF
-  local cmp = require('cmp')
-  cmp.setup({
-    snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        vim.fn['vsnip#anonymous'](args.body)
-      end,
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-k>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-j>'] = cmp.mapping.scroll_docs(4),
-      ['<C-e>'] = cmp.mapping.abort(),
-      -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<C-n>'] = function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-        end
-      end,
-      ['<C-p>'] = function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-        end
-      end,
-      ['<Tab>'] = cmp.mapping(function(fallback)
-        if require("copilot.suggestion").is_visible() then
-          require("copilot.suggestion").accept()
-        elseif cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        else
-          fallback()
-        end
-      end, {
-        'i',
-        's'
-      })
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' },
-      { name = 'path' },
-    }, {
-      { name = 'buffer' },
-    }),
-    experimental = {
-      ghost_text = false -- this feature conflict with copilot.vim's preview.
-    }
-  })
 EOF
 
 " ------------------------------------------------------------------------------
