@@ -446,9 +446,6 @@ lua << EOF
   require('copilot').setup({
     suggestion = {
       auto_trigger = true,
-      keymap = {
-        accept = false
-      }
     },
     panel = { auto_refresh = true },
     filetypes = {
