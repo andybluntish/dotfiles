@@ -235,7 +235,6 @@ lua << EOF
       'javascript',
       'typescript',
       'glimmer',
-      'jsdoc',
       'html',
       'css',
       'scss',
