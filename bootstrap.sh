@@ -67,9 +67,9 @@ function install_ruby() {
 function install_python() {
   echo "Installing python ${python_version}"
 
-  asdf plugin-add python "https://github.com/danhper/asdf-python.git"
+  asdf plugin add python "https://github.com/danhper/asdf-python.git"
   asdf install python "${python_version}"
-  asdf --home python "${python_version}"
+  asdf set --home python "${python_version}"
 }
 
 function install_default_packages() {
