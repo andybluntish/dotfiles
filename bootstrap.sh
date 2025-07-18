@@ -54,6 +54,7 @@ function install_node() {
   asdf plugin add nodejs "https://github.com/asdf-vm/asdf-nodejs.git"
   asdf install nodejs "${node_version}"
   asdf set --home nodejs "${node_version}"
+  corepack enable
 }
 
 function install_ruby() {
