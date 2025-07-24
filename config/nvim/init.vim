@@ -321,7 +321,12 @@ lua << EOF
   vim.lsp.config('ruby_lsp', {
     init_options = {
       formatter = 'standard',
-      linters = { 'standard' }
+      linters = { 'standard' },
+      addonSettings = {
+        ["Ruby LSP Rails"] = {
+          enablePendingMigrationsPrompt = false,
+        }
+      }
     }
   })
 
