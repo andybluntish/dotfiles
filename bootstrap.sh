@@ -83,6 +83,17 @@ function install_default_packages() {
   $install_command "${lines[@]}"
 }
 
+function install_or_update_tmux_package_manager() {
+  local tpm_dir="${HOME}/.tmux/plugins/tpm"
+  if [ -d "${tpm_dir}" ]; then
+    echo "Updating tmux plugin manager"
+    git -C "${tpm_dir}" pull
+  else
+    echo "Installing tmux plugin manager"
+    git clone https://github.com/tmux-plugins/tpm "${tpm_dir}"
+  fi
+}
+
 # Homebrew
 brew bundle
 
@@ -155,3 +166,6 @@ $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 mkdir -p "${HOME}/.asdf/completions/zsh"
 asdf completion zsh > "${HOME}/.asdf/completions/zsh/_asdf"
 asdf completion fish > ~/.config/fish/completions/asdf.fish
+
+# Tmux plugin manager
+install_or_update_tmux_package_manager
