@@ -124,6 +124,9 @@ mkdir -p "${HOME}/.config/nvim/queries/gotmpl"
 link "config/nvim/init.vim" "${HOME}/.config/nvim/"
 link "config/nvim/queries/gotmpl/injections.scm" "${HOME}/.config/nvim/queries/gotmpl/"
 
+link "config/helix/config.toml" "${HOME}/.config/helix/config.toml"
+link "config/helix/languages.toml" "${HOME}/.config/helix/languages.toml"
+
 link "default-npm-packages"
 link "default-gems"
 link "default-python-packages"
@@ -150,6 +153,18 @@ fi
 if is_exec python; then
   install_default_packages "default-python-packages" "pip install"
   asdf reshim python
+
+  pip install -U 'python-lsp-server[all]'
+fi
+
+
+# Go
+if is_exec go; then
+  go install golang.org/x/tools/gopls@latest                               # LSP
+  go install github.com/go-delve/delve/cmd/dlv@latest                      # Debugger
+  go install golang.org/x/tools/cmd/goimports@latest                       # Formatter
+  go install github.com/nametake/golangci-lint-langserver@latest           # Linter
+  go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest # Linter cli
 fi
 
 # exit on error again

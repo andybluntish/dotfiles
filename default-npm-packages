@@ -1,5 +1,12 @@
 eslint
 prettier
-typescript
 tldr
 neovim
+bash-language-server
+vscode-langservers-extracted
+dockerfile-language-server-nodejs
+@microsoft/compose-language-service
+@ember-tooling/ember-language-server
+sql-language-server
+typescript
+typescript-language-server
