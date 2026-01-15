@@ -1,0 +1,15 @@
+theme = "base16_terminal"
+
+[editor]
+# use system clipboard
+default-yank-register = "+"
+
+[keys.normal]
+# Print the current line's git blame information to the statusline.
+space.A-b = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
+# Copy the current buffer name tot he clipboard
+space.A-p = ":sh echo \"%{buffer_name}\" | tr -d '\n' | pbcopy"
+
+# Copy the GitHub URL to the current buffer to the clipboard
+space.A-g = ":sh git config --get remote.origin.url | sed -E 's^git@github.com:(.*).git^https://github.com/\\1/blob/'$(git branch --show-current)'/%{buffer_name}^' | pbcopy"
