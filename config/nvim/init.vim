@@ -24,8 +24,6 @@ Plug 'mason-org/mason.nvim'
 Plug 'mason-org/mason-lspconfig.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'zbirenbaum/copilot.lua'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': ':TSUpdate'}
@@ -363,9 +361,5 @@ lua << EOF
         return true
       end,
     },
-  })
-
-  require("CopilotChat").setup({
-    model = 'claude-opus-4.5'
   })
 EOF
