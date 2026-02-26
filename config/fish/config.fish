@@ -14,6 +14,7 @@ fish_add_path "/opt/homebrew/sbin/"
 fish_add_path "$PNPM_HOME"
 fish_add_path "$HOME/.yarn/bin"
 fish_add_path "$HOME/.bin"
+fish_add_path "$HOME/.local/bin"
 fish_add_path "$ASDF_DATA_DIR/shims"
 fish_add_path "$HOME/go/bin"
 
