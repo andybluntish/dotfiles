@@ -24,6 +24,7 @@ fpath=(
 
 path=(
   "${HOME}/.bin"
+  "${HOME}/.local/bin"
   "${ASDF_DATA_DIR}/shims"
   "${PNPM_HOME}"
   "${HOME}/.yarn/bin"
