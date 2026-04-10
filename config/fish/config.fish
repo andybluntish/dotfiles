@@ -21,8 +21,6 @@ fish_add_path "$HOME/go/bin"
 fish_add_path -a "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fish_add_path -a "/Applications/Blender.app/Contents/MacOS"
 
-abbr -a vim $EDITOR
-abbr -a nvim $EDITOR
 abbr -a g git
 abbr -a gg lazygit
 abbr -a gup "git gup"
