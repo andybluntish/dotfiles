@@ -25,9 +25,6 @@ Plug 'mason-org/mason-lspconfig.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'zbirenbaum/copilot.lua'
 
-" Syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': ':TSUpdate'}
-
 call plug#end()
 
 filetype plugin indent on
@@ -209,53 +206,6 @@ imap <C-x><C-k> <Plug>(fzf-complete-word)
 imap <C-x><C-f> <Plug>(fzf-complete-path)
 imap <C-x><C-j> <Plug>(fzf-complete-file)
 imap <C-x><C-l> <Plug>(fzf-complete-line)
-
-" ------------------------------------------------------------------------------
-" Tree-sitter
-" ------------------------------------------------------------------------------
-lua << EOF
-  -- Setup Treesitter and install parsers
-  require'nvim-treesitter.configs'.setup {
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-    ensure_installed = {
-      'javascript',
-      'typescript',
-      'glimmer',
-      'html',
-      'css',
-      'scss',
-      'ruby',
-      'python',
-      'elixir',
-      'bash',
-      'fish',
-      'lua',
-      'sql',
-      'vim',
-      'json',
-      'xml',
-      'yaml',
-      'dockerfile',
-      'make',
-      'regex',
-      'markdown',
-      'markdown_inline',
-      'diff',
-      'git_config',
-      'git_rebase',
-      'gitattributes',
-      'gitcommit',
-      'gitignore',
-      'go',
-      'gomod',
-      'gosum',
-      'gotmpl'
-    }
-  }
-EOF
 
 " ------------------------------------------------------------------------------
 " LSP

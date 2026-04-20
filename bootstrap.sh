@@ -172,7 +172,7 @@ set -e
 
 # Install Vim Plug
 curl -fLo "${HOME}/.local/share/nvim/site/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +TSUpdateSync +MasonUpdate +qa
+nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +MasonUpdate +qa
 
 # Setup fzf
 $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
