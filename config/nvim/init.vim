@@ -28,24 +28,21 @@ Plug 'zbirenbaum/copilot.lua'
 call plug#end()
 
 filetype plugin indent on
+syntax on
 
 " Basic settings
 set undofile
 set noswapfile
 set number
 set cursorline
-set signcolumn=auto
-set foldcolumn=auto
-set splitbelow splitright
 set nowrap
-set linebreak
-set showbreak=↪\
-set breakindent
+set linebreak showbreak=↪\ breakindent
 set list listchars=tab:\»\ ,trail:·,extends:>,precedes:<,nbsp:+
 set tabstop=2 shiftwidth=0 softtabstop=-1 expandtab
-set smartindent
+set autoindent smartindent
 set ignorecase smartcase
 set formatoptions+=rn1
+set splitbelow splitright
 set completeopt=fuzzy,menuone,noselect,popup
 set wildignore+=.DS_Store,*/.git/*,*/.sass-cache/*,*/node_modules/*
 set wildignore+=*/vendor/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
@@ -65,10 +62,6 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Better split switching (Ctrl-j, Ctrl-k, Ctrl-h, Ctrl-l)
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
@@ -79,16 +72,6 @@ noremap <Left> :vertical resize +1<CR>
 noremap <Right> :vertical resize -1<CR>
 noremap <Up> :resize +1<CR>
 noremap <Down> :resize -1<CR>
-
-" Move based on display lines, not physical lines
-noremap j gj
-noremap k gk
-
-" Add Leader to prevent accidental invocation
-nnoremap K k
-vnoremap K k
-nnoremap <Leader>K K
-vnoremap <Leader>K K
 
 " Move selected lines up and down
 vnoremap <C-j> :m '>+1<CR>gv=gv
@@ -140,6 +123,7 @@ autocmd FileType text setlocal wrap linebreak nolist textwidth=0 wrapmargin=0 sp
 autocmd FileType plaintex setlocal spell
 autocmd FileType markdown setlocal iskeyword-=/ wrap linebreak nolist textwidth=0 wrapmargin=0 spell
 autocmd FileType make setlocal noexpandtab
+autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
 " ------------------------------------------------------------------------------
 " NERDTree
