@@ -27,7 +27,6 @@ Plug 'zbirenbaum/copilot.lua'
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'master', 'do': ':TSUpdate'}
-Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -59,7 +58,7 @@ set clipboard+=unnamedplus
 set termguicolors
 
 " Colors
-colorscheme nightfox
+colorscheme zaibatsu
 
 " Big button is best
 let mapleader=' '
