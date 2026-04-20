@@ -46,7 +46,7 @@ set tabstop=2 shiftwidth=0 softtabstop=-1 expandtab
 set smartindent
 set ignorecase smartcase
 set formatoptions+=rn1
-set completeopt=longest,menuone
+set completeopt=fuzzy,menuone,noselect,popup
 set wildignore+=.DS_Store,*/.git/*,*/.sass-cache/*,*/node_modules/*
 set wildignore+=*/vendor/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
@@ -262,6 +262,15 @@ lua << EOF
           end
         end
       })
+
+      -- autocomplete
+      vim.lsp.completion.enable(true, client.id, bufnr, {
+        autotrigger = true,
+        convert = function(item)
+        return { abbr = item.label:gsub('%b()', '') }
+        end,
+      })
+
     end,
   })
 
