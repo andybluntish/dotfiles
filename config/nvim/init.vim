@@ -144,7 +144,7 @@ noremap <Leader>h :GitGutterQuickFix <Bar> :copen<CR>
 " fzf
 " ------------------------------------------------------------------------------
 let g:fzf_layout = { 'up': '~40%' }
-let g:fzf_history_dir = '~/.config/nvim/fzf-history'
+let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1 " Jump to existing buffer if available
 
 nnoremap <C-p> :Files<CR>
