@@ -1,24 +1,14 @@
 call plug#begin('~/.vim/bundle')
-Plug 'Raimondi/delimitMate'
-Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-ragtag'
-Plug 'michaeljsmith/vim-indent-object'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-abolish'
 Plug 'kshenoy/vim-signature'
-Plug 'vim-scripts/SearchComplete'
 
-" File navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
-" LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'mason-org/mason.nvim'
 Plug 'mason-org/mason-lspconfig.nvim'
@@ -29,8 +19,8 @@ call plug#end()
 
 filetype plugin indent on
 syntax on
+colorscheme slate
 
-" Basic settings
 set undofile
 set noswapfile
 set number
@@ -50,9 +40,6 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd
 set spelllang=en_au,en_gb
 set clipboard+=unnamedplus
 set termguicolors
-
-" Colors
-colorscheme zaibatsu
 
 " Big button is best
 let mapleader=' '
@@ -136,19 +123,6 @@ noremap <Leader>fn :NERDTreeFocus<CR>
 
 " Exit if the last window is NERDTree
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" ------------------------------------------------------------------------------
-" Delimitmate
-" ------------------------------------------------------------------------------
-let g:delimitMate_expand_cr = 1
-
-" ------------------------------------------------------------------------------
-" Delete trailing whitespace
-" ------------------------------------------------------------------------------
-let g:DeleteTrailingWhitespace = 1
-let g:DeleteTrailingWhitespace_Action = 'delete'
-
-au FileType markdown let g:DeleteTrailingWhitespace = 0
 
 " ------------------------------------------------------------------------------
 " Fugitive
