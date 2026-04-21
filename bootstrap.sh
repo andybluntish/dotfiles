@@ -111,6 +111,7 @@ link "gitconfig"
 link "gitignore"
 link "hushlogin"
 link "tmux.conf"
+link "editorconfig"
 
 mkdir -p "${HOME}/.config/ghostty"
 link "config/ghostty/config" "${HOME}/.config/ghostty/"
