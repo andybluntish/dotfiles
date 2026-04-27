@@ -60,6 +60,10 @@ noremap <Right> :vertical resize -1<CR>
 noremap <Up> :resize +1<CR>
 noremap <Down> :resize -1<CR>
 
+" Move based on display lines, not physical lines
+noremap j gj
+noremap k gk
+
 " Move selected lines up and down
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
